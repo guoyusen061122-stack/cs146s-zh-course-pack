@@ -34,7 +34,10 @@ from mdblocks import block_plain, block_text, parse_markdown  # noqa: E402
 
 CORPUS_EN = os.path.join(C.ROOT, "corpus", "en")
 CORPUS_ZH = os.path.join(C.ROOT, "corpus", "zh")
-SITE = os.path.join(C.ROOT, "site")
+# 输出目录取名 docs/ 而**不是** site/，是被 GitHub Pages 逼的：
+# "Deploy from a branch" 的文件夹下拉只给两个选项 —— `/ (root)` 和 `/docs`，
+# 不允许自定义目录名。用 site/ 的话 Pages 根本发不出去。
+SITE = os.path.join(C.ROOT, "docs")
 GROUP_LABEL = {
     "site": "课程官网",
     "media": "课程讲义",
@@ -398,7 +401,7 @@ def main() -> int:
 """
     write_page(os.path.join(SITE, "index.html"), "CS146S 中文课程资料包", gnav, html_body, 0)
 
-    C.log(f"[建站] {len(items)} 篇文档（已译 {translated}）→ site/")
+    C.log(f"[建站] {len(items)} 篇文档（已译 {translated}）→ docs/")
     C.log(f"       打开 {os.path.join(SITE, 'index.html')}")
     return 0
 

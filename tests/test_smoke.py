@@ -500,10 +500,10 @@ def t_scripts():
 
 
 def t_site_if_built():
-    idx = os.path.join(ROOT, "site", "index.html")
-    if not os.path.isdir(os.path.join(ROOT, "site")):
+    idx = os.path.join(ROOT, "docs", "index.html")
+    if not os.path.isdir(os.path.join(ROOT, "docs")):
         return  # 尚未建站时跳过
-    assert os.path.exists(idx), "site/ 存在但缺少 index.html"
+    assert os.path.exists(idx), "docs/ 存在但缺少 index.html"
     html = open(idx, encoding="utf-8").read()
     assert "CS146S" in html, "文档站首页内容异常"
     assert "http://" not in html.replace("http://www.w3.org", ""), \

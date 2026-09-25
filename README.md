@@ -24,7 +24,7 @@
 
 | 入口 | 位置 |
 |---|---|
-| **离线双语文档站（推荐从这里开始）** | 双击打开 [`site/index.html`](site/index.html) |
+| **离线双语文档站（推荐从这里开始）** | 双击打开 [`docs/index.html`](docs/index.html) ｜ 在线版 <https://guoyusen061122-stack.github.io/cs146s-zh-course-pack/> |
 | 译文总目录 | [`translated/`](translated/) |
 | 纯中文版 | [`translated/<slug>.zh.md`](translated/) |
 | 中英对照版 | [`translated/<slug>.bilingual.md`](translated/) |
@@ -119,7 +119,7 @@ python src/s06_inventory.py         # ③ 清点素材、算覆盖率
                                      │
                               s10b 术语回正（数据驱动 + 留痕 + 幂等自检）
                                      │
-                              s11 构建离线双语文档站 ──→ site/index.html
+                              s11 构建离线双语文档站 ──→ docs/index.html
 ```
 
 **设计要点（为什么这么做）**
@@ -221,7 +221,7 @@ cs146s-zh-course-pack/
 ├── corpus/zh/                  ← 中文译文
 ├── translated/                 ← 成品：纯中文版 + 中英对照版
 ├── reports/                    ← 清点、质检、术语回正报告
-├── site/                       ← 离线双语文档站（双击 index.html）
+├── docs/                       ← 离线双语文档站（双击 index.html；也用于 GitHub Pages）
 └── sources/                    ← 原始素材（默认不入版本库，见 .gitignore 与 拿来说明.md）
 ```
 
