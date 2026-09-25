@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>From first prompt to optimal IDE setup（fall2025 W3）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>From first prompt to optimal IDE setup（fall2025 W3）</h1><div class="meta"><span class="badge">课程讲义</span>fall2025 ｜ 原文 3,366 字符 ｜ 143 个内容块 ｜ <a href="https://docs.google.com/presentation/d/11pQNCde_mmRnImBat0Zymnp8TCS_cT_1up7zbcj6Sjg/edit?usp=sharing" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>从最初的提示词到最优 IDE 配置（fall2025 W3）</h1></div><div class="en"><h1>From first prompt to optimal IDE setup（fall2025 W3）</h1></div></div>
+<div class="pair"><div class="zh"><h2>Slide 1</h2></div><div class="en"><h2>Slide 1</h2></div></div>
+<div class="pair"><div class="zh"><p>The Modern Software Developer CS146S Stanford University, Fall 2025 Mihail Eric themodernsoftware.dev</p></div><div class="en"><p>The Modern Software Developer CS146S Stanford University, Fall 2025 Mihail Eric themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 2</h2></div><div class="en"><h2>Slide 2</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev 嘉宾讲座 - 10/10/25 (8:30am PT, 420-041) Cognition 研究负责人 Silas Alberti</p></div><div class="en"><p>themodernsoftware.dev Guest Lecture - 10/10/25 (8:30am PT, 420-041) Cognition Head of Research, Silas Alberti</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 3</h2></div><div class="en"><h2>Slide 3</h2></div></div>
+<div class="pair"><div class="zh"><p>AI IDE：从基础到 高级用户 themodernsoftware.dev</p></div><div class="en"><p>The AI IDE: Fundamentals to Power User themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 4</h2></div><div class="en"><h2>Slide 4</h2></div></div>
+<div class="pair"><div class="zh"><p>为什么</p></div><div class="en"><p>Why</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>IDE（集成开发环境）</p></div><div class="en"><p>IDE (Integrated Development Environment)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>一体化工作空间，用于软件开发，包含编辑器、编译器、调试器等</p></div><div class="en"><p>All-in-one workspaces for software development containing editor, compiler, debugger, and more</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>大部分开发工作都在这里完成，所以它是 AI 增强的天然形态</p></div><div class="en"><p>Most development work is done there so it’s a natural form factor for AI enhancement</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>在 IDE 的演进过程中，功能整合与开发者自定义之间始终存在拉锯 themodernsoftware.dev</p></div><div class="en"><p>In their evolution, there’s always a see-saw between functionality consolidation and developer customization themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 5</h2></div><div class="en"><h2>Slide 5</h2></div></div>
+<div class="pair"><div class="zh"><p>简史 themodernsoftware.dev 2001 Intellij IDEA 发布，带来先进的上下文代码导航、重构、代码补全 2015 Microsoft VSCode 发布，提供轻量编辑器与高度可扩展的生态 1983 Turbo Pascal 发布，第一个真正的 IDE 1997 Microsoft Visual Studio 发布，为 C++/Visual Basic 语言提供先进的调试能力 1980 2030 2023 Cursor 发布，最早被广泛使用的 AI 原生 IDE 之一</p></div><div class="en"><p>A brief history themodernsoftware.dev 2001 Intellij IDEA released with advanced contextual code navigation, refactoring, code completion 2015 Microsoft VSCode released offering lightweight editor with highly extensible ecosystem 1983 Release of Turbo Pascal, ﬁrst true IDE 1997 Microsoft Visual Studio released, offering advanced debugging capabilities for the C++/Visual Basic language 1980 2030 2023 Cursor released, one of the ﬁrst widely used AI native IDEs</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 6</h2></div><div class="en"><h2>Slide 6</h2></div></div>
+<div class="pair"><div class="zh"><p>用法</p></div><div class="en"><p>Usage</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>日常主力模式</p></div><div class="en"><p>Bread-and-butter modes</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>行内</p></div><div class="en"><p>Inline</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>函数级</p></div><div class="en"><p>Function</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>单文件</p></div><div class="en"><p>Single-ﬁle</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>多文件</p></div><div class="en"><p>Multi-ﬁle</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>真正的 AI 原生</p></div><div class="en"><p>True AI-native</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>后台智能体</p></div><div class="en"><p>Background agents</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>MCP</p></div><div class="en"><p>MCP</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>从记忆中学习</p></div><div class="en"><p>Learn memories</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Bugbot（PR 评审） themodernsoftware.dev</p></div><div class="en"><p>Bugbot (PR review) themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 7</h2></div><div class="en"><h2>Slide 7</h2></div></div>
+<div class="pair"><div class="zh"><p>来看看其中一些内容的实际效果 themodernsoftware.dev</p></div><div class="en"><p>Let’s see some of this in action themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 8</h2></div><div class="en"><h2>Slide 8</h2></div></div>
+<div class="pair"><div class="zh"><p>AI IDE 的内部工作原理 themodernsoftware.dev Tab 补全</p></div><div class="en"><p>How an AI IDE works under-the-hood themodernsoftware.dev Tab-complete</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>当前代码周围的小块上下文窗口会被加密</p></div><div class="en"><p>Small context window around current code is encrypted</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>服务器接收并运行填充用的 大语言模型（LLM）</p></div><div class="en"><p>Server receives and runs inﬁlling LLM</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>建议被送回并显示 聊天</p></div><div class="en"><p>Suggestion sent back and displayed Chat</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>把代码块作为嵌入存储到服务器上的语义索引中 （文件名与代码均已混淆）</p></div><div class="en"><p>Store code chunks as embeddings in semantic index on server (obfuscated ﬁlename + code)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>任何查询都会检索最相关的代码块，并作为上下文送入 LLM</p></div><div class="en"><p>Any query retrieves most relevant chunks and feeds as context into LLM</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>IDE 会定期重建代码块索引并同步嵌入</p></div><div class="en"><p>IDE regularly re-index code chunks and syncs embeddings</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>代码块之间的差异（diff）通过 Merkle 树计算，以实现高效更新</p></div><div class="en"><p>Chunk diffs are computed via Merkle trees for eﬃcient updates</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 9</h2></div><div class="en"><h2>Slide 9</h2></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>对于简单的改动，你不必在提示上过于费心</p></div><div class="en"><p>For simple changes you don’t have to be too thoughtful about prompting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>对于更复杂的任务，你要变成一个产品经理</p></div><div class="en"><p>For more complex tasks, you’re going to become a product manager</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>精心编写的规格文档 themodernsoftware.dev 最佳实践</p></div><div class="en"><p>Carefully crafted specs doc themodernsoftware.dev Best practices</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 10</h2></div><div class="en"><h2>Slide 10</h2></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>目标</p></div><div class="en"><p>Goal</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>这次改动的目的是什么</p></div><div class="en"><p>What is the purpose of the change</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>定义</p></div><div class="en"><p>Deﬁnitions</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>LLM 需要了解这个问题的哪些前置条件</p></div><div class="en"><p>What prereqs does the LLM need to know about the problem</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>计划</p></div><div class="en"><p>Plan</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>高层实现拆解</p></div><div class="en"><p>High-level implementation breakdown</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>涉及改动的源文件</p></div><div class="en"><p>Source ﬁles being changed</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>代码库中哪些部分是相关的，以及为什么</p></div><div class="en"><p>What parts of the codebase are relevant and why</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>测试用例</p></div><div class="en"><p>Test cases</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>测试将如何进行</p></div><div class="en"><p>How will testing be done</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>边界情况</p></div><div class="en"><p>Edge cases</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>需要考虑哪些特殊情况</p></div><div class="en"><p>What special cases need to be accounted for</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>超出范围</p></div><div class="en"><p>Out-of-scope</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>哪些内容*不*应该改动</p></div><div class="en"><p>What should <em>not</em> be changed</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>扩展</p></div><div class="en"><p>Extensions</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>后续哪些改动会变得相关，从而让 LLM 做出前瞻性的设计而不走捷径 themodernsoftware.dev 最佳实践</p></div><div class="en"><p>What changes will be relevant later so the LLM can future-proof its design and not take shortcuts themodernsoftware.dev Best practices</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 11</h2></div><div class="en"><h2>Slide 11</h2></div></div>
+<div class="pair"><div class="zh"><p>来看看其中一些内容的实际效果 themodernsoftware.dev</p></div><div class="en"><p>Let’s see some of this in action themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 12</h2></div><div class="en"><h2>Slide 12</h2></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>优化你的代码库，让人类和智能体都能看懂正在发生什么</p></div><div class="en"><p>Optimize your codebase so that a human and an agent could understand what’s going on</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>LLM 的许多困惑，都来自用凌乱的仓库作为上下文去完成任务</p></div><div class="en"><p>Much of LLM confusion comes from trying to ﬁnish a task with a messy repo as context</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>通过描述以下内容，为 LLM 提供最优上下文</p></div><div class="en"><p>Provide optimal context for LLMs by describing</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>仓库导览</p></div><div class="en"><p>Repo orientation</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>文件结构</p></div><div class="en"><p>File structure</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>安装与环境</p></div><div class="en"><p>Setup and environment</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>最佳实践</p></div><div class="en"><p>Best practices</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>代码风格</p></div><div class="en"><p>Code style</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>访问模式</p></div><div class="en"><p>Access patterns</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>API 与契约</p></div><div class="en"><p>APIs and contracts</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>所有这些都应详尽记录成文档</p></div><div class="en"><p>All of this should be thoroughly documented</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>提示： 强烈建议在仓库中采用 monorepo 设计 themodernsoftware.dev 最佳实践</p></div><div class="en"><p>Tip: a monorepo design in your repo is highly encouraged themodernsoftware.dev Best practices</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 13</h2></div><div class="en"><h2>Slide 13</h2></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>用智能体配置帮助 LLM 浏览你的代码库</p></div><div class="en"><p>Help LLM navigate your codebase with agent conﬁgurations</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>claude.md ■ CLAUDE.md 是一个特殊文件，Claude 在开始对话时会自动把它拉入上下文。因此它非常适合用来记录：常用的 bash 命令、核心文件与工具函数、代码风格指南以及测试说明。</p></div><div class="en"><p>claude.md ■ CLAUDE.md is a special file that Claude automatically pulls into context when starting a conversation. This makes it an ideal place for documenting: common bash commands, core files and utility functions, code style guidelines, testing instructions.</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>c ursorrules</p></div><div class="en"><p>c ursorrules</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>AGENTS.md ■ 开放格式</p></div><div class="en"><p>AGENTS.md ■ Open format</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>llms.txt ■ 为抓取网页的 LLM 提供这种导航指引</p></div><div class="en"><p>llms.txt ■ Provide that navigation guidance for LLMs scraping the web</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>注意： 智能体并不总会遵守这些描述与指令。这些内容只作指导之用。 themodernsoftware.dev 最佳实践</p></div><div class="en"><p>Note: The agents won’t always adhere to these descriptions/directives. They are intended as guidance. themodernsoftware.dev Best practices</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 14</h2></div><div class="en"><h2>Slide 14</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev 示例</p></div><div class="en"><p>themodernsoftware.dev Samples</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 15</h2></div><div class="en"><h2>Slide 15</h2></div></div>
+<div class="pair"><div class="zh"><p>来看看其中一些内容的实际效果 themodernsoftware.dev</p></div><div class="en"><p>Let’s see some of this in action themodernsoftware.dev</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

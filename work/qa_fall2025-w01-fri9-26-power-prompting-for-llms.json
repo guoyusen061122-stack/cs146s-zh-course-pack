@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-09-25T12:19:48+08:00",
+  "slug": "fall2025-w01-fri9-26-power-prompting-for-llms",
+  "stats": {
+    "blocks_en": 166,
+    "blocks_zh": 166,
+    "empty": 0,
+    "untranslated": 1,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 77,
+    "term_violations": 0,
+    "term_missing": 1,
+    "term_consistency": 1.0,
+    "issues": 1,
+    "term_detail": [
+      "[术语缺失] trace 在原文出现但译文中未见定译「追踪」"
+    ]
+  },
+  "issues": [
+    {
+      "kind": "untranslated",
+      "where": "块#103",
+      "detail": "整块照抄原文未译"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "_说明": [
+    "术语回正规则表 —— 数据，不是代码。",
+    "为什么要有这张表：译文由多路并行产出，个别术语会漂移（同一概念出现两种译法）。",
+    "与其回炉重译整篇（成本高、可能引入新错），不如按规则表**定向回正**：",
+    "只改该改的字符串，其余一个字符不动。",
+    "本表由 s10b_fix.py 执行，每次回正都留逐条明细日志（src/logs/），永不覆盖。",
+    "v1 表里 12 条规则全部来自真实观测：前三批译者在同一处给出了不同写法。"
+  ],
+  "rules": [
+    {"from": "提示词工程", "to": "提示工程", "reason": "glossary 定译；批次 t04/t05 发现与既有文件不一致"},
+    {"from": "提示词工程学", "to": "提示工程", "reason": "同上"},
+    {"from": "样本提示词", "to": "样本提示", "reason": "prompting 的动名词译法应为「…提示」；这是早期 forbid 规则过严时译者的规避写法，现已无需规避"},
+    {"from": "自洽性提示词", "to": "自洽性提示", "reason": "同上"},
+    {"from": "代码审查", "to": "代码评审", "reason": "glossary 定译：code review"},
+    {"from": "代码复查", "to": "代码评审", "reason": "同上"},
+    {"from": "代码审核", "to": "代码评审", "reason": "同上"},
+    {"from": "语境窗口", "to": "上下文窗口", "reason": "glossary 定译：context window"},
+    {"from": "地面真值", "to": "标准答案", "reason": "glossary 定译：ground truth"},
+    {"from": "技术债务", "to": "技术债", "reason": "glossary 定译：technical debt"},
+    {"from": "工具使用", "to": "工具调用", "reason": "glossary 定译：tool use"},
+    {"from": "功能标志", "to": "功能开关", "reason": "glossary 定译：feature flag"},
+    {"from": "攻击有效载荷", "to": "攻击载荷", "reason": "unit42 系列内 payload 出现两种译法（攻击载荷 / 攻击有效载荷），统一为前者"},
+    {"from": "有效负载", "to": "载荷", "reason": "payload 技术语境统一用「载荷」"},
+    {"from": "汇总串联", "to": "串联起来", "reason": "unit42 系列内 Putting It All Together 的两种译法统一"}
+  ],
+  "_排除说明": [
+    "「代理」不列入回正：proxy 的正当译法就是「代理」，无差别替换会改坏正确译文。",
+    "这类含糊情况交给 glossary 的 forbid_re 做上下文判断，而不是盲目全文替换。"
+  ]
+}

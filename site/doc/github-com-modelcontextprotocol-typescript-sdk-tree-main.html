@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCP Server SDK</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>MCP Server SDK</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 8,311 字符 ｜ 52 个内容块 ｜ <a href="https://github.com/modelcontextprotocol/typescript-sdk/tree/main?tab=readme-ov-file#server" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>MCP 服务器 SDK</h1></div><div class="en"><h1>MCP Server SDK</h1></div></div>
+<div class="pair"><div class="zh"><h1>MCP TypeScript SDK</h1></div><div class="en"><h1>MCP TypeScript SDK</h1></div></div>
+<div class="pair"><div class="zh"><p>重要提示</p></div><div class="en"><p>Important</p></div></div>
+<div class="pair"><div class="zh"><p><strong>这是 <code>main</code> 分支 —— SDK 的 v2 版本</strong>（<code>@modelcontextprotocol/server</code>、<code>@modelcontextprotocol/client</code>），实现 <a href="https://modelcontextprotocol.io/specification/2026-07-28" target="_blank" rel="noopener">2026-07-28 MCP 规格</a>。</p></div><div class="en"><p><strong>This is the <code>main</code> branch — v2 of the SDK</strong> (<code>@modelcontextprotocol/server</code>, <code>@modelcontextprotocol/client</code>), implementing the <a href="https://modelcontextprotocol.io/specification/2026-07-28" target="_blank" rel="noopener">2026-07-28 MCP spec</a>.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>有反馈意见？请<a href="https://github.com/modelcontextprotocol/typescript-sdk/issues/new?template=v2-feedback.yml" target="_blank" rel="noopener">提交 v2 issue</a></strong> —— 这是目前你能为 SDK 做的最有用的事。<a href="https://ts.sdk.modelcontextprotocol.io/v2/" target="_blank" rel="noopener">v2 文档</a> 从一份十分钟的服务端教程讲起。</p></div><div class="en"><p><strong>Have feedback? Please <a href="https://github.com/modelcontextprotocol/typescript-sdk/issues/new?template=v2-feedback.yml" target="_blank" rel="noopener">open a v2 issue</a></strong> — it is the most useful thing you can do for the SDK right now. The <a href="https://ts.sdk.modelcontextprotocol.io/v2/" target="_blank" rel="noopener">v2 documentation</a> starts with a ten-minute server tutorial.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>v2 是稳定发布线</strong>，与 2026-07-28 规格一同发布。在 v2 发布后至少 6 个月内，v1.x 仍会继续收到缺陷修复与安全更新。v1 文档：<a href="https://ts.sdk.modelcontextprotocol.io/" target="_blank" rel="noopener">ts.sdk.modelcontextprotocol.io</a> · v2：<a href="https://ts.sdk.modelcontextprotocol.io/v2/" target="_blank" rel="noopener"><code>/v2/</code></a>。</p></div><div class="en"><p><strong>v2 is the stable release line</strong>, released alongside the 2026-07-28 spec. v1.x continues to receive bug fixes and security updates for at least 6 months after v2's release. v1 documentation: <a href="https://ts.sdk.modelcontextprotocol.io/" target="_blank" rel="noopener">ts.sdk.modelcontextprotocol.io</a> · v2: <a href="https://ts.sdk.modelcontextprotocol.io/v2/" target="_blank" rel="noopener"><code>/v2/</code></a>.</p></div></div>
+<div class="pair"><div class="zh"><p>警告</p></div><div class="en"><p>Warning</p></div></div>
+<div class="pair"><div class="zh"><p><strong>在 <a href="https://modelcontextprotocol.io/specification/2026-07-28" target="_blank" rel="noopener">2026-07-28 规格</a> 发布后 v2 逐步稳定期间，我们把每位新贡献者的拉取请求（PR）限制为 1 个。</strong></p></div><div class="en"><p><strong>We're limiting pull requests to 1 per new contributor while v2 settles after the <a href="https://modelcontextprotocol.io/specification/2026-07-28" target="_blank" rel="noopener">2026-07-28 spec</a> release.</strong></p></div></div>
+<div class="pair"><div class="zh"><p><a href="https://github.com/modelcontextprotocol/typescript-sdk/issues/new?template=v2-feedback.yml" target="_blank" rel="noopener">Issues</a> 是目前最有用的反馈 —— 等 v2 稳定下来，我们会重新开放 PR。</p></div><div class="en"><p><a href="https://github.com/modelcontextprotocol/typescript-sdk/issues/new?template=v2-feedback.yml" target="_blank" rel="noopener">Issues</a> are the most useful feedback right now — we'll reopen PRs as v2 stabilizes.</p></div></div>
+<div class="pair"><div class="zh"><p><a href="https://www.npmjs.com/package/@modelcontextprotocol/server" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/e7e672f8592e73357a364b99bbf21764d170d99af35c18ffadc881cd76274c7f/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f2534306d6f64656c636f6e7465787470726f746f636f6c2532467365727665723f6c6162656c3d2534306d6f64656c636f6e7465787470726f746f636f6c253246736572766572" alt="NPM 版本 - 服务端"></a><a href="https://www.npmjs.com/package/@modelcontextprotocol/client" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/3bad587253ac498a80616c99c29bb5712c10acdf590f738793e225ac6ab07d23/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f2534306d6f64656c636f6e7465787470726f746f636f6c253246636c69656e743f6c6162656c3d2534306d6f64656c636f6e7465787470726f746f636f6c253246636c69656e74" alt="NPM 版本 - 客户端"></a><a href="https://camo.githubusercontent.com/d7d1d5c096046c443ea4d1c5ed7b3e446d4eb333ce9c1305e186746e454a0eab/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f2534306d6f64656c636f6e7465787470726f746f636f6c253246736572766572" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/d7d1d5c096046c443ea4d1c5ed7b3e446d4eb333ce9c1305e186746e454a0eab/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f2534306d6f64656c636f6e7465787470726f746f636f6c253246736572766572" alt="MIT 许可"></a></p></div><div class="en"><p><a href="https://www.npmjs.com/package/@modelcontextprotocol/server" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/e7e672f8592e73357a364b99bbf21764d170d99af35c18ffadc881cd76274c7f/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f2534306d6f64656c636f6e7465787470726f746f636f6c2532467365727665723f6c6162656c3d2534306d6f64656c636f6e7465787470726f746f636f6c253246736572766572" alt="NPM Version - Server"></a><a href="https://www.npmjs.com/package/@modelcontextprotocol/client" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/3bad587253ac498a80616c99c29bb5712c10acdf590f738793e225ac6ab07d23/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f2534306d6f64656c636f6e7465787470726f746f636f6c253246636c69656e743f6c6162656c3d2534306d6f64656c636f6e7465787470726f746f636f6c253246636c69656e74" alt="NPM Version - Client"></a><a href="https://camo.githubusercontent.com/d7d1d5c096046c443ea4d1c5ed7b3e446d4eb333ce9c1305e186746e454a0eab/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f2534306d6f64656c636f6e7465787470726f746f636f6c253246736572766572" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/d7d1d5c096046c443ea4d1c5ed7b3e446d4eb333ce9c1305e186746e454a0eab/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f2534306d6f64656c636f6e7465787470726f746f636f6c253246736572766572" alt="MIT licensed"></a></p></div></div>
+<div class="pair"><div class="zh"><p>目录</p></div><div class="en"><p>Table of Contents</p></div></div>
+<div class="pair"><div class="zh"><ul><li>总览</li><li>包</li><li>安装</li><li>快速开始</li><li>文档</li><li>贡献</li><li>许可</li></ul></div><div class="en"><ul><li>Overview</li><li>Packages</li><li>Installation</li><li>Getting Started</li><li>Documentation</li><li>Contributing</li><li>License</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>总览</h2></div><div class="en"><h2>Overview</h2></div></div>
+<div class="pair"><div class="zh"><p>模型上下文协议（MCP）让应用能够以标准化的方式为大语言模型（LLM）提供上下文，从而把提供上下文这件事与实际的大语言模型交互分离开来。</p></div><div class="en"><p>The Model Context Protocol (MCP) allows applications to provide context for LLMs in a standardized way, separating the concerns of providing context from the actual LLM interaction.</p></div></div>
+<div class="pair"><div class="zh"><p>本仓库包含 MCP 规格的 TypeScript SDK 实现。它可运行在 <strong>Node.js</strong>、<strong>Bun</strong> 和 <strong>Deno</strong> 上，并提供：</p></div><div class="en"><p>This repository contains the TypeScript SDK implementation of the MCP specification. It runs on <strong>Node.js</strong>, <strong>Bun</strong>, and <strong>Deno</strong>, and ships:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>MCP <strong>服务端</strong>库（工具/资源/提示词、Streamable HTTP、stdio、认证辅助工具）</li><li>MCP <strong>客户端</strong>库（传输层、高层辅助工具、OAuth 辅助工具）</li><li>面向特定运行时/框架的可选 <strong>中间件包</strong>（Express、Fastify、Hono、Node.js HTTP）</li><li>可运行的 <strong>示例</strong>（位于 <a href="https://github.com/modelcontextprotocol/typescript-sdk/tree/main/examples" target="_blank" rel="noopener"><code>examples/</code></a>）</li></ul></div><div class="en"><ul><li>MCP <strong>server</strong> libraries (tools/resources/prompts, Streamable HTTP, stdio, auth helpers)</li><li>MCP <strong>client</strong> libraries (transports, high-level helpers, OAuth helpers)</li><li>Optional <strong>middleware packages</strong> for specific runtimes/frameworks (Express, Fastify, Hono, Node.js HTTP)</li><li>Runnable <strong>examples</strong> (under <a href="https://github.com/modelcontextprotocol/typescript-sdk/tree/main/examples" target="_blank" rel="noopener"><code>examples/</code></a>)</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>包</h2></div><div class="en"><h2>Packages</h2></div></div>
+<div class="pair"><div class="zh"><p>这个 monorepo 以拆分后的包对外发布：</p></div><div class="en"><p>This monorepo publishes split packages:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong><code>@modelcontextprotocol/server</code></strong>：用于构建 MCP 服务器</li><li><strong><code>@modelcontextprotocol/client</code></strong>：用于构建 MCP 客户端</li></ul></div><div class="en"><ul><li><strong><code>@modelcontextprotocol/server</code></strong>: build MCP servers</li><li><strong><code>@modelcontextprotocol/client</code></strong>: build MCP clients</li></ul></div></div>
+<div class="pair"><div class="zh"><p>工具与提示词的模式使用 <a href="https://standardschema.dev/" target="_blank" rel="noopener">Standard Schema</a> —— 你可以带上 Zod v4、Valibot、ArkType 或任何兼容的库。</p></div><div class="en"><p>Tool and prompt schemas use <a href="https://standardschema.dev/" target="_blank" rel="noopener">Standard Schema</a> — bring Zod v4, Valibot, ArkType, or any compatible library.</p></div></div>
+<div class="pair"><div class="zh"><h3>中间件包（可选）</h3></div><div class="en"><h3>Middleware packages (optional)</h3></div></div>
+<div class="pair"><div class="zh"><p>SDK 还会在 <a href="https://github.com/modelcontextprotocol/typescript-sdk/tree/main/packages/middleware" target="_blank" rel="noopener"><code>packages/middleware/</code></a> 下发布一些小型的「中间件」包，帮助你 <strong>把 MCP 接入特定的运行时或 Web 框架</strong>。</p></div><div class="en"><p>The SDK also publishes small "middleware" packages under <a href="https://github.com/modelcontextprotocol/typescript-sdk/tree/main/packages/middleware" target="_blank" rel="noopener"><code>packages/middleware/</code></a> that help you <strong>wire MCP into a specific runtime or web framework</strong>.</p></div></div>
+<div class="pair"><div class="zh"><p>它们刻意做成很薄的适配器：不应引入新的 MCP 功能或业务逻辑。详情见 <a href="/modelcontextprotocol/typescript-sdk/blob/main/packages/middleware/README.md" target="_blank" rel="noopener"><code>packages/middleware/README.md</code></a>。</p></div><div class="en"><p>They are intentionally thin adapters: they should not introduce new MCP functionality or business logic. See <a href="/modelcontextprotocol/typescript-sdk/blob/main/packages/middleware/README.md" target="_blank" rel="noopener"><code>packages/middleware/README.md</code></a> for details.</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong><code>@modelcontextprotocol/node</code></strong>：面向 <code>IncomingMessage</code> / <code>ServerResponse</code> 的 Node.js Streamable HTTP 传输封装</li><li><strong><code>@modelcontextprotocol/express</code></strong>：Express 辅助工具（应用默认配置 + Host 头校验）</li><li><strong><code>@modelcontextprotocol/fastify</code></strong>：Fastify 辅助工具（应用默认配置 + Host 头校验）</li><li><strong><code>@modelcontextprotocol/hono</code></strong>：Hono 辅助工具（应用默认配置 + JSON 请求体解析钩子 + Host 头校验）</li></ul></div><div class="en"><ul><li><strong><code>@modelcontextprotocol/node</code></strong>: Node.js Streamable HTTP transport wrapper for <code>IncomingMessage</code> / <code>ServerResponse</code></li><li><strong><code>@modelcontextprotocol/express</code></strong>: Express helpers (app defaults + Host header validation)</li><li><strong><code>@modelcontextprotocol/fastify</code></strong>: Fastify helpers (app defaults + Host header validation)</li><li><strong><code>@modelcontextprotocol/hono</code></strong>: Hono helpers (app defaults + JSON body parsing hook + Host header validation)</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>安装</h2></div><div class="en"><h2>Installation</h2></div></div>
+<div class="pair"><div class="zh"><h3>服务端</h3></div><div class="en"><h3>Server</h3></div></div>
+<div class="pair code"><pre><code>npm install @modelcontextprotocol/server
+# or
+bun add @modelcontextprotocol/server
+# or
+deno add npm:@modelcontextprotocol/server</code></pre></div>
+<div class="pair"><div class="zh"><h3>客户端</h3></div><div class="en"><h3>Client</h3></div></div>
+<div class="pair code"><pre><code>npm install @modelcontextprotocol/client
+# or
+bun add @modelcontextprotocol/client
+# or
+deno add npm:@modelcontextprotocol/client</code></pre></div>
+<div class="pair"><div class="zh"><h3>可选的中间件包</h3></div><div class="en"><h3>Optional middleware packages</h3></div></div>
+<div class="pair"><div class="zh"><p>SDK 还会发布可选的「中间件」包，帮助你 <strong>把 MCP 接入特定的运行时或 Web 框架</strong>（例如 Express、Fastify、Hono 或 Node.js <code>http</code>）。</p></div><div class="en"><p>The SDK also publishes optional “middleware” packages that help you <strong>wire MCP into a specific runtime or web framework</strong> (for example Express, Fastify, Hono, or Node.js <code>http</code>).</p></div></div>
+<div class="pair"><div class="zh"><p>这些包刻意做成很薄的适配器，不应引入额外的 MCP 特性或业务逻辑。详情见 <a href="/modelcontextprotocol/typescript-sdk/blob/main/packages/middleware/README.md" target="_blank" rel="noopener"><code>packages/middleware/README.md</code></a>。</p></div><div class="en"><p>These packages are intentionally thin adapters and should not introduce additional MCP features or business logic. See <a href="/modelcontextprotocol/typescript-sdk/blob/main/packages/middleware/README.md" target="_blank" rel="noopener"><code>packages/middleware/README.md</code></a> for details.</p></div></div>
+<div class="pair code"><pre><code># Node.js HTTP (IncomingMessage/ServerResponse) Streamable HTTP transport:
+npm install @modelcontextprotocol/node
+
+# Express integration:
+npm install @modelcontextprotocol/express express
+
+# Fastify integration:
+npm install @modelcontextprotocol/fastify fastify
+
+# Hono integration:
+npm install @modelcontextprotocol/hono hono</code></pre></div>
+<div class="pair"><div class="zh"><h2>快速开始</h2></div><div class="en"><h2>Getting Started</h2></div></div>
+<div class="pair"><div class="zh"><p>下面是一个 MCP 服务器的样子。这个最小示例通过 stdio 暴露一个 <code>greet</code> 工具：</p></div><div class="en"><p>Here is what an MCP server looks like. This minimal example exposes a single <code>greet</code> tool over stdio:</p></div></div>
+<div class="pair code"><pre><code>import{McpServer}from&#x27;@modelcontextprotocol/server&#x27;;import{StdioServerTransport}from&#x27;@modelcontextprotocol/server/stdio&#x27;;import*aszfrom&#x27;zod/v4&#x27;;constserver=newMcpServer({name: &#x27;greeting-server&#x27;,version: &#x27;1.0.0&#x27;});server.registerTool(&#x27;greet&#x27;,{description: &#x27;Greet someone by name&#x27;,inputSchema: z.object({name: z.string()})},async({ name })=&gt;({content: [{type: &#x27;text&#x27;,text: `Hello, ${name}!`}]}));asyncfunctionmain(){consttransport=newStdioServerTransport();awaitserver.connect(transport);}main();</code></pre></div>
+<div class="pair"><div class="zh"><p>准备好构建真正有用的东西了吗？请跟着分步教程操作：</p></div><div class="en"><p>Ready to build something real? Follow the step-by-step tutorials:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/docs/get-started/first-server.md" target="_blank" rel="noopener">构建你的第一个服务端</a> —— 一个基于 stdio 的天气预警服务器，从 <code>npm init</code> 到一次工具调用</li><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/docs/get-started/first-client.md" target="_blank" rel="noopener">构建你的第一个客户端</a> —— 连接到那个服务器，列出它的工具并调用它们</li></ul></div><div class="en"><ul><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/docs/get-started/first-server.md" target="_blank" rel="noopener">Build your first server</a> — a stdio weather-alert server, from <code>npm init</code> to a tool call</li><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/docs/get-started/first-client.md" target="_blank" rel="noopener">Build your first client</a> — connect to that server, list its tools, and call them</li></ul></div></div>
+<div class="pair"><div class="zh"><p>除教程之外，还想看可运行的端到端示例，请见：</p></div><div class="en"><p>For runnable, end-to-end examples beyond the tutorials, see:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/examples/README.md" target="_blank" rel="noopener"><code>examples/README.md</code></a> —— 可运行且可自校验的客户端/服务端示例对（每个目录一个故事）</li></ul></div><div class="en"><ul><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/examples/README.md" target="_blank" rel="noopener"><code>examples/README.md</code></a> — runnable, self-verifying client/server example pairs (one story per directory)</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>文档</h2></div><div class="en"><h2>Documentation</h2></div></div>
+<div class="pair"><div class="zh"><ul><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/docs/get-started/first-server.md" target="_blank" rel="noopener">构建服务端</a> —— 你的第一个 MCP 服务器，分步讲解</li><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/docs/get-started/first-client.md" target="_blank" rel="noopener">构建客户端</a> —— 你的第一个 MCP 客户端，分步讲解</li><li><a href="https://ts.sdk.modelcontextprotocol.io/v2/" target="_blank" rel="noopener">文档站点</a> —— 完整指南：工具、资源、提示词、通过 HTTP 与 stdio 提供服务、客户端、OAuth 以及迁移</li><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/docs/troubleshooting.md" target="_blank" rel="noopener">疑难解答</a> —— 常见错误及其修复方法</li><li><a href="https://ts.sdk.modelcontextprotocol.io/v2/api/" target="_blank" rel="noopener">API 参考</a></li><li><a href="https://modelcontextprotocol.io/docs" target="_blank" rel="noopener">MCP 文档</a></li><li><a href="https://modelcontextprotocol.io/specification/latest" target="_blank" rel="noopener">MCP 规格</a></li></ul></div><div class="en"><ul><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/docs/get-started/first-server.md" target="_blank" rel="noopener">Build a server</a> — your first MCP server, step by step</li><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/docs/get-started/first-client.md" target="_blank" rel="noopener">Build a client</a> — your first MCP client, step by step</li><li><a href="https://ts.sdk.modelcontextprotocol.io/v2/" target="_blank" rel="noopener">Documentation site</a> — the full guides: tools, resources, prompts, serving over HTTP and stdio, clients, OAuth, and migration</li><li><a href="/modelcontextprotocol/typescript-sdk/blob/main/docs/troubleshooting.md" target="_blank" rel="noopener">Troubleshooting</a> — common errors and their fixes</li><li><a href="https://ts.sdk.modelcontextprotocol.io/v2/api/" target="_blank" rel="noopener">API reference</a></li><li><a href="https://modelcontextprotocol.io/docs" target="_blank" rel="noopener">MCP documentation</a></li><li><a href="https://modelcontextprotocol.io/specification/latest" target="_blank" rel="noopener">MCP specification</a></li></ul></div></div>
+<div class="pair"><div class="zh"><h3>在本地构建文档</h3></div><div class="en"><h3>Building docs locally</h3></div></div>
+<div class="pair"><div class="zh"><p>要在本地开发文档站点：</p></div><div class="en"><p>To work on the documentation site locally:</p></div></div>
+<div class="pair code"><pre><code>pnpm docs:api      # Generate the API reference markdown (output: docs/api/)
+pnpm docs:dev      # Start the VitePress dev server for the V2 site
+pnpm docs:build    # Build the V2 site (output: docs/.vitepress/dist/)
+pnpm docs:multi    # Build the combined V1 + V2 site (output: tmp/docs-combined/)</code></pre></div>
+<div class="pair"><div class="zh"><p><code>docs:multi</code> 脚本会基于当前检出内容构建 V2 站点，通过 git worktree 检出 <code>v1.x</code> 分支来构建 V1 站点，最终生成一个合并站点：V1 文档位于根路径，V2 文档位于 <code>/v2/</code> 下。</p></div><div class="en"><p>The <code>docs:multi</code> script builds the V2 site from the current checkout, checks out the <code>v1.x</code> branch via a git worktree to build the V1 site, and produces a combined site with V1 docs at the root and V2 docs under <code>/v2/</code>.</p></div></div>
+<div class="pair"><div class="zh"><h2>v1（旧版）文档与修复</h2></div><div class="en"><h2>v1 (legacy) documentation and fixes</h2></div></div>
+<div class="pair"><div class="zh"><p>如果你使用的是 <strong>v1</strong> 这一代 SDK，<strong>v1 API 文档</strong>位于 <a href="https://ts.sdk.modelcontextprotocol.io/" target="_blank" rel="noopener"><code>https://ts.sdk.modelcontextprotocol.io/</code></a>。v1 源代码以及任何 v1 专属修复都放在长期维护的 <a href="https://github.com/modelcontextprotocol/typescript-sdk/tree/v1.x" target="_blank" rel="noopener"><code>v1.x</code> 分支</a> 上。V2 API 文档位于 <a href="https://ts.sdk.modelcontextprotocol.io/v2/" target="_blank" rel="noopener"><code>/v2/</code></a>。</p></div><div class="en"><p>If you are using the <strong>v1</strong> generation of the SDK, the <strong>v1 API documentation</strong> is available at <a href="https://ts.sdk.modelcontextprotocol.io/" target="_blank" rel="noopener"><code>https://ts.sdk.modelcontextprotocol.io/</code></a>. The v1 source code and any v1-specific fixes live on the long-lived <a href="https://github.com/modelcontextprotocol/typescript-sdk/tree/v1.x" target="_blank" rel="noopener"><code>v1.x</code> branch</a>. V2 API docs are at <a href="https://ts.sdk.modelcontextprotocol.io/v2/" target="_blank" rel="noopener"><code>/v2/</code></a>.</p></div></div>
+<div class="pair"><div class="zh"><h2>贡献</h2></div><div class="en"><h2>Contributing</h2></div></div>
+<div class="pair"><div class="zh"><p>欢迎在 GitHub 上通过 <a href="https://github.com/modelcontextprotocol/typescript-sdk" target="_blank" rel="noopener">https://github.com/modelcontextprotocol/typescript-sdk</a> 提交 issue 和拉取请求。</p></div><div class="en"><p>Issues and pull requests are welcome on GitHub at <a href="https://github.com/modelcontextprotocol/typescript-sdk" target="_blank" rel="noopener">https://github.com/modelcontextprotocol/typescript-sdk</a>.</p></div></div>
+<div class="pair"><div class="zh"><h2>许可</h2></div><div class="en"><h2>License</h2></div></div>
+<div class="pair"><div class="zh"><p>本项目的新贡献采用 Apache License 2.0 许可，既有代码采用 MIT 许可。详情见 <a href="/modelcontextprotocol/typescript-sdk/blob/main/LICENSE" target="_blank" rel="noopener">LICENSE</a> 文件。</p></div><div class="en"><p>This project is licensed under the Apache License 2.0 for new contributions, with existing code under MIT. See the <a href="/modelcontextprotocol/typescript-sdk/blob/main/LICENSE" target="_blank" rel="noopener">LICENSE</a> file for details.</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

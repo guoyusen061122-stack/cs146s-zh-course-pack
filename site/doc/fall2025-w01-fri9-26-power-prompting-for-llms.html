@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Power prompting for LLMs（fall2025 W1）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Power prompting for LLMs（fall2025 W1）</h1><div class="meta"><span class="badge">课程讲义</span>fall2025 ｜ 原文 6,252 字符 ｜ 166 个内容块 ｜ <a href="https://docs.google.com/presentation/d/1MIhw8p6TLGdbQ9TcxhXSs5BaPf5d_h77QY70RHNfeGs/edit?usp=drive_link" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>大语言模型提示进阶（fall2025 W1）</h1></div><div class="en"><h1>Power prompting for LLMs（fall2025 W1）</h1></div></div>
+<div class="pair"><div class="zh"><h2>Slide 1</h2></div><div class="en"><h2>Slide 1</h2></div></div>
+<div class="pair"><div class="zh"><p>The Modern Software Developer CS146S Stanford University，Fall 2025 Mihail Eric themodernsoftware.dev</p></div><div class="en"><p>The Modern Software Developer CS146S Stanford University, Fall 2025 Mihail Eric themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 2</h2></div><div class="en"><h2>Slide 2</h2></div></div>
+<div class="pair"><div class="zh"><p>LLM 提示进阶 themodernsoftware.dev</p></div><div class="en"><p>LLM Power Prompting themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 3</h2></div><div class="en"><h2>Slide 3</h2></div></div>
+<div class="pair"><div class="zh"><p>提示背景</p></div><div class="en"><p>Prompting background</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>提示词是让大语言模型照我们意愿行事、并有效地对其编程的通用语言 鸣谢 Andrej Karpathy themodernsoftware.dev</p></div><div class="en"><p>Prompts are the lingua franca for getting LLMs to do what we want and also effectively programming them Courtesy of Andrej Karpathy themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 4</h2></div><div class="en"><h2>Slide 4</h2></div></div>
+<div class="pair"><div class="zh"><p>一个类比</p></div><div class="en"><p>An analogy</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>看看我们与搜索引擎的交互方式发生了怎样的变化 themodernsoftware.dev</p></div><div class="en"><p>Look to how we’ve changed our search engine interactions themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 5</h2></div><div class="en"><h2>Slide 5</h2></div></div>
+<div class="pair"><div class="zh"><p>提示背景</p></div><div class="en"><p>Prompting Background</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>提示词既是一门艺术，也是一门科学</p></div><div class="en"><p>Prompting is both an art and a science</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>大语言模型的黑箱特性意味着，想有效地「耳语 LLM」多少有些玄学</p></div><div class="en"><p>Black-box nature of LLMs means there’s some magic to LLM-whispering effectively</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>……但已有一些经验证能提升大语言模型表现的技术 themodernsoftware.dev</p></div><div class="en"><p>…but there are established techniques that have empirically improved LLM performance themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 6</h2></div><div class="en"><h2>Slide 6</h2></div></div>
+<div class="pair"><div class="zh"><p>零样本提示</p></div><div class="en"><p>Zero-shot prompting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>让大语言模型做一件事</p></div><div class="en"><p>Ask the LLM to do a thing</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>无额外支持</p></div><div class="en"><p>no support</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>无示例 themodernsoftware.dev 写一个 Rust for 循环，遍历一个字符串列表，打印出所有偶数下标的值</p></div><div class="en"><p>no examples themodernsoftware.dev Write me a Rust for-loop that iterates over a list of strings for every, printing every value in an even index</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 7</h2></div><div class="en"><h2>Slide 7</h2></div></div>
+<div class="pair"><div class="zh"><p>K 样本提示</p></div><div class="en"><p>K-shot prompting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>让大语言模型做这件事，但给它一些如何做的示例</p></div><div class="en"><p>Ask the LLM to do the thing but give it some examples of how to do it</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>有时称为上下文学习</p></div><div class="en"><p>Sometimes called in-context learning</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>k-shot</p></div><div class="en"><p>k-shot</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>1、3、5（一些实证结果支持这些数字）</p></div><div class="en"><p>1, 3, 5 (some empirical results justify these numbers)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>最适合推理步骤不太多的任务 themodernsoftware.dev</p></div><div class="en"><p>Ideal for tasks that don’t have too many reasoning steps themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 8</h2></div><div class="en"><h2>Slide 8</h2></div></div>
+<div class="pair"><div class="zh"><p>按照我们仓库的命名约定，写一个遍历字符串列表的 for 循环。 按照我们仓库的命名约定，写一个遍历字符串列表的 for 循环。以下是我们通常如何格式化变量名的一些示例。 &lt;example&gt; var StRaRrAy = [‘cat’, ‘dog’, ‘wombat’] &lt;/example&gt; &lt;example&gt; def func CaPiTaLiZeStR = () =&gt; {} &lt;/example&gt; themodernsoftware.dev</p></div><div class="en"><p>Write a for-loop iterating over a list of strings using the naming convention in our repo. Write a for-loop iterating over a list of strings using the naming convention in our repo. Here are some examples of how we typically format variable names. &lt;example&gt; var StRaRrAy = [‘cat’, ‘dog’, ‘wombat’] &lt;/example&gt; &lt;example&gt; def func CaPiTaLiZeStR = () =&gt; {} &lt;/example&gt; themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 9</h2></div><div class="en"><h2>Slide 9</h2></div></div>
+<div class="pair"><div class="zh"><p>思维链提示</p></div><div class="en"><p>Chain-of-Thought Prompting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>展示完成给定任务的推理步骤</p></div><div class="en"><p>Show reasoning steps for a given task</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>多样本 CoT ■ 写出推理轨迹</p></div><div class="en"><p>Multi-shot CoT ■ Work out reasoning traces</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>零样本 CoT ■ “Let’s think step-by-step”</p></div><div class="en"><p>Zero-shot CoT ■ “Let’s think step-by-step”</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>用显式的 &lt;reasoning&gt; 标签提示模型进行推理</p></div><div class="en"><p>Prompt for reasoning in explicit &lt;reasoning&gt; tags</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>最适合包含多个逻辑步骤的任务</p></div><div class="en"><p>Best for steps with multiple logical steps</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>编程</p></div><div class="en"><p>Programming</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>数学 themodernsoftware.dev</p></div><div class="en"><p>Math themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 10</h2></div><div class="en"><h2>Slide 10</h2></div></div>
+<div class="pair"><div class="zh"><p>写一个函数，检查一个数是否既是完全立方数又是完全平方数。 我想写一个函数，检查一个数是否既是完全立方数又是完全平方数。请务必先给出你的推理。以下是完成编码任务时如何给出推理的一些示例。 &lt;example&gt; 写一个函数，找出列表中的最大元素。 步骤：用一个变量初始化，存入第一个元素。遍历列表，逐个比较…… &lt;/example&gt; &lt;example&gt; 写一个函数，检查一个数是否为回文数 步骤：取出这个数。反转数字中的各位。检查是否…… &lt;/example&gt; themodernsoftware.dev 多样本 CoT</p></div><div class="en"><p>Write a function to check if a number is a perfect cube and a perfect square. I want to write a function to check if a number is a perfect cube and a perfect square. Make sure to provide your reasoning first. Here are some examples of how to provide reasoning for a coding task. &lt;example&gt; Write a function that finds the maximum element in a list. Steps: Initialize a variable with the first element. Traverse the list, comparing… &lt;/example&gt; &lt;example&gt; Write a function that checks is a number is a palindrome Steps: Take the number. Reverse the elements in the numbers. Check if … &lt;/example&gt; themodernsoftware.dev Multi-shot CoT</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 11</h2></div><div class="en"><h2>Slide 11</h2></div></div>
+<div class="pair"><div class="zh"><p>写一个函数，找出数组中最长递增子序列。 写一个函数，找出数组中最长递增子序列。 在编码之前先一步步思考各个子问题。回答时给出你正在考虑的子数组的具体例子。 themodernsoftware.dev 零样本 CoT</p></div><div class="en"><p>Write a function to find the longest increasing subsequence in an array. Write a function to find the longest increasing subsequence in an array. Think step by step about the subproblems before coding. Include worked out examples of subarrays you are considering as you answer this question. themodernsoftware.dev Zero-shot CoT</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 12</h2></div><div class="en"><h2>Slide 12</h2></div></div>
+<div class="pair"><div class="zh"><p>自洽性提示</p></div><div class="en"><p>Self-consistency Prompting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>对输出多次采样（通常配合 CoT），并汇总最常见的结果</p></div><div class="en"><p>Sample multiple times from output (typically with CoT) and aggregate most common results</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>通过采样多条不同的推理路径，以模型集成的方式减少幻觉与错误答案 themodernsoftware.dev</p></div><div class="en"><p>Reduces hallucinations/incorrect answers via a form of model ensembling by sampling diverse reasoning paths themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 13</h2></div><div class="en"><h2>Slide 13</h2></div></div>
+<div class="pair"><div class="zh"><p>这个错误的根因是什么： Traceback (most recent call last): File "example.py", line 3, in &lt;module&gt; print(nums[i]) IndexError: list index out of range 这个错误的根因是什么： Traceback (most recent call last): File "example.py", line 3, in &lt;module&gt; print(nums[i]) IndexError: list index out of range 采样 5 次 取多数结果 themodernsoftware.dev</p></div><div class="en"><p>What’s the root cause for this error: Traceback (most recent call last): File "example.py", line 3, in &lt;module&gt; print(nums[i]) IndexError: list index out of range What’s the root cause for this error: Traceback (most recent call last): File "example.py", line 3, in &lt;module&gt; print(nums[i]) IndexError: list index out of range Prompt 5x Take majority result themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 14</h2></div><div class="en"><h2>Slide 14</h2></div></div>
+<div class="pair"><div class="zh"><p>工具调用</p></div><div class="en"><p>Tool Use</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>允许大语言模型把任务交给它需要交互的外部系统</p></div><div class="en"><p>Allow LLM to defer to an external system that it needs to interact with</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>减少幻觉、并让大语言模型具备自主性的最重要技术之一 themodernsoftware.dev</p></div><div class="en"><p>One of the most important techniques for reducing hallucinations and enabling the autonomy of LLMs themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 15</h2></div><div class="en"><h2>Slide 15</h2></div></div>
+<div class="pair"><div class="zh"><p>在你修好这个 IndexError 之后，能否确保 CI 测试仍然通过？ 修好这个 IndexError。确保修好之后 CI 测试仍然通过。以下是可用的工具。 &lt;tools&gt; pytest -s /path/to/unit_tests pytest -v /path/to/integration_tests &lt;/tools&gt; themodernsoftware.dev</p></div><div class="en"><p>After you have fixed this IndexError can you ensure that the CI tests still pass? Fix the IndexError. Ensure the CI tests still pass once you have made the fix. Here are the available tools. &lt;tools&gt; pytest -s /path/to/unit_tests pytest -v /path/to/integration_tests &lt;/tools&gt; themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 16</h2></div><div class="en"><h2>Slide 16</h2></div></div>
+<div class="pair"><div class="zh"><p>检索增强生成</p></div><div class="en"><p>Retrieval Augmented Generation</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>为大语言模型注入上下文数据</p></div><div class="en"><p>Infuse the LLM with contextual data</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>让大语言模型保持最新（无需重新训练）</p></div><div class="en"><p>Keeps LLMs up-to-date (without retraining)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>迭代更快</p></div><div class="en"><p>Faster iteration</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>免费获得可解释性与引用</p></div><div class="en"><p>You get interpretability and citations for free</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>减少幻觉 themodernsoftware.dev</p></div><div class="en"><p>Reduces hallucinations themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 17</h2></div><div class="en"><h2>Slide 17</h2></div></div>
+<div class="pair"><div class="zh"><p>扩展 UserAuthService 类，检查客户端是否提供了有效的 OAuth token。 我想扩展 UserAuthService 类，检查客户端是否提供了有效的 OAuth token。 以下是 UserAuthService 目前的工作方式： &lt;code_snippet&gt; def issue_oauth_token(): …. &lt;/code_snippet&gt; 以下是 requests-oauthlib 文档的路径： &lt;url&gt; https://requests-oauthlib.readthedocs.io/en/ latest/ &lt;/url&gt; themodernsoftware.dev</p></div><div class="en"><p>Extend the UserAuthService class to check that the client provides a valid OAuth token. I want to extend the UserAuthService class to check that the client provides a valid OAuth token. Here is how the UserAuthService works now: &lt;code_snippet&gt; def issue_oauth_token(): …. &lt;/code_snippet&gt; Here is the path to the requests-oauthlib documentation: &lt;url&gt; https://requests-oauthlib.readthedocs.io/en/ latest/ &lt;/url&gt; themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 18</h2></div><div class="en"><h2>Slide 18</h2></div></div>
+<div class="pair"><div class="zh"><p>反思（Reflexion）</p></div><div class="en"><p>Reﬂexion</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>让大语言模型反思自己的输出</p></div><div class="en"><p>Make the LLM reﬂect on its output</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>来自环境信号的言语反馈，通过扩充上下文被重新纳入大语言模型</p></div><div class="en"><p>Verbal feedback from environment signals are reincorporated into the LLM by augmenting the context</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>在环境中采取行动并得到观察结果之后，追加一段提示词后缀：</p></div><div class="en"><p>After an action is taken in an environment and an observation made, add a prompt suﬃx:</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>“Now critique your answer. Was it correct? If not, explain why and try again.”</p></div><div class="en"><p>“Now critique your answer. Was it correct? If not, explain why and try again.”</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>多轮提示</p></div><div class="en"><p>Multi-turn prompting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>第 1 轮：模型先试一次。</p></div><div class="en"><p>Turn 1: Model gives a ﬁrst try.</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>第 2 轮：你问“ Was that correct? Reﬂect and revise if needed. ” themodernsoftware.dev</p></div><div class="en"><p>Turn 2: You ask “ Was that correct? Reﬂect and revise if needed. ” themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 19</h2></div><div class="en"><h2>Slide 19</h2></div></div>
+<div class="pair"><div class="zh"><p>确保 company_location 列能处理字符串和 json 表示形式。 扩展 company_location 的逻辑，使其能处理字符串和 json 表示形式 company_location 类型的单元测试没有通过。 看起来 company_location 的单元测试抛出了 JSONDecodeError。 我正在扩展 company_location 列。 我必须确保当输入是字符串时不会抛出 JSONDecodeError。 observe reflect 扩展提示词 themodernsoftware.dev</p></div><div class="en"><p>Ensure that the company_location column can handle string and json representations. Extend the logic for company_location to be able to handle string and json representations The unit tests for the company_location type aren’t passing. It appears that the unit tests for company_location are throwing a JSONDecodeError. I am extending the company_location column. I must ensure that when a string is provided as input it doesn’t throw a JSONDecodeError. observe reflect Extend prompt themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 20</h2></div><div class="en"><h2>Slide 20</h2></div></div>
+<div class="pair"><div class="zh"><p>附加术语</p></div><div class="en"><p>Additional Terminology</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>系统提示词</p></div><div class="en"><p>System prompt</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>提供给大语言模型的第一条消息（终端用户通常看不到）</p></div><div class="en"><p>First message provided to LLM (usually not seen by end user)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>规定人设、关于大语言模型输出的规则、风格 themodernsoftware.dev</p></div><div class="en"><p>Provides persona, rules about LLM output, style themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 21</h2></div><div class="en"><h2>Slide 21</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev …</p></div><div class="en"><p>themodernsoftware.dev …</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 22</h2></div><div class="en"><h2>Slide 22</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev …</p></div><div class="en"><p>themodernsoftware.dev …</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 23</h2></div><div class="en"><h2>Slide 23</h2></div></div>
+<div class="pair"><div class="zh"><p>附加术语</p></div><div class="en"><p>Additional Terminology</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>用户提示词</p></div><div class="en"><p>User prompt</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>人类实际提出的请求或指令</p></div><div class="en"><p>The actual ask or instruction from a human</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>基本上就是到目前为止我们所有的例子</p></div><div class="en"><p>Basically all of our examples so far</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>助手</p></div><div class="en"><p>Assistant</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>大语言模型实际生成的内容 themodernsoftware.dev</p></div><div class="en"><p>What the LLM actually generates themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 24</h2></div><div class="en"><h2>Slide 24</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev 系统提示词 用户提示词 助手提示词</p></div><div class="en"><p>themodernsoftware.dev System prompt User prompt Assistant prompt</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 25</h2></div><div class="en"><h2>Slide 25</h2></div></div>
+<div class="pair"><div class="zh"><p>最佳实践</p></div><div class="en"><p>Best Practices</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>提示词改进</p></div><div class="en"><p>Prompt improvement</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-improver</p></div><div class="en"><p>https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-improver</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>清晰的提示词</p></div><div class="en"><p>Clear prompting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>把提示词交给一个几乎不了解背景的人，如果他看不懂，大语言模型也看不懂</p></div><div class="en"><p>Give prompt to someone with minimal context and if they’re confused an LLM will be too</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>大胆使用角色提示，让系统提示词更有威力 themodernsoftware.dev</p></div><div class="en"><p>Use role prompting aggressively to make system prompts more powerful themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 26</h2></div><div class="en"><h2>Slide 26</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev 你是一个乐于助人的助手，热爱编程，水平相当于资深软件开发者，回答非常细致甚至吹毛求疵。</p></div><div class="en"><p>themodernsoftware.dev You are a helpful assistant that loves programming at the level of a senior software developer and is very detailed and pedantic in your answers.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 27</h2></div><div class="en"><h2>Slide 27</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev</p></div><div class="en"><p>themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 28</h2></div><div class="en"><h2>Slide 28</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev 你是一个 Z 世代的数字闺蜜。永远像凌晨两点在 Snapchat 上发消息那样说话。</p></div><div class="en"><p>themodernsoftware.dev You are a Gen Z digital bestie. Always sound like you’re texting on Snapchat at 2am.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 29</h2></div><div class="en"><h2>Slide 29</h2></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>提示词应结构化排版 最佳实践 themodernsoftware.dev 以下是日志： &lt;log&gt; LOG MESSAGE &lt;log&gt; 以及堆栈跟踪： &lt;error&gt; STACK TRACE &lt;error&gt;</p></div><div class="en"><p>Prompts should be formatted with structure Best Practices themodernsoftware.dev Here are the logs: &lt;log&gt; LOG MESSAGE &lt;log&gt; and the stack trace: &lt;error&gt; STACK TRACE &lt;error&gt;</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 30</h2></div><div class="en"><h2>Slide 30</h2></div></div>
+<div class="pair"><div class="zh"><p>最佳实践</p></div><div class="en"><p>Best Practices</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>明确说出你想要什么（语言、技术栈、库、约束）</p></div><div class="en"><p>Be explicit about what you want (languages, tech stacks, libraries, constraints)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>拆解任务 themodernsoftware.dev</p></div><div class="en"><p>Decompose tasks themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 31</h2></div><div class="en"><h2>Slide 31</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev 有问题吗？</p></div><div class="en"><p>themodernsoftware.dev Questions?</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

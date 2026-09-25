@@ -1,0 +1,1084 @@
+{
+  "generated_at": "2026-09-25T12:16:49+08:00",
+  "batch_budget": 26000,
+  "files": 109,
+  "batches": 39,
+  "total_chars": 772659,
+  "plan": [
+    {
+      "files": [
+        {
+          "slug": "site-fall2025-grading",
+          "group": "site",
+          "title": "CS146S 评分构成（fall2025）",
+          "chars": 101
+        },
+        {
+          "slug": "site-fall2026-grading",
+          "group": "site",
+          "title": "CS146S 评分构成（fall2026）",
+          "chars": 130
+        },
+        {
+          "slug": "site-fall2025-faq",
+          "group": "site",
+          "title": "CS146S 常见问题（fall2025）",
+          "chars": 1803
+        },
+        {
+          "slug": "site-fall2026-faq",
+          "group": "site",
+          "title": "CS146S 常见问题（fall2026）",
+          "chars": 1803
+        },
+        {
+          "slug": "site-fall2026-overview",
+          "group": "site",
+          "title": "CS146S 官网 · 总览（fall2026）",
+          "chars": 3367
+        },
+        {
+          "slug": "site-fall2025-overview",
+          "group": "site",
+          "title": "CS146S 官网 · 总览（fall2025）",
+          "chars": 3473
+        },
+        {
+          "slug": "site-fall2026-syllabus",
+          "group": "site",
+          "title": "CS146S 课程大纲（fall2026）",
+          "chars": 3665
+        },
+        {
+          "slug": "site-fall2025-syllabus",
+          "group": "site",
+          "title": "CS146S 课程大纲（fall2025）",
+          "chars": 9992
+        },
+        {
+          "slug": "fall2025-w02-mon9-29-building-a-coding-agent-from-scratch",
+          "group": "media",
+          "title": "Building a coding agent from scratch（fall2025 W2）",
+          "chars": 1020
+        }
+      ],
+      "chars": 25354,
+      "id": "t01",
+      "slugs": [
+        "site-fall2025-grading",
+        "site-fall2026-grading",
+        "site-fall2025-faq",
+        "site-fall2026-faq",
+        "site-fall2026-overview",
+        "site-fall2025-overview",
+        "site-fall2026-syllabus",
+        "site-fall2025-syllabus",
+        "fall2025-w02-mon9-29-building-a-coding-agent-from-scratch"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt",
+          "group": "media",
+          "title": "End-to-end apps with a single prompt（fall2025 W8）",
+          "chars": 1503
+        },
+        {
+          "slug": "fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup",
+          "group": "media",
+          "title": "From first prompt to optimal IDE setup（fall2025 W3）",
+          "chars": 2148
+        },
+        {
+          "slug": "fall2025-w02-fri10-3-building-a-custom-mcp-server",
+          "group": "media",
+          "title": "Building a custom MCP server（fall2025 W2）",
+          "chars": 2247
+        },
+        {
+          "slug": "fall2025-w07-mon11-3-ai-code-review",
+          "group": "media",
+          "title": "AI code review（fall2025 W7）",
+          "chars": 2396
+        },
+        {
+          "slug": "fall2025-w04-mon10-13-how-to-be-an-agent-manager",
+          "group": "media",
+          "title": "How to be an agent manager（fall2025 W4）",
+          "chars": 2480
+        },
+        {
+          "slug": "fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product",
+          "group": "media",
+          "title": "How to Build a Breakout AI Developer Product（fall2025 W5）",
+          "chars": 2578
+        },
+        {
+          "slug": "fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines",
+          "group": "media",
+          "title": "Course intro + build Claude Code in 200 lines（fall2026 W1）",
+          "chars": 2680
+        },
+        {
+          "slug": "fall2025-w09-mon11-17-incident-response-and-devops",
+          "group": "media",
+          "title": "Incident response and DevOps（fall2025 W9）",
+          "chars": 3238
+        },
+        {
+          "slug": "fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition",
+          "group": "media",
+          "title": "Silas Alberti, Head of Research Cognition（fall2025 W3）",
+          "chars": 3685
+        }
+      ],
+      "chars": 22955,
+      "id": "t02",
+      "slugs": [
+        "fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt",
+        "fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup",
+        "fall2025-w02-fri10-3-building-a-custom-mcp-server",
+        "fall2025-w07-mon11-3-ai-code-review",
+        "fall2025-w04-mon10-13-how-to-be-an-agent-manager",
+        "fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product",
+        "fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines",
+        "fall2025-w09-mon11-17-incident-response-and-devops",
+        "fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond",
+          "group": "media",
+          "title": "AI QA, SAST, DAST, and Beyond（fall2025 W6）",
+          "chars": 3963
+        },
+        {
+          "slug": "fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made",
+          "group": "media",
+          "title": "Introduction and how an LLM is made（fall2025 W1）",
+          "chars": 4129
+        },
+        {
+          "slug": "fall2025-w07-fri11-7-tomas-reimers-cpo-graphite",
+          "group": "media",
+          "title": "Tomas Reimers, CPO Graphite（fall2025 W7）",
+          "chars": 4908
+        },
+        {
+          "slug": "fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code",
+          "group": "media",
+          "title": "Boris Cherney, Creator of Claude Code（fall2025 W4）",
+          "chars": 5123
+        },
+        {
+          "slug": "fall2025-w01-fri9-26-power-prompting-for-llms",
+          "group": "media",
+          "title": "Power prompting for LLMs（fall2025 W1）",
+          "chars": 6252
+        }
+      ],
+      "chars": 24375,
+      "id": "t03",
+      "slugs": [
+        "fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond",
+        "fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made",
+        "fall2025-w07-fri11-7-tomas-reimers-cpo-graphite",
+        "fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code",
+        "fall2025-w01-fri9-26-power-prompting-for-llms"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta",
+          "group": "media",
+          "title": "Mayank Agarwal, CTO Resolve, and Milind Ganjoo, Technical Staff Resolve（fall2025 W9）",
+          "chars": 7118
+        },
+        {
+          "slug": "repo-fall2025-week1-readmemd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week1/README.md（fall2025）",
+          "chars": 173
+        },
+        {
+          "slug": "repo-fall2025-week6-requirementstxt",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week6/requirements.txt（fall2025）",
+          "chars": 181
+        },
+        {
+          "slug": "repo-fall2025-week1-data-api-docstxt",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week1/data/api_docs.txt（fall2025）",
+          "chars": 213
+        },
+        {
+          "slug": "repo-fall2025-week7-docs-tasksmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week7/docs/TASKS.md（fall2025）",
+          "chars": 486
+        },
+        {
+          "slug": "repo-fall2025-readmemd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · README.md（fall2025）",
+          "chars": 672
+        },
+        {
+          "slug": "repo-master-readmemd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · README.md（master）",
+          "chars": 672
+        },
+        {
+          "slug": "repo-fall2025-week6-writeupmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week6/writeup.md（fall2025）",
+          "chars": 846
+        },
+        {
+          "slug": "repo-fall2025-week5-readmemd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week5/README.md（fall2025）",
+          "chars": 944
+        },
+        {
+          "slug": "repo-fall2025-week7-readmemd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week7/README.md（fall2025）",
+          "chars": 1108
+        },
+        {
+          "slug": "repo-fall2025-week4-docs-tasksmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week4/docs/TASKS.md（fall2025）",
+          "chars": 1176
+        },
+        {
+          "slug": "repo-fall2025-week7-writeupmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week7/writeup.md（fall2025）",
+          "chars": 1200
+        },
+        {
+          "slug": "repo-fall2025-week4-writeupmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week4/writeup.md（fall2025）",
+          "chars": 1395
+        },
+        {
+          "slug": "repo-fall2025-week2-writeupmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week2/writeup.md（fall2025）",
+          "chars": 1517
+        },
+        {
+          "slug": "repo-fall2025-week5-writeupmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week5/writeup.md（fall2025）",
+          "chars": 1573
+        },
+        {
+          "slug": "repo-fall2025-week1-assignmentmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week1/assignment.md（fall2025）",
+          "chars": 1648
+        },
+        {
+          "slug": "repo-fall2025-week8-writeupmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week8/writeup.md（fall2025）",
+          "chars": 1675
+        },
+        {
+          "slug": "repo-fall2025-week6-assignmentmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week6/assignment.md（fall2025）",
+          "chars": 2075
+        }
+      ],
+      "chars": 24672,
+      "id": "t04",
+      "slugs": [
+        "fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta",
+        "repo-fall2025-week1-readmemd",
+        "repo-fall2025-week6-requirementstxt",
+        "repo-fall2025-week1-data-api-docstxt",
+        "repo-fall2025-week7-docs-tasksmd",
+        "repo-fall2025-readmemd",
+        "repo-master-readmemd",
+        "repo-fall2025-week6-writeupmd",
+        "repo-fall2025-week5-readmemd",
+        "repo-fall2025-week7-readmemd",
+        "repo-fall2025-week4-docs-tasksmd",
+        "repo-fall2025-week7-writeupmd",
+        "repo-fall2025-week4-writeupmd",
+        "repo-fall2025-week2-writeupmd",
+        "repo-fall2025-week5-writeupmd",
+        "repo-fall2025-week1-assignmentmd",
+        "repo-fall2025-week8-writeupmd",
+        "repo-fall2025-week6-assignmentmd"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "repo-fall2025-week7-assignmentmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week7/assignment.md（fall2025）",
+          "chars": 2401
+        },
+        {
+          "slug": "repo-master-week1-writeupmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week1/writeup.md（master）",
+          "chars": 2752
+        },
+        {
+          "slug": "repo-fall2025-week3-assignmentmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week3/assignment.md（fall2025）",
+          "chars": 3175
+        },
+        {
+          "slug": "repo-fall2025-week2-assignmentmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week2/assignment.md（fall2025）",
+          "chars": 3517
+        },
+        {
+          "slug": "repo-fall2025-week8-assignmentmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week8/assignment.md（fall2025）",
+          "chars": 3693
+        },
+        {
+          "slug": "repo-fall2025-week5-assignmentmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week5/assignment.md（fall2025）",
+          "chars": 3817
+        },
+        {
+          "slug": "repo-fall2025-week5-docs-tasksmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week5/docs/TASKS.md（fall2025）",
+          "chars": 4359
+        }
+      ],
+      "chars": 23714,
+      "id": "t05",
+      "slugs": [
+        "repo-fall2025-week7-assignmentmd",
+        "repo-master-week1-writeupmd",
+        "repo-fall2025-week3-assignmentmd",
+        "repo-fall2025-week2-assignmentmd",
+        "repo-fall2025-week8-assignmentmd",
+        "repo-fall2025-week5-assignmentmd",
+        "repo-fall2025-week5-docs-tasksmd"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "repo-fall2025-week4-assignmentmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week4/assignment.md（fall2025）",
+          "chars": 5887
+        },
+        {
+          "slug": "repo-master-week1-assignmentmd",
+          "group": "repo",
+          "title": "CS146S 作业仓库 · week1/assignment.md（master）",
+          "chars": 8446
+        },
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p9",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 9/12 部分）",
+          "chars": 24
+        },
+        {
+          "slug": "notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c",
+          "group": "reading",
+          "title": "How Warp Uses Warp to Build Warp",
+          "chars": 42
+        },
+        {
+          "slug": "www-anthropic-com-engineering-claude-code-best-practices__p3",
+          "group": "reading",
+          "title": "Claude Best Practices（第 3/3 部分）",
+          "chars": 350
+        },
+        {
+          "slug": "owasp-org-www-project-top-ten",
+          "group": "reading",
+          "title": "OWASP Top Ten: The Leading Web Application Security Risks",
+          "chars": 860
+        },
+        {
+          "slug": "blog-ravi-mehta-com-p-specs-are-the-new-source-code",
+          "group": "reading",
+          "title": "Specs Are the New Source Code",
+          "chars": 1331
+        },
+        {
+          "slug": "github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt",
+          "group": "reading",
+          "title": "Vulnerability Prompt Analysis with O3",
+          "chars": 1658
+        },
+        {
+          "slug": "blog-codinghorror-com-code-reviews-just-do-it",
+          "group": "reading",
+          "title": "Code Reviews: Just Do It",
+          "chars": 3089
+        },
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p5",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 5/12 部分）",
+          "chars": 3391
+        }
+      ],
+      "chars": 25078,
+      "id": "t06",
+      "slugs": [
+        "repo-fall2025-week4-assignmentmd",
+        "repo-master-week1-assignmentmd",
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p9",
+        "notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c",
+        "www-anthropic-com-engineering-claude-code-best-practices__p3",
+        "owasp-org-www-project-top-ten",
+        "blog-ravi-mehta-com-p-specs-are-the-new-source-code",
+        "github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt",
+        "blog-codinghorror-com-code-reviews-just-do-it",
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p5"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "www-reillywood-com-blog-apis-dont-make-good-mcp-tools",
+          "group": "reading",
+          "title": "MCP Food-for-Thought",
+          "chars": 4559
+        },
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p6",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 6/12 部分）",
+          "chars": 4878
+        },
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p4",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 4/12 部分）",
+          "chars": 4960
+        },
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p3",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 3/12 部分）",
+          "chars": 5832
+        }
+      ],
+      "chars": 20229,
+      "id": "t07",
+      "slugs": [
+        "www-reillywood-com-blog-apis-dont-make-good-mcp-tools",
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p6",
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p4",
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p3"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "research-trychroma-com-context-rot__p3",
+          "group": "reading",
+          "title": "Context Rot: Understanding Degradation in AI Context Windows（第 3/3 部分）",
+          "chars": 5860
+        },
+        {
+          "slug": "www-warp-dev-university",
+          "group": "reading",
+          "title": "Warp University",
+          "chars": 6171
+        },
+        {
+          "slug": "www-warp-dev-university-getting-started-warp-vs-claude-code",
+          "group": "reading",
+          "title": "Warp vs Claude Code",
+          "chars": 6173
+        },
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p7",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 7/12 部分）",
+          "chars": 6232
+        }
+      ],
+      "chars": 24436,
+      "id": "t08",
+      "slugs": [
+        "research-trychroma-com-context-rot__p3",
+        "www-warp-dev-university",
+        "www-warp-dev-university-getting-started-warp-vs-claude-code",
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p7"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "resolve-ai-blog-Top-5-Benefits",
+          "group": "reading",
+          "title": "Benefits of Agentic AI in On-call Engineering",
+          "chars": 6240
+        },
+        {
+          "slug": "blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview",
+          "group": "reading",
+          "title": "MCP Registry",
+          "chars": 6328
+        },
+        {
+          "slug": "resolve-ai-blog-product-deep-dive",
+          "group": "reading",
+          "title": "Your New Autonomous Teammate",
+          "chars": 6665
+        }
+      ],
+      "chars": 19233,
+      "id": "t09",
+      "slugs": [
+        "resolve-ai-blog-Top-5-Benefits",
+        "blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview",
+        "resolve-ai-blog-product-deep-dive"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p8",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 8/12 部分）",
+          "chars": 6959
+        },
+        {
+          "slug": "embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio",
+          "group": "reading",
+          "title": "Copilot Remote Code Execution via Prompt Injection",
+          "chars": 7517
+        },
+        {
+          "slug": "semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope",
+          "group": "reading",
+          "title": "Finding Vulnerabilities in Modern Web Apps Using Claude Code and OpenAI Codex",
+          "chars": 7780
+        }
+      ],
+      "chars": 22256,
+      "id": "t10",
+      "slugs": [
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p8",
+        "embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio",
+        "semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p10",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 10/12 部分）",
+          "chars": 7826
+        },
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p2",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 2/12 部分）",
+          "chars": 7843
+        },
+        {
+          "slug": "github-com-modelcontextprotocol-typescript-sdk-tree-main",
+          "group": "reading",
+          "title": "MCP Server SDK",
+          "chars": 8311
+        }
+      ],
+      "chars": 23980,
+      "id": "t11",
+      "slugs": [
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p10",
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p2",
+        "github-com-modelcontextprotocol-typescript-sdk-tree-main"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai",
+          "group": "reading",
+          "title": "Kubernetes Troubleshooting with AI",
+          "chars": 9392
+        },
+        {
+          "slug": "cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex",
+          "group": "reading",
+          "title": "How OpenAI Uses Codex",
+          "chars": 9413
+        }
+      ],
+      "chars": 18805,
+      "id": "t12",
+      "slugs": [
+        "resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai",
+        "cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering",
+          "group": "reading",
+          "title": "Role of Multi Agent Systems in Making Software Engineers AI-native",
+          "chars": 9723
+        },
+        {
+          "slug": "blakesmith-me-2015-02-09-code-review-essentials-for-software-teams",
+          "group": "reading",
+          "title": "Code Review Essentials for Software Teams",
+          "chars": 9980
+        }
+      ],
+      "chars": 19703,
+      "id": "t13",
+      "slugs": [
+        "resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering",
+        "blakesmith-me-2015-02-09-code-review-essentials-for-software-teams"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them",
+          "group": "reading",
+          "title": "How Long Contexts Fail",
+          "chars": 10127
+        },
+        {
+          "slug": "last9-io-blog-traces-spans-observability-basics",
+          "group": "reading",
+          "title": "Observability Basics You Should Know",
+          "chars": 10754
+        }
+      ],
+      "chars": 20881,
+      "id": "t14",
+      "slugs": [
+        "www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them",
+        "last9-io-blog-traces-spans-observability-basics"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "arxiv-org-pdf-2405-13565__p3",
+          "group": "reading",
+          "title": "AI-Assisted Assessment of Coding Practices in Modern Code Review（第 3/3 部分）",
+          "chars": 11630
+        },
+        {
+          "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4",
+          "group": "reading",
+          "title": "How Anthropic Uses Claude Code（第 4/4 部分）",
+          "chars": 11693
+        }
+      ],
+      "chars": 23323,
+      "id": "t15",
+      "slugs": [
+        "arxiv-org-pdf-2405-13565__p3",
+        "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "arxiv-org-pdf-2405-13565__p2",
+          "group": "reading",
+          "title": "AI-Assisted Assessment of Coding Practices in Modern Code Review（第 2/3 部分）",
+          "chars": 12036
+        },
+        {
+          "slug": "stytch-com-blog-model-context-protocol-introduction__p2",
+          "group": "reading",
+          "title": "MCP Introduction（第 2/2 部分）",
+          "chars": 12273
+        }
+      ],
+      "chars": 24309,
+      "id": "t16",
+      "slugs": [
+        "arxiv-org-pdf-2405-13565__p2",
+        "stytch-com-blog-model-context-protocol-introduction__p2"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p12",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 12/12 部分）",
+          "chars": 12780
+        },
+        {
+          "slug": "blog-stockapp-com-good-context-good-code",
+          "group": "reading",
+          "title": "Good Context Good Code",
+          "chars": 12912
+        }
+      ],
+      "chars": 25692,
+      "id": "t17",
+      "slugs": [
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p12",
+        "blog-stockapp-com-good-context-good-code"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "graphite-dev-guides-ai-code-review-implementation-best-practices",
+          "group": "reading",
+          "title": "AI Code Review Implementation Best Practices",
+          "chars": 12967
+        }
+      ],
+      "chars": 12967,
+      "id": "t18",
+      "slugs": [
+        "graphite-dev-guides-ai-code-review-implementation-best-practices"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "cloud-google-com-discover-what-is-prompt-engineering",
+          "group": "reading",
+          "title": "Prompt Engineering Overview",
+          "chars": 13812
+        }
+      ],
+      "chars": 13812,
+      "id": "t19",
+      "slugs": [
+        "cloud-google-com-discover-what-is-prompt-engineering"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3",
+          "group": "reading",
+          "title": "How Anthropic Uses Claude Code（第 3/4 部分）",
+          "chars": 14224
+        }
+      ],
+      "chars": 14224,
+      "id": "t20",
+      "slugs": [
+        "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "www-anthropic-com-engineering-claude-code-best-practices__p1",
+          "group": "reading",
+          "title": "Claude Best Practices（第 1/3 部分）",
+          "chars": 15184
+        }
+      ],
+      "chars": 15184,
+      "id": "t21",
+      "slugs": [
+        "www-anthropic-com-engineering-claude-code-best-practices__p1"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "devin-ai-agents101",
+          "group": "reading",
+          "title": "Devin: Coding Agents 101",
+          "chars": 15326
+        }
+      ],
+      "chars": 15326,
+      "id": "t22",
+      "slugs": [
+        "devin-ai-agents101"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2",
+          "group": "reading",
+          "title": "How Anthropic Uses Claude Code（第 2/4 部分）",
+          "chars": 15357
+        }
+      ],
+      "chars": 15357,
+      "id": "t23",
+      "slugs": [
+        "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "www-anthropic-com-engineering-claude-code-best-practices__p2",
+          "group": "reading",
+          "title": "Claude Best Practices（第 2/3 部分）",
+          "chars": 16038
+        }
+      ],
+      "chars": 16038,
+      "id": "t24",
+      "slugs": [
+        "www-anthropic-com-engineering-claude-code-best-practices__p2"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1",
+          "group": "reading",
+          "title": "How Anthropic Uses Claude Code（第 1/4 部分）",
+          "chars": 16111
+        }
+      ],
+      "chars": 16111,
+      "id": "t25",
+      "slugs": [
+        "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "arxiv-org-pdf-2405-13565__p1",
+          "group": "reading",
+          "title": "AI-Assisted Assessment of Coding Practices in Modern Code Review（第 1/3 部分）",
+          "chars": 16678
+        }
+      ],
+      "chars": 16678,
+      "id": "t26",
+      "slugs": [
+        "arxiv-org-pdf-2405-13565__p1"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "research-trychroma-com-context-rot__p2",
+          "group": "reading",
+          "title": "Context Rot: Understanding Degradation in AI Context Windows（第 2/3 部分）",
+          "chars": 16685
+        }
+      ],
+      "chars": 16685,
+      "id": "t27",
+      "slugs": [
+        "research-trychroma-com-context-rot__p2"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "developers-cloudflare-com-agents-guides-remote-mcp-server",
+          "group": "reading",
+          "title": "MCP Server Authentication",
+          "chars": 16702
+        }
+      ],
+      "chars": 16702,
+      "id": "t28",
+      "slugs": [
+        "developers-cloudflare-com-agents-guides-remote-mcp-server"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "stytch-com-blog-model-context-protocol-introduction__p1",
+          "group": "reading",
+          "title": "MCP Introduction（第 1/2 部分）",
+          "chars": 16858
+        }
+      ],
+      "chars": 16858,
+      "id": "t29",
+      "slugs": [
+        "stytch-com-blog-model-context-protocol-introduction__p1"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "research-trychroma-com-context-rot__p1",
+          "group": "reading",
+          "title": "Context Rot: Understanding Degradation in AI Context Windows（第 1/3 部分）",
+          "chars": 16875
+        }
+      ],
+      "chars": 16875,
+      "id": "t30",
+      "slugs": [
+        "research-trychroma-com-context-rot__p1"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "www-promptingguide-ai-techniques",
+          "group": "reading",
+          "title": "Prompt Engineering Guide",
+          "chars": 17297
+        }
+      ],
+      "chars": 17297,
+      "id": "t31",
+      "slugs": [
+        "www-promptingguide-ai-techniques"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p11",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 11/12 部分）",
+          "chars": 17418
+        }
+      ],
+      "chars": 17418,
+      "id": "t32",
+      "slugs": [
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p11"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p1",
+          "group": "reading",
+          "title": "Agentic AI Threats: Identity Spoofing and Impersonation Risks（第 1/12 部分）",
+          "chars": 17818
+        }
+      ],
+      "chars": 17818,
+      "id": "t33",
+      "slugs": [
+        "unit42-paloaltonetworks-com-agentic-ai-threats__p1"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62",
+          "group": "reading",
+          "title": "Peeking Under the Hood of Claude Code",
+          "chars": 20415
+        }
+      ],
+      "chars": 20415,
+      "id": "t34",
+      "slugs": [
+        "medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer",
+          "group": "reading",
+          "title": "How to Review Code Effectively",
+          "chars": 20526
+        }
+      ],
+      "chars": 20526,
+      "id": "t35",
+      "slugs": [
+        "github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "www-splunk-com-en-us-blog-learn-sast-vs-dast",
+          "group": "reading",
+          "title": "SAST vs DAST",
+          "chars": 20909
+        }
+      ],
+      "chars": 20909,
+      "id": "t36",
+      "slugs": [
+        "www-splunk-com-en-us-blog-learn-sast-vs-dast"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "sre-google-sre-book-introduction",
+          "group": "reading",
+          "title": "Introduction to Site Reliability Engineering",
+          "chars": 21143
+        }
+      ],
+      "chars": 21143,
+      "id": "t37",
+      "slugs": [
+        "sre-google-sre-book-introduction"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "www-anthropic-com-engineering-writing-tools-for-agents",
+          "group": "reading",
+          "title": "Writing Effective Tools for Agents",
+          "chars": 21754
+        }
+      ],
+      "chars": 21754,
+      "id": "t38",
+      "slugs": [
+        "www-anthropic-com-engineering-writing-tools-for-agents"
+      ]
+    },
+    {
+      "files": [
+        {
+          "slug": "github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca",
+          "group": "reading",
+          "title": "Getting AI to Work In Complex Codebases",
+          "chars": 23567
+        }
+      ],
+      "chars": 23567,
+      "id": "t39",
+      "slugs": [
+        "github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+MIT License
+
+Copyright (c) 2026 郭裕森 (Guo Yusen)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+适用范围说明（重要）
+--------------------
+
+本 MIT 许可**仅覆盖本仓库的流水线代码**，即：
+
+    src/        流水线源码与自研抽取器
+    scripts/    一键复现脚本
+    tests/      冒烟测试
+    config/     配置（来源清单、术语回正规则表）
+
+**不覆盖**译文与原文素材。以下目录的内容版权归原作者，授权另见 `LICENSE-CONTENT.md`：
+
+    corpus/     英文语料与中文译文
+    translated/ 成品译文
+    glossary/   术语表（术语本身源自原文）
+    sources/    原始素材（默认不入版本库）
+    reports/    由语料派生的报告
+
+之所以分层授权，是因为"代码是我的、译文不是"。把两者混在一个许可下，
+要么让代码无法被自由复用，要么让原作者的版权被稀释 —— 分层是唯一诚实的做法。

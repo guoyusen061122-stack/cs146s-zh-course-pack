@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-09-25T12:19:47+08:00",
+  "slug": "fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made",
+  "stats": {
+    "blocks_en": 189,
+    "blocks_zh": 189,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 42,
+    "term_violations": 0,
+    "term_missing": 1,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": [
+      "[术语缺失] embedding 在原文出现但译文中未见定译「嵌入」"
+    ]
+  },
+  "issues": []
+}

@@ -1,0 +1,236 @@
+# How OpenAI Uses Codex
+
+## Slide 1
+
+How OpenAI uses Codex
+
+## Slide 2
+
+Contents
+Introduction
+3
+Use Cases
+Code understanding
+4 efactoring and migrations erformance otimiation
+6
+Imroving test coverage
+7
+Increasing develoment velocity
+8
+Staying in flow
+9
+Exloration and ideation
+10
+Best ractices
+11
+Looking Ahead
+12
+2
+How OenAI uses Codex
+
+## Slide 3
+
+Introduction
+Codex is used daily across numerous technical teams at OpenAI like Security, Product Engineering,
+Frontend, API, Infrastructure, and Performance Engineering. Teams are using it to accelerate a range of engineering tasks, from understanding complex systems and refactoring large codebases to shipping new features and resolving incidents under tight deadlines.
+Drawing from interviews with OpenAI engineers and internal usage data, we’ve compiled use cases and best practices that highlight how Codex helps our teams move faster, improve work quality, and manage complexity at scale.
+How OpenAI uses Codex
+
+## Slide 4
+
+Use case 1
+Code understanding
+Codex heps our teams get up to speed quicky in unfamiiar parts of the codebase when onboarding, debugging, or investigating an incident.
+They often use Codex to ocate the core ogic of a feature, map out reationships between services or modues, and trace data flow through a system. It aso heps surface architecture patterns or missing pieces of documentation that woud otherwise require significant manua effort to generate.
+During incident response, Codex heps engineers ramp into new areas quicky by surfacing interactions between components or tracing how faiure states propagate across systems.
+Anecdotes om ou tems
+When I fix
+Ask mode to see where else in the codeb s
+Peomnce Enginee,
+Retievl Systems
+When I’m on‑c the st
+Codex where the flow lives. It jumps str so I c
+Site Relibility Enginee,
+API Pltom
+Codex
+‘Where would I do this?’
+repo questions
+Terr w
+DevOps Enginee,
+Instuctue Sevices
+Ty using Codex o code undestnding with these smple pompts:
+W here is the authentication ogic impemented in this repo
+?
+S ummari z e how requests flow through this service from entrypoint to response.
+W hich modues interact with insert modue name and how are faiures handed
+?
+4
+H ow
+O pen
+A
+I uses Codex
+
+## Slide 5
+
+Use case 2
+Refactoring and migrations
+Code is commonly used to make changes that san multile files or ackages. For eamle, when engineers are udating an AP, changing how a attern is imlemented, or migrating to a new deendency, Code makes it easy to aly changes consistently.
+t’s esecially useful when the same udate needs to be made across dozens of files, or when the udate reuires awareness of structure and deendencies that aren’t easily caught with a rege or find-and-relace.
+They’re also using it for code cleanu by breaking u oversized modules, relacing old atterns with modern ones, or rearing code for better testability.
+Anecdotes from our teams
+Cod for our n and op would’v getUserById( )
+Backend Engineer,
+ChatGPT Web
+To cl scan for summariz op
+Product Engineer,
+ChatGPT Enterprise
+Try using Codex for refactoring and migrations with these sample prompts:
+Slit this file into searate modules by concern and generate tests for each one.
+Convert all callback-based database access to async
+/ await.
+5
+H ow
+O enA uses Code
+
+## Slide 6
+
+Use case 3
+Performance optimization
+Coe is use to ientify an aress performance ottlenecks.
+uring tuning or reliaility efforts, engineers prompt Coe to analyze slow or memory-intensive coe paths, such as inefficient loops, reunant operations, or costly ueries an suggest optimize alternatives, often resulting in meaningful gains in efficiency an reliaility.
+Coe is also use to support coe health y ientifying risky or eprecate patterns that are still in active use. Our teams lean on it to help reuce long-term tech et an proactively prevent regressions.
+Anecdotes from our tems
+I use Code e hot paths and drafting batched queries I can later tune.
+Infrstructure Engineer,
+API Relibility
+Code issues quickly— I save 30 minutes of work by spending 5 minutes on a prompt.
+Pltform Engineer,
+Model Serving
+Try using Codex for performnce optimiztion with these smple prompts:
+Optimize this loop for memory efficiency an eplain why your version is faster.
+Fin repeate epensive operations in this reuest hanler an suggest caching opportunities.
+Suggest a faster way to atch B ueries in this function.
+6
+How OpenAI uses Coe
+
+## Slide 7
+
+Use case 4
+Improving test coverage
+Codex elps engineers write tests faster — especially in places were coverage is tin or completely missing.
+en woring on a ug x or refactor, engineers often as Codex to suggest tests tat cover edge cases or liely failure pats. For new code, it can generate unit or integration tests ased on te function signature and surrounding logic.
+Codex is particularly elpful for identifying oundary conditions lie empty inputs, max lengt, or unusual ut valid states tat are often missed in initial tests.
+Anecdotesomoutems
+I point Codex at low‑coverage modules overnight and wake up to runnable unit‑test PRs
+FontendEnginee,
+ChtGPTDesktop
+When switching mono-repo branches is painful, I have Codex write the tests and kick-off CI while I keep working on my branch.
+BckendEnginee,
+Pyments&Billing
+TyusingCodexoimpovingtest covegewiththesesmplepompts:
+rite unit tests for tis function, including edge cases and failure pats.
+Generate a property-ased test for tis sorting utility.
+Extend tis test le to cover missing scenarios around null inputs and invalid states.
+7
+How OpenAI uses Codex
+
+## Slide 8
+
+Use case 5
+Increasing development velocity ode helps teams move faster by accelerating both the start and end of the development cycle.
+When kicking off a new featre, engineers se it to scaffold boilerplate — generating folders, modles, and API stbs to get rnnable code p qickly withot hand-wiring every piece.
+As projects approach release, ode helps meet tight deadlines by handling smaller bt essential tasks like triaging bgs, filling in last-mile implementation gaps, and generating rollot scripts, telemetry hooks, or config files.
+It’s also sed to trn prodct feedback into starter code. Engineers often paste in a ser reqest or spec and have ode generate a rogh draft they can retrn to and refine later.
+Anecdotes from our teams
+I was in meetings all day and still merged background.
+Product Engineer,
+ChatGPT Enterprise
+Codex helped ship 3- perfectly that would’ve languished in the backlog, which was super empowering.
+Full‑Stack Engineer,
+Internal Tools
+Try using Codex for increasing development velocity with these sample prompts:
+Scaffold a new API rote for POST /events with basic validation and logging.
+G enerate a telemetry hook for tracking sccess/failre of the new onboarding fl ow, sing this template
+[ insert eample of yor telemetry code
+]
+.
+reate a stb implementation based on this spec
+:
+[ insert spec or prodct feedback
+]
+.
+H ow OpenAI ses ode
+
+## Slide 9
+
+Use case 6
+Staying in flow
+Coex elps our engineers stay prouctive wen teir sceules are fragmente an lle wit interruptions.
+It’s use to capture unnise wor, turn notes into woring prototypes, or spin off exploratory tass tat can be revisite later. Tis maes it easier to pause an resume wor witout losing context, especially wen tey’re on call or ave a lot of meetings.
+Anecdoeomouem instead of swapping branches and review its PR when
+BckendEnginee,
+ChGPTAPI traces, issues and more to Codex so stay focused on high priority work.
+APIEnginee,
+InucueObevbiliy
+TyuingCodexoyinginlow wihheemplepomp:
+Generate a plan to refactor tis service an split it into smaller moules.
+Stub out te retry logic an a a TODO —
+I’ll ll in te bacoff logic later.
+Summari z e tis le so I can pic up were
+I left off tomorrow.
+9
+H ow Open
+A
+I uses Coex
+
+## Slide 10
+
+Use case 7
+Exploration and ideation
+Codex is also useful for open-ended ork like finding alternative solutions or validating design decisions. You can propt for different ays of solving a proble, explore unfailiar patterns, or pressure-test assuptions. This helps surface tradeoffs, expand design options, and sharpen ipleentation choices.
+It’s also used to identify related bugs. Given a knon issue or deprecated ethod, Codex can identify siilar patterns elsehere in the code, aking it easier to catch regressions or finish cleanup ork.
+Anecdotes fom ou tems
+Cod probl scaffolds cod
+Poduct Enginee,
+ChtGPT Desktop
+Aft bugs might lurk, th
+Pefomnce Enginee,
+Retievl Systems
+Ty using Codex fo explotion nd idetion with these smple pompts
+Ho ould this ork if the syste ere event-driven instead of request/response?
+Find all odules that anually build SQL strings instead of using our query builder.
+R erite this in a ore functional style, avoid utation and side effects.
+10
+Ho
+O pen
+A
+I uses Codex
+
+## Slide 11
+
+Best practices
+Codex works best when it’s given structure, context, and room to iterate. Here are some of the habits OpenAI teams are cultivating to get consistent value out of it in day-to-day work.
+wsMoe
+For large changes, start by prompting Codex for an implementation plan using Ask mode, which then becomes the input for follow-up prompts when you switch to Code Mode.
+This two-step flow keeps Codex grounded and helps avoid errors in its output. Codex works best with well-scoped tasks that would take you or a teammate about an hour to complete or a few hundred lines of code to implement. As models improve, expect the size of the tasks it can take on to increase.
+IevelympoveCoex’s evelopme
+Setting a startup script, environment variables, and internet access significantly reduces Codex’s error rate. As you run tasks, look for build errors that can be corrected in Codex’s environment configuration. This may take a few iterations, but gives significant efficiency gains in the long run.
+ucueyoupompsf youew
+Codex responds better when prompts mirror how you’d describe a change in a PR or issue. That means including file paths, component names, diffs, and doc snippets when relevant. Prompting with patterns like “Implement this the same way it’s done in [module X]” improves results.
+UseeCoexsqueue slgwegbclog
+Fire off tasks to capture tangential ideas, partial work, or incidental fixes. There’s no pressure to generate a full PR in one go. Codex works well as a staging area you can return to when you’re back in focus.
+11
+How OpenAI uses Codex
+
+## Slide 12
+
+Best practices
+Use AGENTS.md to supply persistent context
+Maintain an AGENTS.d fie t hep dex perate re effectivey in yr rep acrss prpts. These fies typicay incde naing cnventins, bsiness gic, knwn qirks, r dependencies dex can’t infer fr the cde ane. earn re n strctring yr AGENTS.d fie in the dcs.
+Leverage “Best of N”
+to improve output
+The Best-f-N featre ets y sitanesy generate tipe respnses fr a singe task t qicky expre tipe stins and pick the best ne. Fr re cpicated tasks, y can review severa iteratins and cbine parts f different respnses t get a strnger rest.
+king ahead dex is sti in research preview, bt it’s aready aking a rea ipact in hw we bid, heping s ve faster, write better cde, and take n wrk that wd’ve therwise never been priritized.
+We’re excited by the ptentia ahead — as r des get better and dex beces re deepy integrated int r wrkflws, we’re king frward t ncking even re pwerf ways t devep sftware with it. We’ cntine t share what we earn ang the way.
+12
+Hw OpenAI ses dex

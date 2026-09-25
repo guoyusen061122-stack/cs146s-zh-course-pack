@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Observability Basics You Should Know</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Observability Basics You Should Know</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 10,754 字符 ｜ 81 个内容块 ｜ <a href="https://last9.io/blog/traces-spans-observability-basics/" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>追踪与跨度：你应该了解的可观测性基础</h1></div><div class="en"><h1>Traces &amp; Spans: Observability Basics You Should Know</h1></div></div>
+<div class="pair"><div class="zh"><blockquote>了解追踪与跨度如何帮你看见分布式系统内部——从而更快排查问题，并构建更可靠的软件。</blockquote></div><div class="en"><blockquote>Learn how traces and spans help you see inside distributed systems—so you can troubleshoot faster and build more reliable software.</blockquote></div></div>
+<div class="pair"><div class="zh"><p>来源：https://last9.io/blog/traces-spans-observability-basics/</p></div><div class="en"><p>Source: https://last9.io/blog/traces-spans-observability-basics/</p></div></div>
+<div class="pair"><div class="zh"><p>在现代软件架构中，应用不只是变得更大——它们变得更加分布式。微服务、无服务器函数和容器跨多个环境运行，要理解系统内部正在发生什么，可能就像在暴风雨中追踪一滴雨。</p></div><div class="en"><p>In modern software architecture, applications aren't just getting bigger—they're getting more distributed. With microservices, serverless functions, and containers running across multiple environments, understanding what's happening inside your systems can feel like trying to track a single raindrop in a storm.</p></div></div>
+<div class="pair"><div class="zh"><p>这正是追踪与跨度登场的地方。这些可观测性工具不是流行词——它们是你读懂复杂分布式系统的秘密武器。我们来拆解追踪与跨度是什么、为什么重要，以及如何用它们更快排查问题、构建更可靠的系统。</p></div><div class="en"><p>That's where traces and spans come in. These observability tools aren't just buzzwords—they're your secret weapon for making sense of complex distributed systems. Let's break down what traces and spans are, why they matter, and how you can use them to troubleshoot faster and build more reliable systems.</p></div></div>
+<div class="pair"><div class="zh"><h2>理解追踪与跨度：核心概念</h2></div><div class="en"><h2>Understanding Traces and Spans: Core Concepts</h2></div></div>
+<div class="pair"><div class="zh"><p><strong>追踪（trace）</strong>记录一个请求在分布式系统中穿行的旅程。可以把一条追踪理解为某个请求从头到尾的完整故事——从用户点击按钮，到用户看到结果。</p></div><div class="en"><p><strong>Traces</strong> capture the journey of a request as it moves through your distributed system. Think of a trace as the complete story of a request from start to finish—from when a user clicks a button until they see the result.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>跨度（span）</strong>是构成追踪的积木。每个跨度代表这段旅程中的一个工作单元——比如一次数据库查询、一次 API 调用或一次函数执行。跨度可以相互嵌套，以体现操作之间的父子关系。</p></div><div class="en"><p><strong>Spans</strong> are the building blocks of traces. Each span represents a unit of work within that journey—like a database query, an API call, or a function execution. Spans nest within each other to show parent-child relationships between operations.</p></div></div>
+<div class="pair"><div class="zh"><p>用简单的话说，它们的关系是：</p></div><div class="en"><p>Here's the relationship in simple terms:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>一条追踪包含多个跨度</li><li>每个跨度代表一个操作</li><li>跨度带有时间数据和元数据</li><li>跨度可以嵌套，以体现操作之间如何相互关联</li></ul></div><div class="en"><ul><li>A trace contains multiple spans</li><li>Each span represents one operation</li><li>Spans have timing data and metadata</li><li>Spans can be nested to show how operations relate to each other</li></ul></div></div>
+<div class="pair code"><pre><code>Trace
+├── Span (API Gateway)
+│   ├── Span (Auth Service)
+│   └── Span (User Service)
+│       └── Span (Database Query)
+└── Span (Response Formatting)</code></pre></div>
+<div class="pair"><div class="zh"><p>如果你好奇追踪与跨度如何与<a href="https://last9.io/blog/understanding-metrics-events-logs-traces-key-pillars-of-observability/" target="_blank" rel="noopener">指标、日志和事件</a>并列，这篇文章把四者都拆解了。</p></div><div class="en"><p>If you're curious how traces and spans fit alongside <a href="https://last9.io/blog/understanding-metrics-events-logs-traces-key-pillars-of-observability/" target="_blank" rel="noopener">metrics, logs, and events</a>, this post breaks down all four.</p></div></div>
+<div class="pair"><div class="zh"><h2>追踪与跨度对 DevOps 从业者的价值</h2></div><div class="en"><h2>Benefits of Traces and Spans for DevOps Professionals</h2></div></div>
+<div class="pair"><div class="zh"><p>你的系统很复杂，跑着几十个微服务。突然，用户反馈结账流程很慢。没有追踪，你就得逐个检查每个服务，白白浪费宝贵时间。</p></div><div class="en"><p>You're running a complex system with dozens of microservices. Suddenly, users report the checkout process is slow. Without tracing, you'd need to check each service individually, wasting precious time.</p></div></div>
+<div class="pair"><div class="zh"><p>有了追踪与跨度，你可以：</p></div><div class="en"><p>With traces and spans, you can:</p></div></div>
+<div class="pair"><div class="zh"><ol><li><strong>立刻找到瓶颈</strong>：准确看出是哪个服务或函数耗时过长</li><li><strong>跨服务边界调试</strong>：跟踪请求在服务之间跳转的过程</li><li><strong>理解依赖关系</strong>：把服务之间如何连接与依赖可视化</li><li><strong>改进性能</strong>：精准识别并修复缓慢的操作</li><li><strong>缩短平均恢复时间（MTTR）</strong>：问题出现时更快找到根因</li></ol></div><div class="en"><ol><li><strong>Find bottlenecks instantly</strong>: See exactly which service or function is taking too long</li><li><strong>Debug across service boundaries</strong>: Follow requests as they jump between services</li><li><strong>Understand dependencies</strong>: Visualize how your services connect and depend on each other</li><li><strong>Improve performance</strong>: Identify and fix slow operations with precision</li><li><strong>Reduce mean time to recovery (MTTR)</strong>: Get to the root cause faster when issues arise</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>追踪与跨度的技术实现</h2></div><div class="en"><h2>Technical Implementation of Traces and Spans</h2></div></div>
+<div class="pair"><div class="zh"><p>我们来深入了解分布式系统中的追踪是如何工作的。</p></div><div class="en"><p>Let's get into the nuts and bolts of how tracing works in distributed systems.</p></div></div>
+<div class="pair"><div class="zh"><h3>追踪上下文与传播</h3></div><div class="en"><h3>Trace Context and Propagation</h3></div></div>
+<div class="pair"><div class="zh"><p>要让追踪跨服务边界生效，每个服务都需要知道自己正在处理同一个请求的一部分。这通过<strong>上下文传播</strong>实现——在服务之间传递追踪 ID 和跨度 ID。</p></div><div class="en"><p>For tracing to work across service boundaries, each service needs to know it's handling part of the same request. This happens through <strong>context propagation</strong>—passing a trace ID and span ID between services.</p></div></div>
+<div class="pair"><div class="zh"><p>请求首次到达你的系统时，会被分配一个唯一的追踪 ID。当请求在服务之间流转时，这个 ID 随之传递（通常放在 HTTP 头里）。每个服务随后创建自己的跨度，但都关联到同一条追踪。</p></div><div class="en"><p>When a request first hits your system, it gets assigned a unique trace ID. As the request moves between services, this ID travels with it (usually as HTTP headers). Each service then creates its own spans but links them to the same trace.</p></div></div>
+<div class="pair"><div class="zh"><h3>跨度属性与事件</h3></div><div class="en"><h3>Span Attributes and Events</h3></div></div>
+<div class="pair"><div class="zh"><p>跨度不只是时间戳——它们富含数据：</p></div><div class="en"><p>Spans aren't just timestamps—they're rich with data:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>名称</strong>：这个跨度代表什么操作</li><li><strong>时间</strong>：开始与结束时间</li><li><strong>状态</strong>：成功、错误等</li><li><strong>属性</strong>：自定义键值对（例如 <code>user_id</code> 或 <code>cart_size</code>）</li><li><strong>事件</strong>：跨度内值得注意的事件</li><li><strong>链接</strong>：与其他跨度的连接</li></ul></div><div class="en"><ul><li><strong>Name</strong>: What operation this span represents</li><li><strong>Timing</strong>: Start and end times</li><li><strong>Status</strong>: Success, error, etc.</li><li><strong>Attributes</strong>: Custom key-value pairs (like <code>user_id</code> or <code>cart_size</code>)</li><li><strong>Events</strong>: Notable occurrences within the span</li><li><strong>Links</strong>: Connections to other spans</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>采样策略</h3></div><div class="en"><h3>Sampling Strategies</h3></div></div>
+<div class="pair"><div class="zh"><p>对所有请求都做追踪会产生海量数据。因此大多数系统使用采样——只收集一定比例的追踪。聪明的采样策略包括：</p></div><div class="en"><p>Tracing everything can create massive amounts of data. That's why most systems use sampling—collecting only a percentage of traces. Smart sampling strategies include:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>头部采样</strong>：在请求开始时决定是否采样</li><li><strong>尾部采样</strong>：在请求结束后决定（更擅长捕获错误）</li><li><strong>优先级采样</strong>：始终追踪重要操作，常规操作则采样</li></ul></div><div class="en"><ul><li><strong>Head-based sampling</strong>: Decide whether to sample at the beginning of a request</li><li><strong>Tail-based sampling</strong>: Decide after the request completes (better for catching errors)</li><li><strong>Priority sampling</strong>: Always trace important operations, but sample routine ones</li></ul></div></div>
+<div class="pair"><div class="zh"><p>如果你想了解可观测性、遥测和监控之间的区别，可以看看这篇文章：<a href="https://last9.io/blog/observability-vs-telemetry-vs-monitoring/" target="_blank" rel="noopener">可观测性 vs 遥测 vs 监控</a>。</p></div><div class="en"><p>If you're looking to understand the differences between observability, telemetry, and monitoring, check out this helpful post: <a href="https://last9.io/blog/observability-vs-telemetry-vs-monitoring/" target="_blank" rel="noopener">Observability vs Telemetry vs Monitoring</a>.</p></div></div>
+<div class="pair"><div class="zh"><h2>追踪实现指南：工具与框架</h2></div><div class="en"><h2>Tracing Implementation Guide: Tools and Frameworks</h2></div></div>
+<div class="pair"><div class="zh"><p>准备好给系统加上追踪了吗？以下是你需要的东西：</p></div><div class="en"><p>Ready to add tracing to your systems? Here's what you need:</p></div></div>
+<div class="pair"><div class="zh"><h3>OpenTelemetry：行业标准</h3></div><div class="en"><h3>OpenTelemetry: The Industry Standard</h3></div></div>
+<div class="pair"><div class="zh"><p><a href="https://opentelemetry.io/" target="_blank" rel="noopener">OpenTelemetry</a> 已经成为实现追踪与跨度的首选框架。它提供：</p></div><div class="en"><p><a href="https://opentelemetry.io/" target="_blank" rel="noopener">OpenTelemetry</a> has become the go-to framework for implementing traces and spans. It provides:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>覆盖所有主流编程语言的库</li><li>厂商中立的 API 与 SDK</li><li>对流行框架的自动埋点</li><li>一套一致的数据收集与导出方式</li></ul></div><div class="en"><ul><li>Libraries for all major programming languages</li><li>A vendor-neutral API and SDK</li><li>Automatic instrumentation for popular frameworks</li><li>A consistent way to collect and export data</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>追踪工具箱</h3></div><div class="en"><h3>The Tracing Toolbox</h3></div></div>
+<div class="pair"><div class="zh"><p>有若干工具可以帮你收集、存储和可视化追踪：</p></div><div class="en"><p>Several tools can help you collect, store, and visualize your traces:</p></div></div>
+<div class="pair"><div class="zh"><table><thead><tr><th>工具</th><th>类型</th><th>最适合</th></tr></thead><tbody><tr><td>Last9</td><td>一体化可观测性</td><td>高性价比、可预测定价的高基数可观测性</td></tr><tr><td>Jaeger</td><td>开源追踪</td><td>自托管的追踪可视化</td></tr><tr><td>Zipkin</td><td>开源追踪</td><td>简单的分布式追踪</td></tr><tr><td>Grafana Tempo</td><td>追踪后端</td><td>与 Grafana 仪表板集成</td></tr><tr><td>OpenTelemetry Collector</td><td>数据收集流水线</td><td>处理并路由遥测数据</td></tr></tbody></table></div><div class="en"><table><thead><tr><th>Tool</th><th>Type</th><th>Best For</th></tr></thead><tbody><tr><td>Last9</td><td>All-in-one observability</td><td>Cost-effective, high-cardinality observability with predictable pricing</td></tr><tr><td>Jaeger</td><td>Open-source tracing</td><td>Self-hosted tracing visualization</td></tr><tr><td>Zipkin</td><td>Open-source tracing</td><td>Simple distributed tracing</td></tr><tr><td>Grafana Tempo</td><td>Tracing backend</td><td>Integration with Grafana dashboards</td></tr><tr><td>OpenTelemetry Collector</td><td>Data collection pipeline</td><td>Processing and routing telemetry data</td></tr></tbody></table></div></div>
+<div class="pair"><div class="zh"><p>如果你在寻找一款符合预算的可观测性方案，<a href="https://last9.io/" target="_blank" rel="noopener">Last9</a> 值得一看。它按摄取事件计费，让成本保持可预测。此外，我们的平台能在规模上处理高基数数据，并与 OpenTelemetry 和 Prometheus 集成，把你的指标、日志和追踪汇集到一处。</p></div><div class="en"><p>If you're after an observability solution that fits your budget, <a href="https://last9.io/" target="_blank" rel="noopener">Last9</a> is worth checking out. With pricing based on ingested events, it keeps things predictable. Plus, our platform handles high-cardinality data at scale and integrates with OpenTelemetry and Prometheus to bring your metrics, logs, and traces together in one place.</p></div></div>
+<div class="pair"><div class="zh"><h3>在代码中实现追踪</h3></div><div class="en"><h3>Implementing Tracing in Your Code</h3></div></div>
+<div class="pair"><div class="zh"><p>下面是一个简化示例，演示如何在 Node.js 应用中使用 OpenTelemetry 创建跨度：</p></div><div class="en"><p>Here's a simplified example of how to create spans in a Node.js application using OpenTelemetry:</p></div></div>
+<div class="pair code"><pre><code class="language-javascript">// Initialize the OpenTelemetry SDK (once in your app)
+const { NodeTracerProvider } = require(&quot;@opentelemetry/sdk-trace-node&quot;);
+const { SimpleSpanProcessor } = require(&quot;@opentelemetry/sdk-trace-base&quot;);
+const {
+  OTLPTraceExporter,
+} = require(&quot;@opentelemetry/exporter-trace-otlp-http&quot;);
+
+const provider = new NodeTracerProvider();
+const exporter = new OTLPTraceExporter({
+  url: &quot;http://localhost:4318/v1/traces&quot;,
+});
+provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
+provider.register();
+
+// Get a tracer
+const { trace } = require(&quot;@opentelemetry/api&quot;);
+const tracer = trace.getTracer(&quot;my-service&quot;);
+
+// Create spans in your code
+async function processOrder(orderId) {
+  const span = tracer.startSpan(&quot;process-order&quot;);
+
+  // Add attributes to the span
+  span.setAttribute(&quot;order.id&quot;, orderId);
+  span.setAttribute(&quot;customer.type&quot;, &quot;premium&quot;);
+
+  try {
+    // Do work...
+
+    // Create a child span
+    const dbSpan = tracer.startSpan(&quot;database-query&quot;, {
+      parent: span,
+    });
+
+    try {
+      // Run database query...
+      dbSpan.end();
+    } catch (error) {
+      dbSpan.setStatus({ code: SpanStatusCode.ERROR });
+      dbSpan.recordException(error);
+      dbSpan.end();
+      throw error;
+    }
+
+    span.end();
+  } catch (error) {
+    span.setStatus({ code: SpanStatusCode.ERROR });
+    span.recordException(error);
+    span.end();
+    throw error;
+  }
+}</code></pre></div>
+<div class="pair"><div class="zh"><p>想知道 OpenTelemetry 与传统 APM 工具相比如何？这篇文章拆解了关键差异：<a href="https://last9.io/blog/opentelemetry-vs-traditional-apm-tools/" target="_blank" rel="noopener">OpenTelemetry vs 传统 APM 工具</a>。</p></div><div class="en"><p>Wondering how OpenTelemetry stacks up against traditional APM tools? This post breaks down the key differences: <a href="https://last9.io/blog/opentelemetry-vs-traditional-apm-tools/" target="_blank" rel="noopener">OpenTelemetry vs Traditional APM Tools</a>.</p></div></div>
+<div class="pair"><div class="zh"><h2>进阶追踪技术</h2></div><div class="en"><h2>Advanced Tracing Techniques</h2></div></div>
+<div class="pair"><div class="zh"><p>基础追踪就位之后，这些进阶技术可以把你的可观测性提到另一个层次。</p></div><div class="en"><p>Once you've got basic tracing in place, these advanced techniques can take your observability to the next level.</p></div></div>
+<div class="pair"><div class="zh"><h3>分布式上下文管理</h3></div><div class="en"><h3>Distributed Context Management</h3></div></div>
+<div class="pair"><div class="zh"><p>在复杂系统中，你需要管理的不只是追踪 ID。W3C Trace Context 规范为以下内容提供了标准：</p></div><div class="en"><p>In complex systems, you need to manage context beyond just trace IDs. The W3C Trace Context specification provides standards for:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>traceparent</strong>：包含追踪 ID 和父跨度 ID</li><li><strong>tracestate</strong>：允许厂商添加自定义上下文数据</li></ul></div><div class="en"><ul><li><strong>traceparent</strong>: Contains the trace ID and parent span ID</li><li><strong>tracestate</strong>: Allows vendors to add custom context data</li></ul></div></div>
+<div class="pair"><div class="zh"><p>使用这些头部可以确保你的追踪在不同服务和厂商之间都能正常工作。</p></div><div class="en"><p>Using these headers ensures your tracing works across different services and vendors.</p></div></div>
+<div class="pair"><div class="zh"><h3>追踪、指标与日志之间的关联</h3></div><div class="en"><h3>Correlation Between Traces, Metrics, and Logs</h3></div></div>
+<div class="pair"><div class="zh"><p>可观测性真正的威力来自把不同信号连接起来：</p></div><div class="en"><p>The real power of observability comes from connecting different signals:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>样例追踪</strong>：把指标链接到产生它们的追踪</li><li><strong>日志中的追踪 ID</strong>：在日志消息里加上追踪 ID，便于交叉引用</li><li><strong>自定义属性</strong>：在所有遥测类型中使用一致的属性</li></ul></div><div class="en"><ul><li><strong>Exemplar traces</strong>: Link metrics to the traces that generated them</li><li><strong>Trace IDs in logs</strong>: Add trace IDs to log messages for cross-referencing</li><li><strong>Custom attributes</strong>: Use consistent attributes across all telemetry types</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>错误处理与异常跟踪</h3></div><div class="en"><h3>Error Handling and Exception Tracking</h3></div></div>
+<div class="pair"><div class="zh"><p>异常发生时，跨度可以提供关键上下文：</p></div><div class="en"><p>When exceptions occur, spans can provide crucial context:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>给跨度标记错误状态</li><li>记录异常及其堆栈跟踪</li><li>向跨度添加事件，展示错误的演变过程</li><li>创建 baggage 条目，让错误上下文跨服务边界传递</li></ul></div><div class="en"><ul><li>Mark spans with error status</li><li>Record exceptions with stack traces</li><li>Add events to spans that show the error's progression</li><li>Create baggage items that carry error context across service boundaries</li></ul></div></div>
+<div class="pair"><div class="zh"><p>想更深入了解如何提前发现问题、提升系统可靠性，可以看看这篇关于主动监控的文章：<a href="https://last9.io/blog/proactive-monitoring/" target="_blank" rel="noopener">主动监控</a>。</p></div><div class="en"><p>For a deeper look at staying ahead of issues and improving system reliability, check out this post on proactive monitoring: <a href="https://last9.io/blog/proactive-monitoring/" target="_blank" rel="noopener">Proactive Monitoring</a>.</p></div></div>
+<div class="pair"><div class="zh"><h2>真实世界的追踪模式与反模式</h2></div><div class="en"><h2>Real-World Tracing Patterns and Anti-Patterns</h2></div></div>
+<div class="pair"><div class="zh"><h3>有效的追踪模式</h3></div><div class="en"><h3>Effective Tracing Patterns</h3></div></div>
+<div class="pair"><div class="zh"><p><strong>有意义的跨度名称</strong>：使用 <code>service_name/operation</code> 这样一致的命名约定 <strong>合适的粒度</strong>：为重要操作创建跨度，而不是每次函数调用都建 <strong>正确的上下文传播</strong>：确保追踪上下文流经所有通信通道 <strong>有用的属性</strong>：添加有助于排查问题的属性，比如用户 ID 或功能开关 <strong>关注性能开销</strong>：留意创建过多跨度带来的开销</p></div><div class="en"><p><strong>Meaningful span names</strong>: Use consistent naming conventions like <code>service_name/operation</code> <strong>Right granularity</strong>: Create spans for significant operations, not every function call <strong>Proper context propagation</strong>: Ensure trace context flows through all communication channels <strong>Useful attributes</strong>: Add attributes that help with troubleshooting, like user IDs or feature flags <strong>Performance awareness</strong>: Watch out for the overhead of excessive span creation</p></div></div>
+<div class="pair"><div class="zh"><h3>应避免的追踪反模式</h3></div><div class="en"><h3>Tracing Anti-Patterns to Avoid</h3></div></div>
+<div class="pair"><div class="zh"><p><strong>埋点过度</strong>：创建太多跨度会导致性能问题 <strong>丢失上下文</strong>：未能传播上下文会让追踪在服务边界处断开 <strong>命名不一致</strong>：使用不同的命名标准会让追踪更难解读 <strong>数据过多</strong>：把大体积载荷放进跨度会压垮追踪后端 <strong>忽视第三方服务</strong>：缺少外部调用的跨度会形成盲区</p></div><div class="en"><p><strong>Over-instrumentation</strong>: Creating too many spans can cause performance issues <strong>Missing context</strong>: Failing to propagate context breaks traces across service boundaries <strong>Inconsistent naming</strong>: Using different naming standards makes traces harder to interpret <strong>Too much data</strong>: Putting large payloads in spans can overwhelm your tracing backend <strong>Ignoring third-party services</strong>: Missing spans for external calls creates blind spots</p></div></div>
+<div class="pair"><div class="zh"><p>探索可观测性为何是 LLM 性能与可靠性的核心：<a href="https://last9.io/blog/llm-observability/" target="_blank" rel="noopener">LLM 可观测性</a>。</p></div><div class="en"><p>Explore how observability is central to the performance and reliability of LLMs: <a href="https://last9.io/blog/llm-observability/" target="_blank" rel="noopener">LLM Observability</a>.</p></div></div>
+<div class="pair"><div class="zh"><h2>追踪与跨度的业务价值：超越技术收益</h2></div><div class="en"><h2>Business Value of Traces and Spans: Beyond Technical Benefits</h2></div></div>
+<div class="pair"><div class="zh"><p>追踪不只是用来排查问题——它们也能带来业务洞察：</p></div><div class="en"><p>Traces aren't just for troubleshooting—they can provide business insights too:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>端到端追踪关键用户旅程</li><li>衡量关键业务操作的性能</li><li>基于追踪数据设定 SLO（服务级别目标）</li><li>用真实用户的语言量化性能问题的代价</li><li>通过给跨度添加相关属性来构建业务上下文</li></ul></div><div class="en"><ul><li>Track critical user journeys from end-to-end</li><li>Measure the performance of key business operations</li><li>Set SLOs (Service Level Objectives) based on trace data</li><li>Quantify the cost of performance issues in real user terms</li><li>Create business context by adding relevant attributes to spans</li></ul></div></div>
+<div class="pair"><div class="zh"><p>当你能展示技术改进如何影响用户体验和业务指标时，你就在 DevOps 与业务相关方之间架起了桥梁。</p></div><div class="en"><p>When you can show how technical improvements affect user experience and business metrics, you bridge the gap between DevOps and business stakeholders.</p></div></div>
+<div class="pair"><div class="zh"><h2>结论</h2></div><div class="en"><h2>Conclusion</h2></div></div>
+<div class="pair"><div class="zh"><p>追踪与跨度为你提供了透视分布式系统的 X 光视野。它们揭示服务之间隐藏的连接，精准定位性能瓶颈，并大幅加快调试速度。</p></div><div class="en"><p>Traces and spans give you X-ray vision into your distributed systems. They reveal the hidden connections between services, pinpoint performance bottlenecks, and dramatically speed up debugging.</p></div></div>
+<div class="pair"><div class="zh"><p>随着系统变得愈发复杂，这类可观测性不是奢侈品——而是必需品。</p></div><div class="en"><p>As systems grow more complex, this kind of observability isn't a luxury—it's essential.</p></div></div>
+<div class="pair"><div class="zh"><p>如果你想继续讨论分布式追踪与可观测性，欢迎加入我们的 <a href="https://discord.com/invite/W8gMppQC4b" target="_blank" rel="noopener">Discord 社区</a>，DevOps 从业者在那里分享经验与最佳实践！</p></div><div class="en"><p>If you'd like to continue the conversation about distributed tracing and observability, join our <a href="https://discord.com/invite/W8gMppQC4b" target="_blank" rel="noopener">Discord Community</a> where DevOps professionals share their experiences and best practices!</p></div></div>
+<div class="pair"><div class="zh"><h2>常见问题</h2></div><div class="en"><h2>FAQs</h2></div></div>
+<div class="pair"><div class="zh"><h3>追踪与日志有什么区别？</h3></div><div class="en"><h3>What's the difference between tracing and logging?</h3></div></div>
+<div class="pair"><div class="zh"><p>日志记录离散事件，而追踪展示跨服务的操作之间的关系。日志告诉你发生了什么；追踪告诉你它是如何发生的。</p></div><div class="en"><p>Logging captures discrete events, while tracing shows the relationships between operations across services. Logs tell you what happened; traces show you how it happened.</p></div></div>
+<div class="pair"><div class="zh"><h3>加上追踪会让我的应用变慢吗？</h3></div><div class="en"><h3>Will adding tracing slow down my application?</h3></div></div>
+<div class="pair"><div class="zh"><p>现代追踪库带来的开销极小——配置得当的情况下，性能影响通常低于 3%。通过采样，你还可以进一步降低这种影响。</p></div><div class="en"><p>Modern tracing libraries add minimal overhead — typically less than 3% performance impact when properly configured. With sampling, you can further reduce this impact.</p></div></div>
+<div class="pair"><div class="zh"><h3>我需要改所有代码才能加上追踪吗？</h3></div><div class="en"><h3>Do I need to modify all my code to add tracing?</h3></div></div>
+<div class="pair"><div class="zh"><p>不一定。许多框架提供自动埋点，只需很少的代码改动就能加上追踪。OpenTelemetry 为大多数主流语言中的流行框架提供了自动埋点。</p></div><div class="en"><p>Not necessarily. Many frameworks offer automatic instrumentation that adds tracing with minimal code changes. OpenTelemetry provides auto-instrumentation for popular frameworks in most languages.</p></div></div>
+<div class="pair"><div class="zh"><h3>分布式追踪会产生多大数据量？</h3></div><div class="en"><h3>How much data does distributed tracing generate?</h3></div></div>
+<div class="pair"><div class="zh"><p>这取决于流量、采样率和跨度细节，差异很大。对于繁忙的系统，可以按每天几 GB 到几 TB 来规划。选择合适的可观测性平台，才能把这项成本控制住。</p></div><div class="en"><p>It varies widely based on traffic, sampling rate, and span detail. Plan for anywhere from gigabytes to terabytes per day for busy systems. Choosing the right observability platform is what keeps that cost under control.</p></div></div>
+<div class="pair"><div class="zh"><h3>追踪能帮助满足安全与合规要求吗？</h3></div><div class="en"><h3>Can traces help with security and compliance?</h3></div></div>
+<div class="pair"><div class="zh"><p>可以！追踪为请求在系统中流转的过程留下审计轨迹。配合合适的属性，你可以追踪哪些用户或服务在什么时间访问了哪些数据。</p></div><div class="en"><p>Yes! Traces create an audit trail of request flow through your system. With the right attributes, you can track which users or services accessed what data and when.</p></div></div>
+<div class="pair"><div class="zh"><h3>追踪与跨度如何与其他可观测性信号配合？</h3></div><div class="en"><h3>How do traces and spans fit with other observability signals?</h3></div></div>
+<div class="pair"><div class="zh"><p>追踪与指标、日志互补。指标在高层展示系统健康状况，日志提供详细事件，而追踪把各个点连起来，展示跨服务的请求流转。</p></div><div class="en"><p>Traces complement metrics and logs. Metrics show system health at a high level, logs provide detailed events, and traces connect the dots to show request flows across services.</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

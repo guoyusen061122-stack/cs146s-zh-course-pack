@@ -1,0 +1,398 @@
+# 让 AI 在复杂代码库中真正干活
+
+# 让 AI 在复杂代码库中真正干活
+
+AI 编码工具在真实的生产代码库中很吃力，这一点似乎已被普遍接受。[关于 AI 对开发者生产力影响的斯坦福研究](https://www.youtube.com/watch?v=tbDDYKRFjhk)发现：
+
+1. AI 工具交付的大量「额外代码」，最终只是在返工上周交付的垃圾代码。
+2. 编码智能体非常适合新项目或小改动，但在大型成熟代码库中，它们往往会让开发者的效率*更低*。
+
+常见的反应介于悲观者的「这永远行不通」与更克制的「也许等模型更聪明的那一天」之间。
+
+在几个月的摸索之后，我发现**只要拥抱核心的上下文工程原则，用当今的模型就能走得很远**。
+
+这不是又一篇「让生产力提升 10 倍」的推销。面对 AI 炒作机器，我[一向比较克制](https://hlyr.dev/12fa)。但我们偶然摸索出的一些工作流，让我对可能性相当乐观。我们让 Claude Code 处理 30 万行 LOC 的 Rust 代码库，在一天内交付一周的工作量，并维持能通过专家评审的代码质量。我们使用的是一套我称为「频繁的有意压缩」的技术——在整个开发过程中刻意设计如何向 AI 投喂上下文。
+
+我现在完全确信，AI 编码不只是用来做玩具和原型的，而是一门技术性很强的工程手艺。
+
+**视频版**：如果你更喜欢看视频，本文基于 [8 月 20 日在 Y Combinator 的一次演讲](https://hlyr.dev/ace)
+
+### 来自 AI Engineer 的背景铺垫
+
+AI Engineer 2025 上的两场演讲从根本上塑造了我对这个问题的思考。
+
+第一场是 [Sean Grove 关于「规格即新代码」的演讲](https://www.youtube.com/watch?v=8rABwKRsec4)，第二场是[关于 AI 对开发者生产力影响的斯坦福研究](https://www.youtube.com/watch?v=tbDDYKRFjhk)。
+
+Sean 认为我们*用 vibe coding 的方式全都错了*。跟 AI 智能体聊上两小时、说明你想要什么，然后把所有提示词都丢掉、只提交最终代码……这就像一位 Java 开发者编译出 JAR，把编译产物签入仓库，却把源码扔掉。
+
+Sean 提出，在 AI 的未来，规格将成为真正的代码。两年后，你在 IDE 里打开 python 文件的频率，大约会等同于今天你打开十六进制编辑器去读汇编的频率（对我们大多数人来说，就是从不打开）。
+
+[Yegor 关于开发者生产力的演讲](https://www.youtube.com/watch?v=tbDDYKRFjhk)处理的是一个正交的问题。他们分析了 10 万名开发者的提交，发现的事情之一是，
+
+1. AI 工具常常导致大量返工，削弱了人们感知到的生产力提升
+
+<img width="2008" height="1088" alt="image" src="https://github.com/user-attachments/assets/f7cec497-3ee2-47d1-8f91-a18210625e19" />
+
+2. AI 工具在全新项目上效果很好，但对存量代码库和复杂任务往往适得其反
+
+<img width="1326" height="751" alt="Screenshot 2025-08-29 at 10 55 32 AM" src="https://github.com/user-attachments/assets/06f03232-f9d9-4a92-a182-37056bf877a4" />
+
+这与我同创始人交流时听到的说法一致：
+
+* 「垃圾代码太多。」
+* 「技术债工厂。」
+* 「在大型仓库里不管用。」
+* 「对复杂系统不管用。」
+
+对于用 AI 编码处理难活，普遍的调子往往是
+
+> 也许某一天，等模型更聪明了……
+
+甚至 [Amjad](https://x.com/amasad) 也在 [9 个月前的 lenny's 播客](https://www.lennysnewsletter.com/p/behind-the-product-replit-amjad-masad)里说，产品经理用 Replit agent 给新东西做原型，然后交给工程师去实现生产版本。
+（免责声明：我最近没跟他交流过（好吧，其实从来没有），这个立场可能已经变了）
+
+每当我听到「也许某一天等模型更聪明了」，我一般都会跳起来反驳：**这正是上下文工程的意义所在**——从*当今*的模型里榨取最大价值。
+
+### 今天实际能做到什么
+
+我会在后文深入展开，但为了证明这不只是理论，先举一个具体例子。几周前，我决定在一套 30 万行 LOC 的 Rust 代码库 [BAML](https://github.com/BoundaryML/baml) 上检验我们的技术。BAML 是一门与 LLM 配合使用的编程语言。我顶多算个业余 Rust 开发者，此前从未接触过 BAML 代码库。
+
+大约一小时内，我就提交了一个[修复 bug 的 PR](https://github.com/BoundaryML/baml/pull/2259#issuecomment-3155883849)，第二天早上得到了维护者的批准。几周后，我和 [@hellovai](https://x.com/hellovai) 结对向 BAML 交付了 3.5 万行 LOC，加入了[取消支持](https://github.com/BoundaryML/baml/pull/2357)和 [WASM 编译](https://github.com/BoundaryML/baml/pull/2330)——团队估计这两项功能各需要一位资深工程师花 3–5 天。我们在大约 7 小时内就把两个草稿 PR 准备好了。
+
+再次说明，这一切都围绕我们称为[频繁的有意压缩](#what-works-even-better-frequent-intentional-compaction)的工作流构建——本质上是以上下文管理为中心设计整个开发过程，把利用率保持在 40–60% 区间，并在恰到好处的节点嵌入高杠杆的人工评审。我们用的是「研究、计划、实现」工作流，但这里的核心能力与经验远比任何具体工作流或提示词集合更具普适性。
+
+### 我们走到这里的古怪历程
+
+我曾与一位我见过最高产的 AI 编码者共事。
+每隔几天，他就会丢出 **2000 行的 Go PR**。
+而且这不是什么 nextjs 应用或 CRUD API。这是复杂的、[容易出现竞态的系统代码](https://github.com/humanlayer/humanlayer/blob/main/hld/daemon/daemon_subscription_integration_test.go#L45)，通过 unix socket 做 JSON RPC，并管理来自 fork 出的 unix 进程的流式 stdio（大多是 Claude Code SDK 进程，后面再细说 🙂）。
+
+每隔几天就仔细读完 2000 行复杂 Go 代码，这种做法根本无法持续。我开始有点理解 Mitchell Hashimoto 当初为 ghostty 加上[必须披露 AI 贡献](https://github.com/ghostty-org/ghostty/pull/8289)规则时的心情。
+
+我们的做法是采纳类似 Sean 的**规格驱动开发**。
+
+一开始很不舒服。
+我必须学会放手，不再逐行阅读 PR 代码。
+测试我仍然会读得比较仔细，但规格成了我们判断「在建什么、为什么建」的事实来源。
+
+这个转变花了大约 8 周。
+对参与其中的每个人来说都极不舒服，尤其是我。
+但现在我们飞起来了。几周前，我在一天内交付了 6 个 PR。
+过去三个月里，我手工编辑非 markdown 文件的次数一只手就数得过来。
+
+## 面向编码智能体的高级上下文工程
+
+我们需要的是：
+
+* 在存量代码库中工作良好的 AI
+* 能解决复杂问题的 AI
+* 不产垃圾
+* 在团队内维持认知对齐
+
+（当然啦，也让我们尽量多花点 token。）
+
+我会深入讲：
+
+1. 我们把上下文工程应用于编码智能体时学到的东西
+2. 使用这些智能体为何在多个维度上是一门技术性很强的手艺
+3. 我为什么认为这些方法无法普适
+4. 关于第 3 点，我反复被证明是错的次数
+
+### 但首先：管理智能体上下文的天真做法
+
+我们大多数人一开始都像用聊天机器人那样使用编码智能体。你与它来回交谈（或者[醉醺醺地冲它喊](https://ghuntley.com/six-month-recap/#:~:text=Last%20week%2C%20over%20Zoom%20margaritas%2C%20a%20friend%20and%20I%20reminisced%20about%20COBOL.))，一路凭感觉把问题混过去，直到上下文用尽、你放弃，或者智能体开始道歉。
+
+<img width="7718" height="4223" alt="image" src="https://github.com/user-attachments/assets/7361a203-9d95-42e2-ac16-1f38b04adb58" />
+
+稍微聪明一点的做法是：一旦跑偏就从头开始，丢弃当前会话、开一个新的，也许在提示词里多加一点引导。
+
+> [原始提示词]，但要确保使用 XYZ 方式，因为 ABC 方式行不通
+
+<img width="7727" height="4077" alt="image" src="https://github.com/user-attachments/assets/1bbbc8ad-60da-4f8b-98c3-e6603b04a0ce" />
+
+### 稍微聪明一点：有意压缩
+
+你很可能做过一件我称之为「有意压缩」的事。无论进展是否顺利，当上下文开始填满时，你大概会想暂停工作，用一个全新的上下文窗口重新开始。为此，你可能会用这样一个提示词
+
+> 「把我们目前做的所有事情写到 progress.md，务必记录最终目标、我们采取的方式、目前完成的步骤，以及当前正在处理的失败」
+
+<img width="7309" height="4083" alt="image" src="https://github.com/user-attachments/assets/64b940e5-89b1-4f6c-a79c-ec2810d9af77" />
+
+你也可以[用提交信息来做有意压缩](https://x.com/dexhorthy/status/1961490837017088051)。
+
+### 我们到底在压缩什么？
+
+什么在吞噬上下文？
+
+* 搜索文件
+* 理解代码流转
+* 应用编辑
+* 测试/构建日志
+* 来自工具的巨大 JSON 数据块
+
+这些都会淹没上下文窗口。**压缩**就是把它们蒸馏成结构化的产物。
+
+一次有意压缩的良好产出可能包含类似这样的内容
+
+<img width="1309" height="747" alt="Screenshot 2025-08-29 at 11 10 36 AM" src="https://github.com/user-attachments/assets/a7d5946d-4e81-46e8-b314-d02dae1f00ee" />
+
+### 为什么要执着于上下文？
+
+正如我们在 [12-factor agents](https://hlyr.dev/12fa) 中深入讨论过的，LLM 是无状态函数。在不训练/调优模型本身的前提下，唯一影响输出质量的就是输入的质量。
+
+这一点对[驾驭](https://www.youtube.com/watch?v=F_RyElT_gJk)编码智能体和对通用智能体设计同样成立，只是问题空间更小，而且我们讨论的不是构建智能体，而是使用智能体。
+
+在任意时刻，像 Claude Code 这样的智能体的一轮交互都是一次无状态函数调用。输入上下文窗口，输出下一步。
+
+<img width="7309" height="4083" alt="image" src="https://github.com/user-attachments/assets/c1e920e8-5dc5-4dd2-b76d-853b85a92e6a" />
+
+也就是说，上下文窗口的内容是你影响输出质量的唯一杠杆。所以，确实值得执着。
+
+你应当针对以下方面优化上下文窗口：
+
+1. 正确性
+2. 完整性
+3. 大小
+4. 轨迹
+
+换个说法，上下文窗口可能遭遇的最糟糕情况，按严重程度排序是：
+
+1. 信息不正确
+2. 信息缺失
+3. 噪声过多
+
+如果你喜欢公式，这里有一个很蠢的公式可供参考：
+
+<img width="1320" height="235" alt="Screenshot 2025-08-29 at 11 11 30 AM" src="https://github.com/user-attachments/assets/a6ea98a6-665b-48af-983b-a1cb2c45e44c" />
+
+正如 [Geoff Huntley](https://x.com/GeoffreyHuntley) 所说，
+
+> 这件事的关键在于，你大约只有 **170k 的上下文窗口**可用。
+> 所以，尽可能少用它至关重要。
+> 你用得越多，得到的结果就越差。
+
+Geoff 应对这一工程约束的方案，是一种他称为 [Ralph Wiggum as a Software Engineer](https://ghuntley.com/ralph/) 的技术，基本上就是用一段简单的提示词把智能体放进 while 循环里无限运行。
+
+```
+while :; do
+  cat PROMPT.md | npx --yes @sourcegraph/amp 
+done
+```
+
+如果你想进一步了解 ralph 或 PROMPT.md 里有什么，可以看看 Geoff 的文章，或者研究一下 [@simonfarshid](https://x.com/simonfarshid)、[@lantos1618](https://x.com/lantos1618)、[@AVGVSTVS96](https://x.com/AVGVSTVS96) 和我在上周末 YC Agents Hackathon 上构建的项目——它（基本）能[在一夜之间把 BrowserUse 移植到 TypeScript](https://github.com/repomirrorhq/repomirror/blob/main/repomirror.md)
+
+Geoff 把 ralph 形容为应对上下文窗口问题「蠢得好笑」的方案。[我并不完全确定它蠢](https://ghuntley.com/content/images/size/w2400/2025/07/The-ralph-Process.png)。
+
+### 回到压缩：使用子智能体
+
+子智能体是另一种管理上下文的方式。通用子智能体（即非[自定义](https://docs.anthropic.com/en/docs/claude-code/sub-agents)的子智能体）从早期起就是 Claude Code 和许多编码 CLI 的功能。
+
+子智能体不是用来[过家家、把角色拟人化](https://x.com/dexhorthy/status/1950288431122436597)的。子智能体关乎上下文控制。
+
+子智能体最常见、最直接的用法，是让你用一个全新的上下文窗口去做查找/检索/总结，从而让父智能体直接开始干活，不必用 `Glob` / `Grep` / `Read` 等调用来污染自己的上下文窗口。
+
+https://github.com/user-attachments/assets/cb4e7864-9556-4eaa-99ca-a105927f484d
+
+<details><summary>（手机上无法播放视频？展开查看静态图片版本）</summary>
+ <img width="7309" height="4083" alt="image" src="https://github.com/user-attachments/assets/c72e7dba-1476-4ee9-9cb0-0f97d428b82a" />
+</details>
+
+理想的子智能体响应，大概和上面那种理想的临时压缩看起来差不多
+
+<img width="1309" height="747" alt="Screenshot 2025-08-29 at 11 10 36 AM" src="https://github.com/user-attachments/assets/a7d5946d-4e81-46e8-b314-d02dae1f00ee" />
+
+要让子智能体返回这样的结果并不容易：
+
+<img width="7309" height="4083" alt="image" src="https://github.com/user-attachments/assets/2bcd30f6-84fd-4911-ac15-63f75619e76d" />
+
+### 效果更好的做法：频繁的有意压缩
+
+我想谈的、也是我们过去几个月采纳的技术，都属于我称为「频繁的有意压缩」的做法。
+
+本质上，这意味着围绕上下文管理来设计你的整个工作流，并把利用率保持在 40%–60% 区间（取决于问题的复杂度）。
+
+我们的做法是拆成三步（大概三步）。
+
+我说「大概」，是因为有时我们会跳过研究直接进入计划，有时则要反复做几轮压缩后的研究，才准备开始实现。
+
+下面我会用一个具体例子展示每一步的产出示例。对于给定的功能或 bug，我们通常会做：
+
+**研究**
+
+理解代码库、与该 issue 相关的文件、信息如何流转，也许还有问题的潜在成因。
+
+这是我们用的[研究提示词](https://github.com/humanlayer/humanlayer/blob/main/.claude/commands/research_codebase.md)。
+它目前使用自定义子智能体，但在其他仓库里我用一个更通用的版本，通过 Claude Code 的 Task() 工具配合 `general-agent` 来工作。
+通用版本的效果几乎一样好。
+
+**计划**
+
+列出我们修复该 issue 的确切步骤、需要编辑哪些文件以及如何编辑，并对每个阶段的测试/验证步骤做到极其精确。
+
+这是我们[用于计划的提示词](https://github.com/humanlayer/humanlayer/blob/main/.claude/commands/create_plan.md)。
+
+**实现**
+
+按阶段逐步执行计划。对于复杂工作，在每个实现阶段验证通过后，我常会把当前状态压缩回原始计划文件。
+
+这是我们[使用的实现提示词](https://github.com/humanlayer/humanlayer/blob/main/.claude/commands/implement_plan.md)。
+
+顺带说一句——如果你最近总听到 git worktree，这是唯一需要在 worktree 里完成的步骤。其他事情我们通常都在 main 上做。
+
+**我们如何管理/共享这些 markdown 文件**
+
+为简洁起见这部分我略过，但你可以随时在 [humanlayer/humanlayer](https://github.com/humanlayer/humanlayer) 里启动一个 Claude 会话，问问「thoughts 工具」是怎么工作的。
+
+### 付诸实践
+
+我和 [@vaibhav](https://www.linkedin.com/in/vaigup/) 每周做一次[直播编码](https://github.com/ai-that-works/ai-that-works)，在白板上推演并写出一个高级 AI 工程问题的解法。这是我一周里最期待的事之一。
+
+几周前，我[决定多分享一些过程](https://hlyr.dev/he-gh)，也很好奇我们的内部技术能否一次成型地修复 BAML 那套 30 万行 LOC 的 Rust 代码库——BAML 是一门与 LLM 配合使用的编程语言。我从 @BoundaryML 仓库里挑了一个[（确实偏小的）bug](https://github.com/BoundaryML/baml/issues/1252)，就开始干活了。
+
+你可以[观看这一期](https://hlyr.dev/he-yt)了解更多过程，先概述一下：
+
+**值得注意**：我顶多算个业余 Rust 开发者，而且此前从未在 BAML 代码库中工作过。
+
+#### 研究
+
+- 我生成了一份研究，然后读了它。Claude 判定这个 bug 不成立，代码库本身是正确的。
+- 我把那份研究扔掉，带着更多引导重新发起了一份。
+- 这是我最终使用的[研究文档](https://github.com/ai-that-works/ai-that-works/blob/main/2025-08-05-advanced-context-engineering-for-coding-agents/thoughts/shared/research/2025-08-05_05-15-59_baml_test_assertions.md)
+
+#### 计划
+
+- 研究还在跑的时候，我等不及了，在没有任何研究的情况下发起了一份计划，想看看 Claude 能否直接给出实现计划——[你可以在这里看到](https://github.com/ai-that-works/ai-that-works/blob/main/2025-08-05-advanced-context-engineering-for-coding-agents/thoughts/shared/plans/fix-assert-syntax-validation-no-research.md)
+- 研究完成后，我又发起了一份使用研究结果的实现计划——[你可以在这里看到](https://github.com/ai-that-works/ai-that-works/blob/main/2025-08-05-advanced-context-engineering-for-coding-agents/thoughts/shared/plans/baml-test-assertion-validation-with-research.md)
+
+这两份计划都相当短，但差异明显。它们用不同方式修复问题，测试思路也不同。不展开太多细节：两者「本来都能解决问题」，但基于研究的那份把问题修在了*最恰当*的位置，并给出了符合代码库惯例的测试方案。
+
+#### 实现
+
+- 这一切都发生在播客录制的前一晚。我并行跑了两份计划，并在收工睡觉前把两者都作为 PR 提交了。
+
+到第二天太平洋时间上午 10 点我们上节目时，[那份基于研究的计划所产出的 PR 已经被 @aaron 批准](https://github.com/BoundaryML/baml/pull/2259#issuecomment-3155883849)，而他根本不知道我在为播客做一个小实验 🙂。我们[关掉了另一个 PR](https://github.com/BoundaryML/baml/pull/2258/files)。
+
+所以在最初的 4 个目标中，我们达成了：
+
+- ✅ 在存量代码库中可用（30 万行 LOC 的 Rust 项目）
+- 能解决复杂问题
+- ✅ 不产垃圾（PR 已合并）
+- 保持认知对齐
+
+### 解决复杂问题
+
+Vaibhav 仍然存疑，而我想看看我们能否解决更复杂的问题。
+
+于是几周后，我们两人花了 7 小时（3 小时做研究与计划，4 小时做实现），为 BAML 交付了 3.5 万行 LOC，加入取消支持和 wasm 支持。
+[取消功能的 PR 上周刚被合并](https://github.com/BoundaryML/baml/pull/2357)。[WASM 那个还开着](https://github.com/BoundaryML/baml/pull/2330)，但已经有一个可运行的演示：在浏览器里从 JS 应用调用 wasm 编译的 Rust 运行时。
+
+虽然取消功能的 PR 需要再打磨一点才能越线，但我们只用一天就取得了惊人的进展。Vaibhav 估计，这两个 PR 若由 BAML 团队的资深工程师来做，各需要 3–5 天。
+
+✅ 所以复杂问题我们也能解决。
+
+### 这不是魔法
+
+还记得例子里我读了研究、发现不对就把它扔掉的那段吗？或者我和 Vaibhav 深度投入 7 小时的那段？做这件事时你必须真正投入任务，否则它根本不会奏效。
+
+总有一类人一直在寻找那个能解决一切问题的魔法提示词。它并不存在。
+
+通过研究/计划/实现的流程来做频繁的有意压缩，会让你的表现**更好**；但真正让它**足以应对难题**的，是你把高杠杆的人工评审嵌入了流水线。
+
+<img width="7309" height="4083" alt="image" src="https://github.com/user-attachments/assets/01c7818a-9a0d-4ede-a23b-fb0c2e80f843" />
+
+### 出丑时刻
+
+几周前，我和 [@blakesmith](https://www.linkedin.com/in/bhsmith/) 坐下来花了 7 小时，[试图从 parquet-java 中移除 hadoop 依赖](https://github.com/dexhorthy/parquet-java/blob/remove-hadoop/thoughts/shared/plans/remove-hadoop-dependencies.md)——关于所有出错的地方以及我对原因的推测，我留到另一篇文章再写；简单说，事情并不顺利。一句话总结：研究步骤没有沿依赖树挖得足够深，并且假设了某些类可以在不引入深度嵌套的 hadoop 依赖的情况下上移到上游。
+
+有些大难题不是你花 7 小时靠提示词就能硬推过去的。我们仍然充满好奇与热情地与朋友和伙伴一起探索边界。我想这里还有一条经验：你大概至少需要一位精通该代码库的人，而在这次的情况里，我们俩都不是。
+
+### 关于人的杠杆
+
+如果这一切只能带走一件事，那就带走这个：
+
+一行糟糕的代码……就是一行糟糕的代码。
+但**计划**里的一行糟糕内容，可能导致数百行糟糕的代码。
+而**研究**里的一行糟糕内容——对代码库如何运作、某项功能位于何处的误解——可能让你产出数千行糟糕的代码。
+
+<img width="7309" height="4083" alt="image" src="https://github.com/user-attachments/assets/dab49f61-caae-4c15-b481-ee9b8f64995f" />
+
+所以你要把**人的精力和注意力集中**在流水线中杠杆最高的环节。
+
+<img width="9830" height="4520" alt="image" src="https://github.com/user-attachments/assets/cf981f70-5e61-4938-aa9a-7dcb88c9f8a4" />
+
+评审研究和计划时，你获得的杠杆比评审代码时更大。（顺便说一句，我们 @ [humanlayer](https://hlyr.dev/code) 的主要关注点之一，就是帮助团队构建并利用高质量的工作流提示词，为 AI 生成的代码和规格打造出色的协作工作流）。
+
+### 代码评审是为了什么？
+
+对于代码评审的目的，人们有很多不同看法。
+
+我更倾向于 [Blake Smith 在《Code Review Essentials for Software Teams》中的说法](https://blakesmith.me/2015/02/09/code-review-essentials-for-software-teams.html)：他认为代码评审最重要的部分是认知对齐——让团队成员都清楚代码正在如何变化、以及为什么变化。
+
+<img width="7309" height="4083" alt="image" src="https://github.com/user-attachments/assets/77f4001b-175f-4da6-a6d4-e00b80489476" />
+
+还记得那些 2000 行的 golang PR 吗？我关心它们是否正确、设计是否良好，但团队内部最大的不安与挫败来源是认知对齐的缺失。**我开始对产品是什么、如何运作失去了感知。**
+
+我猜任何与高产 AI 编码者共事过的人都有过这种体验。
+
+对我们来说，这其实是研究/计划/实现中最重要的一部分。
+每个人都交付多得多的代码，必然带来的一个副作用是：在任意时刻，代码库中都有更大比例的部分是任何一位工程师都不熟悉的。
+
+我甚至不打算说服你，研究/计划/实现对大多数团队来说是正确做法——它可能并不是。但你绝对需要一个工程流程，它要
+
+1. 让团队成员保持在同一页上
+2. 让团队成员能快速了解代码库中不熟悉的部分
+
+对大多数团队来说，这就是拉取请求和内部文档。对我们来说，现在是规格、计划和研究。
+
+我没法每天读 2000 行 golang。但我*能*读一份写得好的 200 行实现计划。
+
+出问题时，我没法在 40 多个守护进程代码文件里钻探一个多小时（好吧，我能，但我不想）。我*能*用引导性的研究提示词，快速了解该看哪里、为什么。
+
+### 回顾
+
+基本上，我们得到了需要的一切。
+
+- ✅ 在存量代码库中可用
+- ✅ 能解决复杂问题
+- ✅ 不产垃圾
+- ✅ 保持认知对齐
+
+（哦，还有，我们三个人的团队每月在 opus 上平均花约 1.2 万美元）
+
+为了让你别以为我又是一个[满嘴胡子的炒作型销售](https://www.youtube.com/watch?v=IS_y40zY-hc&lc=UgzFldRM6LU5unLuFn54AaABAg.AMKlTmJAT5ZAMKrOOAMw3I)，我要说明：这并非对每个问题都完美奏效（我们还会再回来的，parquet-java）。
+
+8 月，整个团队花了两周在一个非常棘手的竞态条件上打转，问题一路滚进 golang 中 MCP sHTTP keepalive 的兔子洞，还有一堆其他死胡同。
+
+但现在这已是例外。总体而言，这套做法对我们效果很好。我们的实习生第一天就交付了 2 个 PR，第 8 天交付了 10 个。我原本真心怀疑它对别人是否管用，但我和 Vaibhav 在 7 小时内交付了 3.5 万行可用的 BAML 代码。（如果你没接触过 Vaibhav：在代码设计与质量方面，他是我认识的最一丝不苟的工程师之一。）
+
+### 接下来会怎样
+
+我相当确信，编码智能体会被商品化。
+
+难的部分将是团队与工作流的转型。在一个 AI 编写我们 99% 代码的世界里，协作的方方面面都会改变。
+
+我相当坚定地认为，如果你没搞明白这件事，就会被搞明白的人套圈。
+
+### 好吧，显然你有东西要卖给我
+
+我们非常看好以规格为先的智能体化工作流，所以正在构建工具让它更易用。在众多事情中，我特别着迷于一个问题：如何把这种「频繁的有意压缩」工作流协作式地扩展到大型团队。
+
+今天，我们以非公开测试的形式发布 CodeLayer，这是我们新的「后 IDE 时代的 IDE」——可以理解为「Claude Code 的 Superhuman」。如果你喜欢 Superhuman 和/或 vim 模式，并且准备超越「vibe coding」、认真用智能体来做构建，我们很希望你能加入等候名单。
+
+**在 [https://humanlayer.dev](https://humanlayer.dev) 注册**。
+
+## 致开源维护者——让我们一起交付点什么
+
+如果你是复杂开源项目的维护者，并且人在湾区，我有一个长期有效的提议：我可以在某个周六到旧金山与你线下结对 7 小时，看看我们能否交付点大东西。
+
+我能学到很多关于局限性和这些技术不足之处的东西（运气好的话，还能得到一个已合并、能带来巨大价值、可供我引用的可用 PR）。你能以我发现的唯一有效方式学会这套工作流——直接一对一结对。
+
+## 致工程负责人
+
+如果你或你认识的人是工程负责人，希望用 AI 让团队生产力提升 10 倍，我们正在与各种规模的团队一起前置部署，帮助推动向 AI 优先的编码世界转型所需的文化、流程和技术变革。
+
+### 致谢
+
+- 感谢所有听过本文早期啰嗦版本的朋友和创始人——Adam、Josh、Andrew，以及许许多多其他人
+- 感谢 Sundeep 一起扛过这场古怪的风暴
+- 感谢 Allison、Geoff 和 Gerred 把我们又踢又叫地拖进未来

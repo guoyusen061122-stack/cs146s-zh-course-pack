@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-25T12:19:48+08:00",
+  "slug": "fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code",
+  "stats": {
+    "blocks_en": 121,
+    "blocks_zh": 121,
+    "empty": 0,
+    "untranslated": 2,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 17,
+    "term_violations": 0,
+    "term_missing": 1,
+    "term_consistency": 1.0,
+    "issues": 2,
+    "term_detail": [
+      "[术语缺失] MCP server 在原文出现但译文中未见定译「MCP 服务器」"
+    ]
+  },
+  "issues": [
+    {
+      "kind": "untranslated",
+      "where": "块#53",
+      "detail": "疑似未译英文：output-format stream-json claude models anthropic, bedrock, "
+    },
+    {
+      "kind": "untranslated",
+      "where": "块#55",
+      "detail": "疑似未译英文：claude models anthropic, bedrock, or vertex api claude code "
+    }
+  ]
+}

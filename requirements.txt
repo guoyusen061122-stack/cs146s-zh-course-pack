@@ -1,0 +1,38 @@
+# 依赖说明
+#
+# ┌──────────────────────────────────────────────────────────────────┐
+# │  本项目 **零第三方依赖**。                                       │
+# │  整条流水线只用 Python 标准库（3.9+，实测 3.14）。               │
+# │  因此这个文件里没有一行 pip 依赖 —— 这不是遗漏，是设计结果。      │
+# └──────────────────────────────────────────────────────────────────┘
+#
+# 为什么零依赖
+# ------------
+# 1. **可复现**：评审方不需要装任何东西，`git clone` 之后直接跑脚本。
+# 2. **License 干净**：业界做 PDF 文本提取最常用 PyMuPDF，而它是 AGPL-3.0，
+#    装进 MIT 仓库是明确的授权冲突。改为自研 src/pdftext.py，避开了这个问题。
+# 3. **环境限制**：本机沙箱禁止 pip 写临时目录（工作区路径含中文导致），
+#    任何第三方包都装不上。这条限制被转化成了设计约束，见 README「为什么坚持零依赖」。
+#
+# 用到的标准库模块（无需安装，仅供审计参考）
+# ------------------------------------------
+#   urllib.request / urllib.parse  HTTP 抓取（含证书校验开关）
+#   gzip / zlib                    透明解压、PDF FlateDecode
+#   json / re / os / sys / glob    常规
+#   tarfile / io                   作业仓库 tar.gz 解包
+#   html.parser                    HTML → DOM 树（自研抽取器的底座）
+#   hashlib                        SHA-256 素材校验和
+#   argparse / collections / datetime / shutil / time / textwrap
+#
+# 曾考虑但**主动未采用**的依赖
+# ----------------------------
+#   PyMuPDF       AGPL-3.0  → 授权冲突，自研 src/pdftext.py 替代
+#   trafilatura   Apache-2.0 → 自研 src/htmlmd.py 替代
+#   readability   Apache-2.0 → 同上
+#   Playwright    Apache-2.0 → 体积（200MB+），自研 src/jslit.py 替代
+#   Argos Translate  MIT     → 本机装不上；且离线引擎通顺度上限较低
+#   requests      Apache-2.0 → 标准库 urllib 已足够
+#
+# 若你要接入 LLM API 做全自动翻译（换源复用场景），也不需要装包：
+#   src/s09_translate.py api 用的是标准库 urllib，只需配置环境变量：
+#   CS146S_LLM_BASE / CS146S_LLM_KEY / CS146S_LLM_MODEL

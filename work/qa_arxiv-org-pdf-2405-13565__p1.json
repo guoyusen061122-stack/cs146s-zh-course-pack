@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-09-25T12:34:36+08:00",
+  "slug": "arxiv-org-pdf-2405-13565__p1",
+  "stats": {
+    "blocks_en": 44,
+    "blocks_zh": 44,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 86,
+    "term_violations": 0,
+    "term_missing": 0,
+    "kept_english": 0,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": []
+  },
+  "issues": []
+}

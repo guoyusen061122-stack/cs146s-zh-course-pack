@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>End-to-end apps with a single prompt（fall2025 W8）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>End-to-end apps with a single prompt（fall2025 W8）</h1><div class="meta"><span class="badge">课程讲义</span>fall2025 ｜ 原文 1,503 字符 ｜ 81 个内容块 ｜ <a href="https://docs.google.com/presentation/d/1GrVLsfMFIXMiGjIW9D7EJIyLYh_-3ReHHNd_vRfZUoo/edit?usp=sharing" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>用单个提示词做出端到端应用（fall2025 W8）</h1></div><div class="en"><h1>End-to-end apps with a single prompt（fall2025 W8）</h1></div></div>
+<div class="pair"><div class="zh"><h2>Slide 1</h2></div><div class="en"><h2>Slide 1</h2></div></div>
+<div class="pair"><div class="zh"><p>The Modern Software Developer CS146S Stanford University, Fall 2025 Mihail Eric themodernsoftware.dev</p></div><div class="en"><p>The Modern Software Developer CS146S Stanford University, Fall 2025 Mihail Eric themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 2</h2></div><div class="en"><h2>Slide 2</h2></div></div>
+<div class="pair"><div class="zh"><p>自动化 UI 与应用 构建 themodernsoftware.dev</p></div><div class="en"><p>Automated UI and App Building themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 3</h2></div><div class="en"><h2>Slide 3</h2></div></div>
+<div class="pair"><div class="zh"><p>这不是那门「氛围编程」课 themodernsoftware.dev</p></div><div class="en"><p>This is not the “vibe coding” class themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 4</h2></div><div class="en"><h2>Slide 4</h2></div></div>
+<div class="pair"><div class="zh"><p>……今天除外 themodernsoftware.dev</p></div><div class="en"><p>…except today themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 5</h2></div><div class="en"><h2>Slide 5</h2></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>现代 SaaS 开发已经聚焦于 Web 应用二十多年 为什么 themodernsoftware.dev</p></div><div class="en"><p>Modern SaaS development has focused on web apps for over two decades Why themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 6</h2></div><div class="en"><h2>Slide 6</h2></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>LAMP</p></div><div class="en"><p>LAMP</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>MERN</p></div><div class="en"><p>MERN</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>JAM</p></div><div class="en"><p>JAM</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Serverless 过去的日子 themodernsoftware.dev</p></div><div class="en"><p>Serverless The Old Days themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 7</h2></div><div class="en"><h2>Slide 7</h2></div></div>
+<div class="pair"><div class="zh"><p>过去的日子 themodernsoftware.dev 客户端 服务端 数据库</p></div><div class="en"><p>The Old Days themodernsoftware.dev client-side server-side database</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 8</h2></div><div class="en"><h2>Slide 8</h2></div></div>
+<div class="pair"><div class="zh"><p>过去的日子 themodernsoftware.dev</p></div><div class="en"><p>The Old Days themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 9</h2></div><div class="en"><h2>Slide 9</h2></div></div>
+<div class="pair"><div class="zh"><p>过去的日子 themodernsoftware.dev</p></div><div class="en"><p>The Old Days themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 10</h2></div><div class="en"><h2>Slide 10</h2></div></div>
+<div class="pair"><div class="zh"><p>尝试一：可视化低代码/无代码</p></div><div class="en"><p>Take #1: Visual Low-code/No-code</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Wix</p></div><div class="en"><p>Wix</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Squarespace</p></div><div class="en"><p>Squarespace</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Webflow themodernsoftware.dev</p></div><div class="en"><p>Webﬂow themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 11</h2></div><div class="en"><h2>Slide 11</h2></div></div>
+<div class="pair"><div class="zh"><p>新的 AI 世界</p></div><div class="en"><p>The New AI World</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Lovable</p></div><div class="en"><p>Lovable</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Replit</p></div><div class="en"><p>Replit</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Vercel v0</p></div><div class="en"><p>Vercel v0</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Base44</p></div><div class="en"><p>Base44</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Cursor/Claude Code 等 themodernsoftware.dev</p></div><div class="en"><p>Cursor/Claude Code/etc themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 12</h2></div><div class="en"><h2>Slide 12</h2></div></div>
+<div class="pair"><div class="zh"><p>发生了什么变化</p></div><div class="en"><p>What Has Changed</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>靠提示词就能做出一个功能完备的应用</p></div><div class="en"><p>Prompt your way to a fully ﬂedged app</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>工程师正变得越来越跨职能</p></div><div class="en"><p>Engineers are becoming more cross-functional</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>设计</p></div><div class="en"><p>Design</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>产品管理</p></div><div class="en"><p>Product management</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>现在任何人都能做出一个应用</p></div><div class="en"><p>Anyone can build an app now</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>比 Webflow、Wix、Squarespace 这类第一代无代码平台更易用 themodernsoftware.dev</p></div><div class="en"><p>More user-friendly than 1st generation no-code platforms like Webﬂow, Wix, Squarespace themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 13</h2></div><div class="en"><h2>Slide 13</h2></div></div>
+<div class="pair"><div class="zh"><p>我们现在就做一个应用 themodernsoftware.dev</p></div><div class="en"><p>Let’s Make An App Right Now themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 14</h2></div><div class="en"><h2>Slide 14</h2></div></div>
+<div class="pair"><div class="zh"><p>应用构建器架构 themodernsoftware.dev WebContainer</p></div><div class="en"><p>App Builder Architecture themodernsoftware.dev WebContainer</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 15</h2></div><div class="en"><h2>Slide 15</h2></div></div>
+<div class="pair"><div class="zh"><p>应用构建器系统提示词 themodernsoftware.dev</p></div><div class="en"><p>App Builder System Prompt themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 16</h2></div><div class="en"><h2>Slide 16</h2></div></div>
+<div class="pair"><div class="zh"><p>局限</p></div><div class="en"><p>Limitations</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>一切正常时都很棒，可一旦出问题，我们就回到原点</p></div><div class="en"><p>Everything is awesome when it works but once things break we’re back at square 1</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>提示词只是建议。不是每个用户都明白这一点</p></div><div class="en"><p>Prompts are just suggestions. Not every user understands that</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>过去安全一直是问题</p></div><div class="en"><p>Security has been an issue in the past</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>怎么防止这些应用看起来都一个样？</p></div><div class="en"><p>How do we prevent all these apps from looking the same?</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>这些应用实际上能做到多复杂？ themodernsoftware.dev</p></div><div class="en"><p>How complex can these apps realistically get? themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 17</h2></div><div class="en"><h2>Slide 17</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev 有问题吗？</p></div><div class="en"><p>themodernsoftware.dev Questions?</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

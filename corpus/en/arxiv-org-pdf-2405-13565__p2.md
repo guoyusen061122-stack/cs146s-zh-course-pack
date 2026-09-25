@@ -1,0 +1,99 @@
+=
+.
+. We manually sampled
+Figure 4: Developer feedback throughout deployment.
+several hundred results and observed that around 80% of predictions below the threshold were still correct—that is, the false-negative rate was very high at
+
+=
+.
+. Additionally, we observed that predictions in Python showed a significantly different distribution of confidence scores, which were disproportionately impacted by thresholding. We conjecture that the training dataset composition
+(number of distinct URLs and URL frequencies) and specificity of the best practice documents are reasons, but leave a deeper investiga- tion to future work. An attempt to deploy per-language thresholds proved ineffective as a single threshold per language still did not adequately capture the model’s ability to correctly predict hundreds of diverse best practices. This led to a lack of diversity in predicted
+URLs as the model tended to produce higher scores for some URLs vs. others, irrespective of correctness. These observations led to the first major change to AutoCommenter: per-URL thresholds com- puted based on the intrinsic evaluation on the validation dataset.
+4.1.2 Decoding.
+An evaluation using per-URL thresholds with greedy decoding on full historical code reviews revealed that Auto-
+Commenter detects violations in 6% of all changed files. However,
+80% of comments would have been posted on lines of code not modified by the author. Developers typically do not take action on unchanged code. Consequently, AutoCommenter filters generated comments on unchanged lines of code, reducing the ratio of com- ments in changed files to 1.3%. In order to increase this ratio, we experimented with different decoding strategies: greedy (default), beam search, top-k, and top-p sampling. We settled on beam search
+(generating
+
+= potential responses), which tripled the posting frequency to 3.9%. It also yielded a substantially higher URL diver- sity: the most-frequently posted URLs accounted for 41% of all comments, compared to 80% for greedy search.
+Latency is another important aspect when choosing a decoding strategy for deployment. While beam search increased the posting frequency and diversity, inference became noticeably slower (me- dian latency of seconds). Given that this latency is prohibitive for interactive use in the IDE, we ultimately decided to use beam search for the code review system and greedy search for the IDE.
+
+## Page 6
+
+AIware ’24, July 15–16, 2024, Porto de Galinhas, Brazil
+Manushree Vijayvergiya et al.
+Suppressing Outdated Best Practices
+After launching AutoCommenter to around thousand voluntary first-adopters, we noticed a large number of issues being filed by users within a few days. Many of these corresponded to a single
+URL
+, which describes best practices related to Python imports.
+However, the canonical source for some type names had changed in Python 3.9, and the best practice had also changed in early
+Since our training data stretches before 2022, it contained a num- ber of best practice comments that were no longer applicable. We realized that this is a recurring pattern: as languages evolve, or new libraries are introduced, best practices evolve as well. One way of mitigating the problem is to filter out such data (whenever a rule changes), and retrain the model. This is however time and resource-consuming: it requires full data regeneration, model train- ing, evaluation, and rollout. In the meantime, the “outdated” model needs to be either switched off, causing downtime of the system, or affected predictions need to be suppressed. Otherwise, the system could quickly lose developer trust. We opted for suppression of spe- cific best-practice predictions, using conditional filtering (matching regular expressions on the source code) for two reasons. First, it can be dynamically deployed and immediately applied. Second, it allows for granular filtering of predictions.
+Independent Rating of Selected Comments
+After several months of early usage, we observed that the useful ratio plateaued at around 54%. To understand the reasons, iden- tify areas for improvement, and prepare for a wider deployment, we conducted an independent human rating study in April 2023, analyzing a sample of around posted comments that received developer feedback during our first-adopters deployment.
+To gather diverse perspectives on the usefulness of comments we recruited raters—developers from partner teams. We asked them to rate AutoCommenter’s comments that received explicit user feedback. We did not show the original user feedback to the rater, to avoid biasing their evaluation. The raters assessed each comment’s usefulness based on the linked best practice and the surrounding code. We instructed them to focus on comment correctness, but also whether the comment would be actionable to them as an author
+(e.g., would they resolve a comment that is technically correct but does not seem worth resolving in a specific instance). They were encouraged to provide free-form feedback on each comment.
+The useful ratio from the rater evaluation was 60%, slightly higher than the 54% from the developer feedback on the same comments, but well below our target of 80% for wider deployment.
+The most interesting finding from this study was that there were clear patterns of not useful comments. Here are some examples:
+Several topics or complex topic:
+For example, one URL points to a section that describes multiple guidelines for interacting with the Python linter, including cases where it often triggers and ways to suppress it. An author may struggle to understand what specific guideline a posted comment is referring to and how to resolve it.
+Similarly, the guidance on writing good function documentation in
+C++ is a full page of dense text. Raters frequently noted a disconnect between a best practice (and AutoCommenter’s concise summary)
+and the actual code, even when it contained a relevant violation.
+https://github.com/google/styleguide/blob/gh-pages/pyguide.md#22-imports
+Importance of high-quality summaries:
+Raters often found that AutoCommenter’s summary, which was generated by scraping the document source and sometimes missing, failed to adequately explain the relevance of the cited guideline to the comment/code.
+Subjective and potentially contentious topic:
+One example is avoiding flags in library code. Flags can cause problems when used in libraries, but some libraries are specifically designed to have many features configurable via flags. Additionally, legacy code may not adhere to this guideline and reviewers will not enforce it.
+The model did not learn these nuances and sometimes predicted a violation when an author added a new flag to an existing library.
+Systematic model error for some guidelines:
+One interesting example is a guideline that promotes the use of the member function push_back over emplace_back for C++ vectors when both functions can be used with the same arguments to achieve the same effect.
+The model had learned to predict this, but it would also predict it in cases where emplace_back is warranted, and also when an unrelated type had a member function called push_back
+.
+Correct but low-value comments:
+A missing period at the end of a sentence in a code comment is often allowed by human reviewers. While technically correct, asking the author to go back to their IDE and fix the issue may provide net negative value.
+The insights from the rater study informed two changes to Auto-
+Commenter. First, the rater study identified non-actionable URLs, whose suppression increased the historical useful ratio from 54% to
+66% on developer feedback, and from 60% to 74% on rater feedback.
+We further analyzed comments linked to similar, unrated URLs and suppressed an additional Second, we reviewed and manually updated summaries for all frequently posted URLs. Together, these changes were sufficient to reach our target useful ratio of 80% for the next stage of deployment.
+A/B Experiment
+In July 2023, we deployed AutoCommenter to about half of all devel- opers in the context of an A/B experiment. We randomly assigned developers to a an experiment group (AutoCommenter enabled)
+and a control group (AutoCommenter disabled). We randomized based on the last few digits of the SHA256 hash of the developers email address, and we verified that both groups did not differ in size and composition, including distribution of tenure, seniority, programming languages and business units. We also confirmed that none of the variables measured during the experiment differed be- tween the control and the experiment group before the experiment began. The comment posting frequency during the experiment was in line with expectations (section ).
+We did not detect any statistically significant change in any of the following: total duration of code reviews, time developers actively spent on the code review, the number of comment-response iterations between the author and the reviewer. We did, however, detect a slight improvement in coding speed. We conjecture that the reduction in context switches to documentation leads to this positive effect. We leave a deeper investigation for future work.
+Based on the results, we concluded that there are no adverse effects, and deployed AutoCommenter to all developers in October
+
+## Page 7
+
+AI-Assisted Assessment of Coding Practices in Modern Code Review AIware ’24, July 15–16, 2024, Porto de Galinhas, Brazil
+Figure 5: Cumulative distribution of comments per URL for the automated comments generated by AutoCommenter in production and human comments in the training data.
+EVALUATION
+Based on the useful ratio and user feedback gathered since March
+2023, we conclude that developers are generally satisfied with the comments produced by AutoCommenter. We continuously refine our dataset preparation, thresholds, URL suppression and summa- rization by analyzing user feedback, to ensure that AutoCommenter delivers high positive impact on the developer workflow.
+Beyond developer satisfaction, with several months in wide re- lease to all of Google, we evaluated three additional aspects of
+AutoCommenter’s performance:
+(1)
+Comment resolution:
+How often do developers modify their code to resolve AutoCommenter’s posted comments?
+(2)
+AutoCommenter vs. human comments:
+How well do Au- toCommenter’s comments cover the best practice documents that human reviewers reference in their comments?
+(3)
+AutoCommenter vs. linters:
+To what extent does Auto-
+Commenter’s output go beyond the capabilities of traditional static analysis tools?
+Comment Resolution
+Developers rarely give explicit feedback on AutoCommenter’s com- ments by clicking the thumbs up/thumbs down buttons in the code review system and IDE, and the “Please fix” button in the code review system (figure ): about 10% of automated comments in the code review system and 2% of diagnostics in the IDE received ex- plicit feedback, which is comparable to other automated analyses at
+Google. At the same time, developers hover over approximately 50% of the AutoCommenter’s IDE diagnostics, and prior work showed that developers often resolve automated comments without explicit feedback [
+]. To assess how often developers resolve AutoCom- menter’s comments, we conducted an offline analysis, estimating the ratio of comments resolved by subsequent code changes.
+To analyze comment resolution, we extracted historical changes focused on files with automated comments from AutoCommenter.
+For each, we extracted the initial snapshot where the comment was posted and the snapshot that the developer eventually merged into the codebase. Each comment spans a specific range of lines. We used an automated AST-based line mapping approach [ these snapshots, to identify comments that the model originally
+Figure 6: The top-50 most frequently predicted URLs catego- rized into types. Linter indicates whether a linter that detects a violation exists or can easily be built.
+predicted on the first snapshot, but did not predict on the merged snapshot. Such pairs of snapshots indicated that a comment may have been resolved, but it is possible that unrelated code changes could have led to a specific comment no longer being predicted.
+An automated analysis of snapshot pairs revealed that in
+50% of cases the comment was absent from the submitted snapshot on the lines it was originally posted. We manually inspected a random sample of such pairs. We found that in 80% of cases, a change made by the author directly resolved the issue described by the posted comment. Therefore, we estimate that the comment- resolution rate is about 40%, which is significantly larger than the ratio of comments with explicit positive feedback to all comments.
+AutoCommenter vs. Human Comments
+Figure compares the cumulative distribution of comments (per unique URL to a best practice document) for the automated com- ments generated by AutoCommenter in production and human comments in the training data. The x-axis is the rank of the URL when all URLs ever used in automated comments are sorted by frequency. For example, the most frequently used URL has rank 1, and it accounts for 9.9% of all automated comments. This same URL appeared in 4.3% of the human created comments in the training data. In total, AutoCommenter has created comments for dis- tinct URLs. The set of URLs used by AutoCommenter covers 68% of historical human comments with a best practice URL. This is a good result: it demonstrates that AutoCommenter is not focusing on obscure best practices that are rarely referenced by reviewers.
+On the other hand, despite utilizing beam search, URL diversity remains relatively low. The top-85 URLs make up 90% of comments created by AutoCommenter. The same set of URLs cover 35% of human comments with best practice URLs. Improving URL diver- sity and coverage of best practices in automated comments while maintaining accuracy and low latency is one of our top priorities.
+AutoCommenter vs. Linters
+To understand to what extent AutoCommenter provides value be- yond linters that can efficiently and precisely check some of the best practices, we sampled the top-50 most frequently predicted violations—that is, the top-50 URLs in figure . For each sampled
+
+## Page 8

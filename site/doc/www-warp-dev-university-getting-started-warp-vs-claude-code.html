@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Warp vs Claude Code</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Warp vs Claude Code</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 6,173 字符 ｜ 55 个内容块 ｜ <a href="https://www.warp.dev/university/getting-started/warp-vs-claude-code" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>Warp vs Claude Code</h1></div><div class="en"><h1>Warp vs Claude Code</h1></div></div>
+<div class="pair"><div class="zh"><blockquote>完整的文档索引见 <a href="https://docs.warp.dev/llms.txt" target="_blank" rel="noopener">llms.txt</a>。<br>每个页面的 Markdown 版本都可以在任何 URL 后追加 .md 获得。</blockquote></div><div class="en"><blockquote>For the complete documentation index, see <a href="https://docs.warp.dev/llms.txt" target="_blank" rel="noopener">llms.txt</a>.<br>Markdown versions of each page are available by appending .md to any URL.</blockquote></div></div>
+<div class="pair"><div class="zh"><h1>Warp 入门</h1></div><div class="en"><h1>Getting started with Warp</h1></div></div>
+<div class="pair"><div class="zh"><p>从 Warp 开始：它是智能体化开发环境（Agentic Development Environment），以及自动化平台（Automation Platform），后者可大规模编排云端智能体。</p></div><div class="en"><p>Get started with Warp, the Agentic Development Environment, and the Automation Platform, which orchestrates cloud agents at scale.</p></div></div>
+<div class="pair"><div class="zh"><p>Warp 是一个<a href="https://github.com/warpdotdev/warp" target="_blank" rel="noopener">开源</a>的<strong>智能体化开发环境</strong>，把现代高性能终端与强大的智能体结合起来，帮助你构建、测试、部署和调试代码。Warp 中的智能体由<strong>自动化平台</strong>驱动，该平台可在本地或云端大规模编排智能体。</p></div><div class="en"><p>Warp is an <a href="https://github.com/warpdotdev/warp" target="_blank" rel="noopener">open source</a> <strong>Agentic Development Environment</strong> that combines a modern, high-performance terminal with powerful agents to help you build, test, deploy, and debug code. Agents in Warp are powered by the <strong>Automation Platform</strong>, which orchestrates agents locally or in the cloud at scale.</p></div></div>
+<div class="pair"><div class="zh"><p><img src="https://docs.warp.dev/_astro/warp-factories-welcome.rhXaWld0_2f30gX.webp?dpl=dpl_F7D8J5JuYJnLjprxdi483kF2EyKz" alt="左右并排的两个面板：Warp，一个为智能体编码而构建的现代终端；以及 Warp Factories，用于构建云端软件工厂的开放基础设施"></p></div><div class="en"><p><img src="https://docs.warp.dev/_astro/warp-factories-welcome.rhXaWld0_2f30gX.webp?dpl=dpl_F7D8J5JuYJnLjprxdi483kF2EyKz" alt="Two panels side by side: Warp, a modern terminal built for coding with agents, and Warp Factories, open infrastructure for building cloud software factories"></p></div></div>
+<div class="pair"><div class="zh"><p>智能体化开发环境中的 Warp 与 Warp Factories。</p></div><div class="en"><p>Warp and Warp Factories in the Agentic Development Environment.</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>Warp</h2></div><div class="en"><h2>Warp</h2></div></div>
+<div class="pair"><div class="zh"><p>Warp 是你工作的地方——一个快速、现代的终端，为与智能体协作编码而构建。</p></div><div class="en"><p>Warp is where you work — a fast, modern terminal built for coding with agents.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>核心能力：</strong></p></div><div class="en"><p><strong>Key capabilities:</strong></p></div></div>
+<div class="pair"><div class="zh"><ul><li><a href="https://docs.warp.dev/agents/local-agents/interacting-with-agents/terminal-and-agent-modes/" target="_blank" rel="noopener"><strong>终端模式与智能体模式</strong></a>：在用于执行命令的干净终端与用于多轮智能体工作流的专用对话视图之间切换。</li><li><a href="https://docs.warp.dev/terminal/editor/" target="_blank" rel="noopener"><strong>现代终端体验</strong></a>：光标移动、基于块的导航、多行编辑、语法高亮和丰富补全。用 Rust 构建，性能出色。</li><li><a href="https://docs.warp.dev/code/overview/" target="_blank" rel="noopener"><strong>代码编辑器</strong></a>：文件树、支持 LSP 的代码编辑器，以及可交互的代码评审体验。</li><li><a href="https://docs.warp.dev/agents/cli-agents/overview/" target="_blank" rel="noopener"><strong>第三方 CLI 智能体</strong></a>：借助智能体工具带运行 Claude Code、Codex、OpenCode 等第三方 CLI 智能体——丰富的输入、代码评审、通知等等。</li></ul></div><div class="en"><ul><li><a href="https://docs.warp.dev/agents/local-agents/interacting-with-agents/terminal-and-agent-modes/" target="_blank" rel="noopener"><strong>Terminal and Agent modes</strong></a>: Switch between a clean terminal for commands and a dedicated conversation view for multi-turn agent workflows.</li><li><a href="https://docs.warp.dev/terminal/editor/" target="_blank" rel="noopener"><strong>Modern terminal UX</strong></a>: Cursor movement, block-based navigation, multi-line editing, syntax highlighting, and rich completions. Built with Rust for high performance.</li><li><a href="https://docs.warp.dev/code/overview/" target="_blank" rel="noopener"><strong>Code editor</strong></a>: File tree, code editor with LSP support, and interactive code review experience.</li><li><a href="https://docs.warp.dev/agents/cli-agents/overview/" target="_blank" rel="noopener"><strong>Third-party CLI agents</strong></a>: Run third-party CLI agents like Claude Code, Codex, and OpenCode with the agent toolbelt — rich input, code review, notifications, and more.</li></ul></div></div>
+<div class="pair"><div class="zh"><p><img src="https://i.ytimg.com/vi/xhkoXsE9Wqc/sddefault.jpg" alt="深入剖析 Warp 的核心功能"></p></div><div class="en"><p><img src="https://i.ytimg.com/vi/xhkoXsE9Wqc/sddefault.jpg" alt="Deep dive into Warp&#x27;s core features"></p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>使用 Warp 智能体的三种方式</h2></div><div class="en"><h2>Three ways to use the Warp Agent</h2></div></div>
+<div class="pair"><div class="zh"><p><strong>Warp 智能体</strong>会编写和修改代码、调试问题、运行命令，并推进多步骤任务。你可以通过三种方式使用同一个智能体，你的账号、规则、技能和模型访问权限在三种方式之间通用。</p></div><div class="en"><p>The <strong>Warp Agent</strong> writes and edits code, debugs issues, runs commands, and works through multi-step tasks. You reach the same agent three ways, and your account, rules, skills, and model access carry across all of them.</p></div></div>
+<div class="pair"><div class="zh"><h3>在 Warp 应用里</h3></div><div class="en"><h3>In the Warp app</h3></div></div>
+<div class="pair"><div class="zh"><p>与终端并行的实时交互式编码辅助。</p></div><div class="en"><p>Real-time, interactive coding assistance alongside your terminal.</p></div></div>
+<div class="pair"><div class="zh"><ul><li>在你的代码库中编写和重构代码</li><li>调试问题并修复错误</li><li>运行命令并解读结果</li><li>规划并执行多步骤任务</li></ul></div><div class="en"><ul><li>Write and refactor code across your codebase</li><li>Debug issues and fix errors</li><li>Run commands and interpret results</li><li>Plan and execute multi-step tasks</li></ul></div></div>
+<div class="pair"><div class="zh"><p>控制权始终在你手上。审查改动、在任务进行中引导智能体，并在动作执行前批准。</p></div><div class="en"><p>You stay in control. Review changes, steer the agent mid-task, and approve actions before they execute.</p></div></div>
+<div class="pair"><div class="zh"><p>→ <a href="https://docs.warp.dev/agents/" target="_blank" rel="noopener">在 Warp 中开始使用智能体</a></p></div><div class="en"><p>→ <a href="https://docs.warp.dev/agents/" target="_blank" rel="noopener">Get started with agents in Warp</a></p></div></div>
+<div class="pair"><div class="zh"><h3>在任何终端里，使用 Warp Agent CLI</h3></div><div class="en"><h3>In any terminal, with the Warp Agent CLI</h3></div></div>
+<div class="pair"><div class="zh"><p>Warp Agent CLI 是一个独立的终端程序，无需 Warp 应用即可运行同一个智能体。在你已使用的任何终端中、通过 SSH，或在一台没有安装 Warp 的机器上，运行 <code>warp</code> 命令即可开始对话。</p></div><div class="en"><p>The Warp Agent CLI is a standalone terminal program that runs the same agent without the Warp app. Run the <code>warp</code> command to start a conversation in whichever terminal you already use, over SSH, or on a machine where Warp isn’t installed.</p></div></div>
+<div class="pair"><div class="zh"><p>→ <a href="https://docs.warp.dev/agents/cli/quickstart/" target="_blank" rel="noopener">开始使用 Warp Agent CLI</a></p></div><div class="en"><p>→ <a href="https://docs.warp.dev/agents/cli/quickstart/" target="_blank" rel="noopener">Get started with the Warp Agent CLI</a></p></div></div>
+<div class="pair"><div class="zh"><h3>在云端，作为云智能体</h3></div><div class="en"><h3>In the cloud, as a cloud agent</h3></div></div>
+<div class="pair"><div class="zh"><p>云智能体在 Warp 的基础设施（或你自己的基础设施）上后台运行，用于大规模自动化。</p></div><div class="en"><p>Cloud agents run in the background on Warp’s infrastructure (or your own) for automation at scale.</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>触发器</strong>：响应来自 Slack、Linear、GitHub 或自定义 webhook 的事件</li><li><strong>定时调度</strong>：运行依赖更新、死代码清理等周期性任务</li><li><strong>并行</strong>：跨多个仓库或任务并发运行大量智能体</li><li><strong>可观测性</strong>：每一次运行都可追踪、可审计，并可与团队共享</li></ul></div><div class="en"><ul><li><strong>Triggers</strong>: React to events from Slack, Linear, GitHub, or custom webhooks</li><li><strong>Schedules</strong>: Run recurring tasks like dependency updates or dead code removal</li><li><strong>Parallelism</strong>: Run many agents concurrently across repos or tasks</li><li><strong>Observability</strong>: Every run is tracked, auditable, and shareable with your team</li></ul></div></div>
+<div class="pair"><div class="zh"><p>云智能体适合那些不需要你立即关注的工作，例如 PR 评审、issue 分类、例行维护，以及由集成驱动的工作流。</p></div><div class="en"><p>Cloud agents are ideal for work that doesn’t need your immediate attention, like PR reviews, issue triage, routine maintenance, and integration-driven workflows.</p></div></div>
+<div class="pair"><div class="zh"><p>→ <a href="https://docs.warp.dev/platform/" target="_blank" rel="noopener">了解云智能体</a></p></div><div class="en"><p>→ <a href="https://docs.warp.dev/platform/" target="_blank" rel="noopener">Learn about cloud agents</a></p></div></div>
+<div class="pair"><div class="zh"><h3>它们背后的平台</h3></div><div class="en"><h3>The platform behind them</h3></div></div>
+<div class="pair"><div class="zh"><p><strong>自动化平台</strong>是 Warp 用于大规模运行和协调智能体的可编程系统。它提供云智能体运行所依赖的环境、触发器、集成、编排和可观测性，此外还有 CLI、API 和 SDK。</p></div><div class="en"><p>The <strong>Automation Platform</strong> is Warp’s programmable system for running and coordinating agents at scale. It provides the environments, triggers, integrations, orchestration, and observability that cloud agents run on, plus a CLI, API, and SDK.</p></div></div>
+<div class="pair"><div class="zh"><p>→ <a href="https://docs.warp.dev/platform/overview/" target="_blank" rel="noopener">了解自动化平台</a></p></div><div class="en"><p>→ <a href="https://docs.warp.dev/platform/overview/" target="_blank" rel="noopener">Learn about the Automation Platform</a></p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>用 Warp Factories 实现可重复的开发工作流</h2></div><div class="en"><h2>Repeatable development workflows with Warp Factories</h2></div></div>
+<div class="pair"><div class="zh"><p>单个云智能体只处理一个任务。<strong>Warp Factories</strong> 目前处于早期访问阶段，它让你的团队运行一个软件工厂：云智能体对工作进行分类、编写规格、实现、评审和验证，人类则批准关键决策，整个过程可重复。</p></div><div class="en"><p>A single cloud agent handles one task. <strong>Warp Factories</strong>, now in Early Access, lets your team run a software factory: a repeatable process where cloud agents triage, spec, implement, review, and verify work, and humans approve key decisions.</p></div></div>
+<div class="pair"><div class="zh"><p>→ <a href="https://docs.warp.dev/factories/" target="_blank" rel="noopener">了解 Warp Factories</a> 或<a href="https://www.warp.dev/factories/request-access" target="_blank" rel="noopener">申请访问</a></p></div><div class="en"><p>→ <a href="https://docs.warp.dev/factories/" target="_blank" rel="noopener">Learn about Warp Factories</a> or <a href="https://www.warp.dev/factories/request-access" target="_blank" rel="noopener">request access</a></p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>它们如何协同工作</h2></div><div class="en"><h2>How they work together</h2></div></div>
+<div class="pair"><div class="zh"><p>Warp 与自动化平台在本地开发和云端开发之间提供统一体验：</p></div><div class="en"><p>Warp and the Automation Platform provide a unified experience across local and cloud development:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>同一个智能体，随处可用</strong>：无论你是在 Warp 应用中工作、通过 Warp Agent CLI 在另一个终端里工作，还是在云端运行智能体，用的都是同一套底层智能体能力。</li><li><strong>无缝交接</strong>：在云端启动任务，想亲自动手时就在本地 Warp 中接管，进度和上下文都不会丢失。</li><li><strong>共享上下文</strong>：<a href="https://docs.warp.dev/knowledge-and-collaboration/warp-drive/" target="_blank" rel="noopener">Warp Drive</a>、<a href="https://docs.warp.dev/agents/capabilities/rules/" target="_blank" rel="noopener">Rules</a> 和 <a href="https://docs.warp.dev/agents/capabilities/mcp/" target="_blank" rel="noopener">MCP 服务器</a>在本地和云端智能体之间通用，团队的知识和工具始终可用。</li><li><strong>团队协作</strong>：共享智能体会话、审查智能体的动作，并引导正在运行的任务，无论任务是谁启动的。</li></ul></div><div class="en"><ul><li><strong>Same agent, anywhere</strong>: Whether you’re working in the Warp app, in another terminal through the Warp Agent CLI, or running agents in the cloud, you’re using the same underlying agent capabilities.</li><li><strong>Seamless handoff</strong>: Start a task in the cloud and take over locally in Warp when you want hands-on control, without losing progress or context.</li><li><strong>Shared context</strong>: <a href="https://docs.warp.dev/knowledge-and-collaboration/warp-drive/" target="_blank" rel="noopener">Warp Drive</a>, <a href="https://docs.warp.dev/agents/capabilities/rules/" target="_blank" rel="noopener">Rules</a>, and <a href="https://docs.warp.dev/agents/capabilities/mcp/" target="_blank" rel="noopener">MCP servers</a> work across both local and cloud agents, so your team’s knowledge and tools are always available.</li><li><strong>Team collaboration</strong>: Share agent sessions, review agents’ actions, and steer running tasks, regardless of who started them.</li></ul></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>多模型支持</h2></div><div class="en"><h2>Multi-model support</h2></div></div>
+<div class="pair"><div class="zh"><p>自动化平台在设计上支持多模型。你可以从一组精选的顶尖模型中<a href="https://docs.warp.dev/agents/inference/model-choice/" target="_blank" rel="noopener">选择偏好的 LLM</a>。</p></div><div class="en"><p>The Automation Platform is multi-model by design. You can <a href="https://docs.warp.dev/agents/inference/model-choice/" target="_blank" rel="noopener">choose your preferred LLM</a> from a curated set of top models.</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>开源</h2></div><div class="en"><h2>Open source</h2></div></div>
+<div class="pair"><div class="zh"><p>Warp 客户端在 <a href="https://github.com/warpdotdev/warp/blob/master/LICENSE-AGPL" target="_blank" rel="noopener">AGPL v3</a> 下开源。源代码位于 <a href="https://github.com/warpdotdev/warp" target="_blank" rel="noopener"><code>warpdotdev/warp</code></a>，你可以阅读代码、提交 issue，并与 Warp 团队一起贡献。开发以开放的、智能体优先的工作流进行，由自动化平台管理。</p></div><div class="en"><p>Warp’s client is open source under <a href="https://github.com/warpdotdev/warp/blob/master/LICENSE-AGPL" target="_blank" rel="noopener">AGPL v3</a>. The source lives at <a href="https://github.com/warpdotdev/warp" target="_blank" rel="noopener"><code>warpdotdev/warp</code></a>, where you can read the code, file issues, and contribute alongside the Warp team. Development happens in the open with an agent-first workflow managed by the Automation Platform.</p></div></div>
+<div class="pair"><div class="zh"><p>→ <a href="https://docs.warp.dev/support-and-community/community/contributing/" target="_blank" rel="noopener">为 Warp 做贡献</a>说明了如何提交 issue、认领工作，以及提交代码或主题。</p></div><div class="en"><p>→ <a href="https://docs.warp.dev/support-and-community/community/contributing/" target="_blank" rel="noopener">Contributing to Warp</a> explains how to file issues, claim work, and ship code or themes.</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>隐私与安全</h2></div><div class="en"><h2>Privacy and security</h2></div></div>
+<div class="pair"><div class="zh"><p>Warp 符合 <strong>SOC 2</strong> 标准，并对所有签约的 LLM 提供商执行<strong>零数据保留</strong>政策。不会保留、存储客户 AI 数据，也不会将其用于训练。</p></div><div class="en"><p>Warp is <strong>SOC 2 compliant</strong> and has <strong>Zero Data Retention</strong> policies with all contracted LLM providers. No customer AI data is retained, stored, or used for training.</p></div></div>
+<div class="pair"><div class="zh"><p>Warp 的 AI 功能可在<strong>设置</strong> &gt; <strong>Agents</strong> &gt; <strong>Warp Agent</strong> 中全局禁用。</p></div><div class="en"><p>Warp’s AI features can be globally disabled in <strong>Settings</strong> &gt; <strong>Agents</strong> &gt; <strong>Warp Agent</strong>.</p></div></div>
+<div class="pair"><div class="zh"><p>→ <a href="https://www.warp.dev/privacy" target="_blank" rel="noopener">进一步了解数据隐私</a></p></div><div class="en"><p>→ <a href="https://www.warp.dev/privacy" target="_blank" rel="noopener">Read more about data privacy</a></p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>后续步骤</h2></div><div class="en"><h2>Next steps</h2></div></div>
+<div class="pair"><div class="zh"><ul><li><a href="https://docs.warp.dev/quickstart/" target="_blank" rel="noopener"><strong>快速开始</strong></a>：安装 Warp 并开始编码</li><li><a href="https://docs.warp.dev/agents/" target="_blank" rel="noopener"><strong>智能体总览</strong></a>：Warp 智能体能做什么、如何控制它、在哪里运行它</li><li><a href="https://docs.warp.dev/agents/cli/" target="_blank" rel="noopener"><strong>Warp Agent CLI</strong></a>：在任何终端中运行 Warp 智能体</li><li><a href="https://docs.warp.dev/platform/" target="_blank" rel="noopener"><strong>云智能体总览</strong></a>：搭建后台自动化</li><li><a href="https://docs.warp.dev/platform/overview/" target="_blank" rel="noopener"><strong>自动化平台</strong></a>：了解 CLI、API、SDK 和基础设施</li></ul></div><div class="en"><ul><li><a href="https://docs.warp.dev/quickstart/" target="_blank" rel="noopener"><strong>Quickstart</strong></a>: Get Warp installed and start coding</li><li><a href="https://docs.warp.dev/agents/" target="_blank" rel="noopener"><strong>Agents overview</strong></a>: What the Warp Agent does, how to control it, and where to run it</li><li><a href="https://docs.warp.dev/agents/cli/" target="_blank" rel="noopener"><strong>Warp Agent CLI</strong></a>: Run the Warp Agent in any terminal</li><li><a href="https://docs.warp.dev/platform/" target="_blank" rel="noopener"><strong>Cloud Agents overview</strong></a>: Set up background automation</li><li><a href="https://docs.warp.dev/platform/overview/" target="_blank" rel="noopener"><strong>Automation Platform</strong></a>: Learn about the CLI, API, SDK, and infrastructure</li></ul></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prompt Engineering Overview</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Prompt Engineering Overview</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 13,812 字符 ｜ 165 个内容块 ｜ <a href="https://cloud.google.com/discover/what-is-prompt-engineering" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>提示工程概览</h1></div><div class="en"><h1>Prompt Engineering Overview</h1></div></div>
+<div class="pair"><div class="zh"><h1>提示工程：概览与指南</h1></div><div class="en"><h1>Prompt engineering: overview and guide</h1></div></div>
+<div class="pair"><div class="zh"><p><em>最后更新：05/04/2026</em></p></div><div class="en"><p><em>Last Updated: 05/04/2026</em></p></div></div>
+<div class="pair"><div class="zh"><p>大语言模型（LLM）的兴起为人机交互带来了令人兴奋的可能性。然而，要充分发挥这些强大 AI 模型的潜力，需要一项关键技能：提示工程。这一新兴领域专注于精心设计有效的提示词，从而开启 <a href="https://cloud.google.com/ai/llms" target="_blank" rel="noopener">LLM 的能力</a>，让模型能够理解意图、遵循指令并生成期望的输出。随着我们在各类应用中与 AI 的互动日益增多，提示工程在确保准确、相关且安全的交互方面发挥着至关重要的作用。</p></div><div class="en"><p>The rise of large language models (LLMs) has brought forth exciting possibilities for human-computer interaction. However, harnessing the full potential of these powerful AI models requires a crucial skill: prompt engineering. This burgeoning field focuses on crafting effective prompts that unlock the <a href="https://cloud.google.com/ai/llms" target="_blank" rel="noopener">capabilities of LLMs</a>, enabling them to understand intent, follow instructions, and generate desired outputs. As we increasingly interact with AI in various applications, prompt engineering plays a vital role in ensuring accurate, relevant, and safe interactions.</p></div></div>
+<div class="pair"><div class="zh"><p>免费开始使用&lt;https://console.cloud.google.com/freetrial/?redirectPath=/agent-platform/overview&gt;</p></div><div class="en"><p>Get started for free&lt;https://console.cloud.google.com/freetrial/?redirectPath=/agent-platform/overview&gt;</p></div></div>
+<div class="pair"><div class="zh"><p><a href="https://www.youtube.com/watch?v=RywP7cCYUWE" target="_blank" rel="noopener"><img src="https://www.gstatic.com/bricks/image/MUr6Af94qU6gNwxBGhqRbRtFxnQEWtGi3kRcV9hPlNLT-YkIjpO1aD_HriuhwwzR0OilQTK8m497.png" alt="提示工程师">1:53</a></p></div><div class="en"><p><a href="https://www.youtube.com/watch?v=RywP7cCYUWE" target="_blank" rel="noopener"><img src="https://www.gstatic.com/bricks/image/MUr6Af94qU6gNwxBGhqRbRtFxnQEWtGi3kRcV9hPlNLT-YkIjpO1aD_HriuhwwzR0OilQTK8m497.png" alt="prompt engineer">1:53</a></p></div></div>
+<div class="pair"><div class="zh"><p>成为世界级提示工程师的技巧</p></div><div class="en"><p>Tips to becoming a world-class Prompt Engineer</p></div></div>
+<div class="pair"><div class="zh"><h2>什么是提示工程？</h2></div><div class="en"><h2>What is prompt engineering?</h2></div></div>
+<div class="pair"><div class="zh"><p>提示工程是设计与优化提示词的艺术与科学，目的是引导 AI 模型（尤其是 LLM）生成期望的回复。通过精心设计提示词，你为模型提供上下文、指令与示例，帮助它理解你的意图并以有意义的方式回应。可以把它理解为给 AI 提供一张路线图，把它引向你心中所想的特定输出。</p></div><div class="en"><p>Prompt engineering is the art and science of designing and optimizing prompts to guide AI models, particularly LLMs, towards generating the desired responses. By carefully crafting prompts, you provide the model with context, instructions, and examples that help it understand your intent and respond in a meaningful way. Think of it as providing a roadmap for the AI, steering it towards the specific output you have in mind.</p></div></div>
+<div class="pair"><div class="zh"><p>若想深入了解提示设计的世界并探索其应用，可以查看 Google Cloud 上的<a href="https://cloud.google.com/vertex-ai/generative-ai/docs/learn/introduction-prompt-design" target="_blank" rel="noopener">提示设计入门</a>。</p></div><div class="en"><p>To dive deeper into the world of prompt design and explore its applications, check out the <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/learn/introduction-prompt-design" target="_blank" rel="noopener">Introduction to Prompt Design</a> on Google Cloud.</p></div></div>
+<div class="pair"><div class="zh"><p>准备好亲手试用 LLM 与提示工程了吗？试试 <a href="https://cloud.google.com/products/gemini-enterprise-agent-platform" target="_blank" rel="noopener">Gemini Enterprise Agent Platform</a> 免费试用版，体验这项技术的力量。</p></div><div class="en"><p>Ready to experiment with LLMs and prompt engineering firsthand? Try the <a href="https://cloud.google.com/products/gemini-enterprise-agent-platform" target="_blank" rel="noopener">Gemini Enterprise Agent Platform</a> free trial and experience the power of this technology.</p></div></div>
+<div class="pair"><div class="zh"><h2>什么是 AI 的提示词？</h2></div><div class="en"><h2>What is a prompt for AI?</h2></div></div>
+<div class="pair"><div class="zh"><p>在 <a href="https://cloud.google.com/learn/what-is-artificial-intelligence" target="_blank" rel="noopener">AI 的上下文</a>下，提示词是你提供给模型的输入，用以引出特定的回复。它可以有多种形式，从简单的问题或关键词，到复杂的指令、代码片段，甚至创意写作样本。提示词的有效性直接影响 AI 输出的质量与相关性。</p></div><div class="en"><p>In the <a href="https://cloud.google.com/learn/what-is-artificial-intelligence" target="_blank" rel="noopener">context of AI</a>, a prompt is the input you provide to the model to elicit a specific response. This can take various forms, ranging from simple questions or keywords to complex instructions, code snippets, or even creative writing samples. The effectiveness of your prompt directly influences the quality and relevance of the AI's output.</p></div></div>
+<div class="pair"><div class="zh"><h2>做好提示工程需要什么？</h2></div><div class="en"><h2>What do you need for prompt engineering?</h2></div></div>
+<div class="pair"><div class="zh"><p>有几个关键要素有助于实现有效的提示工程。掌握它们，你就能与 AI 模型有效沟通，并释放其全部潜力。</p></div><div class="en"><p>Several key elements contribute to effective prompt engineering. Mastering these allows you to communicate effectively with AI models and unlock their full potential.</p></div></div>
+<div class="pair"><div class="zh"><h3>提示词格式</h3></div><div class="en"><h3>Prompt format</h3></div></div>
+<div class="pair"><div class="zh"><p>提示词的结构与风格在引导 AI 回复方面起着重要作用。不同模型可能对特定格式反应更好，例如：</p></div><div class="en"><p>The structure and style of your prompt play a significant role in guiding the AI's response. Different models may respond better to specific formats, such as:</p></div></div>
+<div class="pair"><div class="zh"><p>提示词的格式在很大程度上决定了 AI 如何理解你的请求。不同模型可能对特定格式反应更好，例如<a href="https://cloud.google.com/learn/what-is-natural-language-processing" target="_blank" rel="noopener">自然语言问题</a>、直接命令，或带特定字段的结构化输入。理解模型的能力与偏好格式，对设计有效的提示词至关重要。</p></div><div class="en"><p>The format of your prompt plays a significant role in how the AI interprets your request. Different models may respond better to specific formats, such as <a href="https://cloud.google.com/learn/what-is-natural-language-processing" target="_blank" rel="noopener">natural language questions</a>, direct commands, or structured inputs with specific fields. Understanding the model's capabilities and preferred format is essential for crafting effective prompts.</p></div></div>
+<div class="pair"><div class="zh"><h3>上下文与示例</h3></div><div class="en"><h3>Context and examples</h3></div></div>
+<div class="pair"><div class="zh"><p>在提示词中提供上下文与相关示例，有助于 AI 理解目标任务，并生成更准确、更相关的输出。例如，如果你想要一个创意故事，在提示词里加入几句描述期望语调或主题的话，就能显著改善结果。</p></div><div class="en"><p>Providing context and relevant examples within your prompt helps the AI understand the desired task and generate more accurate and relevant outputs. For instance, if you're looking for a creative story, including a few sentences describing the desired tone or theme can significantly improve the results.</p></div></div>
+<div class="pair"><div class="zh"><h3>微调与适配</h3></div><div class="en"><h3>Fine-tuning and adapting</h3></div></div>
+<div class="pair"><div class="zh"><p>用专门定制的提示词在特定任务或领域上微调 AI 模型，可以提升其表现。此外，根据用户反馈或模型输出调整提示词，能随着时间推移进一步改善模型的回复。</p></div><div class="en"><p>Fine-tuning the AI model on specific tasks or domains using tailored prompts can enhance its performance. Additionally, adapting prompts based on user feedback or model outputs can further improve the model's responses over time.</p></div></div>
+<div class="pair"><div class="zh"><h3>多轮对话</h3></div><div class="en"><h3>Multi-turn conversations</h3></div></div>
+<div class="pair"><div class="zh"><p>为多轮对话设计提示词，能让用户与 AI 模型进行持续的、感知上下文的交互，从而提升整体用户体验。</p></div><div class="en"><p>Designing prompts for multi-turn conversations allows users to engage in continuous and context-aware interactions with the AI model, enhancing the overall user experience.</p></div></div>
+<div class="pair"><div class="zh"><h2>提示词的类型</h2></div><div class="en"><h2>Types of prompts</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 中使用的提示词有多种类型，每一种都有特定用途：</p></div><div class="en"><p>There are various types of prompts used in AI, each serving a specific purpose:</p></div></div>
+<div class="pair"><div class="zh"><h3>直接提示（零样本）</h3></div><div class="en"><h3>Direct prompts (Zero-shot)</h3></div></div>
+<div class="pair"><div class="zh"><p>零样本提示指直接给模型一条指令或一个问题，不提供任何额外的上下文或示例。</p></div><div class="en"><p>Zero-shot prompting involves providing the model with a direct instruction or question without any additional context or examples.</p></div></div>
+<div class="pair"><div class="zh"><p>一个例子是创意生成：提示模型产出创意想法或头脑风暴方案。另一个例子是摘要或翻译：要求模型对某段内容做摘要或翻译。</p></div><div class="en"><p>An example of this is idea generation, where the model is prompted to generate creative ideas or brainstorming solutions. Another example is summarization, or translation, where the model is asked to summarize or translate some piece of content.</p></div></div>
+<div class="pair"><div class="zh"><h3>单样本、少样本与多样本提示</h3></div><div class="en"><h3>One-, few- and multi-shot prompts</h3></div></div>
+<div class="pair"><div class="zh"><p>这种方法是在给出真正的提示词之前，先向模型提供一对或多对期望的输入-输出示例。这能帮助模型更好地理解任务，并生成更准确的回复。</p></div><div class="en"><p>This method involves providing the model with one or more examples of the desired input-output pairs before presenting the actual prompt. This can help the model better understand the task and generate more accurate responses.</p></div></div>
+<div class="pair"><div class="zh"><h3>思维链提示</h3></div><div class="en"><h3>Chain of Thought Prompts</h3></div></div>
+<div class="pair"><div class="zh"><p>思维链（CoT）提示鼓励模型把复杂推理拆解为一系列中间步骤，从而得到更全面、结构更清晰的最终输出。</p></div><div class="en"><p>CoT prompting encourages the model to break down complex reasoning into a series of intermediate steps, leading to a more comprehensive and well-structured final output.</p></div></div>
+<div class="pair"><div class="zh"><h3>零样本思维链提示</h3></div><div class="en"><h3>Zero-shot CoT Prompts</h3></div></div>
+<div class="pair"><div class="zh"><p>把思维链提示与零样本提示结合起来，要求模型执行推理步骤，这样往往能产出更好的结果。</p></div><div class="en"><p>Combines chain of thought prompting with zero-shot prompting by asking the model to perform reasoning steps, which may often produce better output.</p></div></div>
+<div class="pair"><div class="zh"><h2>提示工程的用例与示例</h2></div><div class="en"><h2>Use cases and examples of prompt engineering</h2></div></div>
+<div class="pair"><div class="zh"><p>以下是一些具体示例与用例，展示提示工程如何帮助产出定制化且相关的输出。</p></div><div class="en"><p>Here are some specific examples and use cases showing how prompt engineering helps produce customized and relevant output.</p></div></div>
+<div class="pair"><div class="zh"><h3>语言与文本生成</h3></div><div class="en"><h3>Language and Text Generation</h3></div></div>
+<div class="pair"><div class="zh"><p><strong>场景</strong></p></div><div class="en"><p><strong>Scenario</strong></p></div></div>
+<div class="pair"><div class="zh"><p><strong>指令</strong></p></div><div class="en"><p><strong>Instructions</strong></p></div></div>
+<div class="pair"><div class="zh"><p><strong>示例提示词</strong></p></div><div class="en"><p><strong>Example Prompt</strong></p></div></div>
+<div class="pair"><div class="zh"><p>创意写作</p></div><div class="en"><p>Creative Writing</p></div></div>
+<div class="pair"><div class="zh"><p>设计提示词，明确体裁、语调、风格与情节要点，引导 AI 生成引人入胜的叙事。</p></div><div class="en"><p>Craft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives.</p></div></div>
+<div class="pair"><div class="zh"><p>"写一个短篇故事，讲一位年轻女子在自家阁楼里发现了一道魔法传送门。"</p></div><div class="en"><p>"Write a short story about a young woman who discovers a magical portal in her attic."</p></div></div>
+<div class="pair"><div class="zh"><p>摘要生成</p></div><div class="en"><p>Summarization</p></div></div>
+<div class="pair"><div class="zh"><p>把文本交给 AI，并指示它生成抓住关键信息的简洁摘要。</p></div><div class="en"><p>Provide the AI with text and instruct it to generate concise summaries that capture key information.</p></div></div>
+<div class="pair"><div class="zh"><p>“总结下面这篇关于气候变化的新闻文章的要点。"</p></div><div class="en"><p>“Summarize the main points of the following news article on climate change."</p></div></div>
+<div class="pair"><div class="zh"><p>翻译</p></div><div class="en"><p>Translation</p></div></div>
+<div class="pair"><div class="zh"><p>指明源语言与目标语言，使 AI 能准确翻译文本，同时保留含义与上下文。</p></div><div class="en"><p>Specify the source and target languages to enable the AI to accurately translate text while preserving meaning and context.</p></div></div>
+<div class="pair"><div class="zh"><p>"把下面这段文字从英语翻译成西班牙语：'敏捷的棕色狐狸跳过了那只懒狗。'"</p></div><div class="en"><p>"Translate the following text from English to Spanish: 'The quick brown fox jumps over the lazy dog.'"</p></div></div>
+<div class="pair"><div class="zh"><p>对话</p></div><div class="en"><p>Dialogue</p></div></div>
+<div class="pair"><div class="zh"><p>设计能模拟对话的提示词，让 AI 生成模仿人类互动并维持上下文的回复。</p></div><div class="en"><p>Design prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context.</p></div></div>
+<div class="pair"><div class="zh"><p>"你是一个友好的聊天机器人，帮助用户排查电脑问题。请回复用户的提问：'My computer won't turn on.'"</p></div><div class="en"><p>"You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user's query: 'My computer won't turn on.'"</p></div></div>
+<div class="pair"><div class="zh"><h3>问答</h3></div><div class="en"><h3>Question Answering</h3></div></div>
+<div class="pair"><div class="zh"><p>开放式问题</p></div><div class="en"><p>Open-Ended Questions</p></div></div>
+<div class="pair"><div class="zh"><p>设计提示词，鼓励 AI 基于自身知识库给出全面且信息充分的回答。</p></div><div class="en"><p>Formulate prompts that encourage the AI to provide comprehensive and informative answers based on its knowledge base.</p></div></div>
+<div class="pair"><div class="zh"><p>"解释量子计算的概念及其对未来技术的潜在影响。"</p></div><div class="en"><p>"Explain the concept of quantum computing and its potential impact on the future of technology."</p></div></div>
+<div class="pair"><div class="zh"><p>具体问题</p></div><div class="en"><p>Specific Questions</p></div></div>
+<div class="pair"><div class="zh"><p>设计针对特定信息的提示词，使 AI 能从提供的上下文或内部知识库中检索出精确答案。</p></div><div class="en"><p>Design prompts that target specific information, enabling the AI to retrieve precise answers from the provided context or its internal knowledge base.</p></div></div>
+<div class="pair"><div class="zh"><p>"法国的首都是哪里？"或"根据所提供的文本，导致森林砍伐的主要原因有哪些？"</p></div><div class="en"><p>"What is the capital of France?" or "According to the provided text, what are the main causes of deforestation?"</p></div></div>
+<div class="pair"><div class="zh"><p>多项选择题</p></div><div class="en"><p>Multiple Choice Questions</p></div></div>
+<div class="pair"><div class="zh"><p>给出带选项的提示词，促使 AI 基于对上下文的理解分析并选出最合适的答案。</p></div><div class="en"><p>Present prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context.</p></div></div>
+<div class="pair"><div class="zh"><p>"《哈利·波特》系列是谁写的？A) J.R.R. Tolkien, B) J.K. Rowling, C) Stephen King"</p></div><div class="en"><p>"Who wrote the Harry Potter series? A) J.R.R. Tolkien, B) J.K. Rowling, C) Stephen King"</p></div></div>
+<div class="pair"><div class="zh"><p>假设性问题</p></div><div class="en"><p>Hypothetical Questions</p></div></div>
+<div class="pair"><div class="zh"><p>设计探讨假设情景的提示词，让 AI 进行推理、推测，并给出可能的结果或解决方案。</p></div><div class="en"><p>Craft prompts that explore hypothetical situations, allowing the AI to reason, speculate, and provide potential outcomes or solutions.</p></div></div>
+<div class="pair"><div class="zh"><p>"如果人类能以光速旅行，会发生什么？"</p></div><div class="en"><p>"What would happen if humans could travel at the speed of light?"</p></div></div>
+<div class="pair"><div class="zh"><p>观点类问题</p></div><div class="en"><p>Opinion-Based Questions</p></div></div>
+<div class="pair"><div class="zh"><p>设计能引出 AI 对特定话题看法或观点的提示词，鼓励它为自身立场给出推理与论证。</p></div><div class="en"><p>Design prompts that elicit the AI's perspective or opinion on a specific topic, encouraging it to provide reasoning and justification for its stance.</p></div></div>
+<div class="pair"><div class="zh"><p>"你认为人工智能最终会超越人类智能吗？为什么？"</p></div><div class="en"><p>"Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?"</p></div></div>
+<div class="pair"><div class="zh"><h3>代码生成</h3></div><div class="en"><h3>Code Generation</h3></div></div>
+<div class="pair"><div class="zh"><p>代码补全</p></div><div class="en"><p>Code Completion</p></div></div>
+<div class="pair"><div class="zh"><p>给 AI 一段不完整的代码片段，提示它根据上下文与编程语言建议或补全其余代码。</p></div><div class="en"><p>Provide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language.</p></div></div>
+<div class="pair"><div class="zh"><p>"写一个 Python 函数，计算给定数字的阶乘。"</p></div><div class="en"><p>"Write a Python function to calculate the factorial of a given number."</p></div></div>
+<div class="pair"><div class="zh"><p>代码翻译</p></div><div class="en"><p>Code Translation</p></div></div>
+<div class="pair"><div class="zh"><p>指明源编程语言与目标编程语言，使 AI 能在保留功能与语法的前提下翻译代码。</p></div><div class="en"><p>Specify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax.</p></div></div>
+<div class="pair"><div class="zh"><p>"把下面的 Python 代码翻译成 JavaScript：def greet(name): print('Hello,', name)"</p></div><div class="en"><p>"Translate the following Python code to JavaScript: def greet(name): print('Hello,', name)"</p></div></div>
+<div class="pair"><div class="zh"><p>代码优化</p></div><div class="en"><p>Code Optimization</p></div></div>
+<div class="pair"><div class="zh"><p>提示 AI 分析现有代码，并针对效率、可读性或性能提出改进建议。</p></div><div class="en"><p>Prompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance.</p></div></div>
+<div class="pair"><div class="zh"><p>"优化下面的 Python 代码，缩短其执行时间。"</p></div><div class="en"><p>"Optimize the following Python code to reduce its execution time."</p></div></div>
+<div class="pair"><div class="zh"><p>代码调试</p></div><div class="en"><p>Code Debugging</p></div></div>
+<div class="pair"><div class="zh"><p>给 AI 一段含错误的代码，提示它找出问题并给出可能的解决方案。</p></div><div class="en"><p>Provide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues.</p></div></div>
+<div class="pair"><div class="zh"><p>"调试下面的 Java 代码，并解释它为什么会抛出 NullPointerException。"</p></div><div class="en"><p>"Debug the following Java code and explain why it is throwing a NullPointerException."</p></div></div>
+<div class="pair"><div class="zh"><h3>图像生成</h3></div><div class="en"><h3>Image Generation</h3></div></div>
+<div class="pair"><div class="zh"><p>照片级真实感图像</p></div><div class="en"><p>Photorealistic Images</p></div></div>
+<div class="pair"><div class="zh"><p>设计详细描述期望图像的提示词，涵盖对象、场景、光照与风格，以生成逼真且高质量的图像。</p></div><div class="en"><p>Craft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images.</p></div></div>
+<div class="pair"><div class="zh"><p>"一幅照片级真实感的图像：夕阳落在海面上，棕榈树的剪影映在天空中。"</p></div><div class="en"><p>"A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky."</p></div></div>
+<div class="pair"><div class="zh"><p>艺术风格图像</p></div><div class="en"><p>Artistic Images</p></div></div>
+<div class="pair"><div class="zh"><p>设计明确艺术风格、技法与题材的提示词，引导 AI 创作模仿特定艺术流派或唤起特定情绪的图像。</p></div><div class="en"><p>Design prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions.</p></div></div>
+<div class="pair"><div class="zh"><p>"一幅印象派油画：熙熙攘攘的城市街道，人们在雨中打着伞行走。"</p></div><div class="en"><p>"An impressionist painting of a bustling city street with people walking under umbrellas in the rain."</p></div></div>
+<div class="pair"><div class="zh"><p>抽象图像</p></div><div class="en"><p>Abstract Images</p></div></div>
+<div class="pair"><div class="zh"><p>设计鼓励 AI 生成可多义解读图像的提示词，利用形状、色彩与质感唤起某种感受或概念。</p></div><div class="en"><p>Formulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts.</p></div></div>
+<div class="pair"><div class="zh"><p>"一幅表达希望这一概念的抽象图像，使用明亮的色彩与流动的形状。"</p></div><div class="en"><p>"An abstract image representing the concept of hope, using bright colors and flowing shapes."</p></div></div>
+<div class="pair"><div class="zh"><p>图像编辑</p></div><div class="en"><p>Image Editing</p></div></div>
+<div class="pair"><div class="zh"><p>给 AI 一张现有图像并指明期望的修改，让它按给定指令编辑并增强图像。</p></div><div class="en"><p>Provide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions.</p></div></div>
+<div class="pair"><div class="zh"><p>"把这张照片的背景换成都市夜空，并添加一轮满月。"或"把这张图里的人去掉，换成一只猫。"</p></div><div class="en"><p>"Change the background of this photo to a starry night sky and add a full moon." or "Remove the person from this image and replace them with a cat."</p></div></div>
+<div class="pair"><div class="zh"><h2>写出更好提示词的策略</h2></div><div class="en"><h2>Strategies for writing better prompts</h2></div></div>
+<div class="pair"><div class="zh"><p>写有效的提示词需要策略性的方法。可以参考以下策略来提升你的提示工程能力：</p></div><div class="en"><p>Developing effective prompts requires a strategic approach. Consider these strategies to enhance your prompt engineering skills:</p></div></div>
+<div class="pair"><div class="zh"><h3>1. 设定清晰的目标与目的：</h3></div><div class="en"><h3>1. Set Clear Goals and Objectives:</h3></div></div>
+<div class="pair"><div class="zh"><p><strong>策略</strong></p></div><div class="en"><p><strong>Tactic</strong></p></div></div>
+<div class="pair"><div class="zh"><p><strong>提示词示例</strong></p></div><div class="en"><p><strong>Prompt Example</strong></p></div></div>
+<div class="pair"><div class="zh"><p>用动作动词指明期望的动作</p></div><div class="en"><p>Use action verbs to specify the desired action</p></div></div>
+<div class="pair"><div class="zh"><p>"写一份要点列表，总结所附研究论文的主要发现"</p></div><div class="en"><p>"Write a bulleted list that summarizes the key findings of the attached research paper"</p></div></div>
+<div class="pair"><div class="zh"><p>定义期望的输出长度与格式</p></div><div class="en"><p>Define the desired length and format of the output</p></div></div>
+<div class="pair"><div class="zh"><p>"写一篇 500 字的文章，讨论气候变化对沿海社区的影响"</p></div><div class="en"><p>"Compose a 500-word essay discussing the impact of climate change on coastal communities."</p></div></div>
+<div class="pair"><div class="zh"><p>指明目标受众</p></div><div class="en"><p>Specify the target audience</p></div></div>
+<div class="pair"><div class="zh"><p>"为一条新的有机护肤品产品线写产品描述，目标受众是关注可持续性的年轻人"</p></div><div class="en"><p>"Write a product description for a new line of organic skincare products, targeting young adults concerned with sustainability."</p></div></div>
+<div class="pair"><div class="zh"><h3>2. 提供上下文与背景信息：</h3></div><div class="en"><h3>2. Provide Context and Background Information:</h3></div></div>
+<div class="pair"><div class="zh"><p>纳入相关事实与数据</p></div><div class="en"><p>Include relevant facts and data</p></div></div>
+<div class="pair"><div class="zh"><p>"鉴于自前工业化时代以来全球气温已上升 1 摄氏度，讨论海平面上升可能带来的后果。"</p></div><div class="en"><p>"Given that global temperatures have risen by 1 degree Celsius since the pre-industrial era, discuss the potential consequences for sea level rise."</p></div></div>
+<div class="pair"><div class="zh"><p>引用具体来源或文档</p></div><div class="en"><p>Reference specific sources or documents</p></div></div>
+<div class="pair"><div class="zh"><p>"根据所附财务报告，分析该公司过去五年的盈利能力。"</p></div><div class="en"><p>"Based on the attached financial report, analyze the company's profitability over the past five years."</p></div></div>
+<div class="pair"><div class="zh"><p>界定关键术语与概念</p></div><div class="en"><p>Define key terms and concepts</p></div></div>
+<div class="pair"><div class="zh"><p>"用通俗的语言解释量子计算的概念，适合非技术背景的读者。"</p></div><div class="en"><p>"Explain the concept of quantum computing in simple terms, suitable for a non-technical audience."</p></div></div>
+<div class="pair"><div class="zh"><h3>3. 使用少样本提示：</h3></div><div class="en"><h3>3. Use Few-Shot Prompting:</h3></div></div>
+<div class="pair"><div class="zh"><p>提供几对期望的输入-输出示例</p></div><div class="en"><p>Provide a few examples of desired input-output pairs</p></div></div>
+<div class="pair"><div class="zh"><p>输入："猫" 输出："一种长着胡须、毛茸茸的小型哺乳动物。" 输入："狗" 输出："一种以忠诚著称的驯养犬科动物。" 提示词："大象"</p></div><div class="en"><p>Input: "Cat" Output: "A small furry mammal with whiskers." Input: "Dog" Output: "A domesticated canine known for its loyalty." Prompt: "Elephant"</p></div></div>
+<div class="pair"><div class="zh"><p>展示期望的风格或语调</p></div><div class="en"><p>Demonstrate the desired style or tone</p></div></div>
+<div class="pair"><div class="zh"><p>示例 1（幽默）："那位政客的演讲乏味得能治好失眠。" 示例 2（正式）："那位要人发表了一场既富有信息量又引人入胜的演讲。" 提示词："写一句话描述这位喜剧演员的脱口秀表演。"</p></div><div class="en"><p>Example 1 (humorous): "The politician's speech was so dull, it could cure insomnia." Example 2 (formal): "The dignitary delivered an address that was both informative and engaging." Prompt: "Write a sentence describing the comedian's stand-up routine."</p></div></div>
+<div class="pair"><div class="zh"><p>展示期望的细节程度</p></div><div class="en"><p>Show the desired level of detail</p></div></div>
+<div class="pair"><div class="zh"><p>示例 1（简略）："这部电影讲的是一个男孩和一名外星人成为朋友。" 示例 2（详细）："这部科幻片讲述了孤独男孩 Elliot 的故事，他发现了一名困在地球上的外星来客，并与它建立起独特的纽带。" 提示词："总结你刚读完的那本小说的情节。"</p></div><div class="en"><p>Example 1 (brief): "The movie was about a young boy who befriends an alien." Example 2 (detailed): "The science fiction film follows the story of Elliot, a lonely boy who discovers and forms a unique bond with an extraterrestrial stranded on Earth." Prompt: "Summarize the plot of the novel you just finished reading."</p></div></div>
+<div class="pair"><div class="zh"><h3>4. 要具体：</h3></div><div class="en"><h3>4. Be Specific:</h3></div></div>
+<div class="pair"><div class="zh"><p>使用精确的语言，避免歧义</p></div><div class="en"><p>Use precise language and avoid ambiguity</p></div></div>
+<div class="pair"><div class="zh"><p>不要写："写点关于气候变化的东西"，而应写："写一篇有说服力的文章，论证应当实施更严格的碳排放法规。"</p></div><div class="en"><p>Instead of: "Write something about climate change," use: "Write a persuasive essay arguing for the implementation of stricter carbon emission regulations."</p></div></div>
+<div class="pair"><div class="zh"><p>尽可能量化你的要求</p></div><div class="en"><p>Quantify your requests whenever possible</p></div></div>
+<div class="pair"><div class="zh"><p>不要写："写一首长诗"，而应写："写一首 14 行的十四行诗，探讨爱与失去的主题。"</p></div><div class="en"><p>Instead of: "Write a long poem," use: "Write a sonnet with 14 lines that explores themes of love and loss."</p></div></div>
+<div class="pair"><div class="zh"><p>把复杂任务拆成更小的步骤</p></div><div class="en"><p>Break down complex tasks into smaller steps</p></div></div>
+<div class="pair"><div class="zh"><p>不要写："做一份营销计划"，而应写："1. 确定目标受众。2. 制定核心营销信息。3. 选择合适的营销渠道。"</p></div><div class="en"><p>Instead of: "Create a marketing plan," use: "1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels."</p></div></div>
+<div class="pair"><div class="zh"><h3>5. 迭代与试验：</h3></div><div class="en"><h3>5. Iterate and Experiment:</h3></div></div>
+<div class="pair"><div class="zh"><p><strong>动作</strong></p></div><div class="en"><p><strong>Action</strong></p></div></div>
+<div class="pair"><div class="zh"><p>尝试不同的措辞与关键词</p></div><div class="en"><p>Try different phrasings and keywords</p></div></div>
+<div class="pair"><div class="zh"><p>用同义词或不同的句式改写你的提示词。</p></div><div class="en"><p>Rephrase your prompt using synonyms or alternative sentence structures.</p></div></div>
+<div class="pair"><div class="zh"><p>调整细节程度与具体程度</p></div><div class="en"><p>Adjust the level of detail and specificity</p></div></div>
+<div class="pair"><div class="zh"><p>增加或删减信息，以微调输出。</p></div><div class="en"><p>Add or remove information to fine-tune the output.</p></div></div>
+<div class="pair"><div class="zh"><p>测试不同的提示词长度</p></div><div class="en"><p>Test different prompt lengths</p></div></div>
+<div class="pair"><div class="zh"><p>既试较短的提示词，也试较长的提示词，找到最佳平衡点。</p></div><div class="en"><p>Experiment with both shorter and longer prompts to find the optimal balance.</p></div></div>
+<div class="pair"><div class="zh"><h3>6. 借助思维链提示：</h3></div><div class="en"><h3>6. Leverage Chain of Thought Prompting:</h3></div></div>
+<div class="pair"><div class="zh"><p>鼓励逐步推理</p></div><div class="en"><p>Encourage step-by-step reasoning</p></div></div>
+<div class="pair"><div class="zh"><p>"一步一步解这道题：John 有 5 个苹果，他吃了 2 个。他还剩几个苹果？第 1 步：John 一开始有 5 个苹果。第 2 步：他吃了 2 个苹果，所以要从 5 中减去 2。第 3 步：5 - 2 = 3。答案：John 还剩 3 个苹果。"</p></div><div class="en"><p>"Solve this problem step-by-step: John has 5 apples, he eats 2. How many apples does he have left? Step 1: John starts with 5 apples. Step 2: He eats 2 apples, so we need to subtract 2 from 5. Step 3: 5 - 2 = 3. Answer: John has 3 apples left."</p></div></div>
+<div class="pair"><div class="zh"><p>要求模型解释其推理过程</p></div><div class="en"><p>Ask the model to explain its reasoning process</p></div></div>
+<div class="pair"><div class="zh"><p>"解释你判断这条影评情感倾向的思考过程：'表演非常出色，但情节一猜就中。'"</p></div><div class="en"><p>"Explain your thought process in determining the sentiment of this movie review: 'The acting was superb, but the plot was predictable.'"</p></div></div>
+<div class="pair"><div class="zh"><p>引导模型走完一条合乎逻辑的思考序列</p></div><div class="en"><p>Guide the model through a logical sequence of thought</p></div></div>
+<div class="pair"><div class="zh"><p>"要把这封邮件分类为垃圾邮件或非垃圾邮件，请考虑以下几点：1. 发件人是否已知？2. 主题行是否含有可疑关键词？3. 邮件是否在提供好得不像真的东西？"</p></div><div class="en"><p>"To classify this email as spam or not spam, consider the following: 1. Is the sender known? 2. Does the subject line contain suspicious keywords? 3. Is the email offering something too good to be true?"</p></div></div>
+<div class="pair"><div class="zh"><p>关于提示工程最佳实践的更多指导，可查看 Google Cloud 上的<a href="https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering" target="_blank" rel="noopener">提示工程五大最佳实践</a>。</p></div><div class="en"><p>For further guidance on prompt engineering best practices, explore the <a href="https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering" target="_blank" rel="noopener">Five Best Practices for Prompt Engineering</a> on Google Cloud.</p></div></div>
+<div class="pair"><div class="zh"><h2>提示工程的收益</h2></div><div class="en"><h2>Benefits of prompt engineering</h2></div></div>
+<div class="pair"><div class="zh"><p>有效的提示工程带来诸多收益，能增强 AI 模型的能力与可用性：</p></div><div class="en"><p>Effective prompt engineering offers numerous benefits, enhancing the capabilities and usability of AI models:</p></div></div>
+<div class="pair"><div class="zh"><h3>提升模型表现</h3></div><div class="en"><h3>Improved model performance</h3></div></div>
+<div class="pair"><div class="zh"><p>精心设计的提示词能带来更准确、更相关、信息更充分的 AI 模型输出，因为它们提供了清晰的指令与上下文。</p></div><div class="en"><p>Well-crafted prompts lead to more accurate, relevant, and informative outputs from AI models, as they provide clear instructions and context.</p></div></div>
+<div class="pair"><div class="zh"><h3>减少偏见与有害回复</h3></div><div class="en"><h3>Reduced bias and harmful responses</h3></div></div>
+<div class="pair"><div class="zh"><p>通过谨慎控制输入并引导 AI 的关注点，提示工程有助于减轻偏见，并降低生成不当或冒犯性内容的风险。</p></div><div class="en"><p>By carefully controlling the input and guiding the AI's focus, prompt engineering helps mitigate bias and minimize the risk of generating inappropriate or offensive content.</p></div></div>
+<div class="pair"><div class="zh"><h3>增强控制力与可预测性</h3></div><div class="en"><h3>Increased control and predictability</h3></div></div>
+<div class="pair"><div class="zh"><p>提示工程让你能够影响 AI 的行为，确保回复一致、可预测，并与你期望的结果相符。</p></div><div class="en"><p>Prompt engineering empowers you to influence the AI's behavior and ensure consistent and predictable responses aligned with your desired outcomes.</p></div></div>
+<div class="pair"><div class="zh"><h3>改善用户体验</h3></div><div class="en"><h3>Enhanced user experience</h3></div></div>
+<div class="pair"><div class="zh"><p>清晰简洁的提示词让用户更容易与 AI 模型有效互动，从而带来更直观、更令人满意的体验。</p></div><div class="en"><p>Clear and concise prompts make it easier for users to interact effectively with AI models, leading to more intuitive and satisfying experiences.</p></div></div>
+<div class="pair"><div class="zh"><h3>用 Google Cloud 开启你的 AI 之旅</h3></div><div class="en"><h3>Start your AI journey with Google Cloud</h3></div></div>
+<div class="pair"><div class="zh"><p>新客户可获得 300 美元免费赠金，用于 Google Cloud。</p></div><div class="en"><p>New customers get $300 in free credits to spend on Google Cloud.</p></div></div>
+<div class="pair"><div class="zh"><p>开始使用&lt;https://console.cloud.google.com/freetrial/?redirectPath=/vertex-ai/&gt;</p></div><div class="en"><p>Get started&lt;https://console.cloud.google.com/freetrial/?redirectPath=/vertex-ai/&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>与 Google Cloud 销售专员交流，更详细地讨论你面临的独特挑战。</p></div><div class="en"><p>Talk to a Google Cloud sales specialist to discuss your unique challenge in more detail.</p></div></div>
+<div class="pair"><div class="zh"><p>联系我们&lt;https://cloud.google.com/contact&gt;</p></div><div class="en"><p>Contact us&lt;https://cloud.google.com/contact&gt;</p></div></div>
+<div class="pair"><div class="zh"><h4>更多入门学习资源</h4></div><div class="en"><h4>Additional learning resources to get started</h4></div></div>
+<div class="pair"><div class="zh"><p>刚接触 Google Cloud 或生成式 AI？新客户可获得 <a href="https://cloud.google.com/free/docs/free-cloud-features" target="_blank" rel="noopener">300 美元免费赠金</a>，用于运行、测试与部署工作负载。</p></div><div class="en"><p>New to Google Cloud or generative AI? New customers get <a href="https://cloud.google.com/free/docs/free-cloud-features" target="_blank" rel="noopener">$300 in free credits</a> to run, test, and deploy workloads.</p></div></div>
+<div class="pair"><div class="zh"><ul><li><a href="https://www.cloudskillsboost.google/paths/118" target="_blank" rel="noopener">培训：免费的生成式 AI 基础课程</a></li><li><a href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/introduction-prompt-design" target="_blank" rel="noopener">文档：提示设计入门</a></li><li><a href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/prompt-design-strategies" target="_blank" rel="noopener">文档：通用提示设计策略</a></li><li><a href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/prompt-samples" target="_blank" rel="noopener">文档：生成式 AI 提示词示例</a></li></ul></div><div class="en"><ul><li><a href="https://www.cloudskillsboost.google/paths/118" target="_blank" rel="noopener">Training: No cost generative AI fundamentals course</a></li><li><a href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/introduction-prompt-design" target="_blank" rel="noopener">Documentation: Introduction to prompt design</a></li><li><a href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/prompt-design-strategies" target="_blank" rel="noopener">Documentation: General prompt design strategies</a></li><li><a href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/prompt-samples" target="_blank" rel="noopener">Documentation: Generative AI prompt samples</a></li></ul></div></div>
+<div class="pair"><div class="zh"><h4>采取下一步</h4></div><div class="en"><h4>Take the next step</h4></div></div>
+<div class="pair"><div class="zh"><p>用 300 美元免费赠金和 20 多款永久免费产品，开始在 Google Cloud 上构建。</p></div><div class="en"><p>Start building on Google Cloud with $300 in free credits and 20+ always free products.</p></div></div>
+<div class="pair"><div class="zh"><p>免费开始使用&lt;https://console.cloud.google.com/freetrial/&gt;</p></div><div class="en"><p>Get started for free&lt;https://console.cloud.google.com/freetrial/&gt;</p></div></div>
+<div class="pair"><div class="zh"><ul><li>需要入门帮助？<a href="https://cloud.google.com/contact/" target="_blank" rel="noopener">联系销售</a></li><li>与值得信赖的合作伙伴合作<a href="https://cloud.google.com/find-a-partner/" target="_blank" rel="noopener">寻找合作伙伴</a></li><li>继续浏览<a href="https://cloud.google.com/products/" target="_blank" rel="noopener">查看全部产品</a></li></ul></div><div class="en"><ul><li>Need help getting started?<a href="https://cloud.google.com/contact/" target="_blank" rel="noopener">Contact sales</a></li><li>Work with a trusted partner<a href="https://cloud.google.com/find-a-partner/" target="_blank" rel="noopener">Find a partner</a></li><li>Continue browsing<a href="https://cloud.google.com/products/" target="_blank" rel="noopener">See all products</a></li></ul></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

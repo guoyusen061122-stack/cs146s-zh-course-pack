@@ -1,0 +1,2 @@
+{"slug": "repo-fall2025-week1-readmemd", "id": "repo-fall2025-week1-readmemd#b0000", "block": 0, "kind": "heading", "translate": true, "chars": 24, "sha256": "029a0fd0126e1659", "text": "LLM Prompting Playground"}
+{"slug": "repo-fall2025-week1-readmemd", "id": "repo-fall2025-week1-readmemd#b0001", "block": 1, "kind": "para", "translate": true, "chars": 168, "sha256": "45e043b684315cec", "text": "Practice core LLM prompting techniques essential to using and understanding coding LLMs. The full assignment description is provided at [assignment.md](./assignment.md)"}

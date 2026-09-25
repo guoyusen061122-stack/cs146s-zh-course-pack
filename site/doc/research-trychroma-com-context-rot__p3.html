@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Context Rot: Understanding Degradation in AI Context Windows（第 3/3 部分）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Context Rot: Understanding Degradation in AI Context Windows（第 3/3 部分）</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 5,860 字符 ｜ 51 个内容块 ｜ <a href="https://research.trychroma.com/context-rot" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><p>更广泛地说，我们的发现指出了上下文工程的重要性：即对模型上下文窗口的精心构建与管理。信息在模型上下文中呈现的位置与方式，会强烈影响任务表现，这使上下文工程成为优化模型表现的一个有意义的研究方向。</p></div><div class="en"><p>More broadly, our findings point to the importance of context engineering: the careful construction and management of a model’s context window. Where and how information is presented in a model’s context strongly influences task performance, making this a meaningful direction of future work for optimizing model performance.</p></div></div>
+<div class="pair"><div class="zh"><h1>结论</h1></div><div class="en"><h1>Conclusion</h1></div></div>
+<div class="pair"><div class="zh"><p>通过我们的实验，我们证明了大语言模型（LLM）并不能在输入长度变化时保持一致的表现。即便在非词汇检索或文本复述这类简单任务上，随着输入长度增长，我们也能看到表现的不均匀性不断增加。</p></div><div class="en"><p>Through our experiments, we demonstrate that LLMs do not maintain consistent performance across input lengths. Even on tasks as simple as non-lexical retrieval or text replication, we see increasing non-uniformity in performance as input length grows.</p></div></div>
+<div class="pair"><div class="zh"><p>我们的结果凸显出，需要在当前基准测试之外开展更严格的长上下文评测，同时也凸显出上下文工程的重要性。模型上下文中是否存在相关信息，并不是唯一重要的事；更重要的是这些信息如何呈现。我们证明，即便能力最强的模型也对这一点敏感，因此有效的上下文工程对可靠的表现不可或缺。</p></div><div class="en"><p>Our results highlight the need for more rigorous long-context evaluation beyond current benchmarks, as well as the importance of context engineering. Whether relevant information is present in a model’s context is not all that matters; what matters more is how that information is presented. We demonstrate that even the most capable models are sensitive to this, making effective context engineering essential for reliable performance.</p></div></div>
+<div class="pair"><div class="zh"><h1>脚注</h1></div><div class="en"><h1>Footnotes</h1></div></div>
+<div class="pair"><div class="zh"><p>[1]（2025 年 7 月 16 日）Latent List 相关见解由 Kiran Vodrahalli（Google Deepmind）补充，并做了若干澄清。</p></div><div class="en"><p>[1] (July 16, 2025) Latent List insights added and clarifications made by Kiran Vodrahalli (Google Deepmind)</p></div></div>
+<div class="pair"><div class="zh"><p>[2] 示例的原始来源：<a href="https://arxiv.org/pdf/2410.10813" target="_blank" rel="noopener">https://arxiv.org/pdf/2410.10813</a></p></div><div class="en"><p>[2] Original source for examples: <a href="https://arxiv.org/pdf/2410.10813" target="_blank" rel="noopener">https://arxiv.org/pdf/2410.10813</a></p></div></div>
+<div class="pair"><div class="zh"><h1>参考文献</h1></div><div class="en"><h1>References</h1></div></div>
+<div class="pair"><div class="zh"><p>[1] Kamradt, G. (2023). Needle In A Haystack - Pressure Testing LLMs [GitHub Repository]. <a href="https://github.com/gkamradt/LLMTest_NeedleInAHaystack" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[1] Kamradt, G. (2023). Needle In A Haystack - Pressure Testing LLMs [GitHub Repository]. <a href="https://github.com/gkamradt/LLMTest_NeedleInAHaystack" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[2] Wu, D., Wang, H., Yu, W., Zhang, Y., Chang, K.-W., and Yu, D. (2025). LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory. arXiv 预印本 arXiv:2410.10813. <a href="https://arxiv.org/abs/2410.10813" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[2] Wu, D., Wang, H., Yu, W., Zhang, Y., Chang, K.-W., and Yu, D. (2025). LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory. arXiv preprint arXiv:2410.10813. <a href="https://arxiv.org/abs/2410.10813" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[3] Gemini Team, Georgiev, P., Lei, V. I., Burnell, R., Bai, L., Gulati, A., Tanzer, G., Vincent, D., Pan, Z., Wang, S., et al. (2024). Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context. arXiv 预印本 arXiv:2403.05530. <a href="https://arxiv.org/abs/2403.05530" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[3] Gemini Team, Georgiev, P., Lei, V. I., Burnell, R., Bai, L., Gulati, A., Tanzer, G., Vincent, D., Pan, Z., Wang, S., et al. (2024). Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context. arXiv preprint arXiv:2403.05530. <a href="https://arxiv.org/abs/2403.05530" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[4] OpenAI, Kumar, A., Yu, J., Hallman, J., Pokrass, M., Goucher, A., Ganesh, A., Cheng, B., McKinzie, B., Zhang, B., Koch, C., et al. (2025). Introducing GPT-4.1 in the API. <a href="https://openai.com/index/gpt-4-1/" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[4] OpenAI, Kumar, A., Yu, J., Hallman, J., Pokrass, M., Goucher, A., Ganesh, A., Cheng, B., McKinzie, B., Zhang, B., Koch, C., et al. (2025). Introducing GPT-4.1 in the API. <a href="https://openai.com/index/gpt-4-1/" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[5] Meta AI, (2025). The Llama 4 herd: The beginning of a new era of natively multimodal AI innovation. <a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[5] Meta AI, (2025). The Llama 4 herd: The beginning of a new era of natively multimodal AI innovation. <a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[6] Modarressi, A., Deilamsalehy, H., Dernoncourt, F., Bui, T., Rossi, R. A., Yoon, S., and Schütze, H. (2025). NoLiMa: Long-Context Evaluation Beyond Literal Matching. arXiv 预印本 arXiv:2502.05167. <a href="https://arxiv.org/abs/2502.05167" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[6] Modarressi, A., Deilamsalehy, H., Dernoncourt, F., Bui, T., Rossi, R. A., Yoon, S., and Schütze, H. (2025). NoLiMa: Long-Context Evaluation Beyond Literal Matching. arXiv preprint arXiv:2502.05167. <a href="https://arxiv.org/abs/2502.05167" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[7] Fu, H. Y., Shrivastava, A., Moore, J., West, P., Tan, C., and Holtzman, A. (2025). AbsenceBench: Language Models Can't Tell What's Missing. arXiv 预印本 arXiv:2506.11440. <a href="https://arxiv.org/abs/2506.11440" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[7] Fu, H. Y., Shrivastava, A., Moore, J., West, P., Tan, C., and Holtzman, A. (2025). AbsenceBench: Language Models Can't Tell What's Missing. arXiv preprint arXiv:2506.11440. <a href="https://arxiv.org/abs/2506.11440" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[8] Vodrahalli, K., Ontanon, S., Tripuraneni, N., Xu, K., Jain, S., Shivanna, R., Hui, J., Dikkala, N., Kazemi, M., Fatemi, B., et al. (2024). Michelangelo: Long Context Evaluations Beyond Haystacks via Latent Structure Queries. arXiv 预印本 arXiv:2409.12640. <a href="https://arxiv.org/abs/2409.12640" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[8] Vodrahalli, K., Ontanon, S., Tripuraneni, N., Xu, K., Jain, S., Shivanna, R., Hui, J., Dikkala, N., Kazemi, M., Fatemi, B., et al. (2024). Michelangelo: Long Context Evaluations Beyond Haystacks via Latent Structure Queries. arXiv preprint arXiv:2409.12640. <a href="https://arxiv.org/abs/2409.12640" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[9] openai. (2025). mrcr [Dataset]. Hugging Face. <a href="https://huggingface.co/datasets/openai/mrcr" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[9] openai. (2025). mrcr [Dataset]. Hugging Face. <a href="https://huggingface.co/datasets/openai/mrcr" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[10] openai. (2025). graphwalks [Dataset]. Hugging Face. <a href="https://huggingface.co/datasets/openai/graphwalks" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[10] openai. (2025). graphwalks [Dataset]. Hugging Face. <a href="https://huggingface.co/datasets/openai/graphwalks" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[11] Shi, F., Chen, X., Misra, K., Scales, N., Dohan, D., Chi, E., Schärli, N., and Zhou, D. (2023). Large Language Models Can Be Easily Distracted by Irrelevant Context. arXiv 预印本 arXiv:2302.00093. <a href="https://arxiv.org/abs/2302.00093" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[11] Shi, F., Chen, X., Misra, K., Scales, N., Dohan, D., Chi, E., Schärli, N., and Zhou, D. (2023). Large Language Models Can Be Easily Distracted by Irrelevant Context. arXiv preprint arXiv:2302.00093. <a href="https://arxiv.org/abs/2302.00093" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[12] jamescalam. (2024). ai-arxiv2 [Dataset]. Hugging Face. <a href="https://huggingface.co/datasets/jamescalam/ai-arxiv2" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[12] jamescalam. (2024). ai-arxiv2 [Dataset]. Hugging Face. <a href="https://huggingface.co/datasets/jamescalam/ai-arxiv2" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[13] Peng, B., Quesnelle, J., Fan, H., and Shippole, E. (2023). YaRN: Efficient Context Window Extension of Large Language Models. arXiv 预印本 arXiv:2309.00071. <a href="https://arxiv.org/abs/2309.00071" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[13] Peng, B., Quesnelle, J., Fan, H., and Shippole, E. (2023). YaRN: Efficient Context Window Extension of Large Language Models. arXiv preprint arXiv:2309.00071. <a href="https://arxiv.org/abs/2309.00071" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[14] McInnes, L., Healy, J., and Melville, J. (2020). UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction. arXiv 预印本 arXiv:1802.03426. <a href="https://arxiv.org/abs/1802.03426" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[14] McInnes, L., Healy, J., and Melville, J. (2020). UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction. arXiv preprint arXiv:1802.03426. <a href="https://arxiv.org/abs/1802.03426" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><p>[15] Campello, R. J. G. B., Moulavi, D., and Sander, J. (2013). Density-Based Clustering Based on Hierarchical Density Estimates. In Pei, J., Tseng, V. S., Cao, L., Motoda, H., and Xu, G. (Eds.), Advances in Knowledge Discovery and Data Mining（PAKDD 2013）, Lecture Notes in Computer Science, vol 7819. Springer, Berlin, Heidelberg. <a href="https://doi.org/10.1007/978-3-642-37456-2_14" target="_blank" rel="noopener">Link</a></p></div><div class="en"><p>[15] Campello, R. J. G. B., Moulavi, D., and Sander, J. (2013). Density-Based Clustering Based on Hierarchical Density Estimates. In Pei, J., Tseng, V. S., Cao, L., Motoda, H., and Xu, G. (Eds.), Advances in Knowledge Discovery and Data Mining (PAKDD 2013), Lecture Notes in Computer Science, vol 7819. Springer, Berlin, Heidelberg. <a href="https://doi.org/10.1007/978-3-642-37456-2_14" target="_blank" rel="noopener">Link</a></p></div></div>
+<div class="pair"><div class="zh"><h1>附录</h1></div><div class="en"><h1>Appendix</h1></div></div>
+<div class="pair"><div class="zh"><p>清理后的 LongMemEval 数据集，以及所使用的针与干扰项，可从<a href="https://drive.google.com/drive/folders/1FuOysriSotnYasJUbZJzn31SWt85_3yf" target="_blank" rel="noopener">这里</a>下载。</p></div><div class="en"><p>Cleaned LongMemEval datasets and needles/distractors used can be downloaded <a href="https://drive.google.com/drive/folders/1FuOysriSotnYasJUbZJzn31SWt85_3yf" target="_blank" rel="noopener">here</a>.</p></div></div>
+<div class="pair"><div class="zh"><h2>LLM 评判器对齐：</h2></div><div class="en"><h2>LLM judge alignment:</h2></div></div>
+<div class="pair"><div class="zh"><p>我们使用 LLM 评判器来评估 NIAH 与 LongMemEval 实验的输出。这些评判器通过以下流程与人类判断校准：</p></div><div class="en"><p>We employ LLM judges to evaluate outputs for our NIAH and LongMemEval experiments. These judges are calibrated to human judgment through the following process:</p></div></div>
+<div class="pair"><div class="zh"><h2>测试的模型</h2></div><div class="en"><h2>Models Tested</h2></div></div>
+<div class="pair"><div class="zh"><p>由于上下文窗口或 thinking_budget 的限制，并非所有 18 个模型都出现在每个实验中。</p></div><div class="en"><p>Not all 18 models are included in each experiement due to context window or thinking_budget constraints.</p></div></div>
+<div class="pair"><div class="zh"><h3>Anthropic</h3></div><div class="en"><h3>Anthropic</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>Claude Opus 4</li><li>Claude Sonnet 4</li><li>Claude Sonnet 3.7</li><li>Claude Sonnet 3.5</li><li>Claude Haiku 3.5</li></ul></div><div class="en"><ul><li>Claude Opus 4</li><li>Claude Sonnet 4</li><li>Claude Sonnet 3.7</li><li>Claude Sonnet 3.5</li><li>Claude Haiku 3.5</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>OpenAI</h3></div><div class="en"><h3>OpenAI</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>o3</li><li>GPT-4.1</li><li>GPT-4.1 mini</li><li>GPT-4.1 nano</li><li>GPT-4o</li><li>GPT-4 Turbo</li><li>GPT-3.5 Turbo</li></ul></div><div class="en"><ul><li>o3</li><li>GPT-4.1</li><li>GPT-4.1 mini</li><li>GPT-4.1 nano</li><li>GPT-4o</li><li>GPT-4 Turbo</li><li>GPT-3.5 Turbo</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>Google</h3></div><div class="en"><h3>Google</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>Gemini 2.5 Pro</li><li>Gemini 2.5 Flash</li><li>Gemini 2.0 Flash</li></ul></div><div class="en"><ul><li>Gemini 2.5 Pro</li><li>Gemini 2.5 Flash</li><li>Gemini 2.0 Flash</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>Alibaba</h3></div><div class="en"><h3>Alibaba</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>Qwen3-235B-A22B</li><li>Qwen3-32B</li><li>Qwen3-8B</li></ul></div><div class="en"><ul><li>Qwen3-235B-A22B</li><li>Qwen3-32B</li><li>Qwen3-8B</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>使用的嵌入模型</h2></div><div class="en"><h2>Embedding Models Used</h2></div></div>
+<div class="pair"><div class="zh"><ul><li>text-embedding-3-small</li><li>text-embedding-3-large</li><li>jina-embeddings-v3 (input_type='text-matching')</li><li>voyage-3-large (input_type=None)</li><li>all-MiniLM-L6-v2</li></ul></div><div class="en"><ul><li>text-embedding-3-small</li><li>text-embedding-3-large</li><li>jina-embeddings-v3 (input_type='text-matching')</li><li>voyage-3-large (input_type=None)</li><li>all-MiniLM-L6-v2</li></ul></div></div>
+<div class="pair"><div class="zh"><p>注意：同一模型的思考模式与非思考模式分别对待</p></div><div class="en"><p>Note: thinking/non-thinking modes of the same model are treated separately</p></div></div>
+<div class="pair"><div class="zh"><p>针与问题的相似度 - PG 文章针堆/PG 文章针</p></div><div class="en"><p>Needle-Question Similarity - PG essay haystack/PG essay needles</p></div></div>
+<div class="pair"><div class="zh"><p>正如我们在针与针堆相似度结果中提到的，我们注意到这一处现象：模型的表现相比其他针与针堆组合异常地好。单看这一处，似乎高性能模型的表现是一致的。但这类模型的一致性在其他实验中并不成立。</p></div><div class="en"><p>As mentioned in our Needle-Haystack Similarity results, we note this one occurance in which models perform exceptionally well compared to the other needle-haystack combinations. On its own, it may seem that the high performance models have uniform performance. However, such uniformity for these models does not hold across the rest of the experiments.</p></div></div>
+<div class="pair"><div class="zh"><p>干扰项的影响：按干扰项数量统计的表现 - arXiv 针堆/arXiv 针</p></div><div class="en"><p>Impact of Distractors: Performance by Number of Distractors - arXiv haystack/arXiv needles</p></div></div>
+<div class="pair"><div class="zh"><p>干扰项的影响：按单个干扰项统计的表现 - arXiv 针堆/arXiv 针</p></div><div class="en"><p>Impact of Distractors: Performance by Individual Distractors - arXiv haystack/arXiv needles</p></div></div>
+<div class="pair"><div class="zh"><p>干扰项的影响：按干扰项数量统计的表现 - PG 文章针堆/PG 文章针</p></div><div class="en"><p>Impact of Distractors: Performance by Number of Distractors - PG essay haystack/PG essay needles</p></div></div>
+<div class="pair"><div class="zh"><p>干扰项的影响：按单个干扰项统计的表现 - PG 文章针堆/PG 文章针</p></div><div class="en"><p>Impact of Distractors: Performance by Individual Distractors - PG essay haystack/PG essay needles</p></div></div>
+<div class="pair"><div class="zh"><p>干扰项的影响：按干扰项数量统计的表现 - PG 文章针堆/arXiv 针</p></div><div class="en"><p>Impact of Distractors: Performance by Number of Distractors - PG essay haystack/arXiv needles</p></div></div>
+<div class="pair"><div class="zh"><p>干扰项的影响：按单个干扰项统计的表现 - PG 文章针堆/arXiv 针</p></div><div class="en"><p>Impact of Distractors: Performance by Individual Distractors - PG essay haystack/arXiv needles</p></div></div>
+<div class="pair"><div class="zh"><p>干扰项的影响：失败分析 - arXiv 针堆/arXiv 针</p></div><div class="en"><p>Impact of Distractors: Failure Analysis - arXiv haystack/arXiv needles</p></div></div>
+<div class="pair"><div class="zh"><p>干扰项的影响：失败分析 - PG 文章针堆/PG 文章针</p></div><div class="en"><p>Impact of Distractors: Failure Analysis - PG essay haystack/PG essay needles</p></div></div>
+<div class="pair"><div class="zh"><p>干扰项的影响：失败分析 - PG 文章针堆/arXiv 针</p></div><div class="en"><p>Impact of Distractors: Failure Analysis - PG essay haystack/arXiv needles</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

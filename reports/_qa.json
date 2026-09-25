@@ -1,0 +1,2560 @@
+{
+  "generated_at": "2026-09-25T12:38:07+08:00",
+  "aggregate": {
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "issues": 0,
+    "term_hits": 4513,
+    "term_violations": 0,
+    "term_missing": 68,
+    "translated": 110,
+    "segments": 5697,
+    "segments_translated": 5858,
+    "term_consistency": 1.0
+  },
+  "missing": [],
+  "items": [
+    {
+      "slug": "arxiv-org-pdf-2405-13565__p1",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 44,
+        "blocks_zh": 44,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 86,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "arxiv-org-pdf-2405-13565__p2",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 8,
+        "blocks_zh": 8,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 31,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 1,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "arxiv-org-pdf-2405-13565__p3",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 9,
+        "blocks_zh": 9,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 37,
+        "term_violations": 0,
+        "term_missing": 3,
+        "kept_english": 1,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] repository 在原文出现但译文中未见定译「仓库」",
+          "[术语缺失] lint 在原文出现但译文中未见定译「静态检查」",
+          "[术语缺失] assessment 在原文出现但译文中未见定译「评估」"
+        ]
+      }
+    },
+    {
+      "slug": "blakesmith-me-2015-02-09-code-review-essentials-for-software-teams",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 39,
+        "blocks_zh": 39,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 36,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] specification 在原文出现但译文中未见定译「规格」"
+        ]
+      }
+    },
+    {
+      "slug": "blog-codinghorror-com-code-reviews-just-do-it",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 8,
+        "blocks_zh": 8,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 10,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 24,
+        "blocks_zh": 24,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 15,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "blog-ravi-mehta-com-p-specs-are-the-new-source-code",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 10,
+        "blocks_zh": 10,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 8,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "blog-stockapp-com-good-context-good-code",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 42,
+        "blocks_zh": 42,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 127,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 25,
+        "blocks_zh": 25,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 40,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "cloud-google-com-discover-what-is-prompt-engineering",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 165,
+        "blocks_zh": 165,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 98,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agent 在原文出现但译文中未见定译「智能体」"
+        ]
+      }
+    },
+    {
+      "slug": "developers-cloudflare-com-agents-guides-remote-mcp-server",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 121,
+        "blocks_zh": 121,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 91,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "devin-ai-agents101",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 89,
+        "blocks_zh": 89,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 111,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] span 在原文出现但译文中未见定译「跨度」"
+        ]
+      }
+    },
+    {
+      "slug": "embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 61,
+        "blocks_zh": 61,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 40,
+        "term_violations": 0,
+        "term_missing": 3,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] prompt 在原文出现但译文中未见定译「提示词」",
+          "[术语缺失] deployment 在原文出现但译文中未见定译「部署」"
+        ]
+      }
+    },
+    {
+      "slug": "fall2025-w01-fri9-26-power-prompting-for-llms",
+      "group": "media",
+      "stats": {
+        "blocks_en": 166,
+        "blocks_zh": 166,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 77,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 1,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] trace 在原文出现但译文中未见定译「追踪」"
+        ]
+      }
+    },
+    {
+      "slug": "fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made",
+      "group": "media",
+      "stats": {
+        "blocks_en": 189,
+        "blocks_zh": 189,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 44,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] embedding 在原文出现但译文中未见定译「嵌入」"
+        ]
+      }
+    },
+    {
+      "slug": "fall2025-w02-fri10-3-building-a-custom-mcp-server",
+      "group": "media",
+      "stats": {
+        "blocks_en": 85,
+        "blocks_zh": 85,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 20,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "fall2025-w02-mon9-29-building-a-coding-agent-from-scratch",
+      "group": "media",
+      "stats": {
+        "blocks_en": 53,
+        "blocks_zh": 53,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 13,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] LLM 在原文出现但译文中未见定译「大语言模型」",
+          "[术语缺失] system prompt 在原文出现但译文中未见定译「系统提示词」"
+        ]
+      }
+    },
+    {
+      "slug": "fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition",
+      "group": "media",
+      "stats": {
+        "blocks_en": 70,
+        "blocks_zh": 70,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 34,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive",
+      "group": "media",
+      "stats": {
+        "blocks_en": 54,
+        "blocks_zh": 54,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 8,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup",
+      "group": "media",
+      "stats": {
+        "blocks_en": 143,
+        "blocks_zh": 143,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 23,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code",
+      "group": "media",
+      "stats": {
+        "blocks_en": 121,
+        "blocks_zh": 121,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 17,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 2,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] MCP server 在原文出现但译文中未见定译「MCP 服务器」"
+        ]
+      }
+    },
+    {
+      "slug": "fall2025-w04-mon10-13-how-to-be-an-agent-manager",
+      "group": "media",
+      "stats": {
+        "blocks_en": 122,
+        "blocks_zh": 122,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 30,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product",
+      "group": "media",
+      "stats": {
+        "blocks_en": 105,
+        "blocks_zh": 105,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 16,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond",
+      "group": "media",
+      "stats": {
+        "blocks_en": 186,
+        "blocks_zh": 186,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 59,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] guest lecture 在原文出现但译文中未见定译「嘉宾讲座」"
+        ]
+      }
+    },
+    {
+      "slug": "fall2025-w07-fri11-7-tomas-reimers-cpo-graphite",
+      "group": "media",
+      "stats": {
+        "blocks_en": 74,
+        "blocks_zh": 74,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 22,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "fall2025-w07-mon11-3-ai-code-review",
+      "group": "media",
+      "stats": {
+        "blocks_en": 108,
+        "blocks_zh": 108,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 14,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt",
+      "group": "media",
+      "stats": {
+        "blocks_en": 81,
+        "blocks_zh": 81,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 5,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta",
+      "group": "media",
+      "stats": {
+        "blocks_en": 121,
+        "blocks_zh": 121,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 30,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] prompt 在原文出现但译文中未见定译「提示词」"
+        ]
+      }
+    },
+    {
+      "slug": "fall2025-w09-mon11-17-incident-response-and-devops",
+      "group": "media",
+      "stats": {
+        "blocks_en": 134,
+        "blocks_zh": 134,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 17,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines",
+      "group": "media",
+      "stats": {
+        "blocks_en": 123,
+        "blocks_zh": 123,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 10,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 91,
+        "blocks_zh": 91,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 106,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 5,
+        "blocks_zh": 5,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 19,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 173,
+        "blocks_zh": 173,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 139,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] Deep Dive 在原文出现但译文中未见定译「深入剖析」"
+        ]
+      }
+    },
+    {
+      "slug": "github-com-modelcontextprotocol-typescript-sdk-tree-main",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 52,
+        "blocks_zh": 52,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 26,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "graphite-dev-guides-ai-code-review-implementation-best-practices",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 82,
+        "blocks_zh": 82,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 77,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agent 在原文出现但译文中未见定译「智能体」"
+        ]
+      }
+    },
+    {
+      "slug": "last9-io-blog-traces-spans-observability-basics",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 81,
+        "blocks_zh": 81,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 144,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] LLM 在原文出现但译文中未见定译「大语言模型」",
+          "[术语缺失] specification 在原文出现但译文中未见定译「规格」"
+        ]
+      }
+    },
+    {
+      "slug": "medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 64,
+        "blocks_zh": 64,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 70,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] LLM 在原文出现但译文中未见定译「大语言模型」"
+        ]
+      }
+    },
+    {
+      "slug": "notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 2,
+        "blocks_zh": 2,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 0,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "owasp-org-www-project-top-ten",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 6,
+        "blocks_zh": 6,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 1,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-readmemd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 8,
+        "blocks_zh": 8,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 3,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week1-assignmentmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 19,
+        "blocks_zh": 19,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 18,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] evaluation 在原文出现但译文中未见定译「评测」"
+        ]
+      }
+    },
+    {
+      "slug": "repo-fall2025-week1-data-api-docstxt",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 6,
+        "blocks_zh": 6,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 1,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week1-readmemd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 2,
+        "blocks_zh": 2,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 2,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] LLM 在原文出现但译文中未见定译「大语言模型」"
+        ]
+      }
+    },
+    {
+      "slug": "repo-fall2025-week2-assignmentmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 39,
+        "blocks_zh": 39,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 11,
+        "term_violations": 0,
+        "term_missing": 3,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] evaluation 在原文出现但译文中未见定译「评测」",
+          "[术语缺失] writeup 在原文出现但译文中未见定译「书面总结」"
+        ]
+      }
+    },
+    {
+      "slug": "repo-fall2025-week2-writeupmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 37,
+        "blocks_zh": 37,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 13,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "repo-fall2025-week3-assignmentmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 16,
+        "blocks_zh": 16,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 16,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] specification 在原文出现但译文中未见定译「规格」",
+          "[术语缺失] evaluation 在原文出现但译文中未见定译「评测」"
+        ]
+      }
+    },
+    {
+      "slug": "repo-fall2025-week4-assignmentmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 55,
+        "blocks_zh": 55,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 48,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] writeup 在原文出现但译文中未见定译「书面总结」"
+        ]
+      }
+    },
+    {
+      "slug": "repo-fall2025-week4-docs-tasksmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 15,
+        "blocks_zh": 15,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 5,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week4-writeupmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 43,
+        "blocks_zh": 43,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 16,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week5-assignmentmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 45,
+        "blocks_zh": 45,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 43,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] writeup 在原文出现但译文中未见定译「书面总结」"
+        ]
+      }
+    },
+    {
+      "slug": "repo-fall2025-week5-docs-tasksmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 23,
+        "blocks_zh": 23,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 12,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week5-readmemd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 19,
+        "blocks_zh": 19,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 7,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week5-writeupmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 42,
+        "blocks_zh": 42,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 14,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week6-assignmentmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 27,
+        "blocks_zh": 27,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 8,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week6-requirementstxt",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 2,
+        "blocks_zh": 2,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 1,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week6-writeupmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 43,
+        "blocks_zh": 43,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 4,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week7-assignmentmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 17,
+        "blocks_zh": 17,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 16,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] evaluation 在原文出现但译文中未见定译「评测」",
+          "[术语缺失] writeup 在原文出现但译文中未见定译「书面总结」"
+        ]
+      }
+    },
+    {
+      "slug": "repo-fall2025-week7-docs-tasksmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 9,
+        "blocks_zh": 9,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 0,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week7-readmemd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 19,
+        "blocks_zh": 19,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 3,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week7-writeupmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 45,
+        "blocks_zh": 45,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 10,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-fall2025-week8-assignmentmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 23,
+        "blocks_zh": 23,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 7,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] writeup 在原文出现但译文中未见定译「书面总结」"
+        ]
+      }
+    },
+    {
+      "slug": "repo-fall2025-week8-writeupmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 16,
+        "blocks_zh": 16,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 1,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-master-readmemd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 8,
+        "blocks_zh": 8,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 3,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "repo-master-week1-assignmentmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 51,
+        "blocks_zh": 51,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 62,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] evaluation 在原文出现但译文中未见定译「评测」",
+          "[术语缺失] writeup 在原文出现但译文中未见定译「书面总结」"
+        ]
+      }
+    },
+    {
+      "slug": "repo-master-week1-writeupmd",
+      "group": "repo",
+      "stats": {
+        "blocks_en": 54,
+        "blocks_zh": 54,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 23,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "research-trychroma-com-context-rot__p1",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 99,
+        "blocks_zh": 99,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 80,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] LLM 在原文出现但译文中未见定译「大语言模型」"
+        ]
+      }
+    },
+    {
+      "slug": "research-trychroma-com-context-rot__p2",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 95,
+        "blocks_zh": 95,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 76,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 1,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "research-trychroma-com-context-rot__p3",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 51,
+        "blocks_zh": 51,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 22,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 5,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] repository 在原文出现但译文中未见定译「仓库」"
+        ]
+      }
+    },
+    {
+      "slug": "resolve-ai-blog-Top-5-Benefits",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 44,
+        "blocks_zh": 44,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 84,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 55,
+        "blocks_zh": 55,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 38,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "resolve-ai-blog-product-deep-dive",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 51,
+        "blocks_zh": 51,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 33,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 49,
+        "blocks_zh": 49,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 73,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] prompt 在原文出现但译文中未见定译「提示词」"
+        ]
+      }
+    },
+    {
+      "slug": "semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 50,
+        "blocks_zh": 50,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 53,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "site-fall2025-faq",
+      "group": "site",
+      "stats": {
+        "blocks_en": 15,
+        "blocks_zh": 15,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 1,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "site-fall2025-grading",
+      "group": "site",
+      "stats": {
+        "blocks_en": 2,
+        "blocks_zh": 2,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 3,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "site-fall2025-overview",
+      "group": "site",
+      "stats": {
+        "blocks_en": 24,
+        "blocks_zh": 24,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 25,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "site-fall2025-syllabus",
+      "group": "site",
+      "stats": {
+        "blocks_en": 83,
+        "blocks_zh": 83,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 73,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] assessment 在原文出现但译文中未见定译「评估」"
+        ]
+      }
+    },
+    {
+      "slug": "site-fall2026-faq",
+      "group": "site",
+      "stats": {
+        "blocks_en": 15,
+        "blocks_zh": 15,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 1,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "site-fall2026-grading",
+      "group": "site",
+      "stats": {
+        "blocks_en": 2,
+        "blocks_zh": 2,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 4,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "site-fall2026-overview",
+      "group": "site",
+      "stats": {
+        "blocks_en": 31,
+        "blocks_zh": 31,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 25,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "site-fall2026-syllabus",
+      "group": "site",
+      "stats": {
+        "blocks_en": 53,
+        "blocks_zh": 53,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 74,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "sre-google-sre-book-introduction",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 68,
+        "blocks_zh": 68,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 25,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "stytch-com-blog-model-context-protocol-introduction__p1",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 55,
+        "blocks_zh": 55,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 95,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "stytch-com-blog-model-context-protocol-introduction__p2",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 51,
+        "blocks_zh": 51,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 52,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p1",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 45,
+        "blocks_zh": 45,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 121,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p10",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 1,
+        "blocks_zh": 1,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 16,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p11",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 69,
+        "blocks_zh": 69,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 69,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] agentic AI 在原文出现但译文中未见定译「智能体式 AI」"
+        ]
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p12",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 106,
+        "blocks_zh": 106,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 5,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p2",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 23,
+        "blocks_zh": 23,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 92,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] token 在原文出现但译文中未见定译「token」"
+        ]
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p3",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 8,
+        "blocks_zh": 8,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 40,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p4",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 8,
+        "blocks_zh": 8,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 18,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p5",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 9,
+        "blocks_zh": 9,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 21,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p6",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 1,
+        "blocks_zh": 1,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 8,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p7",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 16,
+        "blocks_zh": 16,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 39,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 1,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p8",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 21,
+        "blocks_zh": 21,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 32,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p9",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 1,
+        "blocks_zh": 1,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 0,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "www-anthropic-com-engineering-claude-code-best-practices__p1",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 89,
+        "blocks_zh": 89,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 62,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 1,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] evaluation 在原文出现但译文中未见定译「评测」"
+        ]
+      }
+    },
+    {
+      "slug": "www-anthropic-com-engineering-claude-code-best-practices__p2",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 99,
+        "blocks_zh": 99,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 107,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 1,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "www-anthropic-com-engineering-claude-code-best-practices__p3",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 1,
+        "blocks_zh": 1,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 11,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "www-anthropic-com-engineering-writing-tools-for-agents",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 104,
+        "blocks_zh": 104,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 204,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 16,
+        "blocks_zh": 16,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 71,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 14,
+        "blocks_zh": 14,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 63,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 12,
+        "blocks_zh": 12,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 58,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 1,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 11,
+        "blocks_zh": 11,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 18,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 3,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 59,
+        "blocks_zh": 59,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 152,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+        ]
+      }
+    },
+    {
+      "slug": "www-promptingguide-ai-techniques",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 132,
+        "blocks_zh": 132,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 93,
+        "term_violations": 0,
+        "term_missing": 1,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] evaluation 在原文出现但译文中未见定译「评测」"
+        ]
+      }
+    },
+    {
+      "slug": "www-reillywood-com-blog-apis-dont-make-good-mcp-tools",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 27,
+        "blocks_zh": 27,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 39,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "www-splunk-com-en-us-blog-learn-sast-vs-dast",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 164,
+        "blocks_zh": 164,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 91,
+        "term_violations": 0,
+        "term_missing": 0,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": []
+      }
+    },
+    {
+      "slug": "www-warp-dev-university-getting-started-warp-vs-claude-code",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 55,
+        "blocks_zh": 55,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 74,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] LLM 在原文出现但译文中未见定译「大语言模型」"
+        ]
+      }
+    },
+    {
+      "slug": "www-warp-dev-university",
+      "group": "reading",
+      "stats": {
+        "blocks_en": 55,
+        "blocks_zh": 55,
+        "empty": 0,
+        "untranslated": 0,
+        "truncated": 0,
+        "code_changed": 0,
+        "link_lost": 0,
+        "structure": 0,
+        "spacing": 0,
+        "term_hits": 74,
+        "term_violations": 0,
+        "term_missing": 2,
+        "kept_english": 0,
+        "term_consistency": 1.0,
+        "issues": 0,
+        "term_detail": [
+          "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+          "[术语缺失] LLM 在原文出现但译文中未见定译「大语言模型」"
+        ]
+      }
+    }
+  ],
+  "issues": []
+}

@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-09-25T12:27:32+08:00",
+  "slug": "github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca",
+  "stats": {
+    "blocks_en": 173,
+    "blocks_zh": 173,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 139,
+    "term_violations": 0,
+    "term_missing": 2,
+    "kept_english": 0,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": [
+      "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」",
+      "[术语缺失] Deep Dive 在原文出现但译文中未见定译「深入剖析」"
+    ]
+  },
+  "issues": []
+}

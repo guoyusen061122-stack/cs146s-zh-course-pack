@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-09-25T12:19:21+08:00",
+  "slug": "site-fall2026-syllabus",
+  "stats": {
+    "blocks_en": 53,
+    "blocks_zh": 53,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 73,
+    "term_violations": 1,
+    "term_consistency": 0.9865,
+    "issues": 0,
+    "term_detail": [
+      "agentic 在原文出现但译文中未见定译「智能体化的」"
+    ]
+  },
+  "issues": []
+}

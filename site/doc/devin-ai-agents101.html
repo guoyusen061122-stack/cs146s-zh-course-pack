@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Devin: Coding Agents 101</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Devin: Coding Agents 101</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 15,326 字符 ｜ 89 个内容块 ｜ <a href="https://devin.ai/agents101#introduction" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>Devin：编码智能体 101</h1></div><div class="en"><h1>Devin: Coding Agents 101</h1></div></div>
+<div class="pair"><div class="zh"><p>开发者工具一直在快速演进。十年前是自动补全与智能提示，能建议方法名并执行程序化的重构。四年前是编程助手与 Tab 补全，能替你写下接下来几行代码。两年前是生成式聊天机器人，能辅助你的开发并为你生成整个文件。而今天是自主智能体，能在极少人工干预下，从最初的描述一路做到最终的拉取请求（PR）。过去两年，我们专注于通过构建 Devin 来实现这一愿景。如今，人们对自主智能体的兴趣正达到新高，尤其是近期同类产品的接连发布 [1]除 Devin 之外，近期的发布还包括 OpenAI 的 Codex 和 Google 的 Jules。一些本地智能体如 Cursor 和 Claude Code 可以在并行工作区中运行，以复现类似的效果。。这些智能体可以多种形态出现，包括网页应用、移动应用，以及集成到 Slack、GitHub、Linear 和 Jira 等常用工具之中。</p></div><div class="en"><p>Developer tooling has been rapidly evolving. Ten years ago, it was autocomplete and intellisense, capable of suggesting method names and carrying out programmatic refactors. Four years ago, it was copilots and tab complete, capable of writing the next couple lines of code for you. Two years ago, it was generative chatbots, capable of assisting your development and generating entire files for you. Today, it is autonomous agents, capable of taking initial descriptions to final pull requests with little human intervention. We've focused on realizing this vision over the past two years by building Devin. Now, interest in autonomous agents is reaching new heights, especially with recent releases of similar products [1]Other than Devin, some recent releases include Codex by OpenAI and Jules by Google. Some local agents like Cursor and Claude Code can be run in parallel workspaces to replicate a similar effect.. These agents can appear in many forms, including web apps, mobile apps, and integrations within popular tools like Slack, GitHub, Linear, and Jira.</p></div></div>
+<div class="pair"><div class="zh"><p>与 AI 助手配对的人类能比任何单独的 AI 产出更多，而自主智能体端到端处理任务的能力，带来了全新层次的多任务并行，把每一位工程师都变成了工程管理者。</p></div><div class="en"><p>While a human paired with an AI assistant can achieve more than any AI alone, an autonomous agent's ability to handle tasks end to end allows for a new level of multi-tasking, turning every engineer into an engineering manager.</p></div></div>
+<div class="pair"><div class="zh"><p>适应与这些新的 AI 同事高效协作需要一些时间。有意思的是，我们观察到资深到 Staff 级别的工程师往往最快接纳并熟练使用这些工具。最终，这些工具会普及到所有级别的工程工作中。基于我们的经验与客户反馈，我们想分享一些关键洞察与经验教训，帮助大家顺利把这些工具融入自己的工作流。</p></div><div class="en"><p>Adapting to working effectively alongside these new AI colleagues can take some time. Interestingly, we've observed that senior-to-staff level engineers tend to adopt and become proficient with these tools the fastest. Ultimately, these tools will become commonplace across all levels of engineering. Based on our experience and customer feedback, we want to share key insights and lessons learned to help everyone successfully integrate these tools into their workflows.</p></div></div>
+<div class="pair"><div class="zh"><h3>说清你希望*如何*完成，不只是要做什么</h3></div><div class="en"><h3>Say <em>how</em> you want things done, not just what</h3></div></div>
+<div class="pair"><div class="zh"><p>把智能体看作一位初级编码伙伴，它的决策未必可靠。简单的任务可以直接描述，但面对更复杂的任务，应当一开始就清楚说明你偏好的做法。提前把整体架构与逻辑交给智能体，不仅能提高它成功的概率，也能减少你评审代码的时间，因为你已经熟悉了预期的实现方式。</p></div><div class="en"><p>Think of the agent as a junior coding partner whose decision-making can be unreliable. Simple tasks can be described directly, but for more complex tasks, clearly outline your preferred approach from the outset. Providing the agent with the overall architecture and logic upfront not only boosts its chances of success but also reduces your time reviewing code, as you will already be familiar with the intended method.</p></div></div>
+<div class="pair"><div class="zh"><h4>示例：</h4></div><div class="en"><h4>Example:</h4></div></div>
+<div class="pair"><div class="zh"><p>不要说「加一些单元测试」，而要指明要测试的功能、识别重要的边界情况，并说明哪些东西需要 mock（如果确实需要）。</p></div><div class="en"><p>Instead of "add unit tests," specify the functionality to test, identify important edge cases, and clarify what needs mocking, if anything.</p></div></div>
+<div class="pair"><div class="zh"><h3>告诉智能体从哪里开始</h3></div><div class="en"><h3>Tell the agent where to start</h3></div></div>
+<div class="pair"><div class="zh"><p>想一想如果是你自己处理这个任务，你会从哪里入手。即使不知道具体的文件名或函数名，也要提到相关仓库、相关文档以及涉及的关键组件。把这些要素指明，能最大程度减少无用功与困惑。</p></div><div class="en"><p>Think about where you'd start if you were handling the task yourself. Even if you don't know specific file or function names, mention the repository, relevant documentation, and key components involved. Clearly indicating these elements minimizes wasted effort and confusion.</p></div></div>
+<div class="pair"><div class="zh"><p>「请为我们的代码加上对 Google 模型的支持。你应当查看最新文档 <a href="link" target="_blank" rel="noopener">这里</a>，并在 model groups 目录下新建一个实现文件」</p></div><div class="en"><p>"Please add support for Google models to our code. You should look at the latest docs <a href="link" target="_blank" rel="noopener">here</a> and create a new implementation file in the model groups directory"</p></div></div>
+<div class="pair"><div class="zh"><h3>练习防御性提示</h3></div><div class="en"><h3>Practice defensive prompting</h3></div></div>
+<div class="pair"><div class="zh"><p>想象你把同一段提示词交给一位新来的实习生。哪里最可能出现困惑或错误？提前预判这些点，主动把指令讲清楚，避免歧义。</p></div><div class="en"><p>Imagine giving the same prompt to a new intern. Where would confusion or errors likely arise? Anticipate these points and proactively clarify your instructions to avoid ambiguity.</p></div></div>
+<div class="pair"><div class="zh"><p>「请修复搜索模块的 C++ 绑定，让新的单元测试通过。注意，你很可能每次改完代码都要先重新编译绑定，然后再测试。」</p></div><div class="en"><p>"Please fix the C++ bindings for our search module to pass the new unit tests. Be careful, you will probably need to recompile the bindings each time you change the code before you test."</p></div></div>
+<div class="pair"><div class="zh"><h3>提供对 CI、测试、类型检查与静态检查器的访问</h3></div><div class="en"><h3>Give access to CI, tests, types, and linters</h3></div></div>
+<div class="pair"><div class="zh"><p>智能体的魔力很大程度来自它们能修正自己的错误，并针对错误信息反复迭代。通过类型检查器、静态检查器和单元测试等工具提供强反馈回路，能极大提升它们的表现。可以优先选择带类型的 Python 而不是普通 Python，或者选择 TypeScript 而不是 JavaScript。教会你的智能体如何运行常见的检查与测试，并确保它拥有所有必要的依赖包与访问权限。如果智能体能操作浏览器，就清楚说明如何启动你的前端开发环境。</p></div><div class="en"><p>Much of the magic of agents comes from their ability to fix their own mistakes and iterate against error messages. Providing strong feedback loops through tools like type checkers, linters, and unit tests greatly enhances their performance. Consider typed Python over plain Python, or TypeScript over JavaScript. Teach your agent how to run common checks and tests, ensuring it has all necessary packages and access rights. If the agent can interact with a browser, provide clear instructions on running your front-end development environment.</p></div></div>
+<div class="pair"><div class="zh"><p>我们团队从大多不带类型的 Python SDK 全面转向带类型的 SDK（这本身也是一个很适合交给编码智能体的任务）。</p></div><div class="en"><p>Our team transitioned from mostly untyped Python SDKs to exclusively typed SDKs (this is also a good task ideally for coding agents).</p></div></div>
+<div class="pair"><div class="zh"><h3>发挥你的专业能力</h3></div><div class="en"><h3>Leverage your expertise</h3></div></div>
+<div class="pair"><div class="zh"><p>当你熟悉自己的代码库时，上面的一切都会变得更容易。即使是简单的任务，也需要你验证逻辑与结果的能力。人的监督依然不可或缺——最终，代码正确与否的责任在你身上。即使这些工具越来越成熟，担责与验证仍将是人类工程师的关键职责。</p></div><div class="en"><p>Everything above becomes easier when you're familiar with your codebase. Even simple tasks benefit from your ability to verify logic and results. Human oversight remains essential—ultimately, you hold responsibility for the final correctness of the code. Ownership and verification will continue to be critical responsibilities for human engineers, even as these tools become increasingly sophisticated.</p></div></div>
+<div class="pair"><div class="zh"><h3>立刻接下新任务</h3></div><div class="en"><h3>Take on new tasks immediately</h3></div></div>
+<div class="pair"><div class="zh"><p>想象一位同事给你发消息：「嘿，我们能快速把 X 做出来吗？」或者「Y 需要调整一下。」与其让这些事打断你的心流，不如直接给自主智能体发一条简短的提示词，让它去调研或动手修改。这样你就能继续保持专注，处理手头的主要任务。有个有趣的副业点子？需要快速做个原型、抓点数据，或者复现一篇研究？交给你的智能体，之后再回来看。</p></div><div class="en"><p>Imagine a teammate messaging you, "Hey, could we build X quickly?" or "We need to tweak Y." Instead of letting it interrupt your flow, just send a quick prompt to an autonomous agent to investigate or make the change. This frees you to stay focused on your main tasks. Got an interesting side project idea? Need to quickly prototype something, scrape data, or reproduce research? Delegate to your agent and circle back later.</p></div></div>
+<div class="pair"><div class="zh"><p>很多团队在 Slack 上讨论缺陷修复或小的功能更新时，直接 @Devin 即可。</p></div><div class="en"><p>Many teams simply tag @Devin on Slack when discussing bug fixes or minor feature updates.</p></div></div>
+<div class="pair"><div class="zh"><h3>随时随地写代码</h3></div><div class="en"><h3>Code on the go</h3></div></div>
+<div class="pair"><div class="zh"><p>想象你正在通勤或旅行途中，突然冒出一个紧急缺陷，或者你意识到代码里可能留下了一个错误。别担心！自主智能体通常支持移动端访问，让你能立刻处理这些问题。无论是通过 Slack 的手机应用还是专门的手机应用，很多智能体都能让你在路上解决问题，即使 Wi-Fi 信号很差。</p></div><div class="en"><p>Picture yourself commuting or traveling when an urgent bug pops up, or you realize you might have left a mistake in your code. No worries! Autonomous agents often support mobile access, letting you address these issues instantly. Whether through Slack's mobile app or a dedicated mobile app, many agents let you resolve problems on the go, even if your wifi is sketchy.</p></div></div>
+<div class="pair"><div class="zh"><p>这种可选择性让我们团队在乘车和飞行途中高效了许多。</p></div><div class="en"><p>Having this optionality has made our own team much more productive on car rides and flights.</p></div></div>
+<div class="pair"><div class="zh"><h3>把手头的杂活交出去</h3></div><div class="en"><h3>Hand off your chores</h3></div></div>
+<div class="pair"><div class="zh"><p>在为老提交做二分查找，或者为新功能更新文档而卡住？把这些重复性任务交给你的智能体。你会省下宝贵的时间，专注于更有创造性、更有影响力的工作。</p></div><div class="en"><p>Stuck bisecting for old commits or updating documentation for a new feature? Hand these repetitive tasks off to your agent. You'll save precious time and stay focused on more creative and impactful work.</p></div></div>
+<div class="pair"><div class="zh"><p>在我们团队，工程师发布一个改动之后，让智能体去更新所有相关文档和面向用户的文案，是很常见的做法。</p></div><div class="en"><p>In our team, it is common for an engineer to ship a change and then have an agent update all the relevant docs &amp; user-facing copy.</p></div></div>
+<div class="pair"><div class="zh"><h3>跳过分析瘫痪</h3></div><div class="en"><h3>Skip the analysis paralysis</h3></div></div>
+<div class="pair"><div class="zh"><p>拿不准一次重构是否真能简化代码？在两种架构方案之间无法抉择？让你的智能体把两个方案都实现出来。有了具体例子可以对比，决策就变得简单了，而且丢弃某个方案也不会伤害任何人的感情。</p></div><div class="en"><p>Stuck deciding if a refactor will actually simplify your code? Can't choose between two architectural approaches? Have your agent implement both options. With concrete examples to compare, decision-making becomes straightforward, and you won't hurt any feelings by discarding a solution.</p></div></div>
+<div class="pair"><div class="zh"><p>在文本框方案上于 Lexical 和 Slate 之间做选择时，我们让智能体把两者各实现了一遍。最终 Slate 因为效果更好而胜出。</p></div><div class="en"><p>When choosing between Lexical and Slate for text boxes, we had agents implement each. Slate won out for delivering the better end result.</p></div></div>
+<div class="pair"><div class="zh"><h3>配置预览部署</h3></div><div class="en"><h3>Set up preview deployments</h3></div></div>
+<div class="pair"><div class="zh"><p>把 CI/CD 流水线设置为每来一个新 PR 就自动创建预览部署，给你一个可以立即访问的线上地址。在评审由 AI 智能体完成的前端任务时，这尤其方便。</p></div><div class="en"><p>Set your CI/CD pipeline to automatically create preview deployments with each new PR, giving you an instant live URL. This is particularly handy when reviewing frontend tasks completed by AI agents.</p></div></div>
+<div class="pair"><div class="zh"><p>Vercel 是一个部署平台，能让预览部署变得非常简单。</p></div><div class="en"><p>Vercel is a deployment platform that makes preview deployments super easy.</p></div></div>
+<div class="pair"><div class="zh"><p>当拉取请求的规模与复杂度超出寥寥几个文件时，想一次处理完就会变得困难。然而，真正掌握如何委派中等偏大的任务（通常相当于 1-6 小时的工作量），才是自主智能体投资回报最高的地方。你省下的不只是几分钟，而是数小时的生产力。小任务也许毫不费力就能完成，但把智能体的能力拉伸到更大的任务上，回报才最大。</p></div><div class="en"><p>As the size and complexity of your pull requests grow beyond just a few files, handling them in a single pass becomes challenging. Yet, mastering how to delegate medium-to-large tasks (typically 1-6 hours of work) is where autonomous agents give the highest ROI. Rather than saving just a few minutes, you can reclaim hours of productivity. Smaller tasks might work effortlessly, but stretching the capabilities of agents to handle larger tasks brings the biggest returns.</p></div></div>
+<div class="pair"><div class="zh"><h3>自动生成初稿</h3></div><div class="en"><h3>Automate your first drafts</h3></div></div>
+<div class="pair"><div class="zh"><p>对于体量较大的任务，用自主智能体先做出 PR 的初稿，可以启动进展并大幅削减你的工作量。这里的成败取决于你是否一开始就清楚说明期望的做法。把自己看作指导初级开发者的架构师。清晰、详细的指令能帮你避免把时间浪费在纠正智能体代码中根本性的误解上。</p></div><div class="en"><p>For substantial tasks, using an autonomous agent to create an initial draft of your PR can kickstart progress and dramatically cut down your workload. Success here depends on clearly communicating your desired approach upfront. Think of yourself as the architect guiding junior developers. Clear, detailed instructions help avoid spending unnecessary time correcting fundamental misunderstandings in the agent's code.</p></div></div>
+<div class="pair"><div class="zh"><p>🛑 记住，大型任务（目前）还不能完全放手。越是棘手的任务，越要预期多轮反馈；也要预期为了打磨还需要一些人工微调。一个现实的目标是节省约 80% 的时间，而不是完全自动化，你的专业判断在验证与最终质量保证上依然至关重要。</p></div><div class="en"><p>🛑 Remember, large tasks aren't completely hands-free (yet). Expect multiple feedback cycles for more challenging assignments, and anticipate some manual refinements for polish. A realistic goal is around 80% time savings, not complete automation, with your expertise remaining vital for verification and final quality assurance.</p></div></div>
+<div class="pair"><div class="zh"><h3>协同打磨 PRD（产品需求文档）</h3></div><div class="en"><h3>Co-develop a PRD</h3></div></div>
+<div class="pair"><div class="zh"><p>对于复杂或定义模糊的任务，与你的自主智能体协作制定一份详细计划会非常有效。一开始不清楚每一处细节或需求，完全没关系。可以先让智能体去探索一些调研性问题，比如「我们的认证系统是如何运作的？」或者「哪些服务可能受到影响？」你也可以让智能体指出具体相关的代码位置，供你尽早确认。</p></div><div class="en"><p>For tasks that are complex or vaguely defined, collaborating with your autonomous agent to create a detailed plan can be highly effective. It's perfectly okay if you initially don't know every nuance or requirement. Start by prompting your agent to explore discovery questions, like "How does our authentication system function?" or "Which services might be impacted?" You can also ask the agent to identify specific relevant code targets for you to confirm early on.</p></div></div>
+<div class="pair"><div class="zh"><p>某些智能体（例如 Devin 和 Claude Code）提供专门计划模式，专注于读取和探索现有代码，而不是立刻修改它。如果你希望在委派任务之前做更充分的准备，像 <a href="http://deepwiki.com" target="_blank" rel="noopener">deepwiki.com</a> 和 Devin Search 这样的专用代码库检索工具能快速给出对代码库的洞察，帮助简化流程。</p></div><div class="en"><p>Certain agents, such as Devin and Claude Code, offer dedicated planning modes that focus on reading and exploring existing code rather than immediately modifying it. If you'd prefer deeper preparation before delegating a task, specialized codebase search tools like <a href="http://deepwiki.com" target="_blank" rel="noopener">deepwiki.com</a> and Devin Search can quickly provide insights into your codebase, helping streamline the process.</p></div></div>
+<div class="pair"><div class="zh"><h3>设置检查点</h3></div><div class="en"><h3>Set checkpoints</h3></div></div>
+<div class="pair"><div class="zh"><p>对于由多部分组成的任务，尤其是涉及多个代码库的任务，要在过程中设立明确的检查点：</p></div><div class="en"><p>For multi-part tasks, especially those involving multiple codebases, establish clear checkpoints along the way:</p></div></div>
+<div class="pair"><div class="zh"><p>规划 → 实现一个分块 → 测试 → 修复 → 检查点评审 → 下一分块</p></div><div class="en"><p>Plan → Implement chunk → Test → Fix → Checkpoint review → Next chunk</p></div></div>
+<div class="pair"><div class="zh"><p>明确要求在每个重要阶段之后暂停，尤其是横跨多层（例如数据库、后端、前端）构建的复杂功能。利用这些检查点确认实现符合你的预期、澄清疑问（例如「解释认证流程并确认它的安全性」），并尽早纠正方向，避免问题层层累积。</p></div><div class="en"><p>Explicitly request pauses after each significant phase, particularly for complex features built across multiple layers (e.g., database, backend, frontend). Use these checkpoints to ensure implementation aligns with your expectations, clarify doubts (ex. "Explain the auth process and confirm its security"), and correct course early to avoid cascading issues.</p></div></div>
+<div class="pair"><div class="zh"><p>「我希望你实现这个功能，它会横跨我们的数据库、后端以及多个前端界面。请先规划出所需的数据库 schema 变更，完成后告诉我，我好去执行迁移。」-&gt; 「现在请实现后端的改动，并加上测试来确保 XYZ 正常工作。完成后告诉我」-&gt; 「现在实现我们网页端和移动端的改动，去调用新的后端端点」</p></div><div class="en"><p>"I want you to implement this feature that will span our database, backend, and multiple frontend interfaces. Please first plan out the database schema changes needed, and let me know when that is done so I can apply the migration." -&gt; "Now please implement the backend changes and add tests to make sure XYZ works. Let me know when that is done" -&gt; "Now implement the changes in both our web and mobile interfaces to call the new backend endpoint"</p></div></div>
+<div class="pair"><div class="zh"><h3>教会它验证自己的工作</h3></div><div class="en"><h3>Teach it to verify its own work</h3></div></div>
+<div class="pair"><div class="zh"><p>给反馈时，不要只是指出问题（「这个函数不工作」）。要清楚说明你的测试流程，让智能体能够独立验证未来的任务。对于你会反复使用的测试模式，把它们纳入智能体的长期知识库（见「补充智能体的知识库」）。</p></div><div class="en"><p>When giving feedback, go beyond simply pointing out issues ("This function isn't working"). Clearly articulate your testing process to enable the agent to independently verify future tasks. For testing patterns you'll frequently repeat, integrate these into your agent's permanent knowledge base (See Add to your agent's knowledge base).</p></div></div>
+<div class="pair"><div class="zh"><p>在 Devin 中，我们会主动提示用户把关键的测试流程保存到智能体的持续记忆中，从而简化后续的交互。</p></div><div class="en"><p>In Devin, we actively prompt users to save essential testing procedures to the agent's ongoing memory, streamlining future interactions.</p></div></div>
+<div class="pair"><div class="zh"><h3>在 AI 热点区域提高测试覆盖率</h3></div><div class="en"><h3>Increase test coverage in AI hot spots</h3></div></div>
+<div class="pair"><div class="zh"><p>目前，智能体还不完全具备交互式地彻底测试所有场景的能力。在 AI 大量改动的区域增强测试覆盖，能让你对智能体的产出更有信心。可靠的测试意味着，看起来正确的代码可以被放心合并。</p></div><div class="en"><p>Currently, agents aren't fully capable of interactively testing all scenarios thoroughly. Enhancing test coverage in areas heavily modified by AI ensures greater confidence in the agent's output. Solid tests mean that code that appears correct can be confidently merged without worry.</p></div></div>
+<div class="pair"><div class="zh"><p>在把「将实现从 Python 翻译到 C」这件事交给 AI 之前，我们团队先加强了代码库中一个关键部分的单元测试。</p></div><div class="en"><p>Our team strengthened unit tests in a critical section of our codebase before entrusting our AI to translate the implementation from Python to C.</p></div></div>
+<div class="pair"><div class="zh"><h3>为最重复的工作创建快捷方式</h3></div><div class="en"><h3>Create Shortcuts for Your Most Repetitive Work</h3></div></div>
+<div class="pair"><div class="zh"><p>工程团队经常会遇到重复、例行的任务。这些正是最适合用智能体自动化的对象。常见的例子包括：</p></div><div class="en"><p>Engineering teams frequently encounter repetitive, routine tasks. These are perfect candidates for automation with agents. Common examples include:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>移除功能开关</li><li>依赖升级</li><li>在新功能 PR 上修复并补充测试</li></ul></div><div class="en"><ul><li>feature flag removal</li><li>dependency upgrades</li><li>fixing and adding tests on new feature PRs</li></ul></div></div>
+<div class="pair"><div class="zh"><p>为了高效地把它搭起来，有经验的工程师通常会创建一个健壮、可复用的提示词模板 [2]在 Devin 中，这类模板被称为 playbook，可以针对这些场景反复运行。</p></div><div class="en"><p>To set this up efficiently, an experienced engineer typically creates a robust, reusable prompt template [2]In Devin, these are called playbooks that can run repeatedly for these scenarios.</p></div></div>
+<div class="pair"><div class="zh"><p>我们的一位客户每当有新功能开发出来，就会自动触发三个专门编写单元测试的智能体。</p></div><div class="en"><p>One of our customers automatically triggers three agents dedicated to writing unit tests whenever new features are developed.</p></div></div>
+<div class="pair"><div class="zh"><h3>智能化的代码评审与规则执行</h3></div><div class="en"><h3>Intelligent Code Review &amp; Enforcement</h3></div></div>
+<div class="pair"><div class="zh"><p>虽然已有一些专做快速代码评审的工具 [3]例如 Greptile 和 CodeRabbit，但自主智能体可以是一个有意思的选择，能给出更准确的洞察，尤其是当它们已经为你的仓库功能建立了索引时。</p></div><div class="en"><p>While specialized tools for fast code review exist [3]Such as Greptile and CodeRabbit, autonomous agents can be an interesting option to deliver more accurate insights, particularly if they've already indexed the functionality of your repositories.</p></div></div>
+<div class="pair"><div class="zh"><p>在 Cognition，我们习惯维护一份工程师最常犯错误的清单，并把这份清单提交到代码库中。之后，与其编写传统的静态检查规则来捕获这些错误（这往往做不到），我们让智能体在每个新 PR 上运行，检查是否存在这些错误。</p></div><div class="en"><p>At Cognition, we like to maintain a list of the most common mistakes engineers make and we commit this list to the codebase. Then, instead of writing classical lint rules to catch these (which is often not possible), we have an agent run on every new PRs to check for these mistakes.</p></div></div>
+<div class="pair"><div class="zh"><h3>接入事故与告警</h3></div><div class="en"><h3>Hook into incidents and alerts</h3></div></div>
+<div class="pair"><div class="zh"><p>你也可以让自主智能体针对特定事件自动触发。例如，Devin 提供了易于使用的 API，其他智能体则可以通过 CLI 命令集成到自定义工作流中。这类方案与 MCP 搭配使用时效果尤其好，可以用来摄入第三方的错误日志。</p></div><div class="en"><p>You can also set up autonomous agents to trigger automatically in response to specific events. For example, Devin provides an accessible API, and other agents can be integrated into custom workflows via CLI commands. These setups work especially well alongside MCPs to ingest third-party error logs.</p></div></div>
+<div class="pair"><div class="zh"><p>⚠️在生产服务的问题分诊上，AI 的调试能力并不算好。与其让 AI 在缺陷一出现时就端到端修复，通常更实际的做法是让 AI 只标出最可疑的错误、改动等。</p></div><div class="en"><p>⚠️When it comes to triaging issues in production services, AI's debugging skills are not that great. Instead of asking the AI to fix bugs end-to-end as they come up, it is often more practical to ask the AI to just flag the most suspicious errors, changes, etc.</p></div></div>
+<div class="pair"><div class="zh"><h3>环境搭建</h3></div><div class="en"><h3>Environment Setup</h3></div></div>
+<div class="pair"><div class="zh"><p>没有什么比不完整或不匹配的环境更能拖慢智能体。为了让它顺畅运行，要把智能体的环境配置与团队完全对齐，包括语言版本、依赖包和自动化检查。例如，智能体环境中应当安装 pre-commit，而环境配置（密钥、语言版本、虚拟环境、浏览器登录态）应当借助 .envrc 这类工具或自定义的 .bashrc 配置自动加载。</p></div><div class="en"><p>Nothing slows down an agent faster than an incomplete or mismatched environment. To keep things running smoothly, align your agent's setup exactly with your team's. This includes language versions, package dependencies, and automated checks. For example, pre-commit should be installed in the agent's environment and environment configurations (secrets, language versions, virtual environments, browser logins) should be sourced automatically using tools like.envrc or custom configuration of.bashrc</p></div></div>
+<div class="pair"><div class="zh"><p>我们为智能体的浏览器配置了预先认证好的登录态，省去手动认证的麻烦，让测试轻松许多。</p></div><div class="en"><p>We set up our agent's browser with pre-authenticated logins, removing the hassle of manual authentication and making testing much easier.</p></div></div>
+<div class="pair"><div class="zh"><h3>构建自定义 CLI 工具与 MCP</h3></div><div class="en"><h3>Build Custom CLI Tools and MCPs</h3></div></div>
+<div class="pair"><div class="zh"><p>MCP 已经广泛可用，把智能体接到外部工具上，配置和试验都很快 [4]在 Devin 中，MCP 仍处于 beta 阶段，我们还在摸索最好的支持方式。如需访问请联系我们！。但很多人忽略了为智能体编写简单的 CLI 脚本。举个简单的例子，你可以给智能体一个脚本，按工单 ID 拉取某个 Linear 工单的信息。你可能还想给智能体一个工具，用来可靠地完成工作流中的常见部分，比如一个重启本地开发环境的脚本。</p></div><div class="en"><p>MCPs are widely available and are quick to set up and experiment with connecting your agent to external tools [4]In Devin, MCPs are still in beta as we're figuring out the best way to support them. Please contact us for access!. But many people overlook setting up simple CLI scripts for your agents. As a simple example, you could give your agent a script to pull information about a linear ticket given a ticket ID. You might also want to give your agent a tool to perform common parts of a workflow reliably, such as a script for restarting the local development environment.</p></div></div>
+<div class="pair"><div class="zh"><p>我们有一位客户非常成功地做了一个 CLI 工具，只呈现测试套件中第一个失败的测试。这个 CLI 会提示智能体把注意力只放在那个测试上，并附上详细的错误信息，从而让智能体在长任务上成功率更高、完成更快。</p></div><div class="en"><p>We have a customer who has had a lot of success with creating a CLI tool that surfaces only the first failing test in a test suite. The CLI prompts the agent to focus on only that test with detailed error information, and this CLI leads the agent to have higher success and faster completion rates on long tasks.</p></div></div>
+<div class="pair"><div class="zh"><h3>补充智能体的知识库</h3></div><div class="en"><h3>Add to your agent's knowledge base</h3></div></div>
+<div class="pair"><div class="zh"><p>如果你的智能体总是犯某些常见错误，那正是把反馈固化进智能体知识库的好时机。在 Devin 中有专门的知识管理系统。很多产品提供 .rules 文件、.md 文件，供智能体长期吸收。不要只给它你所使用框架的规范，还要告诉它项目的整体架构。告诉它不同类型的任务常用哪种测试、重要命令怎么运行，以及你推荐使用哪些工具。</p></div><div class="en"><p>If your agent makes some common mistakes, it's a great time to codify your feedback in the agent's knowledge base. In Devin, there is a dedicated knowledge management system. Many products offer.rules files,.md files for the agent to permanently ingest. Don't just give it guidelines on the framework you're using, but also tell it about the overall architecture of your project. Tell it what type of testing is common for different kinds of tasks, how to run important commands and which tools you recommend using.</p></div></div>
+<div class="pair"><div class="zh"><p>我们让智能体了解在新增一条服务路由时应当遵循的具体流程。这些信息包含它在前端和后端需要添加样板代码的每一处位置。因此，这类任务现在可以轻松委派给我们的 AI。</p></div><div class="en"><p>We give our agent knowledge about the specific procedure it should follow when adding a new service route. The information includes every place it needs to add boilerplate in the frontend and backend. As a result, these tasks are now easily delegated to our AI.</p></div></div>
+<div class="pair"><div class="zh"><h3>调试能力有限</h3></div><div class="en"><h3>Limited debugging skills</h3></div></div>
+<div class="pair"><div class="zh"><p>缺陷报告看起来可能很简单。但很多缺陷不仅需要访问数据库和日志，还需要比当今大多数 AI 智能体更强的调试能力。如果用 AI 辅助调试，我们建议让它给出可能根因的清单，而不是让它自己去调试并修复一切。之后，人可以依据自身经验判断哪一个才是真正的根因。而一旦原因明确，智能体在实现修复上仍然相当有用。</p></div><div class="en"><p>Bugs reports can be deceptively simple. But many bugs often require not only access to databases and logs, but also a level of debugging that is greater than most AI agents today. If using AI to aid in debugging, we recommend asking for a list of probable root causes rather than trying to debug and fix everything itself. Then, a human can decide based on their own experience which one is the real root cause. But once the cause is known, agents can still be quite helpful at implementing the fix.</p></div></div>
+<div class="pair"><div class="zh"><h3>细粒度视觉推理较弱</h3></div><div class="en"><h3>Poor fine-grained visual reasoning</h3></div></div>
+<div class="pair"><div class="zh"><p>总体而言，当今的模型还不具备足够强的视觉推理能力，达不到匹配设计稿截图或 Figma 原型所需的细节水平。它们在可以用代码层面描述的视觉内容上最可靠（例如直接把 Figma 导出的代码给它）。如果你希望它符合你的视觉风格，就应当使用一套带有可复用组件的好设计系统。</p></div><div class="en"><p>Generally models today don't have great visual reasoning capabilities at the level of details needed to match screenshots of designs or Figma mockups. They are most reliable on visuals that can be described at the level of code (ex. giving it code from Figma). If you want it to match your visual style, you should use a good design system with reusable components.</p></div></div>
+<div class="pair"><div class="zh"><h3>知识截止</h3></div><div class="en"><h3>Knowledge Cutoffs</h3></div></div>
+<div class="pair"><div class="zh"><p>每当你要使用一个新库时，都应当明确把最新文档指给它。否则，由于预训练基础模型存在知识截止，大多数智能体会沿用这些库的旧有模式。只要你把文档指给它，好的智能体就能克服这一点，但你必须意识到这个问题（记住，智能体甚至不知道这些库已经出了新版本）。</p></div><div class="en"><p>Whenever you want to work with a new library, you should explicitly point it to the latest docs. Otherwise, most agents will assume the old patterns from these libraries due to knowledge cutoffs in the pretrained base models. A good agent can overcome this if you point it to docs, but you must be mindful of this (remember, the agent doesn't even know that there are new versions of these libraries).</p></div></div>
+<div class="pair"><div class="zh"><h3>愿意更早止损</h3></div><div class="en"><h3>Be willing to cut your losses earlier</h3></div></div>
+<div class="pair"><div class="zh"><p>刚接触智能体的人常犯的一个错误是：即使智能体的工作已经偏离轨道，也执意要把这次交互做成功。如果你发现自己心里冒出「它在无视我的指令」或者「这东西在原地打转」，那就应该坦然结束这次对话，或者手动接手。继续发更多消息，更可能说明你的任务本身复杂度超出了智能体的能力，而不是某个简单错误可以被纠正。</p></div><div class="en"><p>A common mistake for people who are new to using agents is that they commit to making an interaction successful, even when an agent's work is veering off track. If you ever find yourself thinking "it's ignoring my instructions" or "this thing is going in circles", you should be ok discontinuing that conversation or manually taking over. Sending more messages is more likely a sign of the inherent complexity of your task being higher than the agent's capabilities rather than some simple mistake that can be corrected.</p></div></div>
+<div class="pair"><div class="zh"><h3>让尝试多样化</h3></div><div class="en"><h3>Diversifying your experiments</h3></div></div>
+<div class="pair"><div class="zh"><p>如果你刚开始使用智能体，我们建议一开始就把尝试分散开。多试一些不同的提示词和想法。在智能体天然表现好的任务类型上加大投入，在它们不擅长的类型上及时止损。不必强求智能体每次都成功。</p></div><div class="en"><p>If you're new to working with agents, we recommend diversifying your bets at the start. Try a range of different prompts and ideas. Double down on the types of tasks you see the agents naturally performing well on - and cut your losses on the ones they don't. Don't feel a need to force your agents to find success every time.</p></div></div>
+<div class="pair"><div class="zh"><p>与和人协作相比，和智能体协作时「重来一次」是正确答案的频率要高得多。如果你给智能体派了任务，而它迟迟难以响应反馈或纠正方向，那么换一个全新的智能体、并一次性把所有指令给全，往往能更快成功。智能体修复一团糟的环境的能力，远不如它从零写出新代码的能力。</p></div><div class="en"><p>Starting over is the right answer a lot more often with agents than with humans. If you've given an agent a task and it is struggling to address feedback or correct course, starting fresh with a new agent and all of the instructions up front can often get to success much faster. The ability of an agent to correct a messed-up environment is much worse than its ability to spit out fresh code from scratch.</p></div></div>
+<div class="pair"><div class="zh"><h3>为智能体创建账号</h3></div><div class="en"><h3>Create accounts for your agent</h3></div></div>
+<div class="pair"><div class="zh"><p>一次性邮箱有助于安全地测试各类站点。如果智能体需要访问云资源，就为它创建自定义的 IAM 角色。</p></div><div class="en"><p>A throwaway email is helpful for safe testing of sites. Create custom IAM roles for your agent if it needs to access cloud resources.</p></div></div>
+<div class="pair"><div class="zh"><h3>给它一个开发 / 预发环境</h3></div><div class="en"><h3>Give it a development / staging environment</h3></div></div>
+<div class="pair"><div class="zh"><p>理想情况下，智能体使用与团队工程师相同的测试配置。我们建议完全不要给它生产服务的访问权限。使用远程智能体时，你可以在智能体的远程机器上运行完全隔离的测试环境。</p></div><div class="en"><p>Ideally the agent uses the same testing setup as the engineers on your team. We suggest avoiding giving access to production services entirely. When using remote agents, you can run fully isolated test environments on the agent's remote machine.</p></div></div>
+<div class="pair"><div class="zh"><h3>只读 API 密钥</h3></div><div class="en"><h3>Readonly API keys</h3></div></div>
+<div class="pair"><div class="zh"><p>尽可能给它只读权限。我们发现，凡是与外部服务交互的脚本，由人来手动运行仍然更有帮助。</p></div><div class="en"><p>Where possible, give it readonly access. We find it is still helpful for humans to manually run any script that interacts with outside services.</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-09-25T12:34:17+08:00",
+  "slug": "www-anthropic-com-engineering-claude-code-best-practices__p1",
+  "stats": {
+    "blocks_en": 89,
+    "blocks_zh": 89,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 62,
+    "term_violations": 0,
+    "term_missing": 1,
+    "kept_english": 1,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": [
+      "[术语缺失] evaluation 在原文出现但译文中未见定译「评测」"
+    ]
+  },
+  "issues": []
+}

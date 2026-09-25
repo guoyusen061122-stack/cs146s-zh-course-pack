@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-25T12:19:21+08:00",
+  "slug": "site-fall2025-overview",
+  "stats": {
+    "blocks_en": 24,
+    "blocks_zh": 24,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 23,
+    "term_violations": 0,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": []
+  },
+  "issues": []
+}

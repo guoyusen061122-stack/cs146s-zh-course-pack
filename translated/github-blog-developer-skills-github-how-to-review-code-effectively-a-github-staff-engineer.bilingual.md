@@ -1,0 +1,391 @@
+# How to Review Code Effectively
+
+# 如何高效做代码评审
+
+[Sarah Vessels](https://github.blog/author/cheshire137/)·[@cheshire137](https://github.com/cheshire137)
+
+[Sarah Vessels](https://github.blog/author/cheshire137/)·[@cheshire137](https://github.com/cheshire137)
+
+July 23, 2024
+
+2024 年 7 月 23 日
+
+- Share:
+- <https://x.com/share?text=How%20to%20review%20code%20effectively%3A%20A%20GitHub%20staff%20engineer%E2%80%99s%20philosophy&url=https%3A%2F%2Fgithub.blog%2Fdeveloper-skills%2Fgithub%2Fhow-to-review-code-effectively-a-github-staff-engineers-philosophy%2F>
+- <https://www.facebook.com/sharer/sharer.php?t=How%20to%20review%20code%20effectively%3A%20A%20GitHub%20staff%20engineer%E2%80%99s%20philosophy&u=https%3A%2F%2Fgithub.blog%2Fdeveloper-skills%2Fgithub%2Fhow-to-review-code-effectively-a-github-staff-engineers-philosophy%2F>
+- <https://www.linkedin.com/shareArticle?title=How%20to%20review%20code%20effectively%3A%20A%20GitHub%20staff%20engineer%E2%80%99s%20philosophy&url=https%3A%2F%2Fgithub.blog%2Fdeveloper-skills%2Fgithub%2Fhow-to-review-code-effectively-a-github-staff-engineers-philosophy%2F>
+
+- 分享：
+- <https://x.com/share?text=How%20to%20review%20code%20effectively%3A%20A%20GitHub%20staff%20engineer%E2%80%99s%20philosophy&url=https%3A%2F%2Fgithub.blog%2Fdeveloper-skills%2Fgithub%2Fhow-to-review-code-effectively-a-github-staff-engineers-philosophy%2F>
+- <https://www.facebook.com/sharer/sharer.php?t=How%20to%20review%20code%20effectively%3A%20A%20GitHub%20staff%20engineer%E2%80%99s%20philosophy&u=https%3A%2F%2Fgithub.blog%2Fdeveloper-skills%2Fgithub%2Fhow-to-review-code-effectively-a-github-staff-engineers-philosophy%2F>
+- <https://www.linkedin.com/shareArticle?title=How%20to%20review%20code%20effectively%3A%20A%20GitHub%20staff%20engineer%E2%80%99s%20philosophy&url=https%3A%2F%2Fgithub.blog%2Fdeveloper-skills%2Fgithub%2Fhow-to-review-code-effectively-a-github-staff-engineers-philosophy%2F>
+
+As a staff engineer at GitHub, [code review](https://github.com/features/code-review) is one of my main focus areas in my day to day work. Over the past eight years, I’ve reviewed more than 7,000 pull requests. Why so many? Because code review is crucial to building good software and another set of eyes can often spot issues you would have otherwise missed.
+
+作为 GitHub 的一名资深工程师（staff engineer），[代码评审](https://github.com/features/code-review)是我日常工作中的主要职责之一。过去八年里，我评审了 7000 多个拉取请求。为什么这么多？因为代码评审对构建好软件至关重要，而多一双眼睛往往能发现你本来会漏掉的问题。
+
+I see code review as one of the most important aspects of my job. In fact, whenever I see that a teammate has a pull request ready for code review, I prefer to drop whatever branch I’m working on to review their proposed changes instead. After all, their pull request has already passed the continuous integration (CI) gauntlet and met the bar for their own judgment of “done,” so it’s probably closer to being shippable than my own in-progress work. I’d rather get their code over the finish line than churn an unknown amount of time more to finish my code.
+
+我把代码评审视为工作中最重要的环节之一。事实上，只要看到队友有拉取请求可以评审了，我就宁愿放下自己正在做的分支，转去评审他们提出的改动。毕竟，他们的拉取请求已经通过了持续集成（CI）的重重考验，也达到了作者自己判断的「完成」标准，所以它大概比我自己那半成品更接近可发布状态。我更愿意把他们的代码推过终点线，而不愿再耗上无法预估的时间去写完自己的代码。
+
+The sooner I provide feedback — “This can be nil and cause an error,” “This looks like an n+1 query,” “It would be great to have a method signature on this” — the faster that feedback can be addressed and the bug squashed or feature shipped.
+
+我越早给出反馈——「这里可能是 nil，会导致报错」「这看起来像是一次 n+1 查询」「这里最好能有一个方法签名」——这些反馈就能越早被处理，缺陷被消灭，功能被发布。
+
+I’d like to share how I approach code review in hopes that we can all ship better code.
+
+我想分享一下我如何做代码评审，希望我们都能交付更好的代码。
+
+## What is code review?
+
+## 什么是代码评审？
+
+Strictly speaking, code reviews—via [pull request reviews](https://docs.github.com/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) on GitHub—allow collaborators to comment on the changes proposed in pull requests, indicate their approval of the changes, or request further changes before the pull request is merged.
+
+严格来说，代码评审——通过 GitHub 上的[拉取请求评审](https://docs.github.com/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)进行——让协作者可以就拉取请求中提出的改动发表评论、表示批准，或在拉取请求合并前要求进一步修改。
+
+I see a pull request as the beginning of conversation. I read it as the author saying “I think this improves on what we have today.” Code review is a great opportunity to shape the product’s implementation. As a code reviewer, my job is to go back and forth in discussion with the author to improve their code by asking questions, questioning assumptions, and generally serving as a second set of eyes.
+
+我把拉取请求看作一场对话的开端。我把它读作作者在说「我认为这改进了我们现在的做法」。代码评审是塑造产品实现方式的绝佳机会。作为评审者，我的工作就是与作者来回讨论，通过提问、质疑假设、总体充当第二双眼睛来改进他们的代码。
+
+## Fine-tune your code review process
+
+## 优化你的代码评审流程
+
+### How to find pull requests for review
+
+### 如何找到需要评审的拉取请求
+
+I live in my [GitHub notifications inbox](https://github.com/notifications?query=is:unread). It’s one of just a few tabs I pin in my browser, so it’s always available. Any time I’m waiting on CI, I’m in between tasks, starting my day, or generally have a spare moment, I like to check my inbox. I find most of the pull requests I review there. Teams at GitHub tend to have a particular Slack channel they treat as home base, and that’s a good place to share ready-for-review pull requests—it’s one of the other main ways I discover pull requests.
+
+我常驻在我的 [GitHub 通知收件箱](https://github.com/notifications?query=is:unread)里。它是我在浏览器里固定为标签页的少数几个页面之一，所以随时都能打开。每当我在等 CI、处于任务间隙、刚开始一天的工作，或者只是有点空闲，我都喜欢去看一眼收件箱。我评审的大多数拉取请求都是在那里找到的。GitHub 的各团队往往有一个固定的 Slack 频道当作大本营，那里是分享待评审拉取请求的好地方——这也是我发现拉取请求的主要途径之一。
+
+I also have good luck using the [GitHub Slack integration](https://slack.github.com/) to subscribe a Slack channel to new pull requests relevant to my team. To filter which pull requests show up in Slack, I use a label specific to the team, then a ‘subscribe’ command in Slack like `/github subscribe your/repo pulls +label:"your-team-label"`.
+
+我还发现用 [GitHub Slack 集成](https://slack.github.com/)把某个 Slack 频道订阅到与团队相关的新拉取请求上很有效。为了筛选哪些拉取请求会出现在 Slack 里，我会用一个团队专属的标签，然后在 Slack 里用 `/github subscribe your/repo pulls +label:"your-team-label"` 这样的「subscribe」命令。
+
+I like to search for outstanding pull requests that may need review with queries like `is:open archived:false is:pr org:github -is:draft team-review-requested:github/relevant-codeowner-team`. With that query, I find [open](https://docs.github.com/search-github/searching-on-github/searching-issues-and-pull-requests#search-by-open-or-closed-state), [unarchived](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-repository-is-archived)[pull requests](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests#search-only-issues-or-pull-requests)[within the GitHub organization](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories) that are not [drafts](https://docs.github.com/search-github/searching-on-github/searching-issues-and-pull-requests#search-for-draft-pull-requests) and have [relevant codeowner teams as a requested reviewer](https://docs.github.com/search-github/searching-on-github/searching-issues-and-pull-requests#search-by-pull-request-review-status-and-reviewer). I usually will omit the [`review:required`](https://docs.github.com/search-github/searching-on-github/searching-issues-and-pull-requests#search-by-pull-request-review-status-and-reviewer) search qualifier because I’m interested in reviewing a pull request even if a teammate has already reviewed it. After all, reviewing code not only helps the author, it helps me stay up to date with changes affecting code I’m responsible for.
+
+我喜欢用 `is:open archived:false is:pr org:github -is:draft team-review-requested:github/relevant-codeowner-team` 这类查询来搜索可能需要评审的未处理拉取请求。用这个查询，我能找到 GitHub 组织内的[处于打开状态](https://docs.github.com/search-github/searching-on-github/searching-issues-and-pull-requests#search-by-open-or-closed-state)、[未归档的](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-repository-is-archived)[拉取请求](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests#search-only-issues-or-pull-requests)，它们[位于该用户或组织的仓库中](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories)、不是[草稿](https://docs.github.com/search-github/searching-on-github/searching-issues-and-pull-requests#search-for-draft-pull-requests)，并且[把相关代码所有者团队列为被请求的评审者](https://docs.github.com/search-github/searching-on-github/searching-issues-and-pull-requests#search-by-pull-request-review-status-and-reviewer)。我通常会省掉 [`review:required`](https://docs.github.com/search-github/searching-on-github/searching-issues-and-pull-requests#search-by-pull-request-review-status-and-reviewer) 这个搜索限定符，因为即使队友已经评审过某个拉取请求，我也有兴趣自己再看一遍。毕竟，评审代码不仅帮助作者，也让我跟上那些影响我所负责代码的变更。
+
+### Use reviewer teams to manage notifications
+
+### 用评审者团队管理通知
+
+You don’t want code changes to ping such a large team that everyone on the team assumes reviewing the change isn’t their [responsibility](https://en.wikipedia.org/wiki/Diffusion_of_responsibility). That can result in pull requests that either languish unreviewed or get merged before they should, because key reviewers missed them in a deluge of notifications. Both of these scenarios affect the quality of the product.
+
+你不会希望代码变更去打扰一个庞大的团队，以至于团队里每个人都觉得评审这个改动不是自己的[责任](https://en.wikipedia.org/wiki/Diffusion_of_responsibility)。这可能造成两种结果：拉取请求无人问津地搁置，或者在不该合并的时候就先被合并了，因为关键评审者在一大堆通知里漏掉了它。这两种情况都会影响产品质量。
+
+I recommend honing the number of [code owner](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) teams you’re on, if you’re able, to keep your notifications manageable. That way, pull requests that land in your inbox aren’t just noise, they’re actually something you feel you should review. While big, catch-all code owner teams can be okay as a fallback option, they aren’t great as a first-line default for automatic review requests. Keep your repository’s CODEOWNERS file well organized, with well-defined code boundaries to go along with it, to limit notifications and help reviewers avoid notification fatigue.
+
+如果可以，我建议精简你所加入的[代码所有者](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)团队数量，让自己的通知量可控。这样一来，落进你收件箱的拉取请求就不只是噪音，而是你确实觉得该评审的东西。庞大且包罗万象的代码所有者团队作为兜底选项还可以，但作为自动评审请求的第一道默认设置就不太合适。把仓库的 CODEOWNERS 文件整理好，并配上界定清晰的代码边界，以限制通知量，帮助评审者避免通知疲劳。
+
+Another way of limiting team-based notifications is to create a first responders team and then use automation to add and remove team members based on a schedule. This can let your team focus on their day-to-day code base, while scheduled first responders get notified of pull requests in your team’s service areas. Using the [PagerDuty API](https://developer.pagerduty.com/api-reference/3f03afb2c84a4-get-a-schedule), for example, you can determine who is a first responder on a given day. You can then use the [Octokit library](https://docs.github.com/rest/using-the-rest-api/libraries-for-the-rest-api?apiVersion=2022-11-28#official-github-libraries) to add and remove team members.
+
+另一种限制团队级通知的办法，是创建一个第一响应者团队，然后用自动化按排班添加和移除团队成员。这样你的团队可以专注日常的代码库，而排班的第一响应者会收到团队服务区域内拉取请求的通知。例如，用 [PagerDuty API](https://developer.pagerduty.com/api-reference/3f03afb2c84a4-get-a-schedule) 可以确定某一天谁是第一响应者。然后你就可以用 [Octokit 库](https://docs.github.com/rest/using-the-rest-api/libraries-for-the-rest-api?apiVersion=2022-11-28#official-github-libraries)来添加和移除团队成员。
+
+### Standardize code reviews across teams with automation
+
+### 用自动化在各团队间统一代码评审
+
+Repository-level configuration and automation, such as using a [CODEOWNERS file](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#codeowners-file-location) and [branch protection rules](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule), can be helpful to enforce review process standards across teams. Other standards, such as what’s worth commenting on in a pull request, have to be maintained by us humans. Document how code reviews work within your team to make sure anyone providing a code review or submitting a pull request knows how to get their pull requests reviewed, the expected turnaround time for review, and what automation is in use to facilitate review.
+
+仓库级配置与自动化，例如使用 [CODEOWNERS 文件](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#codeowners-file-location)与[分支保护规则](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)，有助于在各团队间强制统一评审流程标准。其他标准，比如拉取请求里什么值得评论，就得靠我们人来维持。把团队内代码评审如何运作写下来，确保无论是做评审还是提交拉取请求的人，都知道如何让自己的拉取请求得到评审、评审的预期周转时间，以及有哪些自动化在辅助评审。
+
+Some teams use a project board to keep track of which pull requests come in for review; I’ve seen this work well for a team that manages a shared API, an area often modified by those outside the team. Other teams depend on GitHub notifications alone, which I’ve seen work well when code ownership is tightly scoped and the team is disciplined about reviewing pull requests as they come in.
+
+有些团队用项目看板来跟踪有哪些拉取请求进来待评审；我见过这在管理共享 API 的团队里效果不错，因为这类区域经常被团队之外的人修改。另一些团队只依赖 GitHub 通知，我见过这在代码归属范围界定得很窄、且团队能纪律性地一有拉取请求就评审时效果很好。
+
+If you follow a process unique to your specific team, automation can help communicate expectations with those outside your team. For example, if many other teams depend on your team’s reviews, you can use a bot to automatically leave a comment on any pull request where your team’s review is requested, to tell the author when they can expect to hear from you.
+
+如果你遵循的是自己团队特有的流程，自动化可以帮助你向团队之外的人传达预期。例如，如果许多其他团队依赖你们团队的评审，你可以用机器人自动在任何请求你们团队评审的拉取请求上留言，告诉作者大概什么时候能收到回复。
+
+## What makes a code review good or bad?
+
+## 什么样的代码评审算好，什么样算差？
+
+Good code reviews add clarity and push code toward a better state than where it started.
+
+好的代码评审能带来清晰度，并把代码推向比原先更好的状态。
+
+As a reviewer, clarity in communication is key. You’ll want to make clear which of your comments are personal preference and which are blockers for approval. Provide an example of the approach you’re suggesting to elevate your code review and make your meaning even clearer. If you can provide an example from the same repository as the pull request, even better—that further supports your suggestion by encouraging consistent implementations.
+
+作为评审者，沟通清晰是关键。你需要说清哪些评论是你的个人偏好，哪些是批准前的阻塞项。给出你所建议做法的示例，可以提升评审的价值，也让你的意思更清楚。如果你能从与该拉取请求同一个仓库里举例，那就更好——这通过鼓励实现方式的一致性，进一步支撑了你的建议。
+
+By contrast, poor code reviews lack clarity. For example, a blanket approval or rejection without any comments can leave the pull request author wondering if the review was thorough. Even just reiterating your understanding of the pull request author’s intention with your approval can surface whether you and the author have the same understanding.
+
+相比之下，糟糕的代码评审缺乏清晰度。例如，不带任何评论的一揽子批准或拒绝，会让拉取请求作者怀疑这次评审是否认真。哪怕只是在批准时复述一遍你对作者意图的理解，也能暴露出你和作者的理解是否一致。
+
+A code review that is unclear about when its suggestions should be implemented can also be a poor experience for the author. It’s fine to note that existing, unchanged code should be refactored, or an additional case should be handled, but it’s important to specify whether those are precursors to approval. If the pull request is okay to land without your suggestions, make sure to say so. It may be safer to keep a small diff and ship those changes separately, as separate pull requests.
+
+如果一次代码评审没有说清其中的建议应该何时落实，对作者来说同样是糟糕的体验。指出既有且未被改动的代码应该重构，或者某个额外情况应该处理，这都没问题，但关键是说明这些是否是批准的前提。如果这些建议不做、拉取请求也可以合入，那一定要说出来。保留一个小的差异（diff）并把那些改动作为单独的拉取请求分别发布，可能更稳妥。
+
+**Here’s a code review comment that displays specificity and clearly communicates suggested implementations:**
+
+**下面这条代码评审评论体现了具体性，并清楚地传达了建议的实现方式：**
+
+*“I see your new method matches the existing style in this file, taking [X] parameters. Having that many parameters hurts readability and implies the function is doing too much. What do you think about refactoring this method and the existing ones in a later pull request to reduce how many parameters they take?”*
+
+*「我看到你的新方法与这个文件里既有风格一致，接收 [X] 个参数。这么多参数会损害可读性，也意味着这个函数承担了太多职责。你觉得在后续的拉取请求里，把这个方法和既有方法一起重构、减少参数数量怎么样？」*
+
+**What this comment does well:**
+
+**这条评论好在哪里：**
+
+- Provides specific details.
+- References specific code or issues.
+- Suggests a resolution to the problem.
+- Cites evidence or provides an explanation
+
+- 给出了具体细节。
+- 引用了具体的代码或问题。
+- 提出了问题的解决方向。
+- 给出了依据或作了解释
+
+**On the other end of the spectrum, here are some examples of review comments that could be better:**
+
+**在另一个极端，以下是一些本可以更好的评审评论示例：**
+
+*“I don’t like this.”* – What doesn’t the reviewer like? Do they have an alternative in mind that they could explicitly state?
+
+*「我不喜欢这个。」*——评审者到底不喜欢什么？他心里有没有可以明确说出来的替代方案？
+
+**Possible improvements:**
+
+**可能的改进：**
+
+- “This line is doing a lot, could we simplify it to improve readability?”
+- “I think this will have performance problems because of an n+1 query.”
+- “Could we use the [preferred framework]’s solution for this instead of writing a custom implementation?”
+
+- 「这一行做的事太多了，能不能简化一下以提升可读性？」
+- 「我觉得这会因为一次 n+1 查询而出现性能问题。」
+- 「这里能不能改用 [preferred framework] 的方案，而不是自己写一套实现？」
+
+*“This won’t work.”* – Why won’t the changes work?
+
+*「这样行不通。」*——为什么这些改动行不通？
+
+- “This won’t work because [X], see this relevant issue: [issue link].”
+- “This was tried before in [pull request link] and it didn’t work because of [X].”
+- “If you run into problems with [X], you could try [alternative approach] instead.”
+
+- 「这样行不通，因为 [X]，见这个相关问题：[issue link]。」
+- 「这个之前在 [pull request link] 里试过，因为 [X] 没成功。」
+- 「如果你在 [X] 上遇到问题，可以改用 [alternative approach] 试试。」
+
+*“I think this fixes a bug.”* – I love the callout, but is there any additional context, such as an issue link, that could make this more clear?
+
+*「我觉得这修掉了一个缺陷。」*——我很喜欢这种点名，但有没有更多上下文，比如一个 issue 链接，能让它更清楚？
+
+- “I think this fixes [issue link].”
+- “Is this fixing the bug from [issue link]?”
+- “This looks like the bug we ran into with [link to failing build]. Thanks for the fix!”
+
+- 「我觉得这修掉了 [issue link]。」
+- 「这是在修 [issue link] 里的那个缺陷吗？」
+- 「这看起来就是我们遇到过的 [link to failing build] 里的那个缺陷。谢谢修复！」
+
+## How to give a good code review
+
+## 如何给出好的代码评审
+
+### Ask questions
+
+### 提问
+
+I think of the pull request author as the person with the most context on the changes their pull request is making. I can point out problems I see based on my history—my experience working in a Ruby on Rails monolith, in TypeScript, or with a database that gets a lot of traffic—but I trust the author’s answers to my questions. I treat their understanding of the particulars as better than mine.
+
+我把拉取请求作者看作最了解该改动上下文的人。我可以根据自己的经历——在 Ruby on Rails 单体应用、TypeScript，或者在高流量数据库上的工作经验——指出我看到的问题，但我信任作者对我问题的回答。我认为他们对具体细节的理解比我更可靠。
+
+I also love to ask questions that involve the assumptions made in the code. What is the shape of the data they’re working with? Does data exist that doesn’t match that shape? Does the code respond to that well? Is the code resource intensive? Will it perform well? As a reviewer, my favorite response is for the author to provide an automated test that verifies the behavior in those scenarios. My second favorite response is empirical data, such as a query from our data warehouse or a Datadog graph that shows why those scenarios aren’t a problem.
+
+我也很喜欢就代码中做出的假设提问。他们处理的数据是什么结构？是否存在不符合该结构的数据？代码能妥善应对吗？代码是否资源消耗很大？性能会好吗？作为评审者，我最喜欢的回应是作者提供一个自动化测试，来验证那些场景下的行为。第二喜欢的是实证数据，例如来自我们数据仓库的查询结果，或一张 Datadog 图表，说明为什么那些场景不成问题。
+
+As a pull request author, I appreciate receiving questions. When someone asks a question, it makes space for me to explain why I’m confident about my change, citing issues, queries, or graphs as necessary. It also lets me share my knowledge and experience with others. The author not only sees my responses, but also other reviewers and future readers who may be tracking down context on a past decision.
+
+作为拉取请求作者，我也很感激收到提问。有人提问，就等于给我空间去解释我为什么对这次改动有信心，必要时引用 issue、查询或图表。这也让我能把自己的知识与经验分享给他人。作者不仅能看到我的回应，其他评审者和未来的读者也能看到——他们可能正在追溯某个过往决策的来龙去脉。
+
+### Offer affirmations
+
+### 给出肯定
+
+Beyond asking questions, it’s good practice to comment on the parts of the pull request that you agree with. These comments can highlight that you read and understood what was being changed, or that you verified some assumption in the code. Here are a few examples:
+
+除了提问，对拉取请求中你认同的部分加以评论也是好习惯。这类评论能表明你读过并理解了正在被改动的内容，或者你验证了代码中的某个假设。以下是几个例子：
+
+- “Looks like this matches the pattern used in other classes in this module.”
+- “Thanks for adding a test for this!”
+- “This is much more readable than before.”
+
+- 「看起来这与本模块其他类所用的模式一致。」
+- 「谢谢你为这个加了测试！」
+- 「这比之前可读性好多了。」
+
+It’s also just nice being on the receiving end of such comments, in my experience. Receiving a code review can sometimes feel draining. When I’m fielding questions and suggestions from several parties, it can be a good boost to get a few comments that don’t ask anything of me and instead support and acknowledge the work I’ve already put in.
+
+就我的经验而言，收到这类评论本身也让人舒服。收到代码评审有时会让人感到消耗。当我要应付来自好几方的提问和建议时，收到几条并不向我索取什么、而是支持并肯定我已完成工作的评论，是很好的鼓舞。
+
+### Be aware of biases and assumptions
+
+### 警惕偏见与假设
+
+It’s easy to let your biases about the reviewer, or the area of code they’re changing, affect your review. You get used to someone working in an area or having some level of seniority and assume they know what they’re doing—but *everyone* makes mistakes. Your eyes on their changes, your questions checking their assumptions or validating your own, can catch a problem before it’s deployed.
+
+你很容易让对评审者本人、或对其所改动代码领域的偏见影响评审。你会习惯某人长期负责某个领域，或者拥有某种资历，于是假设他知道自己在做什么——但*每个人*都会犯错。你对他们改动的注视，你检验他们假设或验证自己想法的提问，可以在问题部署之前就抓住它。
+
+I’m big on writing tests because they take some of the bias out. When you write a test to check that code works properly, [you don’t have to take the author’s word for it](https://www.youtube.com/watch?v=NIKAsGC1Iy8), you just look at whether the test passed—provided you get the test right, of course. 😅
+
+我非常推崇写测试，因为测试能消除一部分偏见。当你写一个测试来检查代码是否正常工作，[你就不必只听作者的一面之词](https://www.youtube.com/watch?v=NIKAsGC1Iy8)，只需看测试是否通过——当然，前提是你的测试本身写对了。😅
+
+I’m also big on junior developers asking senior developers questions in code review, even if they think their question is silly or has an obvious answer. If it’s not obvious to you, that’s valid. It won’t be obvious to someone else either! Ask the question, make the space for the author to write down their answer, and preserve that bit of education for those who come later.
+
+我也非常推崇初级开发者在代码评审中向资深开发者提问，哪怕他们觉得自己的问题很傻或答案显而易见。如果对你来说并不显而易见，那就是成立的。对别人来说也不会显而易见！把问题问出来，给作者留出写下答案的空间，并把这一小段教育留给后来的人。
+
+### To approve or not
+
+### 批准还是不批准
+
+I see my review as a blocking gate that can stop another person from improving our product, so I withhold approval conscientiously. I will often have personal preferences and suggest optional changes I’d like to see the author make, but I won’t withhold an approval based on those alone. If I have suggestions for someone’s pull request, but their pull request as it is won’t break production, negatively impact users, or otherwise cause problems, I will approve with those comments. The author can choose to address my feedback before they merge their pull request, or they can follow up in another branch.
+
+我把自己的评审看作一道可能阻止别人改进产品的关卡，所以我会凭良心慎重地保留批准。我常常有个人偏好，也会提出希望作者做的可选改动，但我不会仅凭这些就不给批准。如果我对某人的拉取请求有建议，但按现状它不会破坏生产环境、不会对用户造成负面影响，也不会引起其他问题，我就会批准并附上那些评论。作者可以选择在合并前处理我的反馈，也可以另开分支跟进。
+
+Keep in mind the importance of your suggestion when you’re reviewing code. Is it worth delaying the ship to get your suggestion addressed? Is it worth the whole cycle of the author seeing your feedback, making the suggested changes, waiting for CI, a re-review, deployment and finally merging? If a suggestion’s absence isn’t going to make someone’s day worse, let the author decide if or when to make the suggested change.
+
+评审代码时要考虑你的建议有多重要。为了让它被落实而推迟发布值得吗？值得让作者看反馈、做修改、等 CI、等再次评审、部署、最后合并这一整轮流程走一遍吗？如果一条建议不落实并不会让谁的日子更难过，那就让作者决定改不改、什么时候改。
+
+The [‘Request changes’ option](https://docs.github.com/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review) stops a pull request from being merged until the reviewer comes back and approves it. I very rarely use it, as it usually feels too heavy-handed. I trust my team to know when to approve a pull request, so a teammate’s approval is fine in place of mine. Likewise, I trust the pull request author to respect my feedback and consider it, not just blindly merging because someone else approved but I didn’t. About the only time I’ll choose the ‘Request changes’ option is when I think there is an immediate security issue and I’m worried they won’t see my concern before merging.
+
+[「请求更改」选项](https://docs.github.com/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review)会阻止拉取请求被合并，直到评审者回来批准它。我极少使用它，因为它通常显得过于强硬。我信任我的团队知道何时该批准拉取请求，所以队友的批准可以代替我的批准。同样，我也信任拉取请求作者会尊重并考虑我的反馈，而不是因为别人批准了、我没批准就盲目合并。我大概只有一种情况会选择「请求更改」：我认为存在紧迫的安全问题，并且担心他们在合并前看不到我的顾虑。
+
+## How to get the most out of code reviews
+
+## 如何充分利用代码评审
+
+### Review your own code
+
+### 评审你自己的代码
+
+GitHub Senior Software Engineer [Paul Smith](https://github.com/paulcsmith) taught me to review my own pull request before asking others to do so, and I would advise you to do the same. Take a first pass and leave comments inline on non-obvious changes or ones you would ask about if you saw them in someone else’s pull request. A self-review can also help determine if a pull request is too big and would benefit from being [split up](https://github.blog/2020-05-21-github-protips-tips-tricks-hacks-and-secrets-from-sarah-vessels/).
+
+GitHub 高级软件工程师 [Paul Smith](https://github.com/paulcsmith) 教我，在请别人评审之前先评审自己的拉取请求，我也建议你这么做。先过一遍，对那些不明显的改动、或者如果出现在别人拉取请求里你会问起的改动，留下行内评论。自我评审还能帮助判断一个拉取请求是否过大、是否适合[拆分](https://github.blog/2020-05-21-github-protips-tips-tricks-hacks-and-secrets-from-sarah-vessels/)。
+
+**Shout-out:** if you care about keeping your pull requests small, you can make use of [lerebear/sizeup-action](https://github.com/lerebear/sizeup-action) to automatically apply a label to pull requests indicating their complexity and size.
+
+**特别推荐：** 如果你在意让拉取请求保持小巧，可以用 [lerebear/sizeup-action](https://github.com/lerebear/sizeup-action) 自动给拉取请求打上标明其复杂度与规模的标签。
+
+### Be welcoming of post-merge reviews
+
+### 欢迎合并后的评审
+
+If I happen to merge a pull request before someone gets a chance to review it, I still welcome their review. If my pull request broke something or had unintended consequences, commenting as much on the pull request leaves that breadcrumb trail to help future readers track down what happened!
+
+如果我碰巧在别人有机会评审之前就合并了某个拉取请求，我依然欢迎他们的评审。如果我的拉取请求弄坏了什么或产生了非预期后果，在拉取请求上评论说明，就能留下一条面包屑，帮助未来的读者追溯当时发生了什么！
+
+If I receive a review on a merged pull request, I’ll address the feedback like I would have before the pull request landed. Maybe that’ll be a comment to explain my perspective, maybe it’ll be additional pull requests to iterate on the code I originally shipped. Maybe it’ll be opening new issues to capture additional work to be done.
+
+如果我收到的是对已合并拉取请求的评审，我会像它还合入之前那样去处理反馈。也许是一条解释我视角的评论，也许是再开几个拉取请求来迭代我原先发布的代码。也可能是开新的 issue，把待做的工作记录下来。
+
+### Use draft pull requests
+
+### 使用草稿拉取请求
+
+When you create a new pull request, you have the option to set the pull request as a draft. I lean heavily on [the draft stage](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request) to indicate whether or not I want reviews. For example, if a required CI build is failing or I’m just not finished yet, I’ll keep it as a draft. I tend to expect the same from others’ pull requests: if it’s a draft, I assume the author isn’t ready for reviews. If it’s marked as ready for review, I assume that getting enough approvals is all that’s preventing them from deploying the pull request.
+
+创建新拉取请求时，你可以选择把它设为草稿。我非常依赖[草稿阶段](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)来表明我是否需要评审。例如，如果某个必需的 CI 构建失败了，或者我只是还没做完，我就会把它保持为草稿。我也倾向于这样理解别人的拉取请求：如果它是草稿，我就假定作者还没准备好接受评审；如果它被标记为可以评审了，我就假定只差足够多的批准，它就能部署了。
+
+The draft status implies that a pull request is not finished, so I move pull requests back to draft when resolving merge conflicts or addressing reviewer feedback. If I have to modify the code, I’ll mark my pull request as a draft first so as not to overwhelm people who have already reviewed it. When I move it back to ‘ready’, it sends a GitHub notification to those reviewers so they can look at it again.
+
+草稿状态意味着拉取请求尚未完成，所以在解决合并冲突或处理评审反馈时，我会把拉取请求移回草稿。如果我必须修改代码，我会先把拉取请求标记为草稿，以免让已经评审过的人不堪重负。等我把它移回「可以评审」时，GitHub 会给那些评审者发通知，让他们再看一遍。
+
+### Be gracious
+
+### 保持客气
+
+The expression, “You can catch more flies with honey than vinegar,” comes to mind. I want reviews on my pull requests, so I like to reply to comments on my pull requests—especially if I disagree with the reviewer. Even if I don’t write a reply to a review comment, I’ll often react with a 👍 to indicate I agree or a ❤ to say thank you.
+
+有句话这时会浮现在我脑海里：「蜂蜜比醋能捉到更多苍蝇。」我希望自己的拉取请求得到评审，所以我喜欢回复自己拉取请求上的评论——尤其是在我不同意评审者的时候。即使我不回复某条评审意见，我也常常用 👍 表示同意，或用 ❤ 说声谢谢。
+
+I want reviewers to trust that their suggestions won’t be forgotten, so I keep them in the loop via comments. If I agree with their suggestion—to go further refactoring existing code, for example—I may say as much while also pushing back about making that change in the current pull request. When I address their feedback in a later pull request, I come back to provide a link and let the reviewer know their feedback didn’t go unheard.
+
+我希望评审者相信他们的建议不会被遗忘，所以我通过评论让他们始终了解进展。如果我同意他们的建议——比如进一步重构既有代码——我可能会在表示同意的同时，就当下这个拉取请求里是否要做这个改动提出保留意见。当我在后续的拉取请求里落实他们的反馈时，我会回来提供链接，让评审者知道他们的反馈没有被忽视。
+
+I’ll also tag them in later pull requests where I implement the suggested changes and include a note saying “This addresses @so-and-so’s feedback from <previous pull request URL>.” This both provides context for other readers and acts as a shout-out to the original reviewer, giving them credit for the idea.
+
+我还会在后续实现这些建议的拉取请求里标记他们，并附上一句「这处理了 @某某 在 <previous pull request URL> 中的反馈」。这既为其他读者提供了上下文，也是对原评审者的点名致意，把这份点子的功劳记给他们。
+
+When you follow through on a promise to address feedback in a later branch, that helps build trust with your reviewer, which can help them feel comfortable approving your future pull requests because they know that you won’t leave something incomplete.
+
+当你兑现「在后续分支里处理反馈」的承诺时，这有助于与评审者建立信任，从而让他们更放心地批准你未来的拉取请求，因为他们知道你不会半途而废。
+
+## Wrap-up
+
+## 结语
+
+Code review’s importance for product quality can’t be overstated, especially in the age of AI code generation. Many times in my career, a bug has been caught or an incident avoided simply by having that second set of eyes. Code review is well worth the time investment, whether spent in daily reviews, in ironing out processes, or in building automation to support it. It’s faster and less painful for developers to review pull requests thoroughly now than to deal with a problem later that’s already shipped to production.
+
+代码评审对产品质量的重要性怎么强调都不为过，在 AI 生成代码的时代尤其如此。在我的职业生涯中，有很多次正是因为有了第二双眼睛，缺陷才被发现，事故才被避免。代码评审非常值得投入时间，无论是花在日常评审、梳理流程，还是构建支持它的自动化上。对开发者来说，现在就把拉取请求评审透彻，比日后去处理一个已经发到生产环境的问题更快、也更少痛苦。
+
+Thank you for caring enough about code quality to read my philosophy on code review. Have you checked [your review queue](https://github.com/search?q=review-requested:@me+is:open+archived:false&type=pullrequests) lately? Maybe now is a good time to put these ideas into action.
+
+感谢你如此在意代码质量，愿意读我这套代码评审的理念。你最近看过[你的评审队列](https://github.com/search?q=review-requested:@me+is:open+archived:false&type=pullrequests)吗？也许现在正是把这些想法付诸行动的好时机。
+
+If you want to learn more about how to use pull request reviews on GitHub, check out the post on GitHub Community by Staff DevOps Architect [Mickey Gousset](https://github.com/mickeygousset) and Staff DevOps Architect [Joshua Johanning](https://github.com/joshjohanning) discussing [5 Tips for Reviewing a Pull Request](https://github.com/orgs/community/discussions/130771).
+
+如果你想进一步了解如何在 GitHub 上使用拉取请求评审，可以看看 GitHub Community 上由资深 DevOps 架构师 [Mickey Gousset](https://github.com/mickeygousset) 与资深 DevOps 架构师 [Joshua Johanning](https://github.com/joshjohanning) 发表的讨论：[评审拉取请求的 5 个技巧](https://github.com/orgs/community/discussions/130771)。
+
+## Tags:
+
+## 标签：
+
+## Written by
+
+## 作者
+
+![Sarah Vessels](https://avatars.githubusercontent.com/u/82317?v=4&s=200)
+
+![Sarah Vessels](https://avatars.githubusercontent.com/u/82317?v=4&s=200)
+
+Staff Software Engineer, GitHub
+
+GitHub 资深软件工程师
+
+## Related posts
+
+## 相关文章
+
+[Career growth](https://github.blog/developer-skills/career-growth/)
+
+[职业成长](https://github.blog/developer-skills/career-growth/)
+
+### [From coder to orchestrator: How agents shift the role of a developer](https://github.blog/developer-skills/career-growth/from-coder-to-orchestrator-how-agents-shift-the-role-of-a-developer/)
+
+### [从编码者到编排器：智能体如何改变开发者的角色](https://github.blog/developer-skills/career-growth/from-coder-to-orchestrator-how-agents-shift-the-role-of-a-developer/)
+
+Developers are owning more of the delivery system around code, not just code itself. Join us during GitHub Universe to meet other devs, learn something new, and explore what’s next.
+
+开发者正在负责代码之外更多交付体系的工作，而不仅仅是代码本身。欢迎在 GitHub Universe 期间与更多开发者相聚、学到新东西，并探索接下来会发生什么。
+
+![Copilot appears against a decorative background with scattered green squares.](https://github.blog/wp-content/uploads/2026/01/generic-github-copilot-logo-stripe.png?resize=400%2C212)
+
+![Copilot 出现在带有散落绿色方块的装饰背景前。](https://github.blog/wp-content/uploads/2026/01/generic-github-copilot-logo-stripe.png?resize=400%2C212)
+
+[AI & ML](https://github.blog/ai-and-ml/)
+
+[AI 与机器学习](https://github.blog/ai-and-ml/)
+
+### [Stacked sessions and pull requests in the GitHub Copilot app](https://github.blog/ai-and-ml/github-copilot/stacked-sessions-and-pull-requests-in-the-github-copilot-app/)
+
+### [GitHub Copilot 应用中的堆叠会话与拉取请求](https://github.blog/ai-and-ml/github-copilot/stacked-sessions-and-pull-requests-in-the-github-copilot-app/)
+
+Learn how I modernized an old codebase of mine using stacked sessions and pull requests in the GitHub Copilot app.
+
+了解我如何用 GitHub Copilot 应用中的堆叠会话与拉取请求，把一个旧代码库现代化。
+
+### [The cost of saying yes has changed](https://github.blog/engineering/the-cost-of-saying-yes-has-changed/)
+
+### [说「是」的代价已经变了](https://github.blog/engineering/the-cost-of-saying-yes-has-changed/)
+
+The cost of writing code dropped; the cost of owning it didn’t. A framework for deciding which changes are actually cheap in the AI era.
+
+写代码的代价下降了；拥有它的代价没有。一个用于判断在 AI 时代哪些改动才真正便宜的框架。

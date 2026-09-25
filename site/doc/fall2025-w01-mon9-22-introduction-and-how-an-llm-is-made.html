@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Introduction and how an LLM is made（fall2025 W1）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Introduction and how an LLM is made（fall2025 W1）</h1><div class="meta"><span class="badge">课程讲义</span>fall2025 ｜ 原文 4,129 字符 ｜ 189 个内容块 ｜ <a href="https://docs.google.com/presentation/d/1zT2Ofy88cajLTLkd7TcuSM4BCELvF9qQdHmlz33i4t0/edit?usp=sharing" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>大语言模型简介及其构建方式（fall2025 W1）</h1></div><div class="en"><h1>Introduction and how an LLM is made（fall2025 W1）</h1></div></div>
+<div class="pair"><div class="zh"><h2>Slide 1</h2></div><div class="en"><h2>Slide 1</h2></div></div>
+<div class="pair"><div class="zh"><p>Structured Writing for Professionals English 170 Stanford University，Fall 2025 Mihail Eric</p></div><div class="en"><p>Structured Writing for Professionals English 170 Stanford University, Fall 2025 Mihail Eric</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 2</h2></div><div class="en"><h2>Slide 2</h2></div></div>
+<div class="pair"><div class="zh"><p>The Modern Software Developer CS146S Stanford University，Fall 2025 Mihail Eric themodernsoftware.dev</p></div><div class="en"><p>The Modern Software Developer CS146S Stanford University, Fall 2025 Mihail Eric themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 3</h2></div><div class="en"><h2>Slide 3</h2></div></div>
+<div class="pair"><div class="zh"><p>大语言模型简介及其构建方式 themodernsoftware.dev</p></div><div class="en"><p>Introduction and How LLMs are Made themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 4</h2></div><div class="en"><h2>Slide 4</h2></div></div>
+<div class="pair"><div class="zh"><p>2025 年现状 themodernsoftware.dev</p></div><div class="en"><p>State of the World: 2025 themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 5</h2></div><div class="en"><h2>Slide 5</h2></div></div>
+<div class="pair"><div class="zh"><p>坏消息 themodernsoftware.dev - Windsurf 团队</p></div><div class="en"><p>Bad News themodernsoftware.dev - Windsurf team</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 6</h2></div><div class="en"><h2>Slide 6</h2></div></div>
+<div class="pair"><div class="zh"><p>好消息</p></div><div class="en"><p>Good News</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>软件开发者有潜力达到历史上前所未有的生产率</p></div><div class="en"><p>Software developers have the potential to be more productive than they have ever been in history</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>借助 AI 编码，工程师能以空前的速度掌握技术栈与工具</p></div><div class="en"><p>With AI coding an engineer can pick up tech stacks and tools at an unprecedented pace</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>你不会被 AI 取代。取代你的是会使用 AI 的合格工程师。 themodernsoftware.dev</p></div><div class="en"><p>You won’t be replaced by AI. You’ll be replaced by a competent engineer who knows how to use AI. themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 7</h2></div><div class="en"><h2>Slide 7</h2></div></div>
+<div class="pair"><div class="zh"><p>The Modern Software Developer themodernsoftware.dev</p></div><div class="en"><p>The Modern Software Developer themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 8</h2></div><div class="en"><h2>Slide 8</h2></div></div>
+<div class="pair"><div class="zh"><p>这不是「氛围编程」课 themodernsoftware.dev</p></div><div class="en"><p>This is not the “vibe coding” class themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 9</h2></div><div class="en"><h2>Slide 9</h2></div></div>
+<div class="pair"><div class="zh"><p>用两页幻灯片讲完 10 周 themodernsoftware.dev</p></div><div class="en"><p>10 weeks in 2 slides themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 10</h2></div><div class="en"><h2>Slide 10</h2></div></div>
+<div class="pair"><div class="zh"><p>核心要点</p></div><div class="en"><p>The Takeaway</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>人与智能体协同工程</p></div><div class="en"><p>Human-agent engineering</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>专注于尚未被 AI 系统取代的技能</p></div><div class="en"><p>Focus on the skills that are not yet replaced by AI systems</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>业务理解</p></div><div class="en"><p>Business understanding</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>成为技术负责人</p></div><div class="en"><p>Become the tech lead</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>大语言模型的上限就是你自己的水平</p></div><div class="en"><p>LLMs are only as good as you are</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>好的上下文带来好的代码</p></div><div class="en"><p>Good context leads to good code</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>如果你看不懂自己的代码库，大语言模型也看不懂 themodernsoftware.dev</p></div><div class="en"><p>If you can’t understand your codebase, neither will an LLM themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 11</h2></div><div class="en"><h2>Slide 11</h2></div></div>
+<div class="pair"><div class="zh"><p>核心要点</p></div><div class="en"><p>The Takeaway</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>大量阅读并评审代码</p></div><div class="en"><p>Read and review a lot of code</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>学会分辨软件的好坏对错</p></div><div class="en"><p>Learn to discern good from bad, wrong software</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>培养好的品味</p></div><div class="en"><p>Have good taste</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>大胆实验</p></div><div class="en"><p>Experiment aggressively</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>目前还没有成型的软件模式</p></div><div class="en"><p>There are no established software patterns yet</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>所有人都还在摸索</p></div><div class="en"><p>Everyone is still ﬁguring it out</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>这门课会介绍许多工作流与工具——找到适合你的那套 themodernsoftware.dev</p></div><div class="en"><p>This class will introduce many workﬂows and tools - ﬁgure out what works for you themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 12</h2></div><div class="en"><h2>Slide 12</h2></div></div>
+<div class="pair"><div class="zh"><p>课程安排</p></div><div class="en"><p>Course Logistics</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>关于我</p></div><div class="en"><p>A bit about me</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Stanford 本科/研究生</p></div><div class="en"><p>Stanford undergrad/grad</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>某销售领域隐形创业公司的 AI 负责人</p></div><div class="en"><p>Head of AI at a stealth startup in the sales space</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>在 Amazon Alexa 构建了首批大语言模型</p></div><div class="en"><p>Built ﬁrst LLMs at Amazon Alexa</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>创办并卖出了一家 ML 教育创业公司</p></div><div class="en"><p>Founded and sold an ML education startup</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>创办了一家 YC 投资的 AI 编码公司</p></div><div class="en"><p>Founded a YC-backed AI coding company</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>1 位超棒的课程助理</p></div><div class="en"><p>1 awesome CA</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Febie Lin themodernsoftware.dev</p></div><div class="en"><p>Febie Lin themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 13</h2></div><div class="en"><h2>Slide 13</h2></div></div>
+<div class="pair"><div class="zh"><p>课程安排</p></div><div class="en"><p>Course Logistics</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>https://themodernsoftware.dev</p></div><div class="en"><p>https://themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>课程</p></div><div class="en"><p>Lectures</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>周一/周五 8:30-9:20 am</p></div><div class="en"><p>Mon/Fri 8:30-9:20 am</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>交付物</p></div><div class="en"><p>Deliverables</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>9 次作业（每周 1 次），侧重课堂内容练习 ■ https://github.com/mihail911/modern-software-dev-assignments</p></div><div class="en"><p>9 assignments (1x/week) focusing on lecture material practice ■ https://github.com/mihail911/modern-software-dev-assignments</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>1 个开放式期末项目，你将实践本课覆盖的 AI 编码原则</p></div><div class="en"><p>1 ﬁnal open-ended project in which you will exercise AI coding principles we cover</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>评分</p></div><div class="en"><p>Grading</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>项目/作业/参与度占比 80/15/5</p></div><div class="en"><p>80/15/5 breakdown for project/assignments/participation</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>相当精彩的内容</p></div><div class="en"><p>Something pretty awesome</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>来自当今顶尖 AI 开发者创业公司创始人的客座讲座</p></div><div class="en"><p>Guest lectures from founders leading top AI developer startups today</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>融资数亿美元，估值数十亿美元</p></div><div class="en"><p>$100s of millions raised, billions in valuation</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>别错过这些演讲！ themodernsoftware.dev</p></div><div class="en"><p>Don’t miss these talks! themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 14</h2></div><div class="en"><h2>Slide 14</h2></div></div>
+<div class="pair"><div class="zh"><p>用 5 页幻灯片讲清大语言模型如何工作 （面向工程师） themodernsoftware.dev</p></div><div class="en"><p>How LLMs Work in 5 Slides (For Engineers) themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 15</h2></div><div class="en"><h2>Slide 15</h2></div></div>
+<div class="pair"><div class="zh"><p>基础</p></div><div class="en"><p>Basics</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>大语言模型（large language model）是用于下一 token 预测的自回归模型 themodernsoftware.dev</p></div><div class="en"><p>LLMs (large language models) are autoregressive models for next-token prediction themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 16</h2></div><div class="en"><h2>Slide 16</h2></div></div>
+<div class="pair"><div class="zh"><p>Basics themodernsoftware.dev a for loop for Embedding layer 0.3 the 0.6 idx 0.1 cat 用固定词表对输入做分词 把 token 转换为固定维度的数值向量（约 1-3K 维） Transformer 层（12-96+），使用自注意力机制（Viswani et. al. 2017） 得到最可能的下一个 token 的概率分布</p></div><div class="en"><p>Basics themodernsoftware.dev a for loop for Embedding layer 0.3 the 0.6 idx 0.1 cat Tokenize inputs using ﬁxed vocabulary Convert tokens into ﬁxed-dimensional numerical vectors (~1-3K dimensions) Transformers layers (12-96+) using self-attention mechanism (Viswani et. al. 2017) Get probability distribution over most likely next token</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 17</h2></div><div class="en"><h2>Slide 17</h2></div></div>
+<div class="pair"><div class="zh"><p>训练过程</p></div><div class="en"><p>Training Process</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>阶段 1</p></div><div class="en"><p>Stage 1</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>自监督预训练</p></div><div class="en"><p>Self-supervised pretraining</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>在各类通常是公开的数据源上，教会模型语言的概念</p></div><div class="en"><p>Teach the model notion of language on a variety of often public data sources</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>1000 亿到 1 万亿以上 token（语言与代码）</p></div><div class="en"><p>100s of billions to trillion+ tokens (language and code)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Common Crawl、Wikipedia、StackExchange、公开的 GitHub 仓库</p></div><div class="en"><p>Common Crawl, Wikipedia, StackExchange, Public Github repos</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>写一个 for 循环 → 可用于某段代码中</p></div><div class="en"><p>Write a for loop → that could be used in a piece of code</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>阶段 2</p></div><div class="en"><p>Stage 2</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>监督微调</p></div><div class="en"><p>Supervised ﬁnetuning</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>教会模型遵循指令</p></div><div class="en"><p>Teach model to follow instructions</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>高质量、精心挑选的提示词-回复对（“ what is the capital of Croatia ” -&gt; “ Zagreb is the capital ”）</p></div><div class="en"><p>High-quality, curated prompt-response pairs (“ what is the capital of Croatia ” -&gt; “ Zagreb is the capital ”)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>数万到数十万对</p></div><div class="en"><p>Tens of thousands to 100s of thousands of pairs</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>写一个 for 循环 → 好的，这是一个 for 循环……</p></div><div class="en"><p>Write a for loop → ok here’s a for loop…</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>阶段 3</p></div><div class="en"><p>Stage 3</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>偏好调优</p></div><div class="en"><p>Preferencing tuning</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>让模型输出与人类偏好对齐（有用性、正确性、可读性）</p></div><div class="en"><p>Align model outputs with human preferences (helpfulness, correctness, readability)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>为同一个提示词收集多组成对输出，训练奖励模型预测更受偏好的输出</p></div><div class="en"><p>Collect pairs of outputs for same prompt and train reward model to predict preferred output</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>数万到数十万条人工标注的偏好比较</p></div><div class="en"><p>Tens of thousands to 100s of thousands of human-labeled comparisons</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>写一个 for 循环 → for idx in range(10): themodernsoftware.dev</p></div><div class="en"><p>Write a for loop → for idx in range(10): themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 18</h2></div><div class="en"><h2>Slide 18</h2></div></div>
+<div class="pair"><div class="zh"><p>训练过程</p></div><div class="en"><p>Training Process</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>推理模型</p></div><div class="en"><p>Reasoning models</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>用思维链推理轨迹扩展训练</p></div><div class="en"><p>Extend training with chain-of-thought reasoning traces</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>工具调用集成</p></div><div class="en"><p>Tool-use integration</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>获取人类对推理步骤的偏好</p></div><div class="en"><p>Get human preferences on reasoning steps</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>用强化学习学会如何评测推理轨迹、如何回溯等</p></div><div class="en"><p>Reinforcement learning to learn how to evaluate reasoning traces, backtrack, etc</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>规模</p></div><div class="en"><p>Size</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>GPT-3/Claude 3.5 Sonnet - 175B 参数</p></div><div class="en"><p>GPT-3/Claude 3.5 Sonnet - 175B parameters</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>LLaMA 3.1 - 405B 参数</p></div><div class="en"><p>LLaMA 3.1 - 405B parameters</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>GPT-4 - 1.8T（据报告） themodernsoftware.dev</p></div><div class="en"><p>GPT-4 - 1.8T (reported) themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 19</h2></div><div class="en"><h2>Slide 19</h2></div></div>
+<div class="pair"><div class="zh"><p>实践中</p></div><div class="en"><p>In practice</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>优势</p></div><div class="en"><p>Strengths</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>专家级代码补全</p></div><div class="en"><p>Expert-level code completion</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>代码理解</p></div><div class="en"><p>Code understanding</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>代码修复</p></div><div class="en"><p>Code ﬁxing</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>局限</p></div><div class="en"><p>Limitations</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>幻觉 ■ 生成不存在或过时的 API（可用稳健的上下文工程缓解）</p></div><div class="en"><p>Hallucinations ■ Generating non-existent/out-of-date APIs (mitigated with robust context engineering)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>上下文窗口限制 ■ 约 100-200K token，但并非所有 token 都是等价的</p></div><div class="en"><p>Context window limits ■ ~100-200K tokens but not all are created equal</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>延迟 ■ 视任务而定，每次请求从数秒到数分钟（据此规划与委派）</p></div><div class="en"><p>Latency ■ Seconds to minutes per request depending on task (plan and delegate accordingly)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>成本 ■ 最强模型为每百万输入 token $1-3，每百万输出 token $10+ themodernsoftware.dev</p></div><div class="en"><p>Cost ■ $1-3 per million input tokens, $10+ per million output tokens for best models themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 20</h2></div><div class="en"><h2>Slide 20</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev 有问题吗？</p></div><div class="en"><p>themodernsoftware.dev Questions?</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

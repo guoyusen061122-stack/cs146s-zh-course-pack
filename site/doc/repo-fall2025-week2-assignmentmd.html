@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CS146S 作业仓库 · week2/assignment.md（fall2025）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>CS146S 作业仓库 · week2/assignment.md（fall2025）</h1><div class="meta"><span class="badge">作业仓库</span>fall2025 ｜ 原文 3,517 字符 ｜ 39 个内容块 ｜ <a href="https://github.com/mihail911/modern-software-dev-assignments/blob/fall2025/week2/assignment.md" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>第 2 周 – 行动项提取器</h1></div><div class="en"><h1>Week 2 – Action Item Extractor</h1></div></div>
+<div class="pair"><div class="zh"><p>本周，我们将扩展一个极简的 FastAPI + SQLite 应用，它能把自由形式的笔记转换成逐条列出的行动项。</p></div><div class="en"><p>This week, we will be expanding upon a minimal FastAPI + SQLite app that converts free‑form notes into enumerated action items.</p></div></div>
+<div class="pair"><div class="zh"><p><em><strong>我们建议你在开始之前先通读整份文档。</strong></em></p></div><div class="en"><p><em><strong>We recommend reading this entire document before getting started.</strong></em></p></div></div>
+<div class="pair"><div class="zh"><p>提示：预览这个 markdown 文件的方法</p></div><div class="en"><p>Tip: To preview this markdown file</p></div></div>
+<div class="pair"><div class="zh"><ul><li>在 Mac 上，按 <code>Command (⌘) + Shift + V</code></li><li>在 Windows/Linux 上，按 <code>Ctrl + Shift + V</code></li></ul></div><div class="en"><ul><li>On Mac, press <code>Command (⌘) + Shift + V</code></li><li>On Windows/Linux, press <code>Ctrl + Shift + V</code></li></ul></div></div>
+<div class="pair"><div class="zh"><h2>开始上手</h2></div><div class="en"><h2>Getting Started</h2></div></div>
+<div class="pair"><div class="zh"><h3>Cursor 设置</h3></div><div class="en"><h3>Cursor Set Up</h3></div></div>
+<div class="pair"><div class="zh"><p>按照以下说明设置 Cursor 并打开你的项目：</p></div><div class="en"><p>Follow these instructions to set up Cursor and open your project:</p></div></div>
+<div class="pair"><div class="zh"><ol><li>兑换 Cursor Pro 的免费一年使用权：https://cursor.com/students</li><li>下载 Cursor：https://cursor.com/download</li><li>要启用 Cursor 命令行工具，Mac 用户打开 Cursor 并按 <code>Command (⌘) + Shift+ P</code>（非 Mac 用户按 <code>Ctrl + Shift + P</code>）打开命令面板。输入：<code>Shell Command: Install 'cursor' command</code>。选中它并按回车。</li><li>打开一个新的终端窗口，进入你的项目根目录，然后运行：<code>cursor .</code></li></ol></div><div class="en"><ol><li>Redeem your free year of Cursor Pro: https://cursor.com/students</li><li>Download Cursor: https://cursor.com/download</li><li>To enable the Cursor command line tool, open Cursor and press <code>Command (⌘) + Shift+ P</code> for Mac users (or <code>Ctrl + Shift + P</code> for non-Mac users) to open the Command Palette. Type: <code>Shell Command: Install 'cursor' command</code>. Select it and hit Enter.</li><li>Open a new terminal window, navigate to your project root, and run: <code>cursor .</code></li></ol></div></div>
+<div class="pair"><div class="zh"><h3>当前应用</h3></div><div class="en"><h3>Current Application</h3></div></div>
+<div class="pair"><div class="zh"><p>以下是启动当前起始应用的方法：</p></div><div class="en"><p>Here's how you can start running the current starter application:</p></div></div>
+<div class="pair"><div class="zh"><ol><li>激活你的 conda 环境。</li></ol></div><div class="en"><ol><li>Activate your conda environment.</li></ol></div></div>
+<div class="pair code"><pre><code>conda activate cs146s </code></pre></div>
+<div class="pair"><div class="zh"><ol><li>在项目根目录下运行服务器：</li></ol></div><div class="en"><ol><li>From the project root, run the server:</li></ol></div></div>
+<div class="pair code"><pre><code>poetry run uvicorn week2.app.main:app --reload</code></pre></div>
+<div class="pair"><div class="zh"><ol><li>打开浏览器并访问 http://127.0.0.1:8000/。</li><li>熟悉该应用的当前状态。确认你能成功输入笔记并生成提取出的行动项清单。</li></ol></div><div class="en"><ol><li>Open a web browser and navigate to http://127.0.0.1:8000/.</li><li>Familiarize yourself with the current state of the application. Make sure you can successfully input notes and produce the extracted action item checklist.</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>练习</h2></div><div class="en"><h2>Exercises</h2></div></div>
+<div class="pair"><div class="zh"><p>对每个练习，都使用 Cursor 帮助你完成对当前行动项提取器应用的指定改进。</p></div><div class="en"><p>For each exercise, use Cursor to help you implement the specified improvements to the current action item extractor application.</p></div></div>
+<div class="pair"><div class="zh"><p>在做作业的过程中，用 <code>writeup.md</code> 记录你的进展。务必包含你使用的提示词，以及你或 Cursor 做出的任何改动。我们将根据书面报告的内容评分。另外，请在你的代码中随处加上注释，说明你的改动。</p></div><div class="en"><p>As you work through the assignment, use <code>writeup.md</code> to document your progress. Be sure to include the prompts you use, as well as any changes made by you or Cursor. We will be grading based on the contents of the write-up. Please also include comments throughout your code to document your changes.</p></div></div>
+<div class="pair"><div class="zh"><h3>TODO 1：为新功能搭脚手架</h3></div><div class="en"><h3>TODO 1: Scaffold a New Feature</h3></div></div>
+<div class="pair"><div class="zh"><p>分析 <code>week2/app/services/extract.py</code> 中现有的 <code>extract_action_items()</code> 函数，它目前使用预定义的启发式规则提取行动项。</p></div><div class="en"><p>Analyze the existing <code>extract_action_items()</code> function in <code>week2/app/services/extract.py</code>, which currently extracts action items using predefined heuristics.</p></div></div>
+<div class="pair"><div class="zh"><p>你的任务是实现一个<strong>由 LLM 驱动</strong>的替代方案 <code>extract_action_items_llm()</code>，它利用 Ollama 通过大语言模型完成行动项提取。</p></div><div class="en"><p>Your task is to implement an <strong>LLM-powered</strong> alternative, <code>extract_action_items_llm()</code>, that utilizes Ollama to perform action item extraction via a large language model.</p></div></div>
+<div class="pair"><div class="zh"><p>一些提示：</p></div><div class="en"><p>Some  tips:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>要生成结构化输出（即字符串组成的 JSON 数组），请参考这份文档：https://ollama.com/blog/structured-outputs</li><li>要浏览可用的 Ollama 模型，请参考这份文档：https://ollama.com/library。注意，更大的模型会占用更多资源，所以从小模型开始。拉取并运行模型：<code>ollama run {MODEL_NAME}</code></li></ul></div><div class="en"><ul><li>To produce structured outputs (i.e. JSON array of strings), refer to this documentation: https://ollama.com/blog/structured-outputs</li><li>To browse available Ollama models, refer to this documentation: https://ollama.com/library. Note that larger models will be more resource-intensive, so start small. To pull and run a model: <code>ollama run {MODEL_NAME}</code></li></ul></div></div>
+<div class="pair"><div class="zh"><h3>TODO 2：添加单元测试</h3></div><div class="en"><h3>TODO 2: Add Unit Tests</h3></div></div>
+<div class="pair"><div class="zh"><p>在 <code>week2/tests/test_extract.py</code> 中为 <code>extract_action_items_llm()</code> 编写单元测试，覆盖多种输入（例如项目符号列表、带关键词前缀的行、空输入）。</p></div><div class="en"><p>Write unit tests for <code>extract_action_items_llm()</code> covering multiple inputs (e.g., bullet lists, keyword-prefixed lines, empty input) in <code>week2/tests/test_extract.py</code>.</p></div></div>
+<div class="pair"><div class="zh"><h3>TODO 3：为提升清晰度重构现有代码</h3></div><div class="en"><h3>TODO 3: Refactor Existing Code for Clarity</h3></div></div>
+<div class="pair"><div class="zh"><p>对后端的代码进行一次重构，尤其关注定义良好的 API 契约/schema、数据库层清理、应用生命周期/配置、错误处理。</p></div><div class="en"><p>Perform a refactor of the code in the backend, focusing in particular on well-defined API contracts/schemas, database layer cleanup, app lifecycle/configuration, error handling.</p></div></div>
+<div class="pair"><div class="zh"><h3>TODO 4：用智能体模式自动化小任务</h3></div><div class="en"><h3>TODO 4: Use Agentic Mode to Automate Small Tasks</h3></div></div>
+<div class="pair"><div class="zh"><ol><li>把 LLM 驱动的提取功能集成为一个新端点。更新前端，添加一个 "Extract LLM" 按钮，点击后通过新端点触发提取过程。</li></ol></div><div class="en"><ol><li>Integrate the LLM-powered extraction as a new endpoint. Update the frontend to include an "Extract LLM" button that, when clicked, triggers the extraction process via the new endpoint.</li></ol></div></div>
+<div class="pair"><div class="zh"><ol><li>暴露最后一个端点，用于获取所有笔记。更新前端，添加一个 "List Notes" 按钮，点击后获取并显示这些笔记。</li></ol></div><div class="en"><ol><li>Expose one final endpoint to retrieve all notes. Update the frontend to include a "List Notes" button that, when clicked, fetches and displays them.</li></ol></div></div>
+<div class="pair"><div class="zh"><h3>TODO 5：从代码库生成 README</h3></div><div class="en"><h3>TODO 5: Generate a README from the Codebase</h3></div></div>
+<div class="pair"><div class="zh"><p><em><strong>学习目标：</strong></em> <em>学生将了解 AI 如何审视代码库并自动生成文档，从而展示 Cursor 解析代码上下文并将其转化为人类可读形式的能力。</em></p></div><div class="en"><p><em><strong>Learning Goal:</strong></em> <em>Students learn how AI can introspect a codebase and produce documentation automatically, showcasing Cursor’s ability to parse code context and translate it into human‑readable form.</em></p></div></div>
+<div class="pair"><div class="zh"><p>使用 Cursor 分析当前代码库，生成一份结构良好的 <code>README.md</code> 文件。该 README 至少应包含：</p></div><div class="en"><p>Use Cursor to analyze the current codebase and generate a well-structured <code>README.md</code> file. The README should include, at a minimum:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>项目的简要概述</li><li>如何搭建并运行该项目</li><li>API 端点与功能</li><li>运行测试套件的说明</li></ul></div><div class="en"><ul><li>A brief overview of the project</li><li>How to set up and run the project</li><li>API endpoints and functionality</li><li>Instructions for running the test suite</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>交付物</h2></div><div class="en"><h2>Deliverables</h2></div></div>
+<div class="pair"><div class="zh"><p>按照给出的说明填写 <code>week2/writeup.md</code>。确保你的所有改动都在代码库中有记录。</p></div><div class="en"><p>Fill out <code>week2/writeup.md</code> according to the instructions provided. Make sure all your changes are documented in your codebase.</p></div></div>
+<div class="pair"><div class="zh"><h2>评分标准（总分 100 分）</h2></div><div class="en"><h2>Evaluation rubric (100 pts total)</h2></div></div>
+<div class="pair"><div class="zh"><ul><li>第 1–5 部分每部分 20 分（生成的代码 10 分，每个提示词 10 分）。</li></ul></div><div class="en"><ul><li>20 points per part 1-5 (10 for the generated code and 10 for each prompt).</li></ul></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

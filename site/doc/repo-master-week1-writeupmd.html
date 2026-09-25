@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CS146S 作业仓库 · week1/writeup.md（master）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>CS146S 作业仓库 · week1/writeup.md（master）</h1><div class="meta"><span class="badge">作业仓库</span>master ｜ 原文 2,752 字符 ｜ 54 个内容块 ｜ <a href="https://github.com/mihail911/modern-software-dev-assignments/blob/master/week1/writeup.md" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>第 1 周书面报告</h1></div><div class="en"><h1>Week 1 Write-up</h1></div></div>
+<div class="pair"><div class="zh"><h2>第一部分：抓取</h2></div><div class="en"><h2>Part I: Capture</h2></div></div>
+<div class="pair"><div class="zh"><p><strong>环境搭建</strong>（足以让读者复现你的抓取过程）：</p></div><div class="en"><p><strong>Setup</strong> (enough for a reader to reproduce your capture):</p></div></div>
+<div class="pair code"><pre><code>claude --version:  TODO
+mitmproxy version: TODO
+proxy command:     TODO
+settings file:     TODO (path + env block)</code></pre></div>
+<div class="pair"><div class="zh"><p><strong>本次会话。</strong> 针对哪个仓库、完成什么任务，以及它产生了多少个 <code>POST /v1/messages</code> 请求？</p></div><div class="en"><p><strong>The session.</strong> What task, against what repo, and how many <code>POST /v1/messages</code> requests did it produce?</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><table><thead><tr><th>要求</th><th>证据</th></tr></thead><tbody><tr><td>触及 ≥ 2 个文件</td><td>TODO</td></tr><tr><td>至少失败一次</td><td>TODO</td></tr><tr><td>足够长，需要先做规划</td><td>TODO</td></tr><tr><td>你自己的仓库</td><td>TODO</td></tr></tbody></table></div><div class="en"><table><thead><tr><th>Requirement</th><th>Evidence</th></tr></thead><tbody><tr><td>Touched ≥ 2 files</td><td>TODO</td></tr><tr><td>Failed at least once</td><td>TODO</td></tr><tr><td>Long enough to plan</td><td>TODO</td></tr><tr><td>Your own repo</td><td>TODO</td></tr></tbody></table></div></div>
+<div class="pair"><div class="zh"><p><strong>你从下文引用的片段中</strong>隐去**了什么内容，以及原因：</p></div><div class="en"><p><strong>What you redacted</strong> from the excerpts quoted below, and why:</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>第二部分：系统提示词批注</h2></div><div class="en"><h2>Part II: System Prompt Annotation</h2></div></div>
+<div class="pair"><div class="zh"><p><strong>a. 结构。</strong> 依次列出主要章节，每节用一行说明它的作用，以及为什么采用这一顺序。</p></div><div class="en"><p><strong>a. Structure.</strong> Major sections in order, one line each on what it does, and why this order.</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><p><strong>b. 语气与详略程度。</strong> 引用起控制作用的指令，然后说明它们防范的是哪种失效模式。</p></div><div class="en"><p><strong>b. Tone and verbosity.</strong> Quote the controlling instructions, then say what failure mode they defend against.</p></div></div>
+<div class="pair code"><pre><code>TODO</code></pre></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><p><strong>c. 何时不应行动。</strong> 引用破坏性操作的闸门条件、范围限制或拒绝条件，以及每一项带来了什么。</p></div><div class="en"><p><strong>c. When not to act.</strong> Quote the destructive-operation gates, scope limits, or refusal conditions, and what each buys.</p></div></div>
+<div class="pair code"><pre><code>TODO</code></pre></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><p><strong>d. 环境上下文。</strong> 智能体会被告知哪些关于机器/仓库/会话的信息，以及这些信息位于请求中的什么位置（<code>system</code> 字段或一条 <code>role: "system"</code> 消息）。</p></div><div class="en"><p><strong>d. Environment context.</strong> What the agent is told about machine/repo/session, and where it lives in the request (<code>system</code> field or a <code>role: "system"</code> message).</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><p><strong>e. <code>&lt;system-reminder&gt;</code>。</strong> 它们出现在哪里（举一个例子），你能证实的两个不同用途，以及为什么它们是在对话中途注入，而不是一次性说明。</p></div><div class="en"><p><strong>e. <code>&lt;system-reminder&gt;</code>.</strong> Where they appear (cite an example), two distinct purposes you can evidence, and why they are injected mid-conversation rather than stated once.</p></div></div>
+<div class="pair code"><pre><code>TODO</code></pre></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>第三部分：工具设计批注</h2></div><div class="en"><h2>Part III: Tool Design Annotation</h2></div></div>
+<div class="pair"><div class="zh"><p><strong>清单。</strong> 工具集在不同请求之间是否发生变化？如果变了，是什么触发的？</p></div><div class="en"><p><strong>Inventory.</strong> Did the set change across requests? If so, what triggered it?</p></div></div>
+<div class="pair"><div class="zh"><table><thead><tr><th>内置</th><th>MCP</th><th>延迟加载</th><th><strong>合计</strong></th><th>会话中途是否变化？</th></tr></thead><tbody><tr><td>TODO</td><td>TODO</td><td>TODO</td><td><strong>TODO</strong></td><td>TODO</td></tr></tbody></table></div><div class="en"><table><thead><tr><th>Built-in</th><th>MCP</th><th>Deferred</th><th><strong>Total</strong></th><th>Changed mid-session?</th></tr></thead><tbody><tr><td>TODO</td><td>TODO</td><td>TODO</td><td><strong>TODO</strong></td><td>TODO</td></tr></tbody></table></div></div>
+<div class="pair"><div class="zh"><p><strong>两个工具。</strong> 选择彼此有差异的工具。</p></div><div class="en"><p><strong>Two tools.</strong> Pick tools that differ from each other.</p></div></div>
+<div class="pair"><div class="zh"><table><thead><tr><th></th><th>工具 1</th><th>工具 2</th></tr></thead><tbody><tr><td>名称</td><td>TODO</td><td>TODO</td></tr><tr><td>关键 schema 字段</td><td>TODO</td><td>TODO</td></tr><tr><td>必填、可选与未暴露，以及原因</td><td>TODO</td><td>TODO</td></tr><tr><td>描述文字防范的是……（引用原文 + 错误行为）</td><td>TODO</td><td>TODO</td></tr><tr><td>有意*不*做的事……以及这意味着什么</td><td>TODO</td><td>TODO</td></tr></tbody></table></div><div class="en"><table><thead><tr><th></th><th>Tool 1</th><th>Tool 2</th></tr></thead><tbody><tr><td>Name</td><td>TODO</td><td>TODO</td></tr><tr><td>Key schema fields</td><td>TODO</td><td>TODO</td></tr><tr><td>Required vs. optional vs. not exposed, and why</td><td>TODO</td><td>TODO</td></tr><tr><td>Description is defending against… (quote + the wrong behavior)</td><td>TODO</td><td>TODO</td></tr><tr><td>Deliberately does <em>not</em> do… and what that implies</td><td>TODO</td><td>TODO</td></tr></tbody></table></div></div>
+<div class="pair"><div class="zh"><p>为什么选这两个？</p></div><div class="en"><p>Why these two?</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>第四部分：行为分析</h2></div><div class="en"><h2>Part IV: Behavioral Analysis</h2></div></div>
+<div class="pair"><div class="zh"><p><strong>每个答案都必须标记为 <code>[OBSERVED]</code> 或 <code>[INFERRED]</code>，并引用其证据。未标记的答案不得分。</strong></p></div><div class="en"><p><strong>Every answer must be labeled <code>[OBSERVED]</code> or <code>[INFERRED]</code> and cite its evidence. Unlabeled answers earn no credit.</strong></p></div></div>
+<div class="pair"><div class="zh"><p><strong>a. 错误恢复</strong>：<code>TODO: label</code> · 证据：<code>TODO</code></p></div><div class="en"><p><strong>a. Error recovery</strong>: <code>TODO: label</code> · evidence: <code>TODO</code></p></div></div>
+<div class="pair"><div class="zh"><p>智能体逐字看到的内容：</p></div><div class="en"><p>What the agent saw, verbatim:</p></div></div>
+<div class="pair code"><pre><code>TODO</code></pre></div>
+<div class="pair"><div class="zh"><p>它接下来尝试了什么，以及用了几个回合恢复：</p></div><div class="en"><p>What it tried next, and turns to recover:</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><p><strong>b. 规划</strong>：<code>TODO: label</code> · 证据：<code>TODO</code></p></div><div class="en"><p><strong>b. Planning</strong>: <code>TODO: label</code> · evidence: <code>TODO</code></p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><p><strong>c. 计划与任务状态</strong>：<code>TODO: label</code> · 证据：<code>TODO</code> \ 计划是如何创建并推进的？模型每一轮能看到哪些关于任务状态的信息，这些信息又位于请求中的什么位置：</p></div><div class="en"><p><strong>c. Plans and task state</strong>: <code>TODO: label</code> · evidence: <code>TODO</code> \ How does one get created and advanced? What does the model see about task state each turn, and where does it live in the request:</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><p><strong>d. 子智能体</strong>：<code>TODO: label</code> · 证据：<code>TODO</code> \ 当智能体委派任务时，子智能体会被告知什么，以及会返回什么：</p></div><div class="en"><p><strong>d. Subagents</strong>: <code>TODO: label</code> · evidence: <code>TODO</code> \ When the agent delegates, what the subagent is told, and what comes back:</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><p><strong>e. 上下文管理</strong>：<code>TODO: label</code> · 证据：<code>TODO</code> \ 随着会话增长，请求负载中发生了什么变化：</p></div><div class="en"><p><strong>e. Context management</strong>: <code>TODO: label</code> · evidence: <code>TODO</code> \ What changed in the payloads as the session grew:</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>第五部分：反思</h2></div><div class="en"><h2>Part V: Reflection</h2></div></div>
+<div class="pair"><div class="zh"><p><strong>你会照搬的两个决策</strong>，以及每个决策解决的问题：</p></div><div class="en"><p><strong>Two decisions you would copy</strong>, and the problem each solves:</p></div></div>
+<div class="pair"><div class="zh"><ol><li>TODO</li><li>TODO</li></ol></div><div class="en"><ol><li>TODO</li><li>TODO</li></ol></div></div>
+<div class="pair"><div class="zh"><p><strong>你会做出不同处理的一个决策</strong>（请说明它之所以存在的可能原因）：</p></div><div class="en"><p><strong>One you would make differently</strong> (engage with why it might be there):</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><p><strong>追踪记录改变了的一件事</strong>，关于你今后将如何引导编码智能体：</p></div><div class="en"><p><strong>One thing the trace changed</strong> about how you will steer a coding agent:</p></div></div>
+<div class="pair"><div class="zh"><blockquote>TODO</blockquote></div><div class="en"><blockquote>TODO</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>提交</h2></div><div class="en"><h2>Submission</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>用 <code>Command (⌘) + F</code> 搜索 <code>TODO</code>。搜不到结果就说明你完成了。</li><li>确认你引用的片段中没有混入凭证或 <code>x-api-key</code> 请求头。</li><li>将所有改动推送到你的远程仓库，并通过 Gradescope 提交。</li><li>别忘了从你仓库的 <code>.claude/settings.json</code> 中删除 <code>ANTHROPIC_BASE_URL</code>！</li></ol></div><div class="en"><ol><li><code>Command (⌘) + F</code> for <code>TODO</code>. No results means you're done.</li><li>Confirm no credentials or <code>x-api-key</code> headers made it into your quoted excerpts.</li><li>Push all changes to your remote repository and submit via Gradescope.</li><li>Don't forget to remove <code>ANTHROPIC_BASE_URL</code> from your repo's <code>.claude/settings.json</code>!</li></ol></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

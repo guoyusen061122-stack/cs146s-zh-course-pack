@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-09-25T12:22:30+08:00",
+  "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p8",
+  "stats": {
+    "blocks_en": 21,
+    "blocks_zh": 21,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 32,
+    "term_violations": 0,
+    "term_missing": 0,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": []
+  },
+  "issues": []
+}

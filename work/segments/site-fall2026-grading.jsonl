@@ -1,0 +1,2 @@
+{"slug": "site-fall2026-grading", "id": "site-fall2026-grading#b0000", "block": 0, "kind": "heading", "translate": true, "chars": 21, "sha256": "1325a01223358c31", "text": "CS146S 评分构成（fall2026）"}
+{"slug": "site-fall2026-grading", "id": "site-fall2026-grading#b0001", "block": 1, "kind": "table", "translate": true, "chars": 109, "sha256": "0e70b0e156dd20e5", "text": "项目 | 占比\nFinal Project | 50%\nWeekly Assignments | 15%\nOpen Source Contributions | 30%\nClass Participation | 5%"}

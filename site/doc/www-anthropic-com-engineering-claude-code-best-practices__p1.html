@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Best Practices（第 1/3 部分）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Claude Best Practices（第 1/3 部分）</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 15,184 字符 ｜ 89 个内容块 ｜ <a href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>Claude 最佳实践</h1></div><div class="en"><h1>Claude Best Practices</h1></div></div>
+<div class="pair"><div class="zh"><blockquote>## 文档索引<br>完整的文档索引可在以下地址获取：https://code.claude.com/docs/llms.txt<br>在继续探索之前，可用这个文件发现所有可用页面。</blockquote></div><div class="en"><blockquote>## Documentation Index<br>Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt<br>Use this file to discover all available pages before exploring further.</blockquote></div></div>
+<div class="pair"><div class="zh"><h1>Claude Code 最佳实践</h1></div><div class="en"><h1>Best practices for Claude Code</h1></div></div>
+<div class="pair"><div class="zh"><blockquote>充分发挥 Claude Code 效能的技巧与模式，从配置环境到在并行会话之间扩展。</blockquote></div><div class="en"><blockquote>Tips and patterns for getting the most out of Claude Code, from configuring your environment to scaling across parallel sessions.</blockquote></div></div>
+<div class="pair"><div class="zh"><p>Claude Code 是一个智能体化的编码环境。与回答问题后静静等待的聊天机器人不同，Claude Code 可以读取你的文件、运行命令、做出修改，并在你旁观、纠正或干脆走开时自主地把问题解决下去。</p></div><div class="en"><p>Claude Code is an agentic coding environment. Unlike a chatbot that answers questions and waits, Claude Code can read your files, run commands, make changes, and autonomously work through problems while you watch, redirect, or step away entirely.</p></div></div>
+<div class="pair"><div class="zh"><p>这会改变你的工作方式。你不必自己写代码再请 Claude 评审，而是描述你想要什么，由 Claude 想办法把它构建出来。Claude 会探索、规划并实现。</p></div><div class="en"><p>This changes how you work. Instead of writing code yourself and asking Claude to review it, you describe what you want and Claude figures out how to build it. Claude explores, plans, and implements.</p></div></div>
+<div class="pair"><div class="zh"><p>但这种自主性依然伴随着学习曲线。Claude 会在一些你需要理解的约束内工作。</p></div><div class="en"><p>But this autonomy still comes with a learning curve. Claude works within certain constraints you need to understand.</p></div></div>
+<div class="pair"><div class="zh"><p>本指南涵盖的经验模式，已在 Anthropic 内部团队以及在不同代码库、语言和环境中使用 Claude Code 的工程师身上得到验证。关于智能体化循环如何运作，见 <a href="/docs/en/how-claude-code-works" target="_blank" rel="noopener">Claude Code 的工作原理</a>。</p></div><div class="en"><p>This guide covers patterns that have proven effective across Anthropic's internal teams and for engineers using Claude Code across various codebases, languages, and environments. For how the agentic loop works, see <a href="/docs/en/how-claude-code-works" target="_blank" rel="noopener">How Claude Code works</a>.</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><p>大多数最佳实践都源自同一个约束：Claude 的上下文窗口会很快被填满，而随着它被填满，表现会下降。</p></div><div class="en"><p>Most best practices are based on one constraint: Claude's context window fills up fast, and performance degrades as it fills.</p></div></div>
+<div class="pair"><div class="zh"><p>Claude 的上下文窗口容纳你的整个对话，包括每一条消息、Claude 读取的每一个文件，以及每一条命令的输出。但它可能很快被填满。一次调试会话或代码库探索，就可能生成并消耗数万个 token（词元）。</p></div><div class="en"><p>Claude's context window holds your entire conversation, including every message, every file Claude reads, and every command output. However, this can fill up fast. A single debugging session or codebase exploration might generate and consume tens of thousands of tokens.</p></div></div>
+<div class="pair"><div class="zh"><p>这一点很关键，因为随着上下文被填满，大语言模型（LLM）的表现会下降。当上下文窗口快满时，Claude 可能开始「忘记」先前的指令，或者犯更多错误。上下文窗口是最需要管理的资源。想看一次会话在现实中如何被填满，可以<a href="/docs/en/context-window" target="_blank" rel="noopener">观看一段交互式演示</a>，了解启动时加载了什么、每次读取文件要付出多少代价。用<a href="/docs/en/statusline" target="_blank" rel="noopener">自定义状态栏</a>持续跟踪上下文用量，并参阅<a href="/docs/en/costs#reduce-token-usage" target="_blank" rel="noopener">减少 token 用量</a>了解降低 token 消耗的策略。</p></div><div class="en"><p>This matters since LLM performance degrades as context fills. When the context window is getting full, Claude may start "forgetting" earlier instructions or making more mistakes. The context window is the most important resource to manage. To see how a session fills up in practice, <a href="/docs/en/context-window" target="_blank" rel="noopener">watch an interactive walkthrough</a> of what loads at startup and what each file read costs. Track context usage continuously with a <a href="/docs/en/statusline" target="_blank" rel="noopener">custom status line</a>, and see <a href="/docs/en/costs#reduce-token-usage" target="_blank" rel="noopener">Reduce token usage</a> for strategies on reducing token usage.</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>让 Claude 有办法验证自己的工作</h2></div><div class="en"><h2>Give Claude a way to verify its work</h2></div></div>
+<div class="pair"><div class="zh"><p>&lt;Tip&gt; 给 Claude 一个它能运行的检查：测试、构建、用来对比的截图。这决定了你是要盯着这次会话，还是可以放手离开。 &lt;/Tip&gt;</p></div><div class="en"><p>&lt;Tip&gt; Give Claude a check it can run: tests, a build, a screenshot to compare. It's the difference between a session you watch and one you walk away from. &lt;/Tip&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>Claude 会在工作看起来完成时停下来。如果没有它能运行的检查，「看起来完成」就是唯一可用的信号，而你本人就成了验证回路：每一个错误都在等你发现。给 Claude 一个能产出通过或失败的东西，回路就会自行闭合。Claude 完成工作、运行检查、读取结果，并持续迭代直到检查通过。</p></div><div class="en"><p>Claude stops when the work looks done. Without a check it can run, "looks done" is the only signal available, and you become the verification loop: every mistake waits for you to notice it. Give Claude something that produces a pass or fail, and the loop closes on its own. Claude does the work, runs the check, reads the result, and iterates until the check passes.</p></div></div>
+<div class="pair"><div class="zh"><p>检查可以是任何能在对话中给 Claude 返回可读信号的东西：测试套件、构建退出码、静态检查器、把输出与基准文件做比对的脚本，或者一张与设计稿对比的<a href="/docs/en/chrome" target="_blank" rel="noopener">浏览器截图</a>。在 Claude 的检查通过之后，你自己再运行 <a href="/docs/en/skills#run-and-verify-your-app" target="_blank" rel="noopener"><code>/verify</code></a>，对着正在运行的应用确认这次改动。</p></div><div class="en"><p>The check is anything that returns a signal Claude can read in the conversation: a test suite, a build exit code, a linter, a script that diffs output against a fixture, or a <a href="/docs/en/chrome" target="_blank" rel="noopener">browser screenshot</a> compared against a design. Run <a href="/docs/en/skills#run-and-verify-your-app" target="_blank" rel="noopener"><code>/verify</code></a> yourself after Claude's check passes to confirm the change against the running app.</p></div></div>
+<div class="pair"><div class="zh"><table><thead><tr><th>策略</th><th>修改前</th><th>修改后</th></tr></thead><tbody><tr><td><strong>提供验证标准</strong></td><td><em>「实现一个校验邮箱地址的函数」</em></td><td><em>「写一个 validateEmail 函数。示例测试用例：<a href="mailto:user@example.com" target="_blank" rel="noopener">user@example.com</a> 为 true，invalid 为 false，<a href="mailto:user@.com" target="_blank" rel="noopener">user@.com</a> 为 false。实现完成后运行测试」</em></td></tr><tr><td><strong>以可视方式验证 UI 改动</strong></td><td><em>「把仪表盘做得好看一些」</em></td><td><em>「[粘贴截图] 实现这个设计。对结果截图，并与原设计对比。列出差异并逐条修复」</em></td></tr><tr><td><strong>解决根因，而不是症状</strong></td><td><em>「构建失败了」</em></td><td><em>「构建报了如下错误：[粘贴报错]。修好它并验证构建成功。解决根因，不要压制这个错误」</em></td></tr></tbody></table></div><div class="en"><table><thead><tr><th>Strategy</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><strong>Provide verification criteria</strong></td><td><em>"implement a function that validates email addresses"</em></td><td><em>"write a validateEmail function. example test cases: <a href="mailto:user@example.com" target="_blank" rel="noopener">user@example.com</a> is true, invalid is false, <a href="mailto:user@.com" target="_blank" rel="noopener">user@.com</a> is false. run the tests after implementing"</em></td></tr><tr><td><strong>Verify UI changes visually</strong></td><td><em>"make the dashboard look better"</em></td><td><em>"[paste screenshot] implement this design. take a screenshot of the result and compare it to the original. list differences and fix them"</em></td></tr><tr><td><strong>Address root causes, not symptoms</strong></td><td><em>"the build is failing"</em></td><td><em>"the build fails with this error: [paste error]. fix it and verify the build succeeds. address the root cause, don't suppress the error"</em></td></tr></tbody></table></div></div>
+<div class="pair"><div class="zh"><p>检查就位之后，再决定它对「停止」的拦截有多强：</p></div><div class="en"><p>Once the check exists, decide how hard it gates the stop:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>在同一条提示词里</strong>：让 Claude 运行检查，并在同一条消息里迭代，如上表所示。</li><li><strong>贯穿整个会话</strong>：把检查设为 <a href="/docs/en/goal" target="_blank" rel="noopener"><code>/goal</code> 条件</a>。一个独立的评估器会在每一轮之后重新检查它，Claude 会一直工作到目标达成。如果 Claude 停滞不前，Claude Code 最终会在目标仍然设定的情况下结束这次运行——见 <a href="/docs/en/goal#how-evaluation-works" target="_blank" rel="noopener">/goal 的评估机制</a>。</li><li><strong>作为确定性闸门</strong>：一个 <a href="/docs/en/hooks#stop" target="_blank" rel="noopener">Stop 钩子</a> 会把你的检查作为脚本运行，并在它通过之前阻止这一轮结束。连续 8 次阻止之后，Claude Code 会覆盖该钩子并结束这一轮。</li><li><strong>借助第二意见</strong>：一个<a href="/docs/en/sub-agents" target="_blank" rel="noopener">验证子智能体</a>或一个会检查自身发现的<a href="/docs/en/workflows" target="_blank" rel="noopener">动态工作流</a>，会让一个全新的模型尝试反驳结果，这样干活的智能体就不是给自己打分的那一个。</li></ul></div><div class="en"><ul><li><strong>In one prompt</strong>: ask Claude to run the check and iterate in the same message, as in the table above.</li><li><strong>Across a session</strong>: set the check as a <a href="/docs/en/goal" target="_blank" rel="noopener"><code>/goal</code> condition</a>. A separate evaluator re-checks it after every turn and Claude keeps working until the goal resolves. If Claude stalls, Claude Code eventually stops the run with the goal still set — see <a href="/docs/en/goal#how-evaluation-works" target="_blank" rel="noopener">how /goal evaluation works</a>.</li><li><strong>As a deterministic gate</strong>: a <a href="/docs/en/hooks#stop" target="_blank" rel="noopener">Stop hook</a> runs your check as a script and blocks the turn from ending until it passes. Claude Code overrides the hook and ends the turn after 8 consecutive blocks.</li><li><strong>By a second opinion</strong>: a <a href="/docs/en/sub-agents" target="_blank" rel="noopener">verification subagent</a> or a <a href="/docs/en/workflows" target="_blank" rel="noopener">dynamic workflow</a> that checks its own findings has a fresh model try to refute the result, so the agent doing the work isn't the one grading it.</li></ul></div></div>
+<div class="pair"><div class="zh"><p>每一步都是在用前期准备换取注意力。提示词版本今天就能适用于任何任务。<code>/goal</code> 与 Stop 钩子版本才能让无人值守的运行在没有你的情况下正确完成。</p></div><div class="en"><p>Each step trades setup for attention. The prompt version works on any task today. The <code>/goal</code> and Stop hook versions are what let an unattended run finish correctly without you.</p></div></div>
+<div class="pair"><div class="zh"><p>让 Claude 拿出证据，而不是声称成功：测试输出、它运行过的命令及其返回结果，或者结果的截图。审阅证据比自己重跑一遍验证更快，而且对你没有旁观的会话同样有效。</p></div><div class="en"><p>Have Claude show evidence rather than asserting success: the test output, the command it ran and what it returned, or a screenshot of the result. Reviewing evidence is faster than re-running the verification yourself, and it works for sessions you weren't watching.</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>先探索，再规划，然后写代码</h2></div><div class="en"><h2>Explore first, then plan, then code</h2></div></div>
+<div class="pair"><div class="zh"><p>&lt;Tip&gt; 把调研与规划和实现分开，以免解决错误的问题。 &lt;/Tip&gt;</p></div><div class="en"><p>&lt;Tip&gt; Separate research and planning from implementation to avoid solving the wrong problem. &lt;/Tip&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>让 Claude 直接跳到编码，可能产出解决错误问题的代码。用<a href="/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode" target="_blank" rel="noopener">计划模式</a>把探索与执行分开。</p></div><div class="en"><p>Letting Claude jump straight to coding can produce code that solves the wrong problem. Use <a href="/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode" target="_blank" rel="noopener">plan mode</a> to separate exploration from execution.</p></div></div>
+<div class="pair"><div class="zh"><p>推荐的工作流分四个阶段：</p></div><div class="en"><p>The recommended workflow has four phases:</p></div></div>
+<div class="pair"><div class="zh"><p>&lt;Steps&gt; &lt;Step title="Explore"&gt; 一直按 <code>Shift+Tab</code>，直到状态栏显示 <code>⏸ plan mode on</code> 即可进入计划模式；也可以用 <code>claude --permission-mode plan</code> 启动会话。Claude 会读取文件并回答问题，但不做任何修改。</p></div><div class="en"><p>&lt;Steps&gt; &lt;Step title="Explore"&gt; Enter plan mode by pressing <code>Shift+Tab</code> until the status bar shows <code>⏸ plan mode on</code>, or start the session with <code>claude --permission-mode plan</code>. Claude reads files and answers questions without making changes.</p></div></div>
+<div class="pair code"><pre><code class="language-txt">    read /src/auth and understand how we handle sessions and login.
+    also look at how we manage environment variables for secrets.</code></pre></div>
+<div class="pair"><div class="zh"><p>&lt;/Step&gt;</p></div><div class="en"><p>&lt;/Step&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>&lt;Step title="Plan"&gt; 请 Claude 制定一份详细的实现计划。</p></div><div class="en"><p>&lt;Step title="Plan"&gt; Ask Claude to create a detailed implementation plan.</p></div></div>
+<div class="pair code"><pre><code class="language-txt">    I want to add Google OAuth. What files need to change?
+    What&#x27;s the session flow? Create a plan.</code></pre></div>
+<div class="pair"><div class="zh"><p>按 <code>Ctrl+G</code> 在文本编辑器中打开这份计划，好在 Claude 继续之前直接修改。 &lt;/Step&gt;</p></div><div class="en"><p>Press <code>Ctrl+G</code> to open the plan in your text editor for direct editing before Claude proceeds. &lt;/Step&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>&lt;Step title="Implement"&gt; 通过批准计划或按 <code>Shift+Tab</code> 退出计划模式，然后让 Claude 编码，并对照它的计划做验证。</p></div><div class="en"><p>&lt;Step title="Implement"&gt; Switch out of plan mode by approving the plan or pressing <code>Shift+Tab</code>, then let Claude code, verifying against its plan.</p></div></div>
+<div class="pair code"><pre><code class="language-txt">    implement the OAuth flow from your plan. write tests for the
+    callback handler, run the test suite and fix any failures.</code></pre></div>
+<div class="pair"><div class="zh"><p>&lt;/Step&gt;</p></div><div class="en"><p>&lt;/Step&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>&lt;Step title="Commit"&gt; 请 Claude 用一段描述清晰的提交信息提交，并创建一个 PR。</p></div><div class="en"><p>&lt;Step title="Commit"&gt; Ask Claude to commit with a descriptive message and create a PR.</p></div></div>
+<div class="pair code"><pre><code class="language-txt">    commit with a descriptive message and open a PR</code></pre></div>
+<div class="pair"><div class="zh"><p>&lt;/Step&gt; &lt;/Steps&gt;</p></div><div class="en"><p>&lt;/Step&gt; &lt;/Steps&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>&lt;Callout&gt; 计划模式很有用，但也会带来额外开销。</p></div><div class="en"><p>&lt;Callout&gt; Plan mode is useful, but also adds overhead.</p></div></div>
+<div class="pair"><div class="zh"><p>对于范围清晰、改动很小的任务（比如改一个错别字、加一行日志、重命名一个变量），直接让 Claude 去做即可。</p></div><div class="en"><p>For tasks where the scope is clear and the fix is small (like fixing a typo, adding a log line, or renaming a variable) ask Claude to do it directly.</p></div></div>
+<div class="pair"><div class="zh"><p>当你不确定实现方式、当改动涉及多个文件，或者当你不熟悉被改动的代码时，规划最有用。如果你能用一句话把差异（diff）说清楚，就跳过规划。 &lt;/Callout&gt;</p></div><div class="en"><p>Planning is most useful when you're uncertain about the approach, when the change modifies multiple files, or when you're unfamiliar with the code being modified. If you could describe the diff in one sentence, skip the plan. &lt;/Callout&gt;</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>在提示词中提供具体的上下文</h2></div><div class="en"><h2>Provide specific context in your prompts</h2></div></div>
+<div class="pair"><div class="zh"><p>&lt;Tip&gt; 你的指令越精确，需要纠正的地方就越少。 &lt;/Tip&gt;</p></div><div class="en"><p>&lt;Tip&gt; The more precise your instructions, the fewer corrections you'll need. &lt;/Tip&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>Claude 能领会你的意图，但读不了你的心。要引用具体文件、说明约束，并指向可参照的示例模式。</p></div><div class="en"><p>Claude can infer intent, but it can't read your mind. Reference specific files, mention constraints, and point to example patterns.</p></div></div>
+<div class="pair"><div class="zh"><table><thead><tr><th>策略</th><th>修改前</th><th>修改后</th></tr></thead><tbody><tr><td><strong>限定任务范围。</strong> 指明改哪个文件、什么场景，以及测试偏好。</td><td><em>「给 foo.py 加上测试」</em></td><td><em>「给 foo.py 写一个测试，覆盖用户已登出的边界情况。不要用 mock。」</em></td></tr><tr><td><strong>指向信息来源。</strong> 让 Claude 去看能回答问题的来源。</td><td><em>「ExecutionFactory 的 api 为什么这么奇怪？」</em></td><td><em>「翻一翻 ExecutionFactory 的 git 历史，总结它的 api 是怎么变成现在这样的」</em></td></tr><tr><td><strong>参照已有模式。</strong> 让 Claude 参照你代码库里的模式。</td><td><em>「加一个日历组件」</em></td><td><em>「看看首页上现有组件是怎么实现的，理解其中的模式。HotDogWidget.php 是个好例子。照这个模式实现一个新的日历组件，让用户能选择月份，并前后翻页选择年份。除了代码库中已经在用的库，其他都从零实现。」</em></td></tr><tr><td><strong>描述症状。</strong> 给出症状、可能的位置，以及「修好」是什么样子。</td><td><em>「修一下登录的缺陷」</em></td><td><em>「用户反馈会话超时后登录会失败。检查 src/auth/ 里的认证流程，尤其是 token 刷新。先写一个能复现该问题的失败测试，再修好它」</em></td></tr></tbody></table></div><div class="en"><table><thead><tr><th>Strategy</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><strong>Scope the task.</strong> Specify which file, what scenario, and testing preferences.</td><td><em>"add tests for foo.py"</em></td><td><em>"write a test for foo.py covering the edge case where the user is logged out. avoid mocks."</em></td></tr><tr><td><strong>Point to sources.</strong> Direct Claude to the source that can answer a question.</td><td><em>"why does ExecutionFactory have such a weird api?"</em></td><td><em>"look through ExecutionFactory's git history and summarize how its api came to be"</em></td></tr><tr><td><strong>Reference existing patterns.</strong> Point Claude to patterns in your codebase.</td><td><em>"add a calendar widget"</em></td><td><em>"look at how existing widgets are implemented on the home page to understand the patterns. HotDogWidget.php is a good example. follow the pattern to implement a new calendar widget that lets the user select a month and paginate forwards/backwards to pick a year. build from scratch without libraries other than the ones already used in the codebase."</em></td></tr><tr><td><strong>Describe the symptom.</strong> Provide the symptom, the likely location, and what "fixed" looks like.</td><td><em>"fix the login bug"</em></td><td><em>"users report that login fails after session timeout. check the auth flow in src/auth/, especially token refresh. write a failing test that reproduces the issue, then fix it"</em></td></tr></tbody></table></div></div>
+<div class="pair"><div class="zh"><p>当你还在探索、也承担得起随时纠偏时，模糊的提示词也可以很有用。像 <code>"what would you improve in this file?"</code> 这样的提示词，能引出你原本想不到要问的东西。</p></div><div class="en"><p>Vague prompts can be useful when you're exploring and can afford to course-correct. A prompt like <code>"what would you improve in this file?"</code> can surface things you wouldn't have thought to ask about.</p></div></div>
+<div class="pair"><div class="zh"><h3>提供丰富的内容</h3></div><div class="en"><h3>Provide rich content</h3></div></div>
+<div class="pair"><div class="zh"><p>&lt;Tip&gt; 用 <code>@</code> 引用文件、粘贴截图或图片，或者把数据直接传进去。 &lt;/Tip&gt;</p></div><div class="en"><p>&lt;Tip&gt; Use <code>@</code> to reference files, paste screenshots/images, or pipe data directly. &lt;/Tip&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>你可以用几种方式给 Claude 提供丰富的数据：</p></div><div class="en"><p>You can provide rich data to Claude in several ways:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>用 <code>@</code> 引用文件</strong>，而不是描述代码在哪里。Claude 会先读文件再回答。</li><li><strong>直接粘贴图片</strong>。把图片复制粘贴或拖拽进提示词。</li><li><strong>给出 URL</strong>，用于文档与 API 参考。用 <code>/permissions</code> 把常用域名加入允许列表。</li><li><strong>把数据直接传进来</strong>，运行 <code>cat error.log | claude</code> 就能把文件内容发过去。</li><li><strong>让 Claude 自己取需要的东西</strong>。告诉 Claude 用 Bash 命令、MCP 工具或读取文件来自行拉取上下文。</li></ul></div><div class="en"><ul><li><strong>Reference files with <code>@</code></strong> instead of describing where code lives. Claude reads the file before responding.</li><li><strong>Paste images directly</strong>. Copy/paste or drag and drop images into the prompt.</li><li><strong>Give URLs</strong> for documentation and API references. Use <code>/permissions</code> to allowlist frequently-used domains.</li><li><strong>Pipe in data</strong> by running <code>cat error.log | claude</code> to send file contents directly.</li><li><strong>Let Claude fetch what it needs</strong>. Tell Claude to pull context itself using Bash commands, MCP tools, or by reading files.</li></ul></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h2>配置你的环境</h2></div><div class="en"><h2>Configure your environment</h2></div></div>
+<div class="pair"><div class="zh"><p>几个设置步骤就能让 Claude Code 在你所有的会话中显著更有效。关于扩展功能的完整概览以及各自适用的场景，见 <a href="/docs/en/features-overview" target="_blank" rel="noopener">扩展 Claude Code</a>。</p></div><div class="en"><p>A few setup steps make Claude Code significantly more effective across all your sessions. For a full overview of extension features and when to use each one, see <a href="/docs/en/features-overview" target="_blank" rel="noopener">Extend Claude Code</a>.</p></div></div>
+<div class="pair"><div class="zh"><h3>写一份有效的 CLAUDE.md</h3></div><div class="en"><h3>Write an effective CLAUDE.md</h3></div></div>
+<div class="pair"><div class="zh"><p>&lt;Tip&gt; 运行 <code>/init</code>，根据当前项目结构生成一份 CLAUDE.md 起始文件，然后逐步打磨。 &lt;/Tip&gt;</p></div><div class="en"><p>&lt;Tip&gt; Run <code>/init</code> to generate a starter CLAUDE.md file based on your current project structure, then refine over time. &lt;/Tip&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>CLAUDE.md 是一个特殊文件，Claude 会在每次对话开始时读取它。把 Bash 命令、代码风格和工作流规则写进去，能给 Claude 提供它无法仅从代码中推测出的持久上下文。</p></div><div class="en"><p>CLAUDE.md is a special file that Claude reads at the start of every conversation. Include Bash commands, code style, and workflow rules. This gives Claude persistent context it can't infer from code alone.</p></div></div>
+<div class="pair"><div class="zh"><p>CLAUDE.md 文件没有规定的格式，但要保持简短、便于人阅读。例如：</p></div><div class="en"><p>There's no required format for CLAUDE.md files, but keep it short and human-readable. For example:</p></div></div>
+<div class="pair code"><pre><code class="language-markdown">
+# Code style
+
+- Use ES modules (import/export) syntax, not CommonJS (require)
+- Destructure imports when possible (eg. import { foo } from &#x27;bar&#x27;)
+
+# Workflow
+
+- Be sure to typecheck when you&#x27;re done making a series of code changes
+- Prefer running single tests, and not the whole test suite, for performance</code></pre></div>
+<div class="pair"><div class="zh"><p>运行 <code>/context</code> 确认 Claude 已加载该文件。CLAUDE.md 每个会话都会加载，所以只写适用范围广的内容。对于只在某些时候相关的领域知识或工作流，改用<a href="/docs/en/skills" target="_blank" rel="noopener">智能体技能</a>。Claude 会按需加载它们，不会让每次对话都变得臃肿。</p></div><div class="en"><p>Run <code>/context</code> to confirm Claude loaded the file. CLAUDE.md is loaded every session, so only include things that apply broadly. For domain knowledge or workflows that are only relevant sometimes, use <a href="/docs/en/skills" target="_blank" rel="noopener">skills</a> instead. Claude loads them on demand without bloating every conversation.</p></div></div>
+<div class="pair"><div class="zh"><p>保持简洁。对每一行都问一句：<em>「删掉它会让 Claude 犯错吗？」</em> 如果不会，就删掉。臃肿的 CLAUDE.md 会让 Claude 忽略你真正的指令！</p></div><div class="en"><p>Keep it concise. For each line, ask: <em>"Would removing this cause Claude to make mistakes?"</em> If not, cut it. Bloated CLAUDE.md files cause Claude to ignore your actual instructions!</p></div></div>
+<div class="pair"><div class="zh"><table><thead><tr><th>✅ 应该写进去</th><th>❌ 不要写</th></tr></thead><tbody><tr><td>Claude 猜不到的 Bash 命令</td><td>Claude 读代码就能弄明白的东西</td></tr><tr><td>与默认约定不同的代码风格规则</td><td>Claude 已经知道的标准语言惯例</td></tr><tr><td>测试说明与偏好的测试运行器</td><td>详细的 API 文档（改为给出链接）</td></tr><tr><td>仓库礼仪（分支命名、PR 约定）</td><td>经常变化的信息</td></tr><tr><td>你项目特有的架构决策</td><td>长篇解释或教程</td></tr><tr><td>开发环境的特殊之处（必需的环境变量）</td><td>逐文件的代码库说明</td></tr><tr><td>常见坑或反直觉的行为</td><td>像「写干净的代码」这种不言自明的做法</td></tr></tbody></table></div><div class="en"><table><thead><tr><th>✅ Include</th><th>❌ Exclude</th></tr></thead><tbody><tr><td>Bash commands Claude can't guess</td><td>Anything Claude can figure out by reading code</td></tr><tr><td>Code style rules that differ from defaults</td><td>Standard language conventions Claude already knows</td></tr><tr><td>Testing instructions and preferred test runners</td><td>Detailed API documentation (link to docs instead)</td></tr><tr><td>Repository etiquette (branch naming, PR conventions)</td><td>Information that changes frequently</td></tr><tr><td>Architectural decisions specific to your project</td><td>Long explanations or tutorials</td></tr><tr><td>Developer environment quirks (required env vars)</td><td>File-by-file descriptions of the codebase</td></tr><tr><td>Common gotchas or non-obvious behaviors</td><td>Self-evident practices like "write clean code"</td></tr></tbody></table></div></div>
+<div class="pair"><div class="zh"><p>如果明明写了规则，Claude 还是老做你不想要的事，那多半是文件太长、这条规则被淹没了。如果 Claude 问你的问题在 CLAUDE.md 里已经有答案，那可能是措辞有歧义。把 CLAUDE.md 当代码对待：出问题时评审它、定期精简，并通过观察 Claude 的行为是否真的改变来检验改动。对于已签入仓库的 CLAUDE.md，运行 <a href="/docs/en/commands#all-commands" target="_blank" rel="noopener"><code>/doctor</code></a>，Claude 会针对它可以从代码库中推导出的内容提出删减建议。</p></div><div class="en"><p>If Claude keeps doing something you don't want despite having a rule against it, the file is probably too long and the rule is getting lost. If Claude asks you questions that are answered in CLAUDE.md, the phrasing might be ambiguous. Treat CLAUDE.md like code: review it when things go wrong, prune it regularly, and test changes by observing whether Claude's behavior actually shifts. For a checked-in CLAUDE.md, run <a href="/docs/en/commands#all-commands" target="_blank" rel="noopener"><code>/doctor</code></a> and Claude proposes cuts for content it can derive from the codebase.</p></div></div>
+<div class="pair"><div class="zh"><p>如果 Claude 老是跳过某一条指令，就单独给这一行加上诸如「IMPORTANT」的强调。如果你强调了很多行，就没有一行会突出。把 CLAUDE.md 签入 git，让团队一起贡献。这个文件的价值会随时间累积。</p></div><div class="en"><p>If Claude keeps skipping one instruction, add emphasis such as "IMPORTANT" to that line alone. If you emphasize many lines, none of them stands out. Check CLAUDE.md into git so your team can contribute. The file compounds in value over time.</p></div></div>
+<div class="pair"><div class="zh"><p>CLAUDE.md 文件可以用 <code>@path/to/import</code> 语法导入其他文件。关于导入规则以及 CLAUDE.md 可以放在哪里，见 <a href="/docs/en/memory#claude-md-files" target="_blank" rel="noopener">CLAUDE.md 文件</a>。</p></div><div class="en"><p>CLAUDE.md files can import additional files using <code>@path/to/import</code> syntax. For import rules and where CLAUDE.md files can live, see <a href="/docs/en/memory#claude-md-files" target="_blank" rel="noopener">CLAUDE.md files</a>.</p></div></div>
+<div class="pair"><div class="zh"><h3>配置权限</h3></div><div class="en"><h3>Configure permissions</h3></div></div>
+<div class="pair"><div class="zh"><p>&lt;Tip&gt; 想在保住控制权的同时减少提示，就用 <code>/permissions</code> 预先批准你信任的工具，并用 <code>/sandbox</code> 让沙箱内的命令免询问运行。当你想自己批准编辑和命令时，切到 Manual 模式。 &lt;/Tip&gt;</p></div><div class="en"><p>&lt;Tip&gt; To get fewer prompts without giving up control, pre-approve the tools you trust with <code>/permissions</code> and let sandboxed commands run without asking with <code>/sandbox</code>. Switch to Manual mode when you want to approve edits and commands yourself. &lt;/Tip&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>在 Pro、Max 和 Team 套餐上，auto 模式是交互式终端与 VS Code 会话的<a href="/docs/en/permission-modes#eliminate-prompts-with-auto-mode" target="_blank" rel="noopener">内置起始权限模式</a>：由一个独立的分类器模型代替你评审大多数操作，只拦截看起来有风险的动作，比如扩大权限范围、未知的基础设施，或由恶意内容驱动的操作。</p></div><div class="en"><p>On Pro, Max, and Team plans, auto mode is the <a href="/docs/en/permission-modes#eliminate-prompts-with-auto-mode" target="_blank" rel="noopener">built-in starting permission mode</a> for interactive terminal and VS Code sessions: a separate classifier model reviews most actions instead of you and blocks only what looks risky, such as scope escalation, unknown infrastructure, or hostile-content-driven actions.</p></div></div>
+<div class="pair"><div class="zh"><p>在 Manual 模式下——其他套餐的内置起始权限模式——Claude Code 会在可能修改你系统的操作之前询问：文件写入、Bash 命令、MCP 工具。这很安全，但很繁琐。到第十次批准时，你已经是在一路点确认而不是在评审。有两个工具能在 Manual 模式下减少这些打断，并且在 auto 模式同样适用：</p></div><div class="en"><p>In Manual mode, the built-in starting permission mode on other plans, Claude Code asks before actions that might modify your system: file writes, Bash commands, MCP tools. That's safe but tedious. After the tenth approval you're clicking through rather than reviewing. Two tools cut those interruptions in Manual mode and apply in auto mode as well:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>权限允许列表</strong>：放行你确知安全的特定工具，比如 <code>npm run lint</code> 或 <code>git commit</code></li><li><strong>沙箱</strong>：启用操作系统级隔离，限制文件系统与网络访问，让 Claude 能在划定的边界内更自由地工作</li></ul></div><div class="en"><ul><li><strong>Permission allowlists</strong>: permit specific tools you know are safe, like <code>npm run lint</code> or <code>git commit</code></li><li><strong>Sandboxing</strong>: enable OS-level isolation that restricts filesystem and network access, allowing Claude to work more freely within defined boundaries</li></ul></div></div>
+<div class="pair"><div class="zh"><p>进一步了解<a href="/docs/en/permission-modes" target="_blank" rel="noopener">权限模式</a>、<a href="/docs/en/permissions" target="_blank" rel="noopener">权限规则</a>和<a href="/docs/en/sandboxing" target="_blank" rel="noopener">沙箱</a>。</p></div><div class="en"><p>Read more about <a href="/docs/en/permission-modes" target="_blank" rel="noopener">permission modes</a>, <a href="/docs/en/permissions" target="_blank" rel="noopener">permission rules</a>, and <a href="/docs/en/sandboxing" target="_blank" rel="noopener">sandboxing</a>.</p></div></div>
+<div class="pair"><div class="zh"><h3>使用 CLI 工具</h3></div><div class="en"><h3>Use CLI tools</h3></div></div>
+<div class="pair"><div class="zh"><p>&lt;Tip&gt; 告诉 Claude Code 在与外部服务交互时使用 <code>gh</code>、<code>aws</code>、<code>gcloud</code>、<code>sentry-cli</code> 这类 CLI 工具。 &lt;/Tip&gt;</p></div><div class="en"><p>&lt;Tip&gt; Tell Claude Code to use CLI tools like <code>gh</code>, <code>aws</code>, <code>gcloud</code>, and <code>sentry-cli</code> when interacting with external services. &lt;/Tip&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>CLI 工具是与外部服务交互时最省上下文的方式。如果你用 GitHub，就装上 <code>gh</code> CLI。Claude 知道怎么用它创建 issue、发起拉取请求和读取评论。没有 <code>gh</code> 时，Claude 仍然可以用 GitHub API，但未认证的请求常常会触到速率限制。</p></div><div class="en"><p>CLI tools are the most context-efficient way to interact with external services. If you use GitHub, install the <code>gh</code> CLI. Claude knows how to use it for creating issues, opening pull requests, and reading comments. Without <code>gh</code>, Claude can still use the GitHub API, but unauthenticated requests often hit rate limits.</p></div></div>
+<div class="pair"><div class="zh"><p>Claude 也很擅长学习它原本不认识的 CLI 工具。可以试试这样的提示词：<code>Use 'foo-cli-tool --help' to learn about foo tool, then use it to solve A, B, C.</code></p></div><div class="en"><p>Claude is also effective at learning CLI tools it doesn't already know. Try prompts like <code>Use 'foo-cli-tool --help' to learn about foo tool, then use it to solve A, B, C.</code></p></div></div>
+<div class="pair"><div class="zh"><h3>连接 MCP 服务器</h3></div><div class="en"><h3>Connect MCP servers</h3></div></div>
+<div class="pair"><div class="zh"><p>&lt;Tip&gt; 用服务器名称加 URL 或命令运行 <code>claude mcp add</code>，就能连接 Notion、Figma 或你的数据库这类外部工具。例如：<code>claude mcp add --transport http notion https://mcp.notion.com/mcp</code>。 &lt;/Tip&gt;</p></div><div class="en"><p>&lt;Tip&gt; Run <code>claude mcp add</code> with a server name and URL or command to connect external tools like Notion, Figma, or your database. For example: <code>claude mcp add --transport http notion https://mcp.notion.com/mcp</code>. &lt;/Tip&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>有了 <a href="/docs/en/mcp" target="_blank" rel="noopener">MCP 服务器</a>，你可以让 Claude 实现来自 issue 跟踪器的功能、查询数据库、分析监控数据、集成 Figma 的设计稿，以及自动化工作流。</p></div><div class="en"><p>With <a href="/docs/en/mcp" target="_blank" rel="noopener">MCP servers</a>, you can ask Claude to implement features from issue trackers, query databases, analyze monitoring data, integrate designs from Figma, and automate workflows.</p></div></div>
+<div class="pair"><div class="zh"><h3>设置钩子</h3></div><div class="en"><h3>Set up hooks</h3></div></div>
+<div class="pair"><div class="zh"><p>&lt;Tip&gt; 对必须每次发生、毫无例外的动作，就用钩子。 &lt;/Tip&gt;</p></div><div class="en"><p>&lt;Tip&gt; Use hooks for actions that must happen every time with zero exceptions. &lt;/Tip&gt;</p></div></div>
+<div class="pair"><div class="zh"><p><a href="/docs/en/hooks-guide" target="_blank" rel="noopener">钩子</a>会在 Claude 工作流中的特定时点自动运行脚本。与 CLAUDE.md 里只是建议性的指令不同，钩子是确定性的，能保证动作发生。</p></div><div class="en"><p><a href="/docs/en/hooks-guide" target="_blank" rel="noopener">Hooks</a> run scripts automatically at specific points in Claude's workflow. Unlike CLAUDE.md instructions which are advisory, hooks are deterministic and guarantee the action happens.</p></div></div>
+<div class="pair"><div class="zh"><p>Claude 可以替你写钩子。试试这样的提示词：<em>「写一个钩子，在每次文件编辑后运行 eslint」</em> 或 <em>「写一个钩子，阻止写入 migrations 文件夹。」</em> 直接编辑 <code>.claude/settings.json</code> 手动配置钩子，并运行 <code>/hooks</code> 浏览已配置的内容。</p></div><div class="en"><p>Claude can write hooks for you. Try prompts like <em>"Write a hook that runs eslint after every file edit"</em> or <em>"Write a hook that blocks writes to the migrations folder."</em> Edit <code>.claude/settings.json</code> directly to configure hooks by hand, and run <code>/hooks</code> to browse what's configured.</p></div></div>
+<div class="pair"><div class="zh"><h3>创建技能</h3></div><div class="en"><h3>Create skills</h3></div></div>
+<div class="pair"><div class="zh"><p>&lt;Tip&gt; 在 <code>.claude/skills/</code> 里创建 <code>SKILL.md</code> 文件，给 Claude 提供领域知识和可复用的工作流。 &lt;/Tip&gt;</p></div><div class="en"><p>&lt;Tip&gt; Create <code>SKILL.md</code> files in <code>.claude/skills/</code> to give Claude domain knowledge and reusable workflows. &lt;/Tip&gt;</p></div></div>
+<div class="pair"><div class="zh"><p><a href="/docs/en/skills" target="_blank" rel="noopener">智能体技能</a>用你项目、团队或领域特有的信息扩展 Claude 的知识。Claude 会在相关时自动应用它们，你也可以用 <code>/skill-name</code> 直接调用。</p></div><div class="en"><p><a href="/docs/en/skills" target="_blank" rel="noopener">Skills</a> extend Claude's knowledge with information specific to your project, team, or domain. Claude applies them automatically when relevant, or you can invoke them directly with <code>/skill-name</code>.</p></div></div>
+<div class="pair"><div class="zh"><p>在 <code>.claude/skills/</code> 下新增一个包含 <code>SKILL.md</code> 的目录，就创建了一个技能：</p></div><div class="en"><p>Create a skill by adding a directory with a <code>SKILL.md</code> to <code>.claude/skills/</code>:</p></div></div>
+<div class="pair code"><pre><code class="language-markdown">---
+name: api-conventions
+description: REST API design conventions for our services
+---
+
+# API Conventions
+
+- Use kebab-case for URL paths
+- Use camelCase for JSON properties
+- Always include pagination for list endpoints
+- Version APIs in the URL path (/v1/, /v2/)</code></pre></div>
+<div class="pair"><div class="zh"><p>技能还可以定义你可以直接调用的可重复工作流：</p></div><div class="en"><p>Skills can also define repeatable workflows you invoke directly:</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI QA, SAST, DAST, and Beyond（fall2025 W6）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>AI QA, SAST, DAST, and Beyond（fall2025 W6）</h1><div class="meta"><span class="badge">课程讲义</span>fall2025 ｜ 原文 3,963 字符 ｜ 186 个内容块 ｜ <a href="https://docs.google.com/presentation/d/1C05bCLasMDigBbkwdWbiz4WrXibzi6ua4hQQbTod_8c/edit?usp=sharing" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>AI QA, SAST, DAST, and Beyond（fall2025 W6）</h1></div><div class="en"><h1>AI QA, SAST, DAST, and Beyond（fall2025 W6）</h1></div></div>
+<div class="pair"><div class="zh"><h2>Slide 1</h2></div><div class="en"><h2>Slide 1</h2></div></div>
+<div class="pair"><div class="zh"><p>The Modern Software Developer CS146S Stanford University，Fall 2025 Mihail Eric themodernsoftware.dev</p></div><div class="en"><p>The Modern Software Developer CS146S Stanford University, Fall 2025 Mihail Eric themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 2</h2></div><div class="en"><h2>Slide 2</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev 客座讲座 - 10/31/25 CEO of Semgrep ，Isaac Evans</p></div><div class="en"><p>themodernsoftware.dev Guest Lecture - 10/31/25 CEO of Semgrep , Isaac Evans</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 3</h2></div><div class="en"><h2>Slide 3</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 测试与安全 themodernsoftware.dev</p></div><div class="en"><p>AI Testing and Security themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 4</h2></div><div class="en"><h2>Slide 4</h2></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>软件错误会动摇用户对产品/公司的信任，并带来巨额财务成本</p></div><div class="en"><p>Software errors can dash user trust in a product/company and incur huge ﬁnancial costs</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>当大部分代码由大语言模型编写时，你需要大量护栏来防止这些错误 Why themodernsoftware.dev</p></div><div class="en"><p>When an LLM is writing most of your code, you need extensive guardrails to prevent those errors Why themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 5</h2></div><div class="en"><h2>Slide 5</h2></div></div>
+<div class="pair"><div class="zh"><p>现有威胁全景</p></div><div class="en"><p>Existing threat landscape</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>SQL 注入</p></div><div class="en"><p>SQL injections</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>跨站脚本</p></div><div class="en"><p>Cross-site scripting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>失效的身份认证</p></div><div class="en"><p>Broken authentication</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>不安全的直接对象引用</p></div><div class="en"><p>Insecure direct object references</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>安全配置错误</p></div><div class="en"><p>Security misconﬁgurations</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>敏感数据泄露 themodernsoftware.dev</p></div><div class="en"><p>Sensitive data exposure themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 6</h2></div><div class="en"><h2>Slide 6</h2></div></div>
+<div class="pair"><div class="zh"><p>漏洞检测技术</p></div><div class="en"><p>Vulnerability detection techniques</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>SAST</p></div><div class="en"><p>SAST</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>DAST</p></div><div class="en"><p>DAST</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>SCA themodernsoftware.dev</p></div><div class="en"><p>SCA themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 7</h2></div><div class="en"><h2>Slide 7</h2></div></div>
+<div class="pair"><div class="zh"><p>SAST</p></div><div class="en"><p>SAST</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>S tatic A pplication S ecurity T esting</p></div><div class="en"><p>S tatic A pplication S ecurity T esting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>白盒测试技术</p></div><div class="en"><p>White box testing technique</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>分析二进制文件与源代码</p></div><div class="en"><p>Analyzes binaries and source code</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>发生在软件开发生命周期早期，此时发现并修正的成本低得多</p></div><div class="en"><p>Happens early in software development life cycle when much cheaper to identify and correct</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>识别 SQL 注入、命令注入、跨站脚本等漏洞</p></div><div class="en"><p>Identify vulnerabilities like SQL injections, command injections, cross-site scripting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>技术手段</p></div><div class="en"><p>Techniques</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>用模式匹配扫描代码库 themodernsoftware.dev</p></div><div class="en"><p>Codebase scan with pattern matching themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 8</h2></div><div class="en"><h2>Slide 8</h2></div></div>
+<div class="pair"><div class="zh"><p>DAST</p></div><div class="en"><p>DAST</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>D ynamic A pplication S ecurity T esting</p></div><div class="en"><p>D ynamic A pplication S ecurity T esting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>黑盒测试技术</p></div><div class="en"><p>Black box testing technique</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>模拟真实世界黑客的行为来发现漏洞</p></div><div class="en"><p>Mimic actions of real-world hackers to uncover vulnerabilities</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>可在整个 SDLC 中执行，误报更少</p></div><div class="en"><p>Can happen throughout SDLC and offers fewer false positives</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>识别 SQL 注入、失效的身份认证、跨站脚本等漏洞</p></div><div class="en"><p>Identify vulnerabilities like SQL injections, broken authentication, cross-site scripting</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>技术手段</p></div><div class="en"><p>Techniques</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>输入模糊测试</p></div><div class="en"><p>Input fuzzing</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>操纵会话 token</p></div><div class="en"><p>Manipulating session tokens</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>配置/请求头测试</p></div><div class="en"><p>Conﬁguration/header testing</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>暴力破解限流测试 themodernsoftware.dev</p></div><div class="en"><p>Brute force rate-limit tests themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 9</h2></div><div class="en"><h2>Slide 9</h2></div></div>
+<div class="pair"><div class="zh"><p>SCA</p></div><div class="en"><p>SCA</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>S oftware C omposition A nalysis</p></div><div class="en"><p>S oftware C omposition A nalysis</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>深入分析应用所用的开源软件包</p></div><div class="en"><p>Deep analysis of OSS packages used by application</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>分析包管理器、基础设施即代码，拉取镜像以发现漏洞</p></div><div class="en"><p>Perform analysis of package managers, infrastructure-as-code, pull images to ﬁnd vulnerabilities</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>技术手段</p></div><div class="en"><p>Techniques</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>分析包元数据以获取依赖关系</p></div><div class="en"><p>Analyze package metadata for dependencies</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>传递依赖解析</p></div><div class="en"><p>Transitive dependency resolution</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>与漏洞数据库比对</p></div><div class="en"><p>Match against DB of vulnerabilities</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>二进制/制品扫描 themodernsoftware.dev</p></div><div class="en"><p>Binary/artifact scanning themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 10</h2></div><div class="en"><h2>Slide 10</h2></div></div>
+<div class="pair"><div class="zh"><p>发生了什么变化 themodernsoftware.dev</p></div><div class="en"><p>What has changed themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>坏消息：新的 AI 智能体攻击向量</p></div><div class="en"><p>Bad: new AI agent attack vectors</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>好消息：改进 SAST/DAST/SCA 的新技术</p></div><div class="en"><p>Good: new techniques for improving SAST/DAST/SCA</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 11</h2></div><div class="en"><h2>Slide 11</h2></div></div>
+<div class="pair"><div class="zh"><p>新的 AI 智能体攻击向量 themodernsoftware.dev</p></div><div class="en"><p>New AI agent attack vectors themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>提示注入</p></div><div class="en"><p>Prompt injection</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>向生成式 AI 系统隐藏或误导性地下达指令，使其偏离预期行为</p></div><div class="en"><p>Hidden or misleading instructions to gen AI system to make it deviate from intended behavior</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 12</h2></div><div class="en"><h2>Slide 12</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev</p></div><div class="en"><p>themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 13</h2></div><div class="en"><h2>Slide 13</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev</p></div><div class="en"><p>themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 14</h2></div><div class="en"><h2>Slide 14</h2></div></div>
+<div class="pair"><div class="zh"><p>新的 AI 智能体攻击向量 themodernsoftware.dev</p></div><div class="en"><p>New AI agent attack vectors themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>工具滥用</p></div><div class="en"><p>Tool misuse</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>用欺骗性提示词操纵智能体，滥用其集成的工具</p></div><div class="en"><p>Manipulate agent through deceptive prompts to abuse its integrated tools</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 15</h2></div><div class="en"><h2>Slide 15</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev</p></div><div class="en"><p>themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 16</h2></div><div class="en"><h2>Slide 16</h2></div></div>
+<div class="pair"><div class="zh"><p>新的 AI 智能体攻击向量 themodernsoftware.dev</p></div><div class="en"><p>New AI agent attack vectors themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>代码攻击</p></div><div class="en"><p>Code attacks</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>利用智能体执行代码的能力，未授权访问其执行环境</p></div><div class="en"><p>Exploit agent’s ability to execute code to gain unauthorized access to execution environment</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 17</h2></div><div class="en"><h2>Slide 17</h2></div></div>
+<div class="pair"><div class="zh"><p>themodernsoftware.dev</p></div><div class="en"><p>themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 18</h2></div><div class="en"><h2>Slide 18</h2></div></div>
+<div class="pair"><div class="zh"><p>新的 AI 智能体攻击向量 themodernsoftware.dev</p></div><div class="en"><p>New AI agent attack vectors themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>提示注入</p></div><div class="en"><p>Prompt injection</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>向生成式 AI 系统隐藏或误导性地下达指令，使其偏离预期行为</p></div><div class="en"><p>Hidden or misleading instructions to gen AI system to make it deviate from intended behavior</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>工具滥用</p></div><div class="en"><p>Tool misuse</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>用欺骗性提示词操纵智能体，滥用其集成的工具</p></div><div class="en"><p>Manipulate agent through deceptive prompts to abuse its integrated tools</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>意图破坏</p></div><div class="en"><p>Intent breaking</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>操纵智能体的计划，把行动导向原始意图之外</p></div><div class="en"><p>Manipulate agent’s plan to redirect actions away from original intent</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>身份欺骗</p></div><div class="en"><p>Identity spooﬁng</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>利用被攻陷的身份认证，冒充合法智能体</p></div><div class="en"><p>Exploit compromised authentication to pose as legitimate agents</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>代码攻击</p></div><div class="en"><p>Code attacks</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>利用智能体执行代码的能力，未授权访问其执行环境</p></div><div class="en"><p>Exploit agent’s ability to execute code to gain unauthorized access to execution environment</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 19</h2></div><div class="en"><h2>Slide 19</h2></div></div>
+<div class="pair"><div class="zh"><p>发生了什么变化 themodernsoftware.dev</p></div><div class="en"><p>What has changed themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>「左移」安全比以往任何时候都更容易落地</p></div><div class="en"><p>“Shift left” security is more accessible than ever</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>可以把大语言模型引入工作流来发现问题</p></div><div class="en"><p>LLMs can be introduced in a workﬂow to spot issues</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>自动化渗透测试</p></div><div class="en"><p>Automated penetration testing</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 20</h2></div><div class="en"><h2>Slide 20</h2></div></div>
+<div class="pair"><div class="zh"><p>大语言模型如何用于安全与测试 themodernsoftware.dev</p></div><div class="en"><p>How LLMs are used for security and testing themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 21</h2></div><div class="en"><h2>Slide 21</h2></div></div>
+<div class="pair"><div class="zh"><p>局限 themodernsoftware.dev</p></div><div class="en"><p>Limitations themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>在 AI SAST 中，误报率高得惊人</p></div><div class="en"><p>In AI SAST, false positive rates are incredibly high</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>视漏洞类型而定，Claude Code/Codex 可达 50-100%</p></div><div class="en"><p>Claude Code/Codex can be 50-100% depending on the vulnerability</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>相比之下，传统 SAST 技术为 50% 以上</p></div><div class="en"><p>Compare to 50+% for traditional SAST techniques</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>现有基准测试往往不切实际，难以评测大语言模型</p></div><div class="en"><p>Existing benchmarks are often unrealistic so hard to evaluate LLM</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>非确定性分析</p></div><div class="en"><p>Nondeterministic analysis</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>同一个提示词跑多次会得到不同结果 → 你怎么知道所有漏洞都被抓到了？</p></div><div class="en"><p>Run the same prompt multiple times and get different results → how do you know you’re catching all vulnerabilities?</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>上下文腐化 ■ 并非所有上下文都是等价的</p></div><div class="en"><p>Context rot ■ Not all context is created equally</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>压缩 ■ 做摘要，让内容塞得进上下文</p></div><div class="en"><p>Compaction ■ Summarize so that things ﬁt into context</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 22</h2></div><div class="en"><h2>Slide 22</h2></div></div>
+<div class="pair"><div class="zh"><p>开放问题 themodernsoftware.dev</p></div><div class="en"><p>Open Questions themodernsoftware.dev</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>如何降低漏洞检测中的误报与幻觉？</p></div><div class="en"><p>How to reduce false positives and hallucinations in vulnerability detection?</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>如何验证大语言模型生成的补丁是安全的，且没有引入回归？</p></div><div class="en"><p>How do we verify that LLM-generated patches are secure and don’t introduce regressions?</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>大语言模型如何解释自己为何标记某个漏洞或提出某个修复？</p></div><div class="en"><p>How can LLMs explain why they ﬂag a vulnerability or propose a ﬁx?</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>衡量大语言模型 AppSec 表现的合适基准测试是什么？</p></div><div class="en"><p>What are the right benchmarks for measuring LLMs’ AppSec performance?</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>大语言模型应如何嵌入 CI/CD，才不会用噪声淹没团队？</p></div><div class="en"><p>How should LLMs be embedded in CI/CD without overwhelming teams with noise?</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>如果 AI 生成的补丁引入了漏洞，责任由谁承担？</p></div><div class="en"><p>Who is accountable if an AI-generated patch introduces a vulnerability?</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

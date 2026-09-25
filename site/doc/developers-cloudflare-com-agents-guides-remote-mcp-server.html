@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCP Server Authentication</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>MCP Server Authentication</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 16,702 字符 ｜ 121 个内容块 ｜ <a href="https://developers.cloudflare.com/agents/guides/remote-mcp-server/#add-authentication" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>MCP 服务器认证</h1></div><div class="en"><h1>MCP Server Authentication</h1></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><p>description: 使用 Streamable HTTP 传输在 Cloudflare 上部署远程 MCP 服务器，认证可选。 title: 构建远程 MCP 服务器 image: https://developers.cloudflare.com/og-docs.png</p></div><div class="en"><p>description: Deploy a remote MCP server on Cloudflare with optional authentication using Streamable HTTP transport. title: Build a Remote MCP server image: https://developers.cloudflare.com/og-docs.png</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><p><a href="#main-content" target="_blank" rel="noopener">跳到正文</a></p></div><div class="en"><p><a href="#main-content" target="_blank" rel="noopener">Skip to content</a></p></div></div>
+<div class="pair"><div class="zh"><blockquote>文档索引  <br>在此获取完整文档索引：https://developers.cloudflare.com/agents/llms.txt  <br>在进一步浏览之前，可先用该文件发现所有可用页面。</blockquote></div><div class="en"><blockquote>Documentation Index  <br>Fetch the complete documentation index at: https://developers.cloudflare.com/agents/llms.txt  <br>Use this file to discover all available pages before exploring further.</blockquote></div></div>
+<div class="pair"><div class="zh"><h1>构建远程 MCP 服务器</h1></div><div class="en"><h1>Build a Remote MCP server</h1></div></div>
+<div class="pair"><div class="zh"><p>最后更新 Jul 27, 2026|复制为 Markdown| <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/index.md" target="_blank" rel="noopener">以 Markdown 查看</a>| <a href="https://developers.cloudflare.com/agent-setup/" target="_blank" rel="noopener">智能体设置</a></p></div><div class="en"><p>Last updated Jul 27, 2026|Copy as Markdown| <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/index.md" target="_blank" rel="noopener">View as Markdown</a>| <a href="https://developers.cloudflare.com/agent-setup/" target="_blank" rel="noopener">Agent setup</a></p></div></div>
+<div class="pair"><div class="zh"><p>本指南介绍如何用 <a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/transport/" target="_blank" rel="noopener">Streamable HTTP 传输</a>在 Cloudflare 上部署远程 MCP 服务器。你有两个选择：</p></div><div class="en"><p>This guide shows how to deploy a remote MCP server on Cloudflare using <a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/transport/" target="_blank" rel="noopener">Streamable HTTP transport</a>. You have two options:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>不带认证</strong> —— 任何人都能连接并使用该服务器（无需登录）。</li><li><strong>带<a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication" target="_blank" rel="noopener">认证与授权</a></strong> —— 用户先登录再访问工具，你可以根据用户权限控制智能体能调用哪些工具。</li></ul></div><div class="en"><ul><li><strong>Without authentication</strong> — anyone can connect and use the server (no login required).</li><li><strong>With <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication" target="_blank" rel="noopener">authentication and authorization</a></strong> — users sign in before accessing tools, and you can control which tools an agent can call based on the user's permissions.</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>选择一种方案</h2></div><div class="en"><h2>Choosing an approach</h2></div></div>
+<div class="pair"><div class="zh"><p>Agents SDK 提供多种创建 MCP 服务器的方式。请选择适合你用例的方案：</p></div><div class="en"><p>The Agents SDK provides multiple ways to create MCP servers. Choose the approach that fits your use case:</p></div></div>
+<div class="pair"><div class="zh"><table><thead><tr><th>方案</th><th>有状态？</th><th>协议路径</th><th>最适合</th></tr></thead><tbody><tr><td><a href="https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/" target="_blank" rel="noopener"><code>createMcpHandler()</code></a></td><td>否</td><td>无状态，兼容旧版</td><td>新的无状态工具</td></tr><tr><td><a href="https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/#createlegacymcphandler" target="_blank" rel="noopener"><code>createLegacyMcpHandler()</code></a></td><td>可选</td><td>旧版</td><td>临时沿用现有的 <code>WorkerTransport</code> 路由</td></tr><tr><td><a href="https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/" target="_blank" rel="noopener"><code>McpAgent</code></a></td><td>是</td><td>旧版</td><td>已弃用的 Durable Object 与 RPC 服务器</td></tr><tr><td>原生 SDK 传输</td><td>取决于传输方式</td><td>取决于 SDK 包</td><td>自行掌控传输</td></tr></tbody></table></div><div class="en"><table><thead><tr><th>Approach</th><th>Stateful?</th><th>Protocol path</th><th>Best for</th></tr></thead><tbody><tr><td><a href="https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/" target="_blank" rel="noopener"><code>createMcpHandler()</code></a></td><td>No</td><td>stateless with legacy compatibility</td><td>New stateless tools</td></tr><tr><td><a href="https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/#createlegacymcphandler" target="_blank" rel="noopener"><code>createLegacyMcpHandler()</code></a></td><td>Optional</td><td>legacy</td><td>Temporary existing <code>WorkerTransport</code> routes</td></tr><tr><td><a href="https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/" target="_blank" rel="noopener"><code>McpAgent</code></a></td><td>Yes</td><td>legacy</td><td>Deprecated Durable Object and RPC servers</td></tr><tr><td>Raw SDK transport</td><td>Depends on transport</td><td>Depends on SDK package</td><td>Custom transport ownership</td></tr></tbody></table></div></div>
+<div class="pair"><div class="zh"><p>新服务器请用 <code>createMcpHandler</code> 构建无状态实现。若现有 <code>McpAgent</code> 不依赖旧版有状态能力，可直接迁移。若它用到了 MCP 会话状态、RPC、推送请求、流或重放，请先规划好对应的无状态实现，并在过渡期内同时提供无状态通道与旧版通道。分阶段上线的做法参见<a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/migrate-to-mcp-sdk-v2/" target="_blank" rel="noopener">迁移到 MCP SDK v2</a>。</p></div><div class="en"><p>Use <code>createMcpHandler</code> for a new stateless server. An existing <code>McpAgent</code> without legacy stateful dependencies can migrate directly. If it uses MCP session state, RPC, pushed requests, streams, or replay, plan the stateless equivalents and serve stateless and legacy lanes during the transition. Refer to <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/migrate-to-mcp-sdk-v2/" target="_blank" rel="noopener">Migrate to MCP SDK v2</a> for the staged rollout.</p></div></div>
+<div class="pair"><div class="zh"><h2>部署你的第一个 MCP 服务器</h2></div><div class="en"><h2>Deploy your first MCP server</h2></div></div>
+<div class="pair"><div class="zh"><p>模板协议路径</p></div><div class="en"><p>Template protocol path</p></div></div>
+<div class="pair"><div class="zh"><p>本节的快速部署模板仍在使用已弃用的 <code>McpAgent</code> 路径。新服务器不要走这条路。请从 <a href="https://github.com/cloudflare/agents/tree/main/examples/mcp-worker" target="_blank" rel="noopener"><code>mcp-worker</code> 示例 ↗</a>开始。如果现有模板部署需要会话化行为，请新增一条无状态路由并遵循<a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/migrate-to-mcp-sdk-v2/" target="_blank" rel="noopener">迁移指南</a>。</p></div><div class="en"><p>The quick-deploy templates in this section still use the deprecated <code>McpAgent</code> path. Do not use that path for a new server. Start with the <a href="https://github.com/cloudflare/agents/tree/main/examples/mcp-worker" target="_blank" rel="noopener"><code>mcp-worker</code> example ↗</a>. If an existing template deployment needs sessionful behavior, add a stateless route and follow the <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/migrate-to-mcp-sdk-v2/" target="_blank" rel="noopener">migration guide</a>.</p></div></div>
+<div class="pair"><div class="zh"><p>你可以先部署一个不带认证的<a href="https://github.com/cloudflare/ai/tree/main/demos/remote-mcp-authless" target="_blank" rel="noopener">公开 MCP 服务器 ↗</a>，之后再补上用户认证与范围化授权。如果你已经确定该服务器需要认证，可以跳到<a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication" target="_blank" rel="noopener">下一节</a>。</p></div><div class="en"><p>You can start by deploying a <a href="https://github.com/cloudflare/ai/tree/main/demos/remote-mcp-authless" target="_blank" rel="noopener">public MCP server ↗</a> without authentication, then add user authentication and scoped authorization later. If you already know your server will require authentication, you can skip ahead to the <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication" target="_blank" rel="noopener">next section</a>.</p></div></div>
+<div class="pair"><div class="zh"><h3>通过仪表盘</h3></div><div class="en"><h3>Via the dashboard</h3></div></div>
+<div class="pair"><div class="zh"><p>下面的按钮会引导你完成把一个<a href="https://github.com/cloudflare/ai/tree/main/demos/remote-mcp-authless" target="_blank" rel="noopener">示例 MCP 服务器 ↗</a>部署到 Cloudflare 账户所需的全部操作：</p></div><div class="en"><p>The button below will guide you through everything you need to do to deploy an <a href="https://github.com/cloudflare/ai/tree/main/demos/remote-mcp-authless" target="_blank" rel="noopener">example MCP server ↗</a> to your Cloudflare account:</p></div></div>
+<div class="pair"><div class="zh"><p><a href="https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/ai/tree/main/demos/remote-mcp-authless" target="_blank" rel="noopener"><img src="https://deploy.workers.cloudflare.com/button" alt="部署到 Workers"></a></p></div><div class="en"><p><a href="https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/ai/tree/main/demos/remote-mcp-authless" target="_blank" rel="noopener"><img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Workers"></a></p></div></div>
+<div class="pair"><div class="zh"><p>部署完成后，该服务器会运行在你的 <code>workers.dev</code> 子域上（例如 <code>remote-mcp-server-authless.your-account.workers.dev/mcp</code>）。你可以立刻用 <a href="https://playground.ai.cloudflare.com/" target="_blank" rel="noopener">AI Playground ↗</a>（一个远程 MCP 客户端）、<a href="https://github.com/modelcontextprotocol/inspector" target="_blank" rel="noopener">MCP inspector ↗</a>或<a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#connect-from-an-mcp-client-via-a-local-proxy" target="_blank" rel="noopener">其他 MCP 客户端</a>连接它。</p></div><div class="en"><p>Once deployed, this server will be live at your <code>workers.dev</code> subdomain (for example, <code>remote-mcp-server-authless.your-account.workers.dev/mcp</code>). You can connect to it immediately using the <a href="https://playground.ai.cloudflare.com/" target="_blank" rel="noopener">AI Playground ↗</a> (a remote MCP client), <a href="https://github.com/modelcontextprotocol/inspector" target="_blank" rel="noopener">MCP inspector ↗</a> or <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#connect-from-an-mcp-client-via-a-local-proxy" target="_blank" rel="noopener">other MCP clients</a>.</p></div></div>
+<div class="pair"><div class="zh"><p>系统会在你的 GitHub 或 GitLab 账户上为该 MCP 服务器新建一个 git 仓库，并配置为每次推送改动或把拉取请求合并到仓库主分支时自动部署到 Cloudflare。你可以克隆这个仓库，<a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#via-the-cli" target="_blank" rel="noopener">在本地开发</a>，并开始用自己的<a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/tools/" target="_blank" rel="noopener">工具</a>定制该 MCP 服务器。</p></div><div class="en"><p>A new git repository will be set up on your GitHub or GitLab account for your MCP server, configured to automatically deploy to Cloudflare each time you push a change or merge a pull request to the main branch of the repository. You can clone this repository, <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#via-the-cli" target="_blank" rel="noopener">develop locally</a>, and start customizing the MCP server with your own <a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/tools/" target="_blank" rel="noopener">tools</a>.</p></div></div>
+<div class="pair"><div class="zh"><h3>通过 CLI</h3></div><div class="en"><h3>Via the CLI</h3></div></div>
+<div class="pair"><div class="zh"><p>你可以用 <a href="https://developers.cloudflare.com/workers/wrangler" target="_blank" rel="noopener">Wrangler CLI</a>在本机创建新的 MCP 服务器，再把它部署到 Cloudflare。</p></div><div class="en"><p>You can use the <a href="https://developers.cloudflare.com/workers/wrangler" target="_blank" rel="noopener">Wrangler CLI</a> to create a new MCP Server on your local machine and deploy it to Cloudflare.</p></div></div>
+<div class="pair"><div class="zh"><ol><li>打开终端并运行以下命令：npmyarnpnpm</li></ol></div><div class="en"><ol><li>Open a terminal and run the following command:npmyarnpnpm</li></ol></div></div>
+<div class="pair code"><pre><code>   npm create cloudflare@latest -- remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless</code></pre></div>
+<div class="pair code"><pre><code>   yarn create cloudflare remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless</code></pre></div>
+<div class="pair code"><pre><code>   pnpm create cloudflare@latest remote-mcp-server-authless --template=cloudflare/ai/demos/remote-mcp-authless</code></pre></div>
+<div class="pair"><div class="zh"><p>安装过程中请选择以下选项： - 对于 <em>Do you want to add an AGENTS.md file to help AI coding tools understand Cloudflare APIs?</em>，选择 <code>No</code>。 - 对于 <em>Do you want to use git for version control?</em>，选择 <code>No</code>。 - 对于 <em>Do you want to deploy your application?</em>，选择 <code>No</code>（我们会先测试服务器再部署）。</p></div><div class="en"><p>During setup, select the following options: - For <em>Do you want to add an AGENTS.md file to help AI coding tools understand Cloudflare APIs?</em>, choose <code>No</code>. - For <em>Do you want to use git for version control?</em>, choose <code>No</code>. - For <em>Do you want to deploy your application?</em>, choose <code>No</code> (we will be testing the server before deploying).</p></div></div>
+<div class="pair"><div class="zh"><p>现在 MCP 服务器已经搭好，依赖也已安装。</p></div><div class="en"><p>Now, you have the MCP server setup, with dependencies installed.</p></div></div>
+<div class="pair"><div class="zh"><ol><li>进入项目文件夹：</li></ol></div><div class="en"><ol><li>Move into the project folder:</li></ol></div></div>
+<div class="pair code"><pre><code class="language-sh">   cd remote-mcp-server-authless</code></pre></div>
+<div class="pair"><div class="zh"><ol><li>在新项目所在目录中运行以下命令，启动开发服务器：</li></ol></div><div class="en"><ol><li>In the directory of your new project, run the following command to start the development server:</li></ol></div></div>
+<div class="pair code"><pre><code class="language-sh">   npm start</code></pre></div>
+<div class="pair code"><pre><code class="language-sh">   ⎔ Starting local server...
+   [wrangler:info] Ready on http://localhost:8788</code></pre></div>
+<div class="pair"><div class="zh"><p>请查看命令输出中的本地端口。在本例中，MCP 服务器运行在端口 <code>8788</code> 上，MCP 端点 URL 为 <code>http://localhost:8788/mcp</code>。</p></div><div class="en"><p>Check the command output for the local port. In this example, the MCP server runs on port <code>8788</code>, and the MCP endpoint URL is <code>http://localhost:8788/mcp</code>.</p></div></div>
+<div class="pair"><div class="zh"><p>注意</p></div><div class="en"><p>Note</p></div></div>
+<div class="pair"><div class="zh"><p>你无法通过在 Web 浏览器中直接打开 <code>/mcp</code> URL 来与 MCP 服务器交互。<code>/mcp</code> 端点期待 MCP 客户端发送 MCP 协议消息，而浏览器默认不会这么做。下一步我们将演示如何用 MCP 客户端连接该服务器。</p></div><div class="en"><p>You cannot interact with the MCP server by opening the <code>/mcp</code> URL directly in a web browser. The <code>/mcp</code> endpoint expects an MCP client to send MCP protocol messages, which a browser does not do by default. In the next step, we will demonstrate how to connect to the server using an MCP client.</p></div></div>
+<div class="pair"><div class="zh"><ol><li>在本地测试该服务器：</li><li>在一个新终端中运行 <a href="https://github.com/modelcontextprotocol/inspector" target="_blank" rel="noopener">MCP inspector ↗</a>。MCP inspector 是一个交互式 MCP 客户端，让你可以从 Web 浏览器连接自己的 MCP 服务器并调用工具。</li></ol></div><div class="en"><ol><li>To test the server locally:</li><li>In a new terminal, run the <a href="https://github.com/modelcontextprotocol/inspector" target="_blank" rel="noopener">MCP inspector ↗</a>. The MCP inspector is an interactive MCP client that allows you to connect to your MCP server and invoke tools from a web browser.</li></ol></div></div>
+<div class="pair code"><pre><code class="language-sh">      npx @modelcontextprotocol/inspector@latest</code></pre></div>
+<div class="pair code"><pre><code class="language-sh">      🚀 MCP Inspector is up and running at:
+      	http://localhost:5173/?MCP_PROXY_AUTH_TOKEN=46ab..cd3
+
+      🌐 Opening browser...</code></pre></div>
+<div class="pair"><div class="zh"><p>MCP Inspector 会在你的 Web 浏览器中启动。你也可以手动启动它：打开浏览器并访问 <code>http://localhost:&lt;PORT&gt;</code>。请查看命令输出中 MCP Inspector 运行的本地端口。在本例中，MCP Inspector 服务于端口 <code>5173</code>。</p></div><div class="en"><p>The MCP Inspector will launch in your web browser. You can also launch it manually by opening a browser and going to <code>http://localhost:&lt;PORT&gt;</code>. Check the command output for the local port where MCP Inspector is running. In this example, MCP Inspector is served on port <code>5173</code>.</p></div></div>
+<div class="pair"><div class="zh"><ol><li>在 MCP inspector 中输入你的 MCP 服务器 URL（<code>http://localhost:8788/mcp</code>），然后选择 <strong>Connect</strong>。选择 <strong>List Tools</strong> 即可看到你的 MCP 服务器对外暴露的工具。</li><li>现在你可以把 MCP 服务器部署到 Cloudflare。在项目目录中运行：</li></ol></div><div class="en"><ol><li>In the MCP inspector, enter the URL of your MCP server ( <code>http://localhost:8788/mcp</code>), and select <strong>Connect</strong>. Select <strong>List Tools</strong> to show the tools that your MCP server exposes.</li><li>You can now deploy your MCP server to Cloudflare. From your project directory, run:</li></ol></div></div>
+<div class="pair code"><pre><code class="language-sh">   npx wrangler@latest deploy</code></pre></div>
+<div class="pair"><div class="zh"><p>如果你已经把 <a href="https://developers.cloudflare.com/workers/ci-cd/builds/" target="_blank" rel="noopener">git 仓库</a>连接到承载 MCP 服务器的 Worker，那么只要推送改动或把拉取请求合并到仓库主分支，就能完成部署。</p></div><div class="en"><p>If you have already <a href="https://developers.cloudflare.com/workers/ci-cd/builds/" target="_blank" rel="noopener">connected a git repository</a> to the Worker with your MCP server, you can deploy your MCP server by pushing a change or merging a pull request to the main branch of the repository.</p></div></div>
+<div class="pair"><div class="zh"><p>MCP 服务器会被部署到你的 <code>*.workers.dev</code> 子域，地址为 <code>https://remote-mcp-server-authless.your-account.workers.dev/mcp</code>。</p></div><div class="en"><p>The MCP server will be deployed to your <code>*.workers.dev</code> subdomain at <code>https://remote-mcp-server-authless.your-account.workers.dev/mcp</code>.</p></div></div>
+<div class="pair"><div class="zh"><ol><li>要测试这个远程 MCP 服务器，请取已部署服务器的 URL（<code>https://remote-mcp-server-authless.your-account.workers.dev/mcp</code>），填入运行在 <code>http://localhost:5173</code> 的 MCP inspector。</li></ol></div><div class="en"><ol><li>To test the remote MCP server, take the URL of your deployed MCP server ( <code>https://remote-mcp-server-authless.your-account.workers.dev/mcp</code>) and enter it in the MCP inspector running on <code>http://localhost:5173</code>.</li></ol></div></div>
+<div class="pair"><div class="zh"><p>现在你有了一个可供 MCP 客户端连接的远程 MCP 服务器。</p></div><div class="en"><p>You now have a remote MCP server that MCP clients can connect to.</p></div></div>
+<div class="pair"><div class="zh"><h2>通过本地代理从 MCP 客户端连接</h2></div><div class="en"><h2>Connect from an MCP client via a local proxy</h2></div></div>
+<div class="pair"><div class="zh"><p>远程 MCP 服务器已经跑起来了，你可以用 <a href="https://www.npmjs.com/package/mcp-remote" target="_blank" rel="noopener"><code>mcp-remote</code> 本地代理 ↗</a>把 Claude Desktop 或其他 MCP 客户端连上去 —— 即便你的 MCP 客户端本身不支持远程传输或客户端侧授权也没关系。这样你就能用真实的 MCP 客户端试出与该远程 MCP 服务器交互的效果。</p></div><div class="en"><p>Now that your remote MCP server is running, you can use the <a href="https://www.npmjs.com/package/mcp-remote" target="_blank" rel="noopener"><code>mcp-remote</code> local proxy ↗</a> to connect Claude Desktop or other MCP clients to it — even if your MCP client does not support remote transport or authorization on the client side. This lets you test what an interaction with your remote MCP server will be like with a real MCP client.</p></div></div>
+<div class="pair"><div class="zh"><p>例如，要从 Claude Desktop 连接：</p></div><div class="en"><p>For example, to connect from Claude Desktop:</p></div></div>
+<div class="pair"><div class="zh"><ol><li>更新 Claude Desktop 配置，指向你的 MCP 服务器 URL：</li></ol></div><div class="en"><ol><li>Update your Claude Desktop configuration to point to the URL of your MCP server:</li></ol></div></div>
+<div class="pair code"><pre><code class="language-json">   {
+   	&quot;mcpServers&quot;: {
+   		&quot;math&quot;: {
+   			&quot;command&quot;: &quot;npx&quot;,
+   			&quot;args&quot;: [
+   				&quot;mcp-remote&quot;,
+   				&quot;https://remote-mcp-server-authless.your-account.workers.dev/mcp&quot;
+   			]
+   		}
+   	}
+   }</code></pre></div>
+<div class="pair"><div class="zh"><ol><li>重启 Claude Desktop 以加载该 MCP 服务器。完成后，Claude 就能调用你的远程 MCP 服务器了。</li><li>要测试，请让 Claude 使用你的某个工具。例如：</li></ol></div><div class="en"><ol><li>Restart Claude Desktop to load the MCP Server. Once this is done, Claude will be able to make calls to your remote MCP server.</li><li>To test, ask Claude to use one of your tools. For example:</li></ol></div></div>
+<div class="pair code"><pre><code class="language-txt">   Could you use the math tool to add 23 and 19?</code></pre></div>
+<div class="pair"><div class="zh"><p>Claude 应当调用该工具，并显示远程 MCP 服务器生成的结果。</p></div><div class="en"><p>Claude should invoke the tool and show the result generated by the remote MCP server.</p></div></div>
+<div class="pair"><div class="zh"><p>要了解如何配合其他 MCP 客户端使用远程 MCP 服务器，请参阅<a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/" target="_blank" rel="noopener">测试远程 MCP 服务器</a>。</p></div><div class="en"><p>To learn how to use remote MCP servers with other MCP clients, refer to <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/" target="_blank" rel="noopener">Test a Remote MCP Server</a>.</p></div></div>
+<div class="pair"><div class="zh"><h2>添加认证</h2></div><div class="en"><h2>Add Authentication</h2></div></div>
+<div class="pair"><div class="zh"><p>你之前部署的公开 MCP 服务器示例允许任何客户端在未登录的情况下连接并调用工具。要为 MCP 服务器添加用户认证，可以接入 Cloudflare Access 或第三方服务作为 OAuth 提供方。你的 MCP 服务器负责处理安全登录流程，并签发访问令牌，供 MCP 客户端发起经过认证的工具调用。用户通过 OAuth 提供方登录，并授予其 AI 智能体以范围化权限与你的 MCP 服务器所暴露工具交互的许可。</p></div><div class="en"><p>The public MCP server example you deployed earlier allows any client to connect and invoke tools without logging in. To add user authentication to your MCP server, you can integrate Cloudflare Access or a third-party service as the OAuth provider. Your MCP server handles secure login flows and issues access tokens that MCP clients can use to make authenticated tool calls. Users sign in with the OAuth provider and grant their AI agent permission to interact with the tools exposed by your MCP server, using scoped permissions.</p></div></div>
+<div class="pair"><div class="zh"><h3>Cloudflare Access OAuth</h3></div><div class="en"><h3>Cloudflare Access OAuth</h3></div></div>
+<div class="pair"><div class="zh"><p>你可以把 MCP 服务器配置为要求通过 Cloudflare Access 进行用户认证。Cloudflare Access 充当身份聚合器，校验用户邮箱、来自你现有<a href="https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/" target="_blank" rel="noopener">身份提供方</a>（例如 GitHub 或 Google）的信号，以及 IP 地址、设备证书等其他属性。用户连接 MCP 服务器时，会被提示登录所配置的身份提供方，且只有通过你的 <a href="https://developers.cloudflare.com/cloudflare-one/access-controls/policies/#selectors" target="_blank" rel="noopener">Access 策略</a>才会获得访问权限。</p></div><div class="en"><p>You can configure your MCP server to require user authentication through Cloudflare Access. Cloudflare Access acts as an identity aggregator and verifies user emails, signals from your existing <a href="https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/" target="_blank" rel="noopener">identity providers</a> (such as GitHub or Google), and other attributes such as IP address or device certificates. When users connect to the MCP server, they will be prompted to log in to the configured identity provider and are only granted access if they pass your <a href="https://developers.cloudflare.com/cloudflare-one/access-controls/policies/#selectors" target="_blank" rel="noopener">Access policies</a>.</p></div></div>
+<div class="pair"><div class="zh"><p>分步部署指南请参阅<a href="https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/secure-mcp-servers/" target="_blank" rel="noopener">用 Access for SaaS 保护 MCP 服务器</a>。</p></div><div class="en"><p>For a step-by-step deployment guide, refer to <a href="https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/secure-mcp-servers/" target="_blank" rel="noopener">Secure MCP servers with Access for SaaS</a>.</p></div></div>
+<div class="pair"><div class="zh"><h3>第三方 OAuth</h3></div><div class="en"><h3>Third-party OAuth</h3></div></div>
+<div class="pair"><div class="zh"><p>你可以让 MCP 服务器接入任何支持 OAuth 2.0 规格的 <a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/#2-third-party-oauth-provider" target="_blank" rel="noopener">OAuth 提供方</a>，包括 GitHub、Google、Slack、<a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/#stytch" target="_blank" rel="noopener">Stytch</a>、<a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/#auth0" target="_blank" rel="noopener">Auth0</a>、<a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/#workos" target="_blank" rel="noopener">WorkOS</a> 等。</p></div><div class="en"><p>You can connect your MCP server with any <a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/#2-third-party-oauth-provider" target="_blank" rel="noopener">OAuth provider</a> that supports the OAuth 2.0 specification, including GitHub, Google, Slack, <a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/#stytch" target="_blank" rel="noopener">Stytch</a>, <a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/#auth0" target="_blank" rel="noopener">Auth0</a>, <a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/#workos" target="_blank" rel="noopener">WorkOS</a>, and more.</p></div></div>
+<div class="pair"><div class="zh"><p>下面的示例演示如何把 GitHub 用作 OAuth 提供方。</p></div><div class="en"><p>The following example demonstrates how to use GitHub as an OAuth provider.</p></div></div>
+<div class="pair"><div class="zh"><h4>第 1 步 —— 创建新的 MCP 服务器</h4></div><div class="en"><h4>Step 1 — Create a new MCP server</h4></div></div>
+<div class="pair"><div class="zh"><p>运行以下命令，创建一个使用 GitHub OAuth 的 MCP 服务器：</p></div><div class="en"><p>Run the following command to create a new MCP server with GitHub OAuth:</p></div></div>
+<div class="pair"><div class="zh"><p>npmyarnpnpm</p></div><div class="en"><p>npmyarnpnpm</p></div></div>
+<div class="pair code"><pre><code>npm create cloudflare@latest -- my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth</code></pre></div>
+<div class="pair code"><pre><code>yarn create cloudflare my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth</code></pre></div>
+<div class="pair code"><pre><code>pnpm create cloudflare@latest my-mcp-server-github-auth --template=cloudflare/ai/demos/remote-mcp-github-oauth</code></pre></div>
+<div class="pair"><div class="zh"><p>现在 MCP 服务器已经搭好，依赖也已安装。进入该项目文件夹：</p></div><div class="en"><p>Now, you have the MCP server setup, with dependencies installed. Move into that project folder:</p></div></div>
+<div class="pair code"><pre><code class="language-sh">cd my-mcp-server-github-auth</code></pre></div>
+<div class="pair"><div class="zh"><p>你会注意到，在这个示例 MCP 服务器中，如果打开 <code>src/index.ts</code>，最主要的区别是 <code>defaultHandler</code> 被设置为 <code>GitHubHandler</code>：</p></div><div class="en"><p>You'll notice that in the example MCP server, if you open <code>src/index.ts</code>, the primary difference is that the <code>defaultHandler</code> is set to the <code>GitHubHandler</code>:</p></div></div>
+<div class="pair code"><pre><code class="language-ts">import GitHubHandler from &quot;./github-handler&quot;;
+
+export default new OAuthProvider({
+	apiRoute: &quot;/mcp&quot;,
+	apiHandler: MyMCP.serve(&quot;/mcp&quot;),
+	defaultHandler: GitHubHandler,
+	authorizeEndpoint: &quot;/authorize&quot;,
+	tokenEndpoint: &quot;/token&quot;,
+	clientRegistrationEndpoint: &quot;/register&quot;,
+});</code></pre></div>
+<div class="pair"><div class="zh"><p>这确保你的用户会被重定向到 GitHub 完成认证。不过要让它跑起来，你还需要按下面的步骤创建 OAuth 客户端应用。</p></div><div class="en"><p>This ensures that your users are redirected to GitHub to authenticate. To get this working though, you need to create OAuth client apps in the steps below.</p></div></div>
+<div class="pair"><div class="zh"><h4>第 2 步 —— 创建一个 OAuth 应用</h4></div><div class="en"><h4>Step 2 — Create an OAuth App</h4></div></div>
+<div class="pair"><div class="zh"><p>你需要创建两个 <a href="https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app" target="_blank" rel="noopener">GitHub OAuth 应用 ↗</a>，才能把 GitHub 用作 MCP 服务器的认证提供方 —— 一个用于本地开发，一个用于生产环境。</p></div><div class="en"><p>You'll need to create two <a href="https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app" target="_blank" rel="noopener">GitHub OAuth Apps ↗</a> to use GitHub as an authentication provider for your MCP server — one for local development, and one for production.</p></div></div>
+<div class="pair"><div class="zh"><h4>第 2.1 步 —— 为本地开发创建一个新的 OAuth 应用</h4></div><div class="en"><h4>Step 2.1 — Create a new OAuth App for local development</h4></div></div>
+<div class="pair"><div class="zh"><ol><li>前往 <a href="https://github.com/settings/developers" target="_blank" rel="noopener">github.com/settings/developers ↗</a>，用以下设置创建一个新的 OAuth 应用：</li><li><strong>应用名称</strong>：<code>My MCP Server (local)</code></li><li><strong>主页 URL</strong>：<code>http://localhost:8788</code></li><li><strong>授权回调 URL</strong>：<code>http://localhost:8788/callback</code></li><li>对你刚创建的 OAuth 应用，把该应用的客户端 ID 添加为 <code>GITHUB_CLIENT_ID</code>，并生成客户端密钥，把它作为 <code>GITHUB_CLIENT_SECRET</code> 添加到项目根目录的 <code>.env</code> 文件中；该文件<a href="https://developers.cloudflare.com/workers/configuration/secrets/" target="_blank" rel="noopener">会用于在本地开发中设置密钥</a>。</li></ol></div><div class="en"><ol><li>Navigate to <a href="https://github.com/settings/developers" target="_blank" rel="noopener">github.com/settings/developers ↗</a> to create a new OAuth App with the following settings:</li><li><strong>Application name</strong>: <code>My MCP Server (local)</code></li><li><strong>Homepage URL</strong>: <code>http://localhost:8788</code></li><li><strong>Authorization callback URL</strong>: <code>http://localhost:8788/callback</code></li><li>For the OAuth app you just created, add the client ID of the OAuth app as <code>GITHUB_CLIENT_ID</code> and generate a client secret, adding it as <code>GITHUB_CLIENT_SECRET</code> to a <code>.env</code> file in the root of your project, which <a href="https://developers.cloudflare.com/workers/configuration/secrets/" target="_blank" rel="noopener">will be used to set secrets in local development</a>.</li></ol></div></div>
+<div class="pair code"><pre><code class="language-sh">   touch .env
+   echo &#x27;GITHUB_CLIENT_ID=&quot;your-client-id&quot;&#x27; &gt;&gt; .env
+   echo &#x27;GITHUB_CLIENT_SECRET=&quot;your-client-secret&quot;&#x27; &gt;&gt; .env
+   cat .env</code></pre></div>
+<div class="pair"><div class="zh"><ol><li>运行以下命令启动开发服务器：</li></ol></div><div class="en"><ol><li>Run the following command to start the development server:</li></ol></div></div>
+<div class="pair code"><pre><code class="language-sh">   npm start</code></pre></div>
+<div class="pair"><div class="zh"><p>你的 MCP 服务器现在运行在 <code>http://localhost:8788/mcp</code>。</p></div><div class="en"><p>Your MCP server is now running on <code>http://localhost:8788/mcp</code>.</p></div></div>
+<div class="pair"><div class="zh"><ol><li>在一个新终端中运行 <a href="https://github.com/modelcontextprotocol/inspector" target="_blank" rel="noopener">MCP inspector ↗</a>。MCP inspector 是一个交互式 MCP 客户端，让你可以从 Web 浏览器连接自己的 MCP 服务器并调用工具。</li></ol></div><div class="en"><ol><li>In a new terminal, run the <a href="https://github.com/modelcontextprotocol/inspector" target="_blank" rel="noopener">MCP inspector ↗</a>. The MCP inspector is an interactive MCP client that allows you to connect to your MCP server and invoke tools from a web browser.</li></ol></div></div>
+<div class="pair code"><pre><code class="language-sh">   npx @modelcontextprotocol/inspector@latest</code></pre></div>
+<div class="pair"><div class="zh"><ol><li>在 Web 浏览器中打开 MCP inspector：</li></ol></div><div class="en"><ol><li>Open the MCP inspector in your web browser:</li></ol></div></div>
+<div class="pair code"><pre><code class="language-sh">   open http://localhost:5173</code></pre></div>
+<div class="pair"><div class="zh"><ol><li>在 inspector 中输入你的 MCP 服务器 URL，即 <code>http://localhost:8788/mcp</code></li><li>在右侧主面板中，点击 <strong>OAuth Settings</strong> 按钮，然后点击 <strong>Quick OAuth Flow</strong>。</li></ol></div><div class="en"><ol><li>In the inspector, enter the URL of your MCP server, <code>http://localhost:8788/mcp</code></li><li>In the main panel on the right, click the <strong>OAuth Settings</strong> button and then click <strong>Quick OAuth Flow</strong>.</li></ol></div></div>
+<div class="pair"><div class="zh"><p>你应当会被重定向到 GitHub 的登录或授权页面。在授权 MCP 客户端（即 inspector）访问你的 GitHub 账户后，你会被重定向回 inspector。</p></div><div class="en"><p>You should be redirected to a GitHub login or authorization page. After authorizing the MCP Client (the inspector) access to your GitHub account, you will be redirected back to the inspector.</p></div></div>
+<div class="pair"><div class="zh"><ol><li>点击侧边栏中的 <strong>Connect</strong>，你应该会看到 "List Tools" 按钮，它会列出你的 MCP 服务器暴露的工具。</li></ol></div><div class="en"><ol><li>Click <strong>Connect</strong> in the sidebar and you should see the "List Tools" button, which will list the tools that your MCP server exposes.</li></ol></div></div>
+<div class="pair"><div class="zh"><h4>第 2.2 步 —— 为生产环境创建一个新的 OAuth 应用</h4></div><div class="en"><h4>Step 2.2 — Create a new OAuth App for production</h4></div></div>
+<div class="pair"><div class="zh"><p>你需要重复<a href="#step-21--create-a-new-oauth-app-for-local-development" target="_blank" rel="noopener">第 2.1 步</a>来创建一个用于生产环境的 OAuth 应用。</p></div><div class="en"><p>You'll need to repeat <a href="#step-21--create-a-new-oauth-app-for-local-development" target="_blank" rel="noopener">Step 2.1</a> to create a new OAuth App for production.</p></div></div>
+<div class="pair"><div class="zh"><ol><li>前往 <a href="https://github.com/settings/developers" target="_blank" rel="noopener">github.com/settings/developers ↗</a>，用以下设置创建一个新的 OAuth 应用：</li></ol></div><div class="en"><ol><li>Navigate to <a href="https://github.com/settings/developers" target="_blank" rel="noopener">github.com/settings/developers ↗</a> to create a new OAuth App with the following settings:</li></ol></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>应用名称</strong>：<code>My MCP Server (production)</code></li><li><strong>主页 URL</strong>：填入已部署 MCP 服务器的 workers.dev URL（例如 <code>worker-name.account-name.workers.dev</code>）</li><li><strong>授权回调 URL</strong>：填入已部署 MCP 服务器的 workers.dev URL 的 <code>/callback</code> 路径（例如 <code>worker-name.account-name.workers.dev/callback</code>）</li></ul></div><div class="en"><ul><li><strong>Application name</strong>: <code>My MCP Server (production)</code></li><li><strong>Homepage URL</strong>: Enter the workers.dev URL of your deployed MCP server (ex: <code>worker-name.account-name.workers.dev</code>)</li><li><strong>Authorization callback URL</strong>: Enter the <code>/callback</code> path of the workers.dev URL of your deployed MCP server (ex: <code>worker-name.account-name.workers.dev/callback</code>)</li></ul></div></div>
+<div class="pair"><div class="zh"><ol><li>对你刚创建的 OAuth 应用，用 Wrangler CLI 添加客户端 ID 与客户端密钥：</li></ol></div><div class="en"><ol><li>For the OAuth app you just created, add the client ID and client secret, using Wrangler CLI:</li></ol></div></div>
+<div class="pair code"><pre><code class="language-sh">npx wrangler secret put GITHUB_CLIENT_ID</code></pre></div>
+<div class="pair code"><pre><code class="language-sh">npx wrangler secret put GITHUB_CLIENT_SECRET</code></pre></div>
+<div class="pair code"><pre><code class="language-sh">npx wrangler secret put COOKIE_ENCRYPTION_KEY</code></pre></div>
+<div class="pair"><div class="zh"><p><code>COOKIE_ENCRYPTION_KEY</code> 可用任意随机字符串，例如 <code>openssl rand -hex 32</code> 的输出。</p></div><div class="en"><p>Use any random string for <code>COOKIE_ENCRYPTION_KEY</code>, for example the output of <code>openssl rand -hex 32</code>.</p></div></div>
+<div class="pair"><div class="zh"><p>注意</p></div><div class="en"><p>Caution</p></div></div>
+<div class="pair"><div class="zh"><p>创建第一个密钥时，Wrangler 会询问你是否要新建一个 Worker。提交 "Y" 以新建 Worker 并保存该密钥。</p></div><div class="en"><p>When you create the first secret, Wrangler will ask if you want to create a new Worker. Submit "Y" to create a new Worker and save the secret.</p></div></div>
+<div class="pair"><div class="zh"><ol><li>设置 KV 命名空间</li></ol></div><div class="en"><ol><li>Set up a KV namespace</li></ol></div></div>
+<div class="pair"><div class="zh"><p>a. 创建 KV 命名空间：</p></div><div class="en"><p>a. Create the KV namespace:</p></div></div>
+<div class="pair code"><pre><code class="language-bash">   npx wrangler kv namespace create &quot;OAUTH_KV&quot;</code></pre></div>
+<div class="pair"><div class="zh"><p>b. 用得到的 KV ID 更新 <code>wrangler.jsonc</code> 文件：</p></div><div class="en"><p>b. Update the <code>wrangler.jsonc</code> file with the resulting KV ID:</p></div></div>
+<div class="pair code"><pre><code class="language-json">   {
+   	&quot;kvNamespaces&quot;: [
+   		{
+   			&quot;binding&quot;: &quot;OAUTH_KV&quot;,
+   			&quot;id&quot;: &quot;&lt;YOUR_KV_NAMESPACE_ID&gt;&quot;
+   		}
+   	]
+   }</code></pre></div>
+<div class="pair"><div class="zh"><ol><li>把 MCP 服务器部署到你的 Cloudflare <code>workers.dev</code> 域：</li></ol></div><div class="en"><ol><li>Deploy the MCP server to your Cloudflare <code>workers.dev</code> domain:</li></ol></div></div>
+<div class="pair code"><pre><code class="language-bash">   npm run deploy</code></pre></div>
+<div class="pair"><div class="zh"><ol><li>用 <a href="https://playground.ai.cloudflare.com/" target="_blank" rel="noopener">AI Playground ↗</a>、MCP Inspector 或<a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/" target="_blank" rel="noopener">其他 MCP 客户端</a>连接运行在 <code>worker-name.account-name.workers.dev/mcp</code> 的服务器，并用 GitHub 完成认证。</li></ol></div><div class="en"><ol><li>Connect to your server running at <code>worker-name.account-name.workers.dev/mcp</code> using the <a href="https://playground.ai.cloudflare.com/" target="_blank" rel="noopener">AI Playground ↗</a>, MCP Inspector, or <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/" target="_blank" rel="noopener">other MCP clients</a>, and authenticate with GitHub.</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>后续步骤</h2></div><div class="en"><h2>Next steps</h2></div></div>
+<div class="pair"><div class="zh"><h3><a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/tools/" target="_blank" rel="noopener">MCP 工具</a></h3></div><div class="en"><h3><a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/tools/" target="_blank" rel="noopener">MCP Tools</a></h3></div></div>
+<div class="pair"><div class="zh"><p>为你的 MCP 服务器添加工具。</p></div><div class="en"><p>Add tools to your MCP server.</p></div></div>
+<div class="pair"><div class="zh"><h3><a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/" target="_blank" rel="noopener">授权</a></h3></div><div class="en"><h3><a href="https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/" target="_blank" rel="noopener">Authorization</a></h3></div></div>
+<div class="pair"><div class="zh"><p>自定义认证与授权。</p></div><div class="en"><p>Customize authentication and authorization.</p></div></div>
+<div class="pair"><div class="zh"><p>这个页面有帮助吗？</p></div><div class="en"><p>Was this helpful?</p></div></div>
+<div class="pair"><div class="zh"><p>YesNo</p></div><div class="en"><p>YesNo</p></div></div>
+<div class="pair"><div class="zh"><h2>本页内容</h2></div><div class="en"><h2>On this page</h2></div></div>
+<div class="pair"><div class="zh"><p><a href="https://developers.cloudflare.com/" target="_blank" rel="noopener"><img src="https://developers.cloudflare.com/_astro/logo.te5VL_aD.svg" alt="">文档</a></p></div><div class="en"><p><a href="https://developers.cloudflare.com/" target="_blank" rel="noopener"><img src="https://developers.cloudflare.com/_astro/logo.te5VL_aD.svg" alt="">Docs</a></p></div></div>
+<div class="pair code"><pre><code class="language-json">{&quot;@context&quot;:&quot;https://schema.org&quot;,&quot;@type&quot;:&quot;TechArticle&quot;,&quot;@id&quot;:&quot;https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#page&quot;,&quot;headline&quot;:&quot;Build a Remote MCP server&quot;,&quot;description&quot;:&quot;Deploy a remote MCP server on Cloudflare with optional authentication using Streamable HTTP transport.&quot;,&quot;url&quot;:&quot;https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/&quot;,&quot;inLanguage&quot;:&quot;en&quot;,&quot;image&quot;:&quot;https://developers.cloudflare.com/og-docs.png&quot;,&quot;dateModified&quot;:&quot;2026-07-27&quot;,&quot;publisher&quot;:{&quot;@type&quot;:&quot;Organization&quot;,&quot;name&quot;:&quot;Cloudflare&quot;,&quot;description&quot;:&quot;One platform for your apps, agents, and workforce. Build, secure, and scale without managing infrastructure&quot;,&quot;url&quot;:&quot;https://www.cloudflare.com/&quot;,&quot;sameAs&quot;:[&quot;https://github.com/cloudflare&quot;,&quot;https://www.linkedin.com/company/cloudflare&quot;,&quot;https://x.com/cloudflare&quot;],&quot;logo&quot;:{&quot;@type&quot;:&quot;ImageObject&quot;,&quot;url&quot;:&quot;https://developers.cloudflare.com/logo.svg&quot;},&quot;address&quot;:{&quot;@type&quot;:&quot;PostalAddress&quot;,&quot;streetAddress&quot;:&quot;101 Townsend St&quot;,&quot;addressLocality&quot;:&quot;San Francisco&quot;,&quot;addressRegion&quot;:&quot;CA&quot;,&quot;postalCode&quot;:&quot;94107&quot;,&quot;addressCountry&quot;:&quot;US&quot;},&quot;contactPoint&quot;:[{&quot;@type&quot;:&quot;ContactPoint&quot;,&quot;contactType&quot;:&quot;Customer Support&quot;,&quot;url&quot;:&quot;https://support.cloudflare.com/&quot;,&quot;availableLanguage&quot;:[&quot;English&quot;]},{&quot;@type&quot;:&quot;ContactPoint&quot;,&quot;contactType&quot;:&quot;Sales&quot;,&quot;url&quot;:&quot;https://www.cloudflare.com/contact/&quot;,&quot;availableLanguage&quot;:[&quot;English&quot;]}]},&quot;isPartOf&quot;:{&quot;@type&quot;:&quot;WebSite&quot;,&quot;@id&quot;:&quot;https://developers.cloudflare.com/#website&quot;,&quot;name&quot;:&quot;Cloudflare Docs&quot;,&quot;url&quot;:&quot;https://developers.cloudflare.com/&quot;},&quot;keywords&quot;:[&quot;MCP&quot;]}</code></pre></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

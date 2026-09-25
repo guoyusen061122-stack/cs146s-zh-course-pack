@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Silas Alberti, Head of Research Cognition（fall2025 W3）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Silas Alberti, Head of Research Cognition（fall2025 W3）</h1><div class="meta"><span class="badge">课程讲义</span>fall2025 ｜ 原文 3,685 字符 ｜ 70 个内容块 ｜ <a href="https://docs.google.com/presentation/d/1i0pRttHf72lgz8C-n7DSegcLBgncYZe_ppU7dB9zhUA/edit?usp=sharing" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>Silas Alberti，Cognition 研究负责人（fall2025 W3）</h1></div><div class="en"><h1>Silas Alberti, Head of Research Cognition（fall2025 W3）</h1></div></div>
+<div class="pair"><div class="zh"><h2>Slide 1</h2></div><div class="en"><h2>Slide 1</h2></div></div>
+<div class="pair"><div class="zh"><p>IDE ❤ Agents 2025 年 AI 编码的一份有主见指南 CS146S：The Modern Software Developer – Oct 10, 2025</p></div><div class="en"><p>IDE ❤ Agents An opinionated guide to AI coding in 2025 CS146S: The Modern Software Developer – Oct 10, 2025</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 2</h2></div><div class="en"><h2>Slide 2</h2></div></div>
+<div class="pair"><div class="zh"><p>Silas Alberti Founding Team @ Cognition 此前：Stanford 博士生</p></div><div class="en"><p>Silas Alberti Founding Team @ Cognition Prev: Stanford PhD Student</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 3</h2></div><div class="en"><h2>Slide 3</h2></div></div>
+<div class="pair"><div class="zh"><p>议程 1. AI 工具版图概览 2. 同步工具与异步工具 3. 2025 年的编码工作流</p></div><div class="en"><p>Agenda 1. Overview of the AI tooling landscape 2. Synchronous vs. asynchronous tools 3. The 2025 coding workflow</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>什么时候该从同步交接给异步？</p></div><div class="en"><p>When to hand-off from sync to async?</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>如何组合 Devin 与 Windsurf 这类工具 4. 我们要走向哪里？</p></div><div class="en"><p>How to combine tools like Devin &amp; Windsurf 4. Where are we headed?</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 4</h2></div><div class="en"><h2>Slide 4</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 编码工具的三个时代 本地开发 ⇒ 云端协作智能体 GitHub Copilot：加速编码 代码补全 1 AI IDE：单人任务完成 IDE 自动化 2 Image 2 AI 智能体：并行扩展工作流 AI 软件工程师 3 概览</p></div><div class="en"><p>Three Eras of AI Coding Tools Local Development ⇒ Collaborative Cloud Agents GitHub Copilot: speed up coding Code Completion 1 AI IDEs: single-player task completion IDE Automation 2 Image 2 AI agents: scale workﬂows in parallel AI Software Engineer 3 Overview</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 5</h2></div><div class="en"><h2>Slide 5</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 编码工具的三个时代 本地开发 ⇒ 云端协作智能体 GitHub Copilot：加速编码 代码补全 1 AI IDE：单人任务完成 IDE 自动化 2 Image 2 AI 智能体：并行扩展工作流 AI 软件工程师 3 概览 约 10% 效率提升 约 20% 效率提升 6-12 倍效率提升 本地、同步 云端、异步</p></div><div class="en"><p>Three Eras of AI Coding Tools Local Development ⇒ Collaborative Cloud Agents GitHub Copilot: speed up coding Code Completion 1 AI IDEs: single-player task completion IDE Automation 2 Image 2 AI agents: scale workﬂows in parallel AI Software Engineer 3 Overview ~10% efﬁciency gain ~20% efﬁciency gain 6-12x efﬁciency gain Local, Synchronous Cloud, Asynchronous</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 6</h2></div><div class="en"><h2>Slide 6</h2></div></div>
+<div class="pair"><div class="zh"><p>同步与异步 sync： 单线程，人在回路，你的注意力集中在一个任务上 =&gt; AI 智能体工作 20 秒 - 1.5 分钟</p></div><div class="en"><p>Synchronous vs. Asynchronous sync: single-threaded, human-in-the-loop, your attention is focused on one task =&gt; AI agent works for 20 seconds - 1.5 minutes</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 7</h2></div><div class="en"><h2>Slide 7</h2></div></div>
+<div class="pair"><div class="zh"><p>同步与异步 sync： 单线程，人在回路，你的注意力集中在一个任务上 =&gt; AI 智能体工作 20 秒 - 1.5 分钟 async： 多线程，人把任务委派给 AI，在多个任务之间切换注意力 =&gt; AI 智能体工作 10 分钟 - 数小时</p></div><div class="en"><p>Synchronous vs. Asynchronous sync: single-threaded, human-in-the-loop, your attention is focused on one task =&gt; AI agent works for 20 seconds - 1.5 minutes async: multi-threaded, human delegates to AI, switches attention between multiple tasks =&gt; AI agent works for 10 minutes - multiple hours</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 8</h2></div><div class="en"><h2>Slide 8</h2></div></div>
+<div class="pair"><div class="zh"><p>本地 云端 同步 异步</p></div><div class="en"><p>Local Cloud Sync Async</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 9</h2></div><div class="en"><h2>Slide 9</h2></div></div>
+<div class="pair"><div class="zh"><p>本地 云端 同步 异步</p></div><div class="en"><p>Local Cloud Sync Async</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 10</h2></div><div class="en"><h2>Slide 10</h2></div></div>
+<div class="pair"><div class="zh"><p>本地 云端 同步 异步</p></div><div class="en"><p>Local Cloud Sync Async</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 11</h2></div><div class="en"><h2>Slide 11</h2></div></div>
+<div class="pair"><div class="zh"><p>本地 云端 同步 异步 DeepWiki</p></div><div class="en"><p>Local Cloud Sync Async DeepWiki</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 12</h2></div><div class="en"><h2>Slide 12</h2></div></div>
+<div class="pair"><div class="zh"><p>概览 云端 + 异步带来 10 倍并行度 提升个体速度。 本地 IDE 本地 IDE 本地 IDE 用户 笔记本电脑 环境 用户 Devins 环境 VPC 内 本地 AI IDE 无限个 Devin 提供并行容量 。 云端 AI 智能体 本地 • 同步 • 一对一 • 孤立知识 云端 • 异步 • 一对多 • 组织知识</p></div><div class="en"><p>Overview Cloud + Async enables 10x parallelism Boost individual speed. Local IDE Local IDE Local IDE Users Laptops Env Users Devins Env In VPC Local AI IDEs Unlimited Devins for parallel capacity . Cloud AI Agents Local • Synchronous • 1-to-1 • Isolated Knowledge Cloud • Asynchronous • 1-to-Many • Organizational Knowledge</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 13</h2></div><div class="en"><h2>Slide 13</h2></div></div>
+<div class="pair"><div class="zh"><p>使用异步智能体是一门难但可学的技能 管理异步智能体可以释放 10 倍收益…… ……但大多数人用的是同步智能体。</p></div><div class="en"><p>Using async agents is a hard but learnable skill Managing async agents can unlock 10x gains… …but most people use sync agents.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 14</h2></div><div class="en"><h2>Slide 14</h2></div></div>
+<div class="pair"><div class="zh"><p>使用异步智能体是一门难但可学的技能 管理异步智能体可以释放 10 倍收益…… ……但大多数人用的是同步智能体。 为什么？</p></div><div class="en"><p>Using async agents is a hard but learnable skill Managing async agents can unlock 10x gains… …but most people use sync agents. Why?</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>事实证明，管理委派是一门很难掌握的技能——无论对象是人还是智能体。</p></div><div class="en"><p>Turns out management &amp; delegation is a difficult skill to master – whether it’s humans or agents.</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>需要具备在多个任务之间轮转的能力，并能快速理解新上下文</p></div><div class="en"><p>Requires ability to cycle between multiple tasks and quickly understanding new context</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 15</h2></div><div class="en"><h2>Slide 15</h2></div></div>
+<div class="pair"><div class="zh"><p>半异步：尴尬的中间地带 同步 异步 「半异步」 5s 10s 30s 1m 3m 5m 10m 1h 3h 心流屏障</p></div><div class="en"><p>Semi-Async: The awkward middle Sync Async “Semi-Async” 5s 10s 30s 1m 3m 5m 10m 1h 3h Flow Barrier</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 16</h2></div><div class="en"><h2>Slide 16</h2></div></div>
+<div class="pair"><div class="zh"><p>半异步：尴尬的中间地带 同步 异步 「半异步」 5s 10s 30s 1m 3m 5m 10m 1h 3h 避免！ 慢得无法保持心流。 又短得无法多任务处理。 心流屏障</p></div><div class="en"><p>Semi-Async: The awkward middle Sync Async “Semi-Async” 5s 10s 30s 1m 3m 5m 10m 1h 3h Avoid! Too slow for staying in flow. Too short for multi-tasking. Flow Barrier</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 17</h2></div><div class="en"><h2>Slide 17</h2></div></div>
+<div class="pair"><div class="zh"><p>半异步：尴尬的中间地带 同步 异步 「半异步」 5s 10s 30s 1m 3m 5m 10m 1h 3h 避免！ 慢得无法保持心流。 又短得无法多任务处理。 做得更快以保持心流 用时间换更高的智能 心流屏障</p></div><div class="en"><p>Semi-Async: The awkward middle Sync Async “Semi-Async” 5s 10s 30s 1m 3m 5m 10m 1h 3h Avoid! Too slow for staying in flow. Too short for multi-tasking. Make faster to preserve flow Trade time for higher intelligence Flow Barrier</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 18</h2></div><div class="en"><h2>Slide 18</h2></div></div>
+<div class="pair"><div class="zh"><p>规划 编码 测试</p></div><div class="en"><p>Planning Coding Testing</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 19</h2></div><div class="en"><h2>Slide 19</h2></div></div>
+<div class="pair"><div class="zh"><p>规划 编码 测试 同步 异步 同步</p></div><div class="en"><p>Planning Coding Testing sync async sync</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 20</h2></div><div class="en"><h2>Slide 20</h2></div></div>
+<div class="pair"><div class="zh"><p>用 Windsurf 与 Devin 做规划 1. DeepWiki 2. Ask Devin 3. Codemaps 4. Windsurf 中的 DeepWiki</p></div><div class="en"><p>Planning with Windsurf &amp; Devin 1. DeepWiki 2. Ask Devin 3. Codemaps 4. DeepWiki in Windsurf</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 21</h2></div><div class="en"><h2>Slide 21</h2></div></div>
+<div class="pair"><div class="zh"><p>把编码委派给智能体</p></div><div class="en"><p>Delegate the coding to the agent</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 22</h2></div><div class="en"><h2>Slide 22</h2></div></div>
+<div class="pair"><div class="zh"><p>把编码委派给智能体</p></div><div class="en"><p>Delegate the coding to the agent</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 23</h2></div><div class="en"><h2>Slide 23</h2></div></div>
+<div class="pair"><div class="zh"><p>测试智能体的改动 常见工作流：</p></div><div class="en"><p>Testing the agent’s changes Common workflow:</p></div></div>
+<div class="pair"><div class="zh"><ol><li>把任务委派给 Devin（异步）</li><li>在 Windsurf 中测试并打磨改动（同步）</li></ol></div><div class="en"><ol><li>Delegate task to Devin (async)</li><li>Test &amp; refine changes in Windsurf (sync)</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>Slide 24</h2></div><div class="en"><h2>Slide 24</h2></div></div>
+<div class="pair"><div class="zh"><p>测试智能体的改动 常见工作流：</p></div><div class="en"><p>Testing the agent’s changes Common workflow:</p></div></div>
+<div class="pair"><div class="zh"><ol><li>把任务委派给 Devin（异步）</li><li>在 Windsurf 中测试并打磨改动（同步）</li></ol></div><div class="en"><ol><li>Delegate task to Devin (async)</li><li>Test &amp; refine changes in Windsurf (sync)</li></ol></div></div>
+<div class="pair"><div class="zh"><p>未来展望： 如果异步智能体能自主测试，杠杆会更大。 这正在慢慢变成现实。</p></div><div class="en"><p>Future outlook: If async agents could test autonomously, the leverage increases. This is slowly starting to become a reality.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 25</h2></div><div class="en"><h2>Slide 25</h2></div></div>
+<div class="pair"><div class="zh"><p>规划 编码 测试 我们要走向哪里？ 今天：</p></div><div class="en"><p>Planning Coding Testing Where are we headed? Today:</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 26</h2></div><div class="en"><h2>Slide 26</h2></div></div>
+<div class="pair"><div class="zh"><p>规划 编码 测试 我们要走向哪里？ 规划 编码 测试 今天： 未来：</p></div><div class="en"><p>Planning Coding Testing Where are we headed? Planning Coding Testing Today: Future:</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 27</h2></div><div class="en"><h2>Slide 27</h2></div></div>
+<div class="pair"><div class="zh"><p>我们要走向哪里？ 1. 人类工程师作为智能体管理者 a. 利用同步工具解决最难的问题 b. 利用异步工具获得 10 倍杠杆</p></div><div class="en"><p>Where are we headed? 1. The human engineer as the agent manager a. Leveraging sync tools to solve the most difficult problems b. Leveraging async tools to achieve 10x leverage</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 28</h2></div><div class="en"><h2>Slide 28</h2></div></div>
+<div class="pair"><div class="zh"><p>我们要走向哪里？ 1. 人类工程师作为智能体管理者 a. 利用同步工具解决最难的问题 b. 利用异步工具获得 10 倍杠杆 2. 面向未来的宝贵技能： a. 委派与多线程 b. 代码阅读 c. 规划、划定范围、架构设计</p></div><div class="en"><p>Where are we headed? 1. The human engineer as the agent manager a. Leveraging sync tools to solve the most difficult problems b. Leveraging async tools to achieve 10x leverage 2. Valuable skills for the future: a. Delegation &amp; multi-threading b. Code reading c. Planning, scoping, architecting</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 29</h2></div><div class="en"><h2>Slide 29</h2></div></div>
+<div class="pair"><div class="zh"><p>谢谢！</p></div><div class="en"><p>Thank you!</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

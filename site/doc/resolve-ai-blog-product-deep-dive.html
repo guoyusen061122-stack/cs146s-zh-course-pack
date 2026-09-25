@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your New Autonomous Teammate</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Your New Autonomous Teammate</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 6,665 字符 ｜ 51 个内容块 ｜ <a href="https://resolve.ai/blog/product-deep-dive" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>你的新自主队友</h1></div><div class="en"><h1>Your New Autonomous Teammate</h1></div></div>
+<div class="pair"><div class="zh"><p>返回</p></div><div class="en"><p>Back</p></div></div>
+<div class="pair"><div class="zh"><p>4 分钟阅读</p></div><div class="en"><p>4 min read</p></div></div>
+<div class="pair"><div class="zh"><h1>AI 生产工程师</h1></div><div class="en"><h1>AI Production Engineer</h1></div></div>
+<div class="pair"><div class="zh"><p>作者</p></div><div class="en"><p>Written by</p></div></div>
+<div class="pair"><div class="zh"><ul><li>Seerut Sidhu 产品经理</li></ul></div><div class="en"><ul><li>Seerut SidhuProduct Manager</li></ul></div></div>
+<div class="pair"><div class="zh"><p>2024 年 9 月 26 日</p></div><div class="en"><p>September 26, 2024</p></div></div>
+<div class="pair"><div class="zh"><h2>Resolve AI 产品深入剖析：你的新自主队友</h2></div><div class="en"><h2>Resolve AI Product Deep Dive: Your New Autonomous Teammate</h2></div></div>
+<div class="pair"><div class="zh"><p>工程师常常被事故响应这类运维工作拖住，留给最热爱的事情——写代码和构建新东西——的时间少得可怜。值班尤其消耗精力，它不断打断工作节奏，给一天增添压力。因此我们非常兴奋地推出第一款产品 <a href="https://resolve.ai/product/overview" target="_blank" rel="noopener"><strong>AI 生产工程师</strong></a>——一位不知疲倦的自主队友，专为处理告警、执行<a href="https://resolve.ai/glossary/what-is-root-cause-analysis" target="_blank" rel="noopener">根因分析</a>、解决事故而设计，让值班不再有压力。</p></div><div class="en"><p>Engineers often find themselves bogged down with operational tasks like incident response, leaving little time for what they love most – coding and building new things. On-call duties are particularly draining, constantly interrupting workflows and adding stress to the day. That’s why we’re thrilled to introduce our first product, <a href="https://resolve.ai/product/overview" target="_blank" rel="noopener"><strong>AI Production Engineer</strong></a> – a tireless, autonomous teammate designed to handle alerts, perform <a href="https://resolve.ai/glossary/what-is-root-cause-analysis" target="_blank" rel="noopener">root cause analysis</a>, resolve incidents, and make on-call stress-free.</p></div></div>
+<div class="pair"><div class="zh"><p>生产事故是高风险事件。它们会破坏客户体验、影响营收，甚至让公司的声誉面临风险。这类问题本身不可预测，加上可见性有限、跨团队协调困难，处理起来令人疲惫，而且往往导致职业倦怠。但事情不必如此。</p></div><div class="en"><p>Production incidents are high-stakes events. They can disrupt customer experiences, affect revenue, and even put your company’s reputation at risk. The unpredictability of these issues, combined with limited visibility and the challenge of coordinating across teams, makes them exhausting to deal with – and often leads to burnout. But it doesn’t have to be this way.</p></div></div>
+<div class="pair"><div class="zh"><h3>认识你的新值班队友</h3></div><div class="en"><h3>Meet Your New On-Call Teammate</h3></div></div>
+<div class="pair"><div class="zh"><p>Resolve AI 构建了一个面向生产工程的基础性 AI 平台，彻底改变了事故调查与解决的方式。这让工程师可以专注于自己最擅长的事——创新并塑造未来。Resolve AI 理解你的<a href="https://resolve.ai/glossary/what-are-production-systems-in-software-engineering" target="_blank" rel="noopener">生产系统</a>和工具，响应告警，与你协作，并通过指出问题所在、如何修复以及生成自动化的事后复盘来为你节省时间。</p></div><div class="en"><p>Resolve AI has built a foundational AI platform for production engineering that transforms incident investigation and resolution. This allows engineers to stay focused on what they do best – innovating and shaping the future. Resolve AI understands your <a href="https://resolve.ai/glossary/what-are-production-systems-in-software-engineering" target="_blank" rel="noopener">production systems</a> and tools, responds to alerts, collaborates with you, and saves you time by identifying what’s wrong, how to fix it, and building an automated post-incident review.</p></div></div>
+<div class="pair"><div class="zh"><h3>以光速理解你的系统与工具</h3></div><div class="en"><h3>Understands Your Systems and Tools at Light-speed</h3></div></div>
+<div class="pair"><div class="zh"><p>上手 Resolve AI 很快。它能无缝连接你的全部基础设施——小到单个 pod，也连接你的各种工具，从 Grafana、Datadog 等可观测性平台，到 Jenkins 这类 <a href="https://resolve.ai/glossary/what-is-the-future-of-CI_CD" target="_blank" rel="noopener">CI/CD 流水线</a>，以及 GitHub 中的代码库。</p></div><div class="en"><p>Getting started with Resolve AI is quick. It seamlessly connects with all your infrastructure – right down to individual pods, and to your tools from observability platforms like Grafana and Datadog, to <a href="https://resolve.ai/glossary/what-is-the-future-of-CI_CD" target="_blank" rel="noopener">CI/CD pipelines</a> like Jenkins and codebase in GitHub.</p></div></div>
+<div class="pair"><div class="zh"><p>从你集成 Resolve AI 的那一刻起，它就开始全面绘制你的环境，并构建整个系统与工具的动态知识图谱，在出现新部署、系统事件、配置变更或代码变更时实时持续更新。这种深入且实时的理解，让 Resolve AI 能迅速遍历所有依赖、pod 和部署，并在你最需要的时候准确响应。</p></div><div class="en"><p>From the moment you integrate Resolve AI, it begins comprehensively mapping your environment and constructs a dynamic knowledge graph of your entire system and tools, continuously updating it in real-time as new deployments, system events, configuration changes, or code changes occur. This deep, up-to-the-minute understanding empowers Resolve AI to traverse all dependencies, pods, and deployments swiftly, and it responds accurately whenever you need it most.</p></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2Fknowledge_graph_checkout_eeaa4c66b0.png&amp;amp;w=3840&amp;amp;q=75" alt="knowledge-graph"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2Fknowledge_graph_checkout_eeaa4c66b0.png&amp;amp;w=3840&amp;amp;q=75" alt="knowledge-graph"></p></div></div>
+<div class="pair"><div class="zh"><h3>在你登录之前就响应告警</h3></div><div class="en"><h3>Responds to Alerts Before You Log In</h3></div></div>
+<div class="pair"><div class="zh"><p>告警触发时，Resolve AI 立即行动。它与值班工程师一样，马上开始检查所有相关数据展开调查。它自主创建并执行一组即时生成的运维手册，查看指标、仪表板、代码变更、部署和日志。</p></div><div class="en"><p>When an alert is triggered, Resolve AI springs into action. Like an on-call engineer, it immediately begins investigating by examining all the relevant data. It autonomously creates and executes a set of just-in-time runbooks, reviewing metrics, dashboards, code changes, deployments, and logs.</p></div></div>
+<div class="pair"><div class="zh"><p>不到一分钟，Resolve AI 就已经确定了根因推测，并给出修复步骤。你能清楚地抢占先机，而不必经历通常的混乱。</p></div><div class="en"><p>In less than a minute, Resolve AI has already pinpointed a root cause theory and suggested steps to fix it. You get a clear head start, without the usual chaos.</p></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2Fslack_integration_ee0d48e63b.gif&amp;amp;w=3840&amp;amp;q=75" alt="resolve-ai-slack-integration"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2Fslack_integration_ee0d48e63b.gif&amp;amp;w=3840&amp;amp;q=75" alt="resolve-ai-slack-integration"></p></div></div>
+<div class="pair"><div class="zh"><blockquote>*“Resolve AI 是我调查生产问题的首选。<br>它会提前分析好一切，这样我马上就能着手解决问题，不必在许多工具里翻日志或仪表板。”*<br>-Mike Yacoub，Datastax 生产工程师</blockquote></div><div class="en"><blockquote>*“Resolve AI is my go-to for investigating production issues. <br> It analyzes everything upfront, so I can start solving the problem right away without digging through logs or dashboards across many tools.”* <br> -Mike Yacoub, Production Engineer, Datastax</blockquote></div></div>
+<div class="pair"><div class="zh"><h3>告诉你哪里出了问题以及如何修复</h3></div><div class="en"><h3>Tells You What’s Wrong and How to Fix It</h3></div></div>
+<div class="pair"><div class="zh"><p>Resolve AI 会对整个事件做全面分析，追踪每一处变更和系统行为，从而定位根因。它能智能地解读仪表板、查看日志并检测异常。无论是配置错误、代码变更、下游服务问题，还是部署问题，Resolve AI 都能精准识别。</p></div><div class="en"><p>Resolve AI conducts a comprehensive analysis of the entire event, tracking every change and system behavior to pinpoint the root cause. It can intelligently interpret dashboards, review logs, and detect anomalies. Whether it's a configuration error, code change, downstream service issue, or deployment problem, Resolve AI identifies it all with precision.</p></div></div>
+<div class="pair"><div class="zh"><p>它会形成推测，解释自己是如何得出该推测的，并给出可操作的解决步骤。它在每一步都运用类似人类的复杂逻辑、判断与推理。不必再靠猜，也不必再在工具里翻找几个小时。</p></div><div class="en"><p>It develops a theory, explains how it arrived there, and provides actionable steps to resolve it. It applies complex human-like logic, judgment and reasoning at every step of the way. No more guessing games or digging through tools for hours.</p></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2Falert_short_rounded_6fbc9bc950.gif&amp;amp;w=3840&amp;amp;q=75" alt="alert-short-rounded.gif"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2Falert_short_rounded_6fbc9bc950.gif&amp;amp;w=3840&amp;amp;q=75" alt="alert-short-rounded.gif"></p></div></div>
+<div class="pair"><div class="zh"><h3>与它协作、给它指导，或让 Resolve AI 接手</h3></div><div class="en"><h3>Collaborate, Guide, or Let Resolve AI Take the Wheel</h3></div></div>
+<div class="pair"><div class="zh"><p>你可以把 Resolve AI 当作队友一样配合。向它提问、探索其他推测，甚至让它执行操作，例如回滚到上一次部署或重启 pod。你还可以在 Slack 里用 @mention 或通过 Resolve AI UI 把它拉进你们的对话。</p></div><div class="en"><p>You can work with Resolve AI as if it were a teammate. Ask it questions, explore other theories, or even tell it to take action, like rolling back to the last deployment or restarting a pod. You can even loop it into your conversations with @mentions in Slack or through the Resolve AI UI.</p></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2Fslack_discussion_a575232a8a.svg&amp;amp;w=3840&amp;amp;q=75" alt="slack-discussion"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2Fslack_discussion_a575232a8a.svg&amp;amp;w=3840&amp;amp;q=75" alt="slack-discussion"></p></div></div>
+<div class="pair"><div class="zh"><h3>在事故复盘上为你节省时间</h3></div><div class="en"><h3>Saves You Time on Incident Reviews</h3></div></div>
+<div class="pair"><div class="zh"><p>一旦事故解决，Resolve AI 会整理出一份详细的事后复盘，总结从最初告警到根因以及所采取解决步骤的全部内容。这为你省下数小时的运维时间，并给出一份清晰、简洁的记录，供你学习并在下次改进。</p></div><div class="en"><p>Once the incident is resolved, Resolve AI puts together a detailed post-incident review, summarizing everything from the initial alert to the root cause and the steps taken to resolve it. This saves you hours of operational time and gives you a clear, concise record to learn from and improve for next time.</p></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2Fpost_mortem_small_fa4cf30ee7.svg&amp;amp;w=3840&amp;amp;q=75" alt="post-mortem"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2Fpost_mortem_small_fa4cf30ee7.svg&amp;amp;w=3840&amp;amp;q=75" alt="post-mortem"></p></div></div>
+<div class="pair"><div class="zh"><blockquote><em>“Resolve AI 加快了分诊流程，统一了生产运维，让我们能够更放心地扩展规模、更快交付功能。”</em><br>-Stratos Pavlakis，CTO，<a href="https://resolve.ai/customers/blueground" target="_blank" rel="noopener">Blueground</a></blockquote></div><div class="en"><blockquote><em>“Resolve AI brings speed to the triage process, standardizes the production ops allowing us to scale and ship features faster with greater confidence.”</em> <br> -Stratos Pavlakis, CTO, <a href="https://resolve.ai/customers/blueground" target="_blank" rel="noopener">Blueground</a></blockquote></div></div>
+<div class="pair"><div class="zh"><h3>准备好永远改变值班方式了吗？</h3></div><div class="en"><h3>Ready to Change On-Call Forever?</h3></div></div>
+<div class="pair"><div class="zh"><p>Resolve AI 就在这里改变事故管理的体验。凭借深度集成与企业级安全，你可以放心让 Resolve AI 承担值班工作。它自主处理生产运维中复杂、耗时的部分，让你腾出手来专注真正令人兴奋的事情。欢迎<a href="/book-a-demo" target="_blank" rel="noopener">预约演示</a>以了解更多。</p></div><div class="en"><p>Resolve AI is here to transform the incident management experience. With deep integrations and enterprise-grade security, you can trust Resolve AI to handle on-call. By autonomously handling the complex, time-consuming parts of production operations, it frees you up to focus on the exciting stuff. <a href="/book-a-demo" target="_blank" rel="noopener">Book a demo</a> with us to learn more.</p></div></div>
+<div class="pair"><div class="zh"><p>进一步了解我们的<a href="/blog/introducing-resolve-ai" target="_blank" rel="noopener">公司</a>与<a href="/blog/how-we-built-resolve-ai" target="_blank" rel="noopener">技术</a>。</p></div><div class="en"><p>Read more about our <a href="/blog/introducing-resolve-ai" target="_blank" rel="noopener">company</a> and <a href="/blog/how-we-built-resolve-ai" target="_blank" rel="noopener">technology</a>.</p></div></div>
+<div class="pair"><div class="zh"><p>生产环境 AI 电子书</p></div><div class="en"><p>AI for prod ebook</p></div></div>
+<div class="pair"><div class="zh"><p>了解顶尖工程团队如何用 AI 运行生产环境。</p></div><div class="en"><p>Learn how top engineering teams use AI to run production.</p></div></div>
+<div class="pair"><div class="zh"><p>下载</p></div><div class="en"><p>Download</p></div></div>
+<div class="pair"><div class="zh"><p>看看运行并修复软件的智能体如何实际工作</p></div><div class="en"><p>See the agents that run and fix software in action</p></div></div>
+<div class="pair"><div class="zh"><p>加入我们工程负责人的“Behind the Build”系列网络研讨会，深入了解我们如何构建运行软件的智能体。</p></div><div class="en"><p>Join our engineering leads for "Behind the Build", a webinar series deep-dive into how we built agents that run software.</p></div></div>
+<div class="pair"><div class="zh"><p>立即观看</p></div><div class="en"><p>Watch now</p></div></div>
+<div class="pair"><div class="zh"><h2>继续阅读</h2></div><div class="en"><h2>Keep reading</h2></div></div>
+<div class="pair"><div class="zh"><p>查看全部</p></div><div class="en"><p>View all</p></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fyour_human_in_the_loop_is_exhausted_3751b434de.png&amp;amp;w=3840&amp;amp;q=75" alt="你的「人在回路」已疲惫不堪"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fyour_human_in_the_loop_is_exhausted_3751b434de.png&amp;amp;w=3840&amp;amp;q=75" alt="Your human-in-the-loop is exhausted"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/your-human-in-the-loop-is-exhausted" target="_blank" rel="noopener">你的「人在回路」已疲惫不堪</a></h3></div><div class="en"><h3><a href="/blog/your-human-in-the-loop-is-exhausted" target="_blank" rel="noopener">Your human-in-the-loop is exhausted</a></h3></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_agent_diagram_176d50cdc6.png&amp;amp;w=3840&amp;amp;q=75" alt="Resolve AI 将生产上下文扩展到编码智能体"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_agent_diagram_176d50cdc6.png&amp;amp;w=3840&amp;amp;q=75" alt="Resolve AI Extends Production Context to Coding Agents"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/resolve-ai-plugin-cursor-claude-code-codex" target="_blank" rel="noopener">Resolve AI 将生产上下文扩展到编码智能体</a></h3></div><div class="en"><h3><a href="/blog/resolve-ai-plugin-cursor-claude-code-codex" target="_blank" rel="noopener">Resolve AI Extends Production Context to Coding Agents</a></h3></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_organic_graphic_screenshot_4c290b5e18.png&amp;amp;w=3840&amp;amp;q=75" alt="为什么选择 Resolve AI：规模化下的 token 效率"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_organic_graphic_screenshot_4c290b5e18.png&amp;amp;w=3840&amp;amp;q=75" alt="Why Resolve AI: Token Efficiency at Scale"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/why-resolve-ai-token-efficiency-at-scale" target="_blank" rel="noopener">为什么选择 Resolve AI：规模化下的 token 效率</a></h3></div><div class="en"><h3><a href="/blog/why-resolve-ai-token-efficiency-at-scale" target="_blank" rel="noopener">Why Resolve AI: Token Efficiency at Scale</a></h3></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fproactively_run_prod_with_background_agents_367c95c6a0.png&amp;amp;w=3840&amp;amp;q=75" alt="用后台智能体主动执行生产任务"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fproactively_run_prod_with_background_agents_367c95c6a0.png&amp;amp;w=3840&amp;amp;q=75" alt="Proactively run production tasks with background agents"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/proactively-run-prod-with-background-agents" target="_blank" rel="noopener">用后台智能体主动执行生产任务</a></h3></div><div class="en"><h3><a href="/blog/proactively-run-prod-with-background-agents" target="_blank" rel="noopener">Proactively run production tasks with background agents</a></h3></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

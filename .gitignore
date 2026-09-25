@@ -1,0 +1,42 @@
+# ---- 原始素材：不留库 ----
+# 原因有二：① 约 40MB，含 12 份讲义 PDF；② 版权不属于本项目作者，公开再分发风险大。
+# 不影响复现：仓库内有完整抓取脚本，clone 后跑 s01–s04 即可取回全部素材。
+sources/
+
+# ---- 临时与缓存 ----
+tmp/
+vendor/
+*.tmp
+*.log.gz
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# ---- 编辑器与系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 中间产物（可由脚本重新生成，体积较大）----
+# work/segments/ 是 s07 切段产出的逐段 jsonl，可由 `python src/s07_segment.py` 重建。
+# 保留它是可以的（便于抽检），不想提交就取消下一行注释。
+# work/segments/
+
+# ---- 明确要提交的东西（反向说明，避免误删）----
+# corpus/en/      冻结的英文语料——质检与复现都需要，必须提交
+# corpus/zh/      中文译文——交付物本体
+# translated/     成品译文
+# site/           离线双语文档站
+# reports/        清点/质检/回正报告（证据）
+# glossary/       术语表（唯一事实来源）
+# work/*.json     ledger.jsonl、translation_plan.json、segments_index.json、qa_<slug>.json
+# src/logs/       术语回正逐条明细（证据，永不覆盖）
+!reports/
+!glossary/
+!src/logs/

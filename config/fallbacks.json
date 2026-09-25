@@ -1,0 +1,22 @@
+{
+  "_说明": [
+    "站点专用的一手替代来源。",
+    "只有在通用兜底链（直连 → 关闭证书校验 → 官方替代端点 → Wayback → 文本代理）",
+    "都拿不到可用正文时才会用到这里的条目。",
+    "每条都必须写明理由与来源性质，评审可据此复核；不允许用来源不明的转载站充数。"
+  ],
+  "https://www.promptingguide.ai/techniques": [
+    {
+      "url": "https://raw.githubusercontent.com/dair-ai/Prompt-Engineering-Guide/main/guides/prompts-advanced-usage.md",
+      "note": "该站正文完全由客户端渲染，HTML 里只有 144 字符；改用同一作者在 GitHub 上维护的官方 Markdown 原文",
+      "kind": "markdown"
+    }
+  ],
+  "https://blog.ravi-mehta.com/p/specs-are-the-new-source-code": [
+    {
+      "url": "https://blog.ravi-mehta.com/api/v1/posts/specs-are-the-new-source-code",
+      "note": "该站正文由 JS 渲染且文章已转为付费订阅；改用 Substack 公开 API，取其中仍公开的 body_html",
+      "kind": "substack_json"
+    }
+  ]
+}

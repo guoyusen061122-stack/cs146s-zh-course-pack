@@ -1,0 +1,779 @@
+{
+  "generated_at": "2026-09-25T12:37:59+08:00",
+  "files": 110,
+  "segments": 6782,
+  "translatable_segments": 6621,
+  "translatable_chars": 942290,
+  "items": [
+    {
+      "slug": "arxiv-org-pdf-2405-13565__p1",
+      "blocks": 44,
+      "segments": 44,
+      "translatable": 44,
+      "translatable_chars": 19684
+    },
+    {
+      "slug": "arxiv-org-pdf-2405-13565__p2",
+      "blocks": 8,
+      "segments": 8,
+      "translatable": 8,
+      "translatable_chars": 14221
+    },
+    {
+      "slug": "arxiv-org-pdf-2405-13565__p3",
+      "blocks": 9,
+      "segments": 9,
+      "translatable": 9,
+      "translatable_chars": 13495
+    },
+    {
+      "slug": "blakesmith-me-2015-02-09-code-review-essentials-for-software-teams",
+      "blocks": 39,
+      "segments": 52,
+      "translatable": 50,
+      "translatable_chars": 10989
+    },
+    {
+      "slug": "blog-codinghorror-com-code-reviews-just-do-it",
+      "blocks": 8,
+      "segments": 8,
+      "translatable": 8,
+      "translatable_chars": 3637
+    },
+    {
+      "slug": "blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview",
+      "blocks": 24,
+      "segments": 26,
+      "translatable": 26,
+      "translatable_chars": 7074
+    },
+    {
+      "slug": "blog-ravi-mehta-com-p-specs-are-the-new-source-code",
+      "blocks": 10,
+      "segments": 10,
+      "translatable": 10,
+      "translatable_chars": 1501
+    },
+    {
+      "slug": "blog-stockapp-com-good-context-good-code",
+      "blocks": 42,
+      "segments": 65,
+      "translatable": 65,
+      "translatable_chars": 15177
+    },
+    {
+      "slug": "cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex",
+      "blocks": 25,
+      "segments": 25,
+      "translatable": 25,
+      "translatable_chars": 11236
+    },
+    {
+      "slug": "cloud-google-com-discover-what-is-prompt-engineering",
+      "blocks": 165,
+      "segments": 170,
+      "translatable": 170,
+      "translatable_chars": 15730
+    },
+    {
+      "slug": "developers-cloudflare-com-agents-guides-remote-mcp-server",
+      "blocks": 121,
+      "segments": 130,
+      "translatable": 103,
+      "translatable_chars": 14829
+    },
+    {
+      "slug": "devin-ai-agents101",
+      "blocks": 89,
+      "segments": 91,
+      "translatable": 91,
+      "translatable_chars": 18026
+    },
+    {
+      "slug": "embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio",
+      "blocks": 61,
+      "segments": 70,
+      "translatable": 70,
+      "translatable_chars": 8624
+    },
+    {
+      "slug": "fall2025-w01-fri9-26-power-prompting-for-llms",
+      "blocks": 166,
+      "segments": 166,
+      "translatable": 166,
+      "translatable_chars": 7088
+    },
+    {
+      "slug": "fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made",
+      "blocks": 189,
+      "segments": 189,
+      "translatable": 189,
+      "translatable_chars": 4589
+    },
+    {
+      "slug": "fall2025-w02-fri10-3-building-a-custom-mcp-server",
+      "blocks": 85,
+      "segments": 85,
+      "translatable": 85,
+      "translatable_chars": 2546
+    },
+    {
+      "slug": "fall2025-w02-mon9-29-building-a-coding-agent-from-scratch",
+      "blocks": 53,
+      "segments": 53,
+      "translatable": 53,
+      "translatable_chars": 1113
+    },
+    {
+      "slug": "fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition",
+      "blocks": 70,
+      "segments": 72,
+      "translatable": 72,
+      "translatable_chars": 4261
+    },
+    {
+      "slug": "fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive",
+      "blocks": 54,
+      "segments": 99,
+      "translatable": 97,
+      "translatable_chars": 1992
+    },
+    {
+      "slug": "fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup",
+      "blocks": 143,
+      "segments": 143,
+      "translatable": 143,
+      "translatable_chars": 3754
+    },
+    {
+      "slug": "fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code",
+      "blocks": 121,
+      "segments": 141,
+      "translatable": 141,
+      "translatable_chars": 5856
+    },
+    {
+      "slug": "fall2025-w04-mon10-13-how-to-be-an-agent-manager",
+      "blocks": 122,
+      "segments": 122,
+      "translatable": 122,
+      "translatable_chars": 2686
+    },
+    {
+      "slug": "fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product",
+      "blocks": 105,
+      "segments": 105,
+      "translatable": 105,
+      "translatable_chars": 2865
+    },
+    {
+      "slug": "fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond",
+      "blocks": 186,
+      "segments": 186,
+      "translatable": 186,
+      "translatable_chars": 4348
+    },
+    {
+      "slug": "fall2025-w07-fri11-7-tomas-reimers-cpo-graphite",
+      "blocks": 74,
+      "segments": 77,
+      "translatable": 77,
+      "translatable_chars": 5639
+    },
+    {
+      "slug": "fall2025-w07-mon11-3-ai-code-review",
+      "blocks": 108,
+      "segments": 108,
+      "translatable": 108,
+      "translatable_chars": 2621
+    },
+    {
+      "slug": "fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt",
+      "blocks": 81,
+      "segments": 81,
+      "translatable": 81,
+      "translatable_chars": 1622
+    },
+    {
+      "slug": "fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta",
+      "blocks": 121,
+      "segments": 121,
+      "translatable": 121,
+      "translatable_chars": 8172
+    },
+    {
+      "slug": "fall2025-w09-mon11-17-incident-response-and-devops",
+      "blocks": 134,
+      "segments": 134,
+      "translatable": 134,
+      "translatable_chars": 3560
+    },
+    {
+      "slug": "fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines",
+      "blocks": 123,
+      "segments": 123,
+      "translatable": 123,
+      "translatable_chars": 2952
+    },
+    {
+      "slug": "github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer",
+      "blocks": 91,
+      "segments": 105,
+      "translatable": 105,
+      "translatable_chars": 23709
+    },
+    {
+      "slug": "github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt",
+      "blocks": 5,
+      "segments": 5,
+      "translatable": 5,
+      "translatable_chars": 1978
+    },
+    {
+      "slug": "github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca",
+      "blocks": 173,
+      "segments": 204,
+      "translatable": 203,
+      "translatable_chars": 27068
+    },
+    {
+      "slug": "github-com-modelcontextprotocol-typescript-sdk-tree-main",
+      "blocks": 52,
+      "segments": 72,
+      "translatable": 67,
+      "translatable_chars": 7560
+    },
+    {
+      "slug": "graphite-dev-guides-ai-code-review-implementation-best-practices",
+      "blocks": 82,
+      "segments": 127,
+      "translatable": 127,
+      "translatable_chars": 14195
+    },
+    {
+      "slug": "last9-io-blog-traces-spans-observability-basics",
+      "blocks": 81,
+      "segments": 108,
+      "translatable": 106,
+      "translatable_chars": 10616
+    },
+    {
+      "slug": "medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62",
+      "blocks": 64,
+      "segments": 70,
+      "translatable": 60,
+      "translatable_chars": 8694
+    },
+    {
+      "slug": "notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c",
+      "blocks": 2,
+      "segments": 2,
+      "translatable": 2,
+      "translatable_chars": 47
+    },
+    {
+      "slug": "owasp-org-www-project-top-ten",
+      "blocks": 6,
+      "segments": 6,
+      "translatable": 6,
+      "translatable_chars": 983
+    },
+    {
+      "slug": "repo-fall2025-readmemd",
+      "blocks": 8,
+      "segments": 10,
+      "translatable": 10,
+      "translatable_chars": 749
+    },
+    {
+      "slug": "repo-fall2025-week1-assignmentmd",
+      "blocks": 19,
+      "segments": 28,
+      "translatable": 26,
+      "translatable_chars": 1769
+    },
+    {
+      "slug": "repo-fall2025-week1-data-api-docstxt",
+      "blocks": 6,
+      "segments": 6,
+      "translatable": 6,
+      "translatable_chars": 231
+    },
+    {
+      "slug": "repo-fall2025-week1-readmemd",
+      "blocks": 2,
+      "segments": 2,
+      "translatable": 2,
+      "translatable_chars": 192
+    },
+    {
+      "slug": "repo-fall2025-week2-assignmentmd",
+      "blocks": 39,
+      "segments": 48,
+      "translatable": 46,
+      "translatable_chars": 3930
+    },
+    {
+      "slug": "repo-fall2025-week2-writeupmd",
+      "blocks": 37,
+      "segments": 40,
+      "translatable": 30,
+      "translatable_chars": 1198
+    },
+    {
+      "slug": "repo-fall2025-week3-assignmentmd",
+      "blocks": 16,
+      "segments": 45,
+      "translatable": 45,
+      "translatable_chars": 3528
+    },
+    {
+      "slug": "repo-fall2025-week4-assignmentmd",
+      "blocks": 55,
+      "segments": 91,
+      "translatable": 85,
+      "translatable_chars": 6343
+    },
+    {
+      "slug": "repo-fall2025-week4-docs-tasksmd",
+      "blocks": 15,
+      "segments": 26,
+      "translatable": 26,
+      "translatable_chars": 1292
+    },
+    {
+      "slug": "repo-fall2025-week4-writeupmd",
+      "blocks": 43,
+      "segments": 44,
+      "translatable": 44,
+      "translatable_chars": 1567
+    },
+    {
+      "slug": "repo-fall2025-week5-assignmentmd",
+      "blocks": 45,
+      "segments": 64,
+      "translatable": 58,
+      "translatable_chars": 4008
+    },
+    {
+      "slug": "repo-fall2025-week5-docs-tasksmd",
+      "blocks": 23,
+      "segments": 75,
+      "translatable": 75,
+      "translatable_chars": 4882
+    },
+    {
+      "slug": "repo-fall2025-week5-readmemd",
+      "blocks": 19,
+      "segments": 23,
+      "translatable": 17,
+      "translatable_chars": 610
+    },
+    {
+      "slug": "repo-fall2025-week5-writeupmd",
+      "blocks": 42,
+      "segments": 43,
+      "translatable": 43,
+      "translatable_chars": 1768
+    },
+    {
+      "slug": "repo-fall2025-week6-assignmentmd",
+      "blocks": 27,
+      "segments": 39,
+      "translatable": 38,
+      "translatable_chars": 2287
+    },
+    {
+      "slug": "repo-fall2025-week6-requirementstxt",
+      "blocks": 2,
+      "segments": 2,
+      "translatable": 2,
+      "translatable_chars": 191
+    },
+    {
+      "slug": "repo-fall2025-week6-writeupmd",
+      "blocks": 43,
+      "segments": 44,
+      "translatable": 44,
+      "translatable_chars": 942
+    },
+    {
+      "slug": "repo-fall2025-week7-assignmentmd",
+      "blocks": 17,
+      "segments": 43,
+      "translatable": 43,
+      "translatable_chars": 2714
+    },
+    {
+      "slug": "repo-fall2025-week7-docs-tasksmd",
+      "blocks": 9,
+      "segments": 9,
+      "translatable": 9,
+      "translatable_chars": 550
+    },
+    {
+      "slug": "repo-fall2025-week7-readmemd",
+      "blocks": 19,
+      "segments": 27,
+      "translatable": 21,
+      "translatable_chars": 793
+    },
+    {
+      "slug": "repo-fall2025-week7-writeupmd",
+      "blocks": 45,
+      "segments": 46,
+      "translatable": 46,
+      "translatable_chars": 1346
+    },
+    {
+      "slug": "repo-fall2025-week8-assignmentmd",
+      "blocks": 23,
+      "segments": 55,
+      "translatable": 55,
+      "translatable_chars": 4200
+    },
+    {
+      "slug": "repo-fall2025-week8-writeupmd",
+      "blocks": 16,
+      "segments": 17,
+      "translatable": 13,
+      "translatable_chars": 386
+    },
+    {
+      "slug": "repo-master-readmemd",
+      "blocks": 8,
+      "segments": 10,
+      "translatable": 10,
+      "translatable_chars": 749
+    },
+    {
+      "slug": "repo-master-week1-assignmentmd",
+      "blocks": 51,
+      "segments": 80,
+      "translatable": 78,
+      "translatable_chars": 9488
+    },
+    {
+      "slug": "repo-master-week1-writeupmd",
+      "blocks": 54,
+      "segments": 58,
+      "translatable": 53,
+      "translatable_chars": 2952
+    },
+    {
+      "slug": "research-trychroma-com-context-rot__p1",
+      "blocks": 99,
+      "segments": 109,
+      "translatable": 108,
+      "translatable_chars": 19290
+    },
+    {
+      "slug": "research-trychroma-com-context-rot__p2",
+      "blocks": 95,
+      "segments": 105,
+      "translatable": 105,
+      "translatable_chars": 19614
+    },
+    {
+      "slug": "research-trychroma-com-context-rot__p3",
+      "blocks": 51,
+      "segments": 69,
+      "translatable": 69,
+      "translatable_chars": 6573
+    },
+    {
+      "slug": "resolve-ai-blog-Top-5-Benefits",
+      "blocks": 44,
+      "segments": 44,
+      "translatable": 44,
+      "translatable_chars": 7055
+    },
+    {
+      "slug": "resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai",
+      "blocks": 55,
+      "segments": 54,
+      "translatable": 54,
+      "translatable_chars": 10607
+    },
+    {
+      "slug": "resolve-ai-blog-product-deep-dive",
+      "blocks": 51,
+      "segments": 51,
+      "translatable": 51,
+      "translatable_chars": 7448
+    },
+    {
+      "slug": "resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering",
+      "blocks": 49,
+      "segments": 53,
+      "translatable": 53,
+      "translatable_chars": 10977
+    },
+    {
+      "slug": "semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope",
+      "blocks": 50,
+      "segments": 47,
+      "translatable": 45,
+      "translatable_chars": 8675
+    },
+    {
+      "slug": "site-fall2025-faq",
+      "blocks": 15,
+      "segments": 15,
+      "translatable": 15,
+      "translatable_chars": 2073
+    },
+    {
+      "slug": "site-fall2025-grading",
+      "blocks": 2,
+      "segments": 2,
+      "translatable": 2,
+      "translatable_chars": 98
+    },
+    {
+      "slug": "site-fall2025-overview",
+      "blocks": 24,
+      "segments": 24,
+      "translatable": 24,
+      "translatable_chars": 3688
+    },
+    {
+      "slug": "site-fall2025-syllabus",
+      "blocks": 83,
+      "segments": 167,
+      "translatable": 167,
+      "translatable_chars": 10231
+    },
+    {
+      "slug": "site-fall2026-faq",
+      "blocks": 15,
+      "segments": 15,
+      "translatable": 15,
+      "translatable_chars": 2073
+    },
+    {
+      "slug": "site-fall2026-grading",
+      "blocks": 2,
+      "segments": 2,
+      "translatable": 2,
+      "translatable_chars": 130
+    },
+    {
+      "slug": "site-fall2026-overview",
+      "blocks": 31,
+      "segments": 31,
+      "translatable": 31,
+      "translatable_chars": 3570
+    },
+    {
+      "slug": "site-fall2026-syllabus",
+      "blocks": 53,
+      "segments": 86,
+      "translatable": 86,
+      "translatable_chars": 3968
+    },
+    {
+      "slug": "sre-google-sre-book-introduction",
+      "blocks": 68,
+      "segments": 74,
+      "translatable": 74,
+      "translatable_chars": 24827
+    },
+    {
+      "slug": "stytch-com-blog-model-context-protocol-introduction__p1",
+      "blocks": 55,
+      "segments": 62,
+      "translatable": 58,
+      "translatable_chars": 19150
+    },
+    {
+      "slug": "stytch-com-blog-model-context-protocol-introduction__p2",
+      "blocks": 51,
+      "segments": 57,
+      "translatable": 56,
+      "translatable_chars": 13242
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p1",
+      "blocks": 45,
+      "segments": 88,
+      "translatable": 88,
+      "translatable_chars": 19449
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p10",
+      "blocks": 1,
+      "segments": 1,
+      "translatable": 1,
+      "translatable_chars": 39057
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p11",
+      "blocks": 69,
+      "segments": 112,
+      "translatable": 112,
+      "translatable_chars": 18801
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p12",
+      "blocks": 106,
+      "segments": 111,
+      "translatable": 111,
+      "translatable_chars": 13079
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p2",
+      "blocks": 23,
+      "segments": 31,
+      "translatable": 31,
+      "translatable_chars": 15165
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p3",
+      "blocks": 8,
+      "segments": 8,
+      "translatable": 8,
+      "translatable_chars": 16428
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p4",
+      "blocks": 8,
+      "segments": 8,
+      "translatable": 8,
+      "translatable_chars": 13631
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p5",
+      "blocks": 9,
+      "segments": 9,
+      "translatable": 9,
+      "translatable_chars": 8799
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p6",
+      "blocks": 1,
+      "segments": 1,
+      "translatable": 1,
+      "translatable_chars": 23493
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p7",
+      "blocks": 16,
+      "segments": 16,
+      "translatable": 16,
+      "translatable_chars": 19608
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p8",
+      "blocks": 21,
+      "segments": 23,
+      "translatable": 23,
+      "translatable_chars": 19891
+    },
+    {
+      "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p9",
+      "blocks": 1,
+      "segments": 1,
+      "translatable": 1,
+      "translatable_chars": 23
+    },
+    {
+      "slug": "www-anthropic-com-engineering-claude-code-best-practices__p1",
+      "blocks": 89,
+      "segments": 92,
+      "translatable": 86,
+      "translatable_chars": 15338
+    },
+    {
+      "slug": "www-anthropic-com-engineering-claude-code-best-practices__p2",
+      "blocks": 99,
+      "segments": 115,
+      "translatable": 106,
+      "translatable_chars": 15844
+    },
+    {
+      "slug": "www-anthropic-com-engineering-claude-code-best-practices__p3",
+      "blocks": 1,
+      "segments": 4,
+      "translatable": 4,
+      "translatable_chars": 379
+    },
+    {
+      "slug": "www-anthropic-com-engineering-writing-tools-for-agents",
+      "blocks": 104,
+      "segments": 116,
+      "translatable": 115,
+      "translatable_chars": 24888
+    },
+    {
+      "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1",
+      "blocks": 16,
+      "segments": 18,
+      "translatable": 18,
+      "translatable_chars": 18879
+    },
+    {
+      "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2",
+      "blocks": 14,
+      "segments": 14,
+      "translatable": 14,
+      "translatable_chars": 17983
+    },
+    {
+      "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3",
+      "blocks": 12,
+      "segments": 12,
+      "translatable": 12,
+      "translatable_chars": 16670
+    },
+    {
+      "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4",
+      "blocks": 11,
+      "segments": 11,
+      "translatable": 11,
+      "translatable_chars": 13699
+    },
+    {
+      "slug": "www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them",
+      "blocks": 59,
+      "segments": 54,
+      "translatable": 54,
+      "translatable_chars": 11654
+    },
+    {
+      "slug": "www-promptingguide-ai-techniques",
+      "blocks": 132,
+      "segments": 134,
+      "translatable": 99,
+      "translatable_chars": 10638
+    },
+    {
+      "slug": "www-reillywood-com-blog-apis-dont-make-good-mcp-tools",
+      "blocks": 27,
+      "segments": 27,
+      "translatable": 24,
+      "translatable_chars": 4784
+    },
+    {
+      "slug": "www-splunk-com-en-us-blog-learn-sast-vs-dast",
+      "blocks": 164,
+      "segments": 196,
+      "translatable": 196,
+      "translatable_chars": 23619
+    },
+    {
+      "slug": "www-warp-dev-university-getting-started-warp-vs-claude-code",
+      "blocks": 55,
+      "segments": 63,
+      "translatable": 63,
+      "translatable_chars": 6902
+    },
+    {
+      "slug": "www-warp-dev-university",
+      "blocks": 55,
+      "segments": 63,
+      "translatable": 63,
+      "translatable_chars": 6898
+    }
+  ]
+}

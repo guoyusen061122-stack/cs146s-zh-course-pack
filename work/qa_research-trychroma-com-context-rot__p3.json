@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-09-25T12:24:30+08:00",
+  "slug": "research-trychroma-com-context-rot__p3",
+  "stats": {
+    "blocks_en": 51,
+    "blocks_zh": 51,
+    "empty": 0,
+    "untranslated": 5,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 22,
+    "term_violations": 0,
+    "term_missing": 1,
+    "term_consistency": 1.0,
+    "issues": 5,
+    "term_detail": [
+      "[术语缺失] repository 在原文出现但译文中未见定译「仓库」"
+    ]
+  },
+  "issues": [
+    {
+      "kind": "untranslated",
+      "where": "块#11",
+      "detail": "疑似未译英文：Unlocking multimodal understanding across millions of tokens"
+    },
+    {
+      "kind": "untranslated",
+      "where": "块#13",
+      "detail": "整块照抄原文未译"
+    },
+    {
+      "kind": "untranslated",
+      "where": "块#13",
+      "detail": "疑似未译英文：The beginning of a new era of natively multimodal AI innovat"
+    },
+    {
+      "kind": "untranslated",
+      "where": "块#19",
+      "detail": "疑似未译英文：Large Language Models Can Be Easily Distracted by Irrelevant"
+    },
+    {
+      "kind": "untranslated",
+      "where": "块#22",
+      "detail": "疑似未译英文：Uniform Manifold Approximation and Projection for Dimension "
+    }
+  ]
+}

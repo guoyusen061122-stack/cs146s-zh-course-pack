@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-09-25T12:19:47+08:00",
+  "slug": "fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond",
+  "stats": {
+    "blocks_en": 186,
+    "blocks_zh": 186,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 59,
+    "term_violations": 0,
+    "term_missing": 0,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": []
+  },
+  "issues": []
+}

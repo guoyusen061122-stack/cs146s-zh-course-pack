@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Copilot Remote Code Execution via Prompt Injection</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Copilot Remote Code Execution via Prompt Injection</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 7,517 字符 ｜ 61 个内容块 ｜ <a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>借助提示注入实现 Copilot 远程代码执行</h1></div><div class="en"><h1>Copilot Remote Code Execution via Prompt Injection</h1></div></div>
+<div class="pair"><div class="zh"><p>这篇文章讲的是一个重要但也令人不安的提示注入发现，它会导致 <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53773" target="_blank" rel="noopener">GitHub Copilot 和 VS Code</a> 中开发者机器被完全攻陷。</p></div><div class="en"><p>This post is about an important, but also scary, prompt injection discovery that leads to full system compromise of the developer’s machine in <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53773" target="_blank" rel="noopener">GitHub Copilot and VS Code</a>.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>它的实现方式是修改项目的 <code>settings.json</code> 文件，把 Copilot 置于 YOLO 模式。</strong></p></div><div class="en"><p><strong>It is achieved by placing Copilot into YOLO mode by modifying the project’s <code>settings.json</code> file.</strong></p></div></div>
+<div class="pair"><div class="zh"><p><a href="/blog/images/2025/episode12-yt.png" target="_blank" rel="noopener"><img src="/blog/images/2025/episode12-yt.png" alt="vscode episode 18"></a></p></div><div class="en"><p><a href="/blog/images/2025/episode12-yt.png" target="_blank" rel="noopener"><img src="/blog/images/2025/episode12-yt.png" alt="vscode episode 18"></a></p></div></div>
+<div class="pair"><div class="zh"><p>正如前几天在 <a href="/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/" target="_blank" rel="noopener">Amp</a> 一文中所描述的，智能体身上一个容易被忽视的漏洞模式是：如果智能体能写文件并修改自身配置、或更新与安全相关的设置，就可能导致远程代码执行。这种情况并不罕见，做安全评审时应始终留意。</p></div><div class="en"><p>As described a few days ago with <a href="/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/" target="_blank" rel="noopener">Amp</a>, a vulnerability pattern in agents that might be overlooked is that if an agent can write to files and modify its own configuration or update security-relevant settings it can lead to remote code execution. This is not uncommon and is an area to always look for when performing a security review.</p></div></div>
+<div class="pair"><div class="zh"><h2>背景研究</h2></div><div class="en"><h2>Background Research</h2></div></div>
+<div class="pair"><div class="zh"><p>在观察 VS Code 和 GitHub Copilot Agent Mode 时，我注意到一个奇怪的行为……它无需用户批准就能在工作区中创建并写入文件。</p></div><div class="en"><p>When looking at VS Code and GitHub Copilot Agent Mode I noticed a strange behavior… it can create and write to files in the workspace without user approval.</p></div></div>
+<div class="pair"><div class="zh"><p>这些编辑会立即持久化，它们不是供评审的内存中的差异（diff）。修改会直接写入磁盘。</p></div><div class="en"><p>The edits are immediately persistent, they are not in-memory as a diff to review. The modifications are written to disk right away.</p></div></div>
+<div class="pair"><div class="zh"><p><a href="/blog/images/2025/agents-that-can.png" target="_blank" rel="noopener"><img src="/blog/images/2025/agents-that-can.png" alt="vscode 中能够修改自身设置的智能体"></a></p></div><div class="en"><p><a href="/blog/images/2025/agents-that-can.png" target="_blank" rel="noopener"><img src="/blog/images/2025/agents-that-can.png" alt="vscode agents that can modify their own settings"></a></p></div></div>
+<div class="pair"><div class="zh"><p>作为红队成员，你知道这类事情大概不是什么好事……于是我开始探究它能否被用来提权并执行代码。</p></div><div class="en"><p>It’s one of these things that as a red teamer you know is probably not good… so I was looking if this could be used to escalate privileges and execute code.</p></div></div>
+<div class="pair"><div class="zh"><h3><strong>YOLO 模式</strong></h3></div><div class="en"><h3><strong>YOLO Mode</strong></h3></div></div>
+<div class="pair"><div class="zh"><p>于是接下来我研究了 VS Code 中那些依赖项目／工作区文件夹内设置的功能，很快找到了一个有意思的目标。</p></div><div class="en"><p>So, next I researched features in VS Code that depend on settings that are within the project/workspace folder, and quickly found an interesting one.</p></div></div>
+<div class="pair"><div class="zh"><p><a href="/blog/images/2025/vscode-documentation-settings-json.png" target="_blank" rel="noopener"><img src="/blog/images/2025/vscode-documentation-settings-json.png" alt="vscode-exp-yolo-mode"></a></p></div><div class="en"><p><a href="/blog/images/2025/vscode-documentation-settings-json.png" target="_blank" rel="noopener"><img src="/blog/images/2025/vscode-documentation-settings-json.png" alt="vscode-exp-yolo-mode"></a></p></div></div>
+<div class="pair"><div class="zh"><p>原来在 <code>.vscode/settings.json</code> 文件里可以添加下面这一行：</p></div><div class="en"><p>It turns out that in the <code>.vscode/settings.json</code> file one can add the following line:</p></div></div>
+<div class="pair"><div class="zh"><p><code>"chat.tools.autoApprove": true</code></p></div><div class="en"><p><code>"chat.tools.autoApprove": true</code></p></div></div>
+<div class="pair"><div class="zh"><p><strong>这会把 GitHub Copilot 置于 YOLO 模式。</strong></p></div><div class="en"><p><strong>This will put GitHub Copilot in YOLO mode.</strong></p></div></div>
+<div class="pair"><div class="zh"><p>它会禁用所有用户确认，于是我们能运行 shell 命令、浏览网页等等！</p></div><div class="en"><p>And it disables all user confirmations, and we can run shell commands, browse the web, and more!</p></div></div>
+<div class="pair"><div class="zh"><p>有意思的是，这是一个实验性功能，但它默认就存在。我并没有下载特殊版本，也没有把 VS Code 整体设为实验模式。</p></div><div class="en"><p>What is interesting is that this is an experimental feature, but it is still present by default. I did not download a special version or set my VS Code overall into an experimental mode.</p></div></div>
+<div class="pair"><div class="zh"><p>而且，它在 Windows、macOS 以及 Linux 上都能用。</p></div><div class="en"><p>Furthermore, it works on Windows, macOS and also Linux.</p></div></div>
+<div class="pair"><div class="zh"><h2>利用链详解</h2></div><div class="en"><h2>Exploit Chain Explained</h2></div></div>
+<div class="pair"><div class="zh"><p>劫持 Copilot 并提权的概念验证利用链如下：</p></div><div class="en"><p>The proof-of-concept exploit chain to hijack Copilot and escalate privileges is as follows:</p></div></div>
+<div class="pair"><div class="zh"><ol><li>攻击始于植入源代码文件、网页、GitHub issue、工具调用响应或其他内容中的提示注入……有效载荷也可以把不可见文本当作指令使用。</li><li>提示注入会先向 <code>~/.vscode/settings.json</code> 文件添加一行 <strong>“chat.tools.autoApprove”: true</strong>。如果文件夹和文件尚不存在，就会被创建出来。</li><li><strong>GitHub Copilot 立即进入 YOLO 模式！</strong></li><li>攻击会运行一条终端命令。<strong>而借助条件提示注入，我们实际上可以根据操作系统来决定运行什么。</strong></li><li>我们实现了由提示注入驱动的远程代码执行。</li></ol></div><div class="en"><ol><li>The attack starts with a prompt injection planted in a source code file, web page, GitHub issue, tool call response, or other content… The payload can also use invisible text as instructions.</li><li>The prompt injection first adds the line <strong>“chat.tools.autoApprove”: true,</strong> to the <code>~/.vscode/settings.json</code> file. Folder and file will be created if they don’t exist yet.</li><li><strong>GitHub Copilot immediately enters YOLO mode!</strong></li><li>Attack runs a Terminal command. <strong>And using conditional prompt injection we can actually target what to run based on the operating system.</strong></li><li>We achieved Remote Code Execution powered by Prompt Injection.</li></ol></div></div>
+<div class="pair"><div class="zh"><p>下面这张截图展示了带有提示注入的演示文件、开发者在右侧聊天框中与该文件交互，以及弹出计算器的画面！</p></div><div class="en"><p>Here is a screenshot that shows the demo file with the prompt injection, the developer interacting with the file on the right side in the chat box, and the calculator popping up!</p></div></div>
+<div class="pair"><div class="zh"><p><a href="/blog/images/2025/copilot-chat-result.png" target="_blank" rel="noopener"><img src="/blog/images/2025/copilot-chat-result.png" alt="vscode-e2e-calc"></a></p></div><div class="en"><p><a href="/blog/images/2025/copilot-chat-result.png" target="_blank" rel="noopener"><img src="/blog/images/2025/copilot-chat-result.png" alt="vscode-e2e-calc"></a></p></div></div>
+<div class="pair"><div class="zh"><p>当然，任何其他投递提示注入的手段，比如网页或 MCP 服务器返回的数据，都是攻击角度。我只是把它用在源代码文件里，因为这样最容易测试。</p></div><div class="en"><p>Of course any other means of prompt injection delivery, like web or data coming back from an MCP server is an attack angle. I just used it inside the source code file because it’s easiest to test with.</p></div></div>
+<div class="pair"><div class="zh"><h2>视频演示</h2></div><div class="en"><h2>Video Walkthrough</h2></div></div>
+<div class="pair"><div class="zh"><h3>简短演示</h3></div><div class="en"><h3>Short Demos</h3></div></div>
+<div class="pair"><div class="zh"><p>下面这段演示视频展示了在 Windows 上的代码执行。</p></div><div class="en"><p>Here is a demonstration video that shows the code execution on Windows.</p></div></div>
+<div class="pair"><div class="zh"><p>这一段是在 macOS 上：</p></div><div class="en"><p>And this one on macOS:</p></div></div>
+<div class="pair"><div class="zh"><h3>完整演示</h3></div><div class="en"><h3>Walkthrough</h3></div></div>
+<div class="pair"><div class="zh"><p>下面这段较长的视频详细讲解了该发现与利用（漏洞）过程：</p></div><div class="en"><p>Here is a longer form video explaining the discovery and exploit in detail:</p></div></div>
+<div class="pair"><div class="zh"><p><strong>能自己设置权限和配置的 AI 太疯狂了！</strong></p></div><div class="en"><p><strong>AI that can set its own permissions and configuration settings is wild!</strong></p></div></div>
+<div class="pair"><div class="zh"><h2>把工作站接入僵尸网络 —— ZombAI</h2></div><div class="en"><h2>Joining the Workstation to a Botnet - ZombAIs</h2></div></div>
+<div class="pair"><div class="zh"><p>当然，这意味着我们可以把开发者的机器作为一个 <strong>ZombAI</strong> 接入僵尸网络。</p></div><div class="en"><p>Of course, this means we can join the developer’s machine to a botnet as a <strong>ZombAI</strong>.</p></div></div>
+<div class="pair"><div class="zh"><p>另外，为了好玩，我们还可以修改 <code>settings.json</code> 文件，把 VS Code 切换成 <code>Red</code> 配色方案之类。</p></div><div class="en"><p>Also, for fun we can modified the <code>settings.json</code> file to switch VS Code into a <code>Red</code> color scheme and similar things.</p></div></div>
+<div class="pair"><div class="zh"><p>但事情不止于此！这还意味着我们可以构造一个真正的 AI 病毒，它附着在文件上，随着开发者下载并与被感染的文件交互而传播。</p></div><div class="en"><p>It doesn’t end here though! This also means we can build an actual AI virus that attaches to files and propagates as developers download and interact with infected files.</p></div></div>
+<div class="pair"><div class="zh"><p>最后同样重要的是，为了证明我们完全控制了开发者的主机，我们展示了 Copilot 可以被劫持去下载恶意软件，并接入一个远程命令与控制服务器。</p></div><div class="en"><p>Last but not least, to demonstrate that we have full control of the developer’s host, we show that Copilot can be hijacked to download malware, and join a remote command and control server.</p></div></div>
+<div class="pair"><div class="zh"><p><a href="/blog/images/2025/github-agent-e2e-zombai.png" target="_blank" rel="noopener"><img src="/blog/images/2025/github-agent-e2e-zombai.png" alt="vscode-zombai-deployment"></a></p></div><div class="en"><p><a href="/blog/images/2025/github-agent-e2e-zombai.png" target="_blank" rel="noopener"><img src="/blog/images/2025/github-agent-e2e-zombai.png" alt="vscode-zombai-deployment"></a></p></div></div>
+<div class="pair"><div class="zh"><p>这意味着恶意软件、勒索软件、信息窃取程序等的大门已经打开。</p></div><div class="en"><p>This means the door is open for malware, ransomware, info stealers, etc.</p></div></div>
+<div class="pair"><div class="zh"><p>真可怕。</p></div><div class="en"><p>Scary stuff.</p></div></div>
+<div class="pair"><div class="zh"><h2>构造 AI 病毒</h2></div><div class="en"><h2>Building an AI Virus</h2></div></div>
+<div class="pair"><div class="zh"><p>看到这里，人们会注意到这基本上允许制造病毒。攻击者可以嵌入指令，一旦获得代码执行，其他恶意软件就能攻陷别的 Git 项目（以及 RAG 来源）以嵌入恶意指令，并提交更改、甚至强制推送到上游。</p></div><div class="en"><p>When seeing this, one will notice that this basically allows the creation of a virus. An attacker can embed instructions and once they gain code execution, additional malware can compromise other Git projects (and RAG sources) to embed the malicious instructions, and commit the changes or even force push them upstream.</p></div></div>
+<div class="pair"><div class="zh"><p>随着其他开发者在不知情的情况下传播被感染的代码，这会进一步扩散。</p></div><div class="en"><p>This can lead to further spread as other developers unknowingly propagate the infected code.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>最后，我们还需要谈谈不可见指令！</strong></p></div><div class="en"><p><strong>Finally, we also need to talk about invisible instructions!</strong></p></div></div>
+<div class="pair"><div class="zh"><h2>使用不可见指令</h2></div><div class="en"><h2>Using Invisible Instructions</h2></div></div>
+<div class="pair"><div class="zh"><p>有人可能会说，如果指令是以注释形式嵌入的，很快就会被发现。所以为了让事情更有意思一点，我继续构造了一个不可见的有效载荷，它能完成整条攻击链，但用户看不见。这种方式的可靠性没那么高，但它仍然生效了：</p></div><div class="en"><p>One might say that it would be quickly discovered if instructions are embedded as comments. So in order to make it a bit more interesting, I went ahead and created an invisible payload that achieves the attack chain, but is not visible to users. This was not as reliable, but it still worked:</p></div></div>
+<div class="pair"><div class="zh"><p><strong>注意：</strong> 虽然这里使用不可见指令的演示在我这里多次成功，但使用不可见指令往往会让利用（漏洞）非常不可靠，而且通常也会被模型拒绝，此外 VS Code 一般还会显示一个关于 Unicode 字符的视觉提示。不过，攻击（以及模型）会随时间变得更强。同样值得指出的是，并非所有模型都容易受到这类不可见提示注入攻击的影响。</p></div><div class="en"><p><strong>Note:</strong> Although the demo here with invisible instructions worked multiple times for me, using invisible instructions often leads to the exploit being very unreliable, and is also commonly also refused by the model and there is also typically a visual indicator that VS Code shows about Unicode characters. However, attacks (and models) get better over time. It’s also worth highlighting that not all models are vulnerable to such invisible prompt injection attacks.</p></div></div>
+<div class="pair"><div class="zh"><h2>建议与修复</h2></div><div class="en"><h2>Recommendations and Fix</h2></div></div>
+<div class="pair"><div class="zh"><p>除了我分享的 YOLO 模式这个例子，实际上还有更多攻击角度。当 Microsoft 问我是否还有更多信息时，我又多看了看，注意到还有其他有问题的地方，例如 AI 可以写入的 <code>.vscode/tasks.json</code>，或者添加伪造的恶意 MCP 服务器等等，这些都可能导致代码执行。此外，AI 还能重新配置项目的用户界面和配置设置。</p></div><div class="en"><p>There are actually more attack angles then just the YOLO mode example I shared. When Microsoft asked me if there is any more info I have, I had looked a bit more and noticed there are other problematic places, for instance <code>.vscode/tasks.json</code> that the AI can write to, or adding fake malicious MCP servers, etc which can lead to code execution. And the AI can reconfigure the user interface and configuration settings of the project.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>最近我注意到开发者经常使用多个智能体，因此也存在覆盖其他智能体配置文件的威胁（把 bash 命令加入允许列表、添加 MCP 服务器……），因为这些文件通常也放在项目文件夹中。</strong></p></div><div class="en"><p><strong>Recently I noticed that developers often use multiple agents, so there is also the threat of overwriting other agent configuration files (allow-list bash commands, add MCP servers…), as they are commonly in the project folder as well.</strong></p></div></div>
+<div class="pair"><div class="zh"><p>理想情况下，未经人类事先批准，AI 不应能够修改文件。许多其他编辑器确实会显示差异（diff），然后由开发者批准。</p></div><div class="en"><p>Ideally, the AI would not be able to modify files without a human first approving it. Many other editors do show the diff, which then can be approved by the developer.</p></div></div>
+<div class="pair"><div class="zh"><h2>负责任披露</h2></div><div class="en"><h2>Responsible Disclosure</h2></div></div>
+<div class="pair"><div class="zh"><p>在 2025 年 6 月 29 日报告该漏洞后，Microsoft 确认了复现步骤并提出了一些后续问题。几周后，MSRC 指出这是他们早就在跟踪的问题，并会在 8 月前完成修补。随着 8 月的补丁星期二发布，该问题现已修复。</p></div><div class="en"><p>After reporting the vulnerability on June 29, 2025 Microsoft confirmed the repro and asked a few follow up questions. A few weeks later MSRC pointed out that it is an issue they were already tracking, and that it will be patched by August. With the August Patch Tuesday release this is now fixed.</p></div></div>
+<div class="pair"><div class="zh"><p>感谢来自 <a href="https://persistent-security.net/" target="_blank" rel="noopener">Persistent Security</a> 的 <a href="https://x.com/marver" target="_blank" rel="noopener">Markus Vervier</a>，他也发现并向 Microsoft 报告了这个漏洞。你可以在这里找到他们的<a href="https://www.persistent-security.net/post/part-iii-vscode-copilot-wormable-command-execution-via-prompt-injection" target="_blank" rel="noopener">书面总结</a>。还要感谢 <a href="https://x.com/Ari_MaccariTA" target="_blank" rel="noopener">Ari Marzuk</a>，他似乎也并行发现了这个问题。</p></div><div class="en"><p>Shout out to <a href="https://x.com/marver" target="_blank" rel="noopener">Markus Vervier</a> from <a href="https://persistent-security.net/" target="_blank" rel="noopener">Persistent Security</a> who has also identified and reported this vulnerability to Microsoft. You can find their write-up <a href="https://www.persistent-security.net/post/part-iii-vscode-copilot-wormable-command-execution-via-prompt-injection" target="_blank" rel="noopener">here</a>. And also a shout out to <a href="https://x.com/Ari_MaccariTA" target="_blank" rel="noopener">Ari Marzuk</a> who seems to also have discovered it in parallel.</p></div></div>
+<div class="pair"><div class="zh"><p>感谢 MSRC 和产品团队的成员在缓解该问题过程中提供的帮助。</p></div><div class="en"><p>Thanks to the members of the MSRC and product team for the help in getting it mitigated.</p></div></div>
+<div class="pair"><div class="zh"><h2>结论</h2></div><div class="en"><h2>Conclusion</h2></div></div>
+<div class="pair"><div class="zh"><p>这是又一个例子，说明 AI 智能体可能不会老实待在自己的盒子里！通过修改自身环境，GitHub Copilot 可以提权并执行代码，从而攻陷开发者的机器。正如我所发现的，这是智能体系统中并不少见的设计缺陷。</p></div><div class="en"><p>This is another example of how an AI agent might not stay in its box! By modifying its own environment GitHub Copilot can escalate privileges and execute code to compromise the developer’s machine. It’s a not uncommon design flaw in agentic systems as I have discovered.</p></div></div>
+<div class="pair"><div class="zh"><p>请持续留意这类设计缺陷，在威胁建模期间它们应该很容易被抓住。</p></div><div class="en"><p>Keep looking out for such design flaws, these should be easily caught during threat modeling.</p></div></div>
+<div class="pair"><div class="zh"><p>祝好。</p></div><div class="en"><p>Cheers.</p></div></div>
+<div class="pair"><div class="zh"><h2>参考资料</h2></div><div class="en"><h2>References</h2></div></div>
+<div class="pair"><div class="zh"><ul><li><a href="https://monthofaibugs.com" target="_blank" rel="noopener">Month of AI Bugs 2025</a></li><li><a href="/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/" target="_blank" rel="noopener">Amp Code：借助提示注入实现任意命令执行（已修复）</a></li><li><a href="https://code.visualstudio.com/docs/copilot/reference/copilot-settings" target="_blank" rel="noopener">Copilot 设置</a></li><li><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53773" target="_blank" rel="noopener">CVE-2025-53773：GitHub Copilot 与 Visual Studio 远程代码执行漏洞</a></li><li><a href="https://www.persistent-security.net/post/part-iii-vscode-copilot-wormable-command-execution-via-prompt-injection" target="_blank" rel="noopener">Persistent Security 书面总结</a></li><li><a href="https://persistent-security.net/" target="_blank" rel="noopener">Persistent Security</a></li></ul></div><div class="en"><ul><li><a href="https://monthofaibugs.com" target="_blank" rel="noopener">Month of AI Bugs 2025</a></li><li><a href="/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/" target="_blank" rel="noopener">Amp Code: Arbitrary Command Execution via Prompt Injection Fixed</a></li><li><a href="https://code.visualstudio.com/docs/copilot/reference/copilot-settings" target="_blank" rel="noopener">Copilot Settings</a></li><li><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53773" target="_blank" rel="noopener">CVE-2025-53773: GitHub Copilot and Visual Studio Remote Code Execution Vulnerability</a></li><li><a href="https://www.persistent-security.net/post/part-iii-vscode-copilot-wormable-command-execution-via-prompt-injection" target="_blank" rel="noopener">Persistent Security Write-Up</a></li><li><a href="https://persistent-security.net/" target="_blank" rel="noopener">Persistent Security</a></li></ul></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CS146S 作业仓库 · week1/assignment.md（master）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>CS146S 作业仓库 · week1/assignment.md（master）</h1><div class="meta"><span class="badge">作业仓库</span>master ｜ 原文 8,446 字符 ｜ 51 个内容块 ｜ <a href="https://github.com/mihail911/modern-software-dev-assignments/blob/master/week1/assignment.md" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>第 1 周：剖析一次真实 Claude Code 会话的追踪（ trace ）</h1></div><div class="en"><h1>Week 1: Trace Dissection of a Real Claude Code Session</h1></div></div>
+<div class="pair"><div class="zh"><h2>作业概述</h2></div><div class="en"><h2>Assignment Overview</h2></div></div>
+<div class="pair"><div class="zh"><p>本周你要把一次真实的 Claude Code 会话放到代理后面，捕获它实际发出的 HTTP 请求，并<strong>剖析这些请求</strong>。你不需要构建任何新东西。你要做的是阅读别人的生产系统，细致到它的设计决策变得可见的程度。</p></div><div class="en"><p>This week you will put a real Claude Code session behind a proxy, capture the actual HTTP requests it sends, and <strong>dissect them</strong>. You are not building anything new. You are reading someone else's production system at the level of detail where its design decisions become visible.</p></div></div>
+<div class="pair"><div class="zh"><h3>学习目标</h3></div><div class="en"><h3>Learning Goals</h3></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>追踪</strong> 一次来自生产级编码智能体的真实编码会话，理解它的调用结构。</li><li><strong>辨识</strong> 在一项非平凡的编码任务中，提示词、工具模式与模型响应如何相互作用。</li><li><strong>反思</strong> 在你自己的自定义智能体中，哪些行为你会照搬，哪些你会改变。</li></ul></div><div class="en"><ul><li><strong>Trace</strong> a real coding session from a production-grade coding agent and understand its call structure.</li><li><strong>Identify</strong> how prompting, tool schemas, and model responses interact during a non-trivial coding task.</li><li><strong>Reflect</strong> on which behaviors you would replicate, and which you would change, in your own custom agents.</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>材料</h2></div><div class="en"><h2>Materials</h2></div></div>
+<div class="pair"><div class="zh"><ul><li><strong><a href="https://www.ai.moda/en/blog/tutorial-intercepting-claude-code-requests" target="_blank" rel="noopener">拦截 Claude Code 请求 </a></strong>：本作业所依托的技术。请先读这一份。</li><li><strong><a href="https://docs.claude.com/en/api/messages" target="_blank" rel="noopener">Anthropic Messages API 参考 </a></strong>：你将阅读的请求结构（ <code>system</code> 、 <code>tools</code> 、 <code>messages</code> ）。</li><li><strong><a href="https://docs.claude.com/en/docs/claude-code/settings" target="_blank" rel="noopener">Claude Code 设置参考 </a></strong>：用户级（ <code>~/.claude/settings.json</code> ）与项目级（ <code>.claude/settings.json</code> ）设置如何工作。</li></ul></div><div class="en"><ul><li><strong><a href="https://www.ai.moda/en/blog/tutorial-intercepting-claude-code-requests" target="_blank" rel="noopener">Intercepting Claude Code Requests</a></strong>: the technique this assignment is built on. Read it first.</li><li><strong><a href="https://docs.claude.com/en/api/messages" target="_blank" rel="noopener">Anthropic Messages API reference</a></strong>: the request shape you will be reading (<code>system</code>, <code>tools</code>, <code>messages</code>).</li><li><strong><a href="https://docs.claude.com/en/docs/claude-code/settings" target="_blank" rel="noopener">Claude Code settings reference</a></strong>: how user-level (<code>~/.claude/settings.json</code>) and project-level (<code>.claude/settings.json</code>) settings work.</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>环境搭建</h2></div><div class="en"><h2>Setup</h2></div></div>
+<div class="pair"><div class="zh"><p><strong>前提条件： Claude Code 。</strong> Stanford 通过你的 SUNet ID 提供 Claude Code 访问权限。如果你还没激活账号，请先<a href="https://uit.stanford.edu/service/claude" target="_blank" rel="noopener">申请访问权限 </a>，然后<a href="https://code.claude.com/docs/en/setup" target="_blank" rel="noopener">安装并登录 </a>。账号获批并完成安装后，用 <code>claude --version</code> 确认，并在你的书面说明中记录该版本号。</p></div><div class="en"><p><strong>Prerequisite: Claude Code</strong>. Stanford provides access to Claude Code via your SUNet ID. If you haven't activated your account yet, <a href="https://uit.stanford.edu/service/claude" target="_blank" rel="noopener">request access</a>, then <a href="https://code.claude.com/docs/en/setup" target="_blank" rel="noopener">install and sign in</a>. After your account is approved and you have completed the install, confirm with <code>claude --version</code> and record that version in your writeup.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>1. 安装 mitmproxy ：</strong></p></div><div class="en"><p><strong>1. Install mitmproxy:</strong></p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>macOS</strong>： <code>brew install --cask mitmproxy</code> 。</li><li><strong>Windows</strong>：运行来自 <a href="https://mitmproxy.org/" target="_blank" rel="noopener">mitmproxy.org</a> 的安装程序，它会把 <code>mitmweb</code> 放进你的 <code>PATH</code> 。</li><li><strong>Linux ，或任意平台</strong>： <code>pip install mitmproxy</code> ，如果你建了课程 conda 环境，就在其中安装。</li></ul></div><div class="en"><ul><li><strong>macOS</strong>: <code>brew install --cask mitmproxy</code>.</li><li><strong>Windows</strong>: run the installer from <a href="https://mitmproxy.org/" target="_blank" rel="noopener">mitmproxy.org</a>, which puts <code>mitmweb</code> on your <code>PATH</code>.</li><li><strong>Linux, or any platform</strong>: <code>pip install mitmproxy</code>, inside the course conda env if you made one.</li></ul></div></div>
+<div class="pair"><div class="zh"><p><strong>2. 以反向代理方式启动它：</strong></p></div><div class="en"><p><strong>2. Start it as a reverse proxy:</strong></p></div></div>
+<div class="pair code"><pre><code class="language-bash">mitmweb --listen-host 127.0.0.1 --listen-port 58888 \
+        --web-open-browser --mode reverse:https://api.anthropic.com \
+        -w session.flows</code></pre></div>
+<div class="pair"><div class="zh"><p>发往 <code>127.0.0.1:58888</code> 的流量会被转发到真实的 API ；检查界面在 <code>http://localhost:8081</code> 打开。反向模式意味着你把 Claude Code 指向一个纯 HTTP 的本地地址，因此不需要安装 CA 证书。 <code>-w session.flows</code> 会把每个流量保存到磁盘；请从<strong>任何 git 仓库之外</strong>的目录运行该命令，这样抓包文件就不会被意外提交。</p></div><div class="en"><p>Traffic sent to <code>127.0.0.1:58888</code> is forwarded to the real API; the inspection UI opens at <code>http://localhost:8081</code>. Reverse mode means you point Claude Code at a plain-HTTP local address, so there is no CA certificate to install. <code>-w session.flows</code> saves every flow to disk; run the command from a directory <strong>outside</strong> any git repo so the capture file won't be committed by accident.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>3. 把 Claude Code 指向它</strong>：在你要用于第一部分的仓库里，创建一个<strong>项目级</strong>的 <code>.claude/settings.json</code> ：</p></div><div class="en"><p><strong>3. Point Claude Code at it</strong>: in the repo you will use for Part I, create a <strong>project-level</strong> <code>.claude/settings.json</code>:</p></div></div>
+<div class="pair code"><pre><code class="language-json">{
+  &quot;env&quot;: {
+    &quot;ANTHROPIC_BASE_URL&quot;: &quot;http://127.0.0.1:58888&quot;,
+    &quot;ENABLE_TOOL_SEARCH&quot;: &quot;true&quot;
+  }
+}</code></pre></div>
+<div class="pair"><div class="zh"><blockquote>⚠️ <strong>不要把它写进 <code>~/.claude/settings.json</code> ！</strong> 否则你机器上任何 Claude Code 会话都会落进你的抓包文件（而且一旦 <code>mitmweb</code> 停止，会话就无法工作）。</blockquote></div><div class="en"><blockquote>⚠️ <strong>Don't put this in <code>~/.claude/settings.json</code>!</strong> Otherwise, any Claude Code session on your machine will land in your capture (and sessions won't work once <code>mitmweb</code> is stopped).</blockquote></div></div>
+<div class="pair"><div class="zh"><p><strong>4. 验证</strong>：启动一个新的 <code>claude</code> 会话，随便发送任何内容，确认 mitmweb 中出现一条 <code>POST /v1/messages</code> 流量。</p></div><div class="en"><p><strong>4. Verify</strong>: start a new <code>claude</code> session, send anything, and confirm a <code>POST /v1/messages</code> flow appears in mitmweb.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>5. 作业完成后</strong>：完成后，删除该仓库的 <code>.claude/settings.json</code> （或其中的 <code>env</code> 块），并停止 <code>mitmweb</code> 。</p></div><div class="en"><p><strong>5. Post-Assignment</strong>: when you're done, delete the repo's <code>.claude/settings.json</code> (or its <code>env</code> block) and stop <code>mitmweb</code>.</p></div></div>
+<div class="pair"><div class="zh"><h2>第一部分：捕获一次会话（ 15 分）</h2></div><div class="en"><h2>Part I: Capture a Session (15 pts)</h2></div></div>
+<div class="pair"><div class="zh"><p>在代理下运行<strong>一次</strong>会话，同时满足以下四项要求：</p></div><div class="en"><p>Run <strong>one</strong> session under the proxy meeting all four requirements:</p></div></div>
+<div class="pair"><div class="zh"><ol><li><strong>多文件</strong>：至少改动两个文件。</li><li><strong>至少失败一次</strong>：你需要一段错误恢复过程。故意弄坏一个测试是获得错误恢复最可靠的方式。</li><li><strong>长到足以做计划</strong>：智能体应当给出明确的计划，而不是只发一次工具调用：一份任务列表、计划模式，或一个计划文件。</li><li><strong>你自己的仓库</strong>：一个临时练手项目，不是本仓库。</li></ol></div><div class="en"><ol><li><strong>Multi-file</strong>: touches at least two files.</li><li><strong>Fails at least once</strong>: you need an error-recovery sequence. Breaking a test on purpose is the reliable way to get one.</li><li><strong>Long enough to plan</strong>: the agent should make an explicit plan, not fire a single tool call: a task list, plan mode, or a plan file.</li><li><strong>Your own repo</strong>: a scratch project, not this one.</li></ol></div></div>
+<div class="pair"><div class="zh"><p><strong>任务点子</strong>，如果你不想自己设计：</p></div><div class="en"><p><strong>Task ideas</strong>, if you'd rather not invent one:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>删除一个被其他模块导入的函数，然后要求 Claude 在测试通过的前提下恢复完整功能。</li><li>给一个小型 Web 应用添加一个端点及相应测试，然后要求它在你没有安装的某个依赖版本上让测试套件通过。</li><li>重命名一个模块，让它更新每一处导入，然后运行静态检查与测试。</li><li>要求实现一个需要用到你不熟悉的库的特性，这样智能体必须先查阅 API 才能动手写任何东西。</li></ul></div><div class="en"><ul><li>Delete a function that other modules import, then ask Claude to restore full functionality with the tests passing.</li><li>Add an endpoint plus tests to a small web app, then ask it to make the suite pass on a dependency version you don't have installed.</li><li>Rename a module and have it update every import, then run lint and tests.</li><li>Ask for a feature that requires an unfamiliar library, so the agent has to look up the API before it can write anything.</li></ul></div></div>
+<div class="pair"><div class="zh"><p>在 mitmweb 界面中，选中一条 <code>POST /v1/messages</code> 流量，把<strong>请求体</strong>下载为 JSON 。把这些文件保存在本地。你不必提交它们，但后面每一部分都依据从它们中提取的证据评分，所以要保留足够多的内容来支撑你的回答。</p></div><div class="en"><p>In the mitmweb UI, select a <code>POST /v1/messages</code> flow and download the <strong>request body</strong> as JSON. Keep these locally. You are not submitting them, but every later part is graded on evidence drawn from them, so keep enough to support your answers.</p></div></div>
+<div class="pair"><div class="zh"><p>如果你的 mitmweb 会话终止了，你可以基于保存下来的 <code>session.flows</code> 文件继续工作：用 <code>mitmweb -r session.flows</code> 重新打开它。</p></div><div class="en"><p>If your mitmweb session terminates, you can work from the saved <code>session.flows</code> file: reopen it with <code>mitmweb -r session.flows</code>.</p></div></div>
+<div class="pair"><div class="zh"><h3>⚠️ 对你引用的内容做净化处理</h3></div><div class="en"><h3>⚠️ Sanitize what you quote</h3></div></div>
+<div class="pair"><div class="zh"><p>你的抓包文件里有你自己的源代码、文件路径和凭证。除了你在 <code>writeup.md</code> 中刻意引用的片段之外，任何内容都不应进入仓库。</p></div><div class="en"><p>Your capture contains your own source code, file paths, and credentials. Nothing from it should reach the repo except the excerpts you deliberately quote in <code>writeup.md</code>.</p></div></div>
+<div class="pair"><div class="zh"><ul><li>绝不要粘贴原始流量或 HTTP 头，因为 <code>x-api-key</code> / <code>authorization</code> 就在那里。</li><li><strong>请求体也可能包含机密信息。</strong> 智能体读过的任何内容（ <code>.env</code> 、配置文件、命令输出）都会在 <code>messages</code> 中被重放。引用工具结果之前先检查。</li><li>让 <code>session.flows</code> 远离每一个 git 仓库。</li><li>用可见的标记（ <code>[REDACTED: internal hostname]</code> ）遮蔽引用内容中的私密信息，而不是悄悄删掉。</li><li>如果某个片段无法在不破坏其含义的情况下净化，就换一个用后即弃的仓库重新抓一次。</li></ul></div><div class="en"><ul><li>Never paste raw flows or HTTP headers, since that is where <code>x-api-key</code> / <code>authorization</code> live.</li><li><strong>Request bodies can contain secrets too.</strong> Anything the agent read (<code>.env</code>, config files, command outputs) is replayed in <code>messages</code>. Check tool results before quoting them.</li><li>Keep <code>session.flows</code> out of every git repo.</li><li>Redact private content in your quotes with a visible marker (<code>[REDACTED: internal hostname]</code>), not a silent deletion.</li><li>If an excerpt can't be sanitized without destroying its meaning, re-capture on a throwaway repo.</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>第二部分：为系统提示词写注解（ 25 分）</h2></div><div class="en"><h2>Part II: Annotate the System Prompt (25 pts)</h2></div></div>
+<div class="pair"><div class="zh"><p>把 <code>system</code> 块以及任何带有 <code>role: "system"</code> 的消息拆分成各自的段落。对每一段回答：<strong>它换来了什么行为，又在防御哪种失败模式？</strong> 这是写注解，不是写摘要。</p></div><div class="en"><p>Break the <code>system</code> block and any messages with <code>role: "system"</code> into their sections. For each, answer: <strong>what behavior is this buying, and what failure mode is it defending against?</strong> An annotation, not a summary.</p></div></div>
+<div class="pair"><div class="zh"><p>至少覆盖：</p></div><div class="en"><p>Cover at least:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>结构</strong>：主要段落、它们的顺序，以及为什么是这个顺序。</li><li><strong>语气与篇幅</strong>：控制响应长度与格式的具体措辞，以及为什么它值得花掉这些 token 。</li><li><strong>何时不行动</strong>：破坏性操作的关卡、范围限制、拒绝条件。</li><li><strong>环境上下文</strong>：智能体被告知了关于机器、仓库和会话的哪些信息，以及这些信息在请求中的什么位置。</li></ul></div><div class="en"><ul><li><strong>Structure</strong>: the major sections, their order, and why that order.</li><li><strong>Tone and verbosity</strong>: the specific language controlling response length and format, and why it is worth the tokens.</li><li><strong>When not to act</strong>: destructive-operation gates, scope limits, refusal conditions.</li><li><strong>Environment context</strong>: what the agent is told about the machine, repo, and session, and where that lives in the request.</li></ul></div></div>
+<div class="pair"><div class="zh"><p>然后专门针对 <code>&lt;system-reminder&gt;</code> 回答：它们出现在哪里（ system 块、 messages ，还是两者都有，并举例说明），你能找到证据的两种不同用途是什么，以及为什么要在对话中途注入它们，而不是一开始就一次性说明？</p></div><div class="en"><p>Then, on <code>&lt;system-reminder&gt;</code> specifically: where do they appear (system block, messages, or both, citing an example), what two distinct purposes can you evidence, and why inject them mid-conversation rather than stating them once up front?</p></div></div>
+<div class="pair"><div class="zh"><h2>第三部分：为工具设计写注解（ 25 分）</h2></div><div class="en"><h2>Part III: Annotate the Tool Design (25 pts)</h2></div></div>
+<div class="pair"><div class="zh"><p><strong>清点：给数字，不要写散文。</strong> 当时有多少个工具可用，按内置、 MCP 提供、延迟提供/可检索分类统计是多少？记下工具集在各次请求之间的任何变化，以及是什么触发了变化。好的回答读起来像 <em>“第一次请求中有 117 个工具： 35 个内置， 82 个来自三个 MCP 服务器”</em>，而不是 <em>“当时有很多工具可用。”</em></p></div><div class="en"><p><strong>Inventory: numbers, not prose.</strong> How many tools were available, broken down by built-in vs. MCP-provided vs. deferred/searchable? Note any change in the tool set across requests and what triggered it. A good answer reads <em>"117 tools in the first request: 35 built-in, 82 from three MCP servers"</em>, not <em>"there were many tools available."</em></p></div></div>
+<div class="pair"><div class="zh"><p><strong>设计分析。</strong> 挑<strong>两个</strong>工具，把每一个都当作接口设计来分析：</p></div><div class="en"><p><strong>Design analysis.</strong> Pick <strong>two</strong> tools and analyze each as interface design:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>重现该模式（ schema ）的相关部分。</li><li>为什么是这组参数？哪些是必填，哪些是可选，哪些是被刻意不暴露的？</li><li>这段描述在防御什么？成熟智能体中的工具描述大多是日积月累的疤痕组织。找出一句仅仅因为模型总是做错某件事才存在的描述，并指出那件错事是什么。</li><li>这个工具刻意*不*做什么，这又暗示了周边系统的什么设计？</li></ul></div><div class="en"><ul><li>Reproduce the relevant part of the schema.</li><li>Why this parameter set? What is required, what is optional, what is deliberately not exposed?</li><li>What is the description defending against? Tool descriptions in a mature agent are largely accumulated scar tissue. Find a sentence that exists only because a model kept doing the wrong thing, and name that wrong thing.</li><li>What does the tool deliberately <em>not</em> do, and what does that imply about the surrounding system?</li></ul></div></div>
+<div class="pair"><div class="zh"><p>挑两个彼此不同的工具。两个文件操作类工具是弱选择；一个文件工具搭配一个编排工具，或者搭配一个失败约定不寻常的工具，才是强选择。</p></div><div class="en"><p>Pick two tools that differ. Two file-manipulation tools is a weak selection; a file tool paired with an orchestration tool or one with an unusual failure contract is a strong one.</p></div></div>
+<div class="pair"><div class="zh"><h2>第四部分：基于证据的行为分析（ 25 分）</h2></div><div class="en"><h2>Part IV: Behavioral Analysis with Evidence (25 pts)</h2></div></div>
+<div class="pair"><div class="zh"><p>每个问题都要用你自己的追踪记录来回答。每个回答都必须<strong>引用其证据</strong>（哪次请求、第几条消息、哪次工具调用）并<strong>标注 <code>[OBSERVED]</code> （已观察）或 <code>[INFERRED]</code> （已推理）</strong>：已观察意味着你能在抓包文件中指出它，已推理意味着你是根据定义推理，而没有亲眼看到它发生。两者都可以接受；标注错误则不行，未标注的回答不得分。</p></div><div class="en"><p>Answer each question from your own trace. Every answer must <strong>cite its evidence</strong> (which request, message index, tool call) and <strong>label itself <code>[OBSERVED]</code> or <code>[INFERRED]</code></strong>: observed means you can point at it in your capture, inferred means you are reasoning from definitions without having watched it happen. Both are acceptable; mislabeling is not, and unlabeled answers earn no credit.</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>错误恢复</strong>：完整走一遍一次失败的端到端过程。智能体看到了什么，它接下来尝试了什么，恢复花了多少轮？逐字引用。</li><li><strong>计划</strong>：它来自一个工具、一条提示词指令、涌现行为，还是几者的组合？什么证据能把它们区分开？</li><li><strong>计划与任务状态</strong>：计划是如何创建并推进的？模型每轮能看到关于任务状态的哪些信息，这些信息在请求中位于哪里？</li><li><strong>子智能体</strong>：智能体什么时候委派任务？子智能体被告知了什么，又返回了什么？（如果你的会话从未触发子智能体，一个诚实的 <code>[INFERRED]</code> 也可以。）</li><li><strong>上下文管理</strong>：随着会话增长，负载中有什么变化？较早的轮次在后来的请求中如何表示？</li></ul></div><div class="en"><ul><li><strong>Error recovery</strong>: walk one failure end to end. What did the agent see, what did it try next, how many turns did recovery take? Quote verbatim.</li><li><strong>Planning</strong>: a tool, a prompt instruction, emergent behavior, or a combination? What evidence separates those?</li><li><strong>Plans and task state</strong>: how does one get created and advanced? What does the model see about task state each turn, and where does it live in the request?</li><li><strong>Subagents</strong>: when does the agent delegate? What does the subagent get told, and what comes back? (An honest <code>[INFERRED]</code> is fine if your session never triggered one.)</li><li><strong>Context management</strong>: as the session grows, what changes in the payloads? How are earlier turns represented later?</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>第五部分：反思（ 10 分）</h2></div><div class="en"><h2>Part V: Reflection (10 pts)</h2></div></div>
+<div class="pair"><div class="zh"><p>最多一页：<strong>两个你会照搬的决策</strong>以及各自解决了什么问题；<strong>一个你会做得不同的决策</strong>，并论述它为什么可能被那样设计；以及<strong>追踪记录改变了你的一件事</strong>，即你日后会如何逐日驾驭编码智能体。</p></div><div class="en"><p>At most one page: <strong>two decisions you would copy</strong> and the problem each solves; <strong>one you would make differently</strong>, engaging with why it might be there; and <strong>one thing the trace changed</strong> about how you will steer a coding agent day to day.</p></div></div>
+<div class="pair"><div class="zh"><h2>交付物</h2></div><div class="en"><h2>Deliverables</h2></div></div>
+<div class="pair"><div class="zh"><p>一份填写完所有 <code>TODO</code> 的 <strong><code>week1/writeup.md</code></strong>。你抓到的追踪记录留在你自己的机器上。</p></div><div class="en"><p>A completed <strong><code>week1/writeup.md</code></strong> with every <code>TODO</code> filled in. Your captured traces stay on your machine.</p></div></div>
+<div class="pair"><div class="zh"><h2>评分细则（总分 100 分）</h2></div><div class="en"><h2>Evaluation Rubric (100 pts total)</h2></div></div>
+<div class="pair"><div class="zh"><table><thead><tr><th>部分</th><th>分值</th><th>怎样拿满分</th></tr></thead><tbody><tr><td>I. 捕获与可复现性</td><td>15</td><td>四项会话要求全部满足；环境搭建与会话记录详尽到只看你的书面说明就能复现</td></tr><tr><td>II. 系统提示词注解</td><td>25</td><td>各段落与行为和失败模式挂钩；用有出处的例子解释 <code>&lt;system-reminder&gt;</code></td></tr><tr><td>III. 工具清点与设计</td><td>25</td><td>给出具体数字与分类；分析两个确实不同的工具作为接口设计</td></tr><tr><td>IV. 行为分析</td><td>25</td><td>每个回答都有出处且标注正确；错误恢复逐字引用</td></tr><tr><td>V. 反思</td><td>10</td><td>给出具体、有论证的立场，而不是复述</td></tr></tbody></table></div><div class="en"><table><thead><tr><th>Part</th><th>Points</th><th>What earns full credit</th></tr></thead><tbody><tr><td>I. Capture &amp; reproducibility</td><td>15</td><td>All four session requirements met; setup and session documented well enough to reproduce from your writeup alone</td></tr><tr><td>II. System prompt annotation</td><td>25</td><td>Sections tied to behavior and failure modes; <code>&lt;system-reminder&gt;</code> explained with cited examples</td></tr><tr><td>III. Tool inventory &amp; design</td><td>25</td><td>Concrete counts with a breakdown; two genuinely different tools analyzed as interface design</td></tr><tr><td>IV. Behavioral analysis</td><td>25</td><td>Every answer cited and correctly labeled; error recovery quoted verbatim</td></tr><tr><td>V. Reflection</td><td>10</td><td>Specific, argued positions rather than restatement</td></tr></tbody></table></div></div>
+<div class="pair"><div class="zh"><p>引用片段中出现未净化的凭证，以及把追踪记录并不支持的断言当作观察来陈述，都会扣分。</p></div><div class="en"><p>Deductions for unsanitized credentials in quoted excerpts, and for claims presented as observation that your trace does not support.</p></div></div>
+<div class="pair"><div class="zh"><h2>提交说明</h2></div><div class="en"><h2>SUBMISSION INSTRUCTIONS</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>确保所有改动都已经推送到你的远程仓库以供评分。</li><li><strong>确保你已经把 <code>mihail911</code> 、 <code>isaackann</code> 和 <code>vdaita</code> 添加为作业仓库的协作者。</strong></li><li>通过 Gradescope 提交。</li><li><strong>别忘了从你仓库的 <code>.claude/settings.json</code> 中删除 <code>ANTHROPIC_BASE_URL</code> ！</strong></li></ol></div><div class="en"><ol><li>Make sure you have all changes pushed to your remote repository for grading.</li><li><strong>Make sure you've added <code>mihail911</code>, <code>isaackann</code>, and <code>vdaita</code> as collaborators on your assignment repository.</strong></li><li>Submit via Gradescope.</li><li><strong>Don't forget to remove <code>ANTHROPIC_BASE_URL</code> from your repo's <code>.claude/settings.json</code>!</strong></li></ol></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

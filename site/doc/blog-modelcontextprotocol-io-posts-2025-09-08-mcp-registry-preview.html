@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCP Registry</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>MCP Registry</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 6,328 字符 ｜ 24 个内容块 ｜ <a href="https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>MCP 注册表</h1></div><div class="en"><h1>MCP Registry</h1></div></div>
+<div class="pair"><div class="zh"><p>今天，我们推出模型上下文协议（MCP）注册表（Registry）——一个面向公开可用 MCP 服务器的开放目录与 API，用于改善可发现性与落地实现。通过统一服务器的分发与发现方式，我们既扩大了服务器的覆盖范围，也让客户端更容易完成对接。</p></div><div class="en"><p>Today, we’re launching the Model Context Protocol (MCP) Registry—an open catalog and API for publicly available MCP servers to improve discoverability and implementation. By standardizing how servers are distributed and discovered, we’re expanding their reach while making it easier for clients to get connected.</p></div></div>
+<div class="pair"><div class="zh"><p>MCP 注册表现已开放预览。要开始使用：</p></div><div class="en"><p>The MCP Registry is now available in preview. To get started:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>添加你的服务器</strong>，请参照我们的指南<a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/quickstart.mdx" target="_blank" rel="noopener">将服务器添加到 MCP 注册表</a>（面向服务器维护者）</li><li><strong>访问服务器数据</strong>，请参照我们的指南<a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/registry-aggregators.mdx" target="_blank" rel="noopener">访问 MCP 注册表数据</a>（面向客户端维护者）</li></ul></div><div class="en"><ul><li><strong>Add your server</strong> by following our guide on <a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/quickstart.mdx" target="_blank" rel="noopener">Adding Servers to the MCP Registry</a> (for server maintainers)</li><li><strong>Access server data</strong> by following our guide on <a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/registry-aggregators.mdx" target="_blank" rel="noopener">Accessing MCP Registry Data</a> (for client maintainers)</li></ul></div></div>
+<div class="pair"><div class="zh"><h1>MCP 服务器的唯一事实来源</h1></div><div class="en"><h1>Single source of truth for MCP servers</h1></div></div>
+<div class="pair"><div class="zh"><p>2025 年 3 月，我们曾提出要为 MCP 生态构建一个中央注册表。今天我们宣布，已上线 <a href="https://registry.modelcontextprotocol.io" target="_blank" rel="noopener">https://registry.modelcontextprotocol.io</a> 作为官方 MCP 注册表。作为 MCP 项目的一部分，MCP 注册表以及上层的 <a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/api/official-registry-api.md" target="_blank" rel="noopener">OpenAPI 规格</a>都是开源的，任何人都可以据此构建兼容的子注册表。</p></div><div class="en"><p>In March 2025, we shared that we wanted to build a central registry for the MCP ecosystem. Today we are announcing that we’ve launched <a href="https://registry.modelcontextprotocol.io" target="_blank" rel="noopener">https://registry.modelcontextprotocol.io</a> as the official MCP Registry. As part of the MCP project, the MCP Registry, as well as a parent <a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/api/official-registry-api.md" target="_blank" rel="noopener">OpenAPI specification</a>, are open source—allowing everyone to build a compatible sub-registry.</p></div></div>
+<div class="pair"><div class="zh"><p>我们的目标是统一服务器的分发与发现方式，提供一个子注册表可以据以构建的唯一事实来源。这反过来会扩大服务器覆盖范围，帮助客户端更轻松地在整个 MCP 生态中找到服务器。</p></div><div class="en"><p>Our goal is to standardize how servers are distributed and discovered, providing a primary source of truth that sub-registries can build upon. In turn, this will expand server reach and help clients find servers more easily across the MCP ecosystem.</p></div></div>
+<div class="pair"><div class="zh"><h2>公共与私有子注册表</h2></div><div class="en"><h2>Public and private sub-registries</h2></div></div>
+<div class="pair"><div class="zh"><p>在构建中央注册表时，我们很重视不削弱社区和公司已经建成的现有注册表。MCP 注册表是公开可用 MCP 服务器的唯一事实来源，组织可以按自定义标准<a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/registry-aggregators.mdx" target="_blank" rel="noopener">创建子注册表</a>。例如：</p></div><div class="en"><p>In building a central registry, it was important to us not to take away from existing registries that the community and companies have built. The MCP Registry serves as a primary source of truth for publicly available MCP servers, and organizations can choose to <a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/registry-aggregators.mdx" target="_blank" rel="noopener">create sub-registries</a> based on custom criteria. For example:</p></div></div>
+<div class="pair"><div class="zh"><p><strong>公共子注册表</strong>，比如与各个 MCP 客户端关联的、有明确取向的“MCP 应用市场”，可以自由扩充和增强其从上游 MCP 注册表获取的数据。每一类 MCP 终端用户都会有不同需求，理应由 MCP 客户端应用市场以有明确取向的方式服务好自己的终端用户。</p></div><div class="en"><p><strong>Public subregistries</strong> like opinionated “MCP marketplaces” associated with each MCP client are free to augment and enhance data they ingest from the upstream MCP Registry. Every MCP end-user persona will have different needs, and it is up to the MCP client marketplaces to properly serve their end-users in opinionated ways.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>私有子注册表</strong>将存在于有严格隐私与安全要求的企业内部，而 MCP 注册表为这些企业提供了一个可以据以构建的上游数据源。我们至少会与这些私有实现共享 API schema，以便相关的 SDK 与工具能在整个生态中复用。</p></div><div class="en"><p><strong>Private subregistries</strong> will exist within enterprises that have strict privacy and security requirements, but the MCP Registry gives these enterprises a single upstream data source they can build upon. At a minimum, we aim to share API schemas with these private implementations so that associated SDKs and tooling can be shared across the ecosystem.</p></div></div>
+<div class="pair"><div class="zh"><p>无论哪种情况，MCP 注册表都是起点——它是 MCP 服务器维护者发布和维护其自述信息的中心位置，供这些下游消费方加工并交付给各自的终端用户。</p></div><div class="en"><p>In both cases, the MCP Registry is the starting point – it’s the centralized location where MCP server maintainers publish and maintain their self-reported information for these downstream consumers to massage and deliver to their end-users.</p></div></div>
+<div class="pair"><div class="zh"><h2>社区驱动的审核机制</h2></div><div class="en"><h2>Community-driven mechanism for moderation</h2></div></div>
+<div class="pair"><div class="zh"><p>MCP 注册表是官方 MCP 项目，由注册表工作组维护，采用宽松许可。社区成员可以提交 issue 来标记违反 MCP <a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/moderation-policy.mdx" target="_blank" rel="noopener">审核准则</a>的服务器，例如包含垃圾信息、恶意代码或冒充合法服务的服务器。注册表维护者随后可以将这些条目列入拒绝名单，并追溯性地将其从公开访问中移除。</p></div><div class="en"><p>The MCP Registry is an official MCP project maintained by the registry working group and permissively licensed. Community members can submit issues to flag servers that violate the MCP <a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/moderation-policy.mdx" target="_blank" rel="noopener">moderation guidelines</a>—such as those containing spam, malicious code, or impersonating legitimate services. Registry maintainers can then denylist these entries and retroactively remove them from public access.</p></div></div>
+<div class="pair"><div class="zh"><h1>开始使用</h1></div><div class="en"><h1>Getting started</h1></div></div>
+<div class="pair"><div class="zh"><p>要开始使用：</p></div><div class="en"><p>To get started:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>添加你的服务器</strong>，请参照我们的指南<a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/quickstart.mdx" target="_blank" rel="noopener">将服务器添加到 MCP 注册表</a>（面向服务器维护者）</li><li><strong>访问服务器数据</strong>，请参照我们的指南<a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/registry-aggregators.mdx" target="_blank" rel="noopener">访问 MCP 注册表数据</a>（面向客户端维护者）</li></ul></div><div class="en"><ul><li><strong>Add your server</strong> by following our guide on <a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/quickstart.mdx" target="_blank" rel="noopener">Adding Servers to the MCP Registry</a> (for server maintainers)</li><li><strong>Access server data</strong> by following our guide on <a href="https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/registry-aggregators.mdx" target="_blank" rel="noopener">Accessing MCP Registry Data</a> (for client maintainers)</li></ul></div></div>
+<div class="pair"><div class="zh"><p>MCP 注册表的这个预览版旨在帮助我们在正式发布前改善用户体验，它不提供数据持久性保证或其他担保。我们建议采用 MCP 的各方密切关注开发进展，因为在注册表正式发布之前可能会出现破坏性变更。</p></div><div class="en"><p>This preview of the MCP Registry is meant to help us improve the user experience before general availability and does not provide data durability guarantees or other warranties. We advise MCP adopters to watch development closely as breaking changes may occur before the registry is made generally available.</p></div></div>
+<div class="pair"><div class="zh"><p>随着注册表持续开发，我们欢迎在 <a href="https://github.com/modelcontextprotocol/registry" target="_blank" rel="noopener">modelcontextprotocol/registry GitHub 仓库</a>上提出反馈和贡献：Discussion、Issue 和拉取请求都欢迎。</p></div><div class="en"><p>As we continue to develop the registry, we encourage feedback and contributions on the <a href="https://github.com/modelcontextprotocol/registry" target="_blank" rel="noopener">modelcontextprotocol/registry GitHub repository</a>: Discussion, Issues, and Pull Requests are all welcome.</p></div></div>
+<div class="pair"><div class="zh"><h1>感谢 MCP 社区</h1></div><div class="en"><h1>Thanks to the MCP community</h1></div></div>
+<div class="pair"><div class="zh"><p>MCP 注册表从一开始就是协作的产物，我们非常感谢广大开发者社区的热情与支持。</p></div><div class="en"><p>The MCP Registry has been a collaborative effort from the beginning and we are incredibly grateful for the enthusiasm and support from the broader developer community.</p></div></div>
+<div class="pair"><div class="zh"><p>2025 年 2 月，它从草根项目起步：MCP 的创建者 <a href="https://github.com/dsp-ant" target="_blank" rel="noopener">David Soria Parra</a> 和 <a href="https://github.com/jspahrsummers" target="_blank" rel="noopener">Justin Spahr-Summers</a> 邀请 <a href="https://www.pulsemcp.com/" target="_blank" rel="noopener">PulseMCP</a> 与 <a href="https://block.github.io/goose/" target="_blank" rel="noopener">Goose</a> 团队协助构建一个中心化的社区注册表。来自 <a href="https://www.pulsemcp.com/" target="_blank" rel="noopener">PulseMCP</a> 的注册表维护者 <a href="https://github.com/tadasant" target="_blank" rel="noopener">Tadas Antanavicius</a> 与来自 <a href="https://block.xyz/" target="_blank" rel="noopener">Block</a> 的 <a href="https://github.com/alexhancock" target="_blank" rel="noopener">Alex Hancock</a> 共同牵头了最初的工作。随后，来自 <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> 的 MCP 负责人、注册表维护者 <a href="https://github.com/toby" target="_blank" rel="noopener">Toby Padilla</a> 加入，最近来自 <a href="https://www.anthropic.com/" target="_blank" rel="noopener">Anthropic</a> 的 <a href="https://github.com/domdomegg" target="_blank" rel="noopener">Adam Jones</a> 也作为注册表维护者加入，推动项目走到今天的发布。<a href="https://github.com/modelcontextprotocol/registry/discussions/11" target="_blank" rel="noopener">MCP 注册表开发工作的最初公告</a>列出了来自至少 9 家不同公司的 16 位贡献者。</p></div><div class="en"><p>In February 2025, it began as a grassroots project when MCP creators <a href="https://github.com/dsp-ant" target="_blank" rel="noopener">David Soria Parra</a> and <a href="https://github.com/jspahrsummers" target="_blank" rel="noopener">Justin Spahr-Summers</a> asked the <a href="https://www.pulsemcp.com/" target="_blank" rel="noopener">PulseMCP</a> and <a href="https://block.github.io/goose/" target="_blank" rel="noopener">Goose</a> teams to help build a centralized community registry. Registry Maintainer <a href="https://github.com/tadasant" target="_blank" rel="noopener">Tadas Antanavicius</a> from <a href="https://www.pulsemcp.com/" target="_blank" rel="noopener">PulseMCP</a> spearheaded the initial effort in collaboration with <a href="https://github.com/alexhancock" target="_blank" rel="noopener">Alex Hancock</a> from <a href="https://block.xyz/" target="_blank" rel="noopener">Block</a>. They were soon joined by Registry Maintainer <a href="https://github.com/toby" target="_blank" rel="noopener">Toby Padilla</a>, Head of MCP at <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>, and more recently, <a href="https://github.com/domdomegg" target="_blank" rel="noopener">Adam Jones</a> from <a href="https://www.anthropic.com/" target="_blank" rel="noopener">Anthropic</a> joined as Registry Maintainer to drive the project towards the launch today. The <a href="https://github.com/modelcontextprotocol/registry/discussions/11" target="_blank" rel="noopener">initial announcement</a> of the MCP Registry’s development lists 16 contributing individuals from at least 9 different companies.</p></div></div>
+<div class="pair"><div class="zh"><p>还有许多人为让这个项目落地做出了关键贡献：来自 <a href="https://stacklok.com/" target="_blank" rel="noopener">Stacklok</a> 的 <a href="https://github.com/rdimitrov" target="_blank" rel="noopener">Radoslav Dimitrov</a>、来自 <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> 的 <a href="https://github.com/sridharavinash" target="_blank" rel="noopener">Avinash Sridhar</a>、来自 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> 的 <a href="https://github.com/connor4312" target="_blank" rel="noopener">Connor Peet</a>、来自 <a href="https://www.nuget.org/" target="_blank" rel="noopener">NuGet</a> 的 <a href="https://github.com/joelverhagen" target="_blank" rel="noopener">Joel Verhagen</a>、来自 <a href="https://last9.io/" target="_blank" rel="noopener">Last9</a> 的 <a href="https://github.com/pree-dew" target="_blank" rel="noopener">Preeti Dewani</a>、来自 <a href="https://www.microsoft.com/" target="_blank" rel="noopener">Microsoft</a> 的 <a href="https://github.com/Avish34" target="_blank" rel="noopener">Avish Porwal</a>、<a href="https://github.com/jonathanhefner" target="_blank" rel="noopener">Jonathan Hefner</a>，以及许多提供代码评审与开发支持的 Anthropic 和 GitHub 员工。我们也感谢<a href="https://github.com/modelcontextprotocol/registry/graphs/contributors" target="_blank" rel="noopener">注册表贡献者名单</a>上的每一位，以及参与<a href="https://github.com/modelcontextprotocol/registry" target="_blank" rel="noopener">讨论与 issue</a>的各位。</p></div><div class="en"><p>Many others made crucial contributions to bring this project to life: <a href="https://github.com/rdimitrov" target="_blank" rel="noopener">Radoslav Dimitrov</a> from <a href="https://stacklok.com/" target="_blank" rel="noopener">Stacklok</a>, <a href="https://github.com/sridharavinash" target="_blank" rel="noopener">Avinash Sridhar</a> from <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>, <a href="https://github.com/connor4312" target="_blank" rel="noopener">Connor Peet</a> from <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>, <a href="https://github.com/joelverhagen" target="_blank" rel="noopener">Joel Verhagen</a> from <a href="https://www.nuget.org/" target="_blank" rel="noopener">NuGet</a>, <a href="https://github.com/pree-dew" target="_blank" rel="noopener">Preeti Dewani</a> from <a href="https://last9.io/" target="_blank" rel="noopener">Last9</a>, <a href="https://github.com/Avish34" target="_blank" rel="noopener">Avish Porwal</a> from <a href="https://www.microsoft.com/" target="_blank" rel="noopener">Microsoft</a>, <a href="https://github.com/jonathanhefner" target="_blank" rel="noopener">Jonathan Hefner</a>, and many Anthropic and GitHub employees that provided code reviews and development support. We are also grateful to everyone on the <a href="https://github.com/modelcontextprotocol/registry/graphs/contributors" target="_blank" rel="noopener">Registry’s contributors log</a> and those who participated in <a href="https://github.com/modelcontextprotocol/registry" target="_blank" rel="noopener">discussions and issues</a>.</p></div></div>
+<div class="pair"><div class="zh"><p>我们深深感谢每一位为这套基础性开源基础设施投入心力的人。我们正在共同帮助全球的开发者和组织构建更可靠、具备上下文感知能力的 AI 应用。谨代表 MCP 社区，谢谢大家。</p></div><div class="en"><p>We deeply appreciate everyone investing in this foundational open source infrastructure. Together, we’re helping developers and organizations worldwide to build more reliable, context-aware AI applications. On behalf of the MCP community, thank you.</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-09-25T12:34:35+08:00",
+  "slug": "www-anthropic-com-engineering-claude-code-best-practices__p2",
+  "stats": {
+    "blocks_en": 99,
+    "blocks_zh": 99,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 107,
+    "term_violations": 0,
+    "term_missing": 0,
+    "kept_english": 1,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": []
+  },
+  "issues": []
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCP Food-for-Thought</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>MCP Food-for-Thought</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 4,559 字符 ｜ 27 个内容块 ｜ <a href="https://www.reillywood.com/blog/apis-dont-make-good-mcp-tools/" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>关于 MCP 的思考</h1></div><div class="en"><h1>MCP Food-for-Thought</h1></div></div>
+<div class="pair"><div class="zh"><p><a href="https://modelcontextprotocol.io/overview" target="_blank" rel="noopener">模型上下文协议</a>（MCP）如今是件相当重要的事。它已成为事实上的标准，用来让大语言模型（LLM）访问别人编写的工具，而这自然就把大语言模型变成了<a href="https://simonwillison.net/2025/May/22/tools-in-a-loop/" target="_blank" rel="noopener">智能体</a>。但是为一个新的 MCP 服务器编写工具很难，因此人们常常提议<a href="https://blog.christianposta.com/semantics-matter-exposing-openapi-as-mcp-tools/" target="_blank" rel="noopener">把现有 API 自动转换成 MCP 工具</a>，通常借助 OpenAPI 元数据（<a href="https://jedisct1.github.io/openapi-mcp/" target="_blank" rel="noopener">1</a>、<a href="https://www.gravitee.io/blog/turn-any-rest-api-into-mcp-server-inside-gravitee" target="_blank" rel="noopener">2</a>）。</p></div><div class="en"><p>The <a href="https://modelcontextprotocol.io/overview" target="_blank" rel="noopener">Model Context Protocol</a> (MCP) is a pretty big deal these days. It’s become the de facto standard for giving LLMs access to tools that someone else wrote, which, of course, turns them into <a href="https://simonwillison.net/2025/May/22/tools-in-a-loop/" target="_blank" rel="noopener">agents</a>. But writing tools for a new MCP server is hard, and so people often propose <a href="https://blog.christianposta.com/semantics-matter-exposing-openapi-as-mcp-tools/" target="_blank" rel="noopener">auto-converting existing APIs into MCP tools</a>; typically using OpenAPI metadata (<a href="https://jedisct1.github.io/openapi-mcp/" target="_blank" rel="noopener">1</a>, <a href="https://www.gravitee.io/blog/turn-any-rest-api-into-mcp-server-inside-gravitee" target="_blank" rel="noopener">2</a>).</p></div></div>
+<div class="pair"><div class="zh"><p>以我的经验，这种做法可行，但效果*并不好*。原因有以下几点：</p></div><div class="en"><p>In my experience, this can work but it doesn’t work <em>well</em>. Here are a few reasons why:</p></div></div>
+<div class="pair"><div class="zh"><h2>智能体不擅长处理大量工具</h2></div><div class="en"><h2>Agents don’t do well with large numbers of tools</h2></div></div>
+<div class="pair"><div class="zh"><p>众所周知，<a href="https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode" target="_blank" rel="noopener">VS Code 对工具数量有 128 个的硬性上限</a>，但<a href="https://arxiv.org/abs/2411.15399" target="_blank" rel="noopener">许多模型在远低于这个数字时就已经难以准确调用工具</a>。此外，每个工具及其描述都会占用宝贵的上下文窗口空间。</p></div><div class="en"><p>Infamously, <a href="https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode" target="_blank" rel="noopener">VS Code has a hard limit of 128 tools</a> - but <a href="https://arxiv.org/abs/2411.15399" target="_blank" rel="noopener">many models struggle with accurate tool calling well before that number</a>. Also, each tool and its description takes up valuable context window space.</p></div></div>
+<div class="pair"><div class="zh"><p>大多数 Web API 在设计时并没有考虑这些约束！当 API 由代码调用时，为同一个产品领域提供大量 API 并无问题；但如果每个 API 都映射成一个 MCP 工具，结果可能就不太好。</p></div><div class="en"><p>Most web APIs weren’t designed with these constraints in mind! It’s fine to have umpteen APIs for a single product area when those APIs are called from code, but if each of those APIs is mapped to an MCP tool the results might not be great.</p></div></div>
+<div class="pair"><div class="zh"><p>从零开始设计的 MCP 工具通常<a href="https://engineering.block.xyz/blog/blocks-playbook-for-designing-mcp-servers" target="_blank" rel="noopener">比单个 Web API 灵活得多</a>，每个工具都能完成好几个单独 API 的工作。</p></div><div class="en"><p>MCP tools designed from the ground up are typically <a href="https://engineering.block.xyz/blog/blocks-playbook-for-designing-mcp-servers" target="_blank" rel="noopener">much more flexible than individual web APIs</a>, with each tool being able to do the work of several individual APIs.</p></div></div>
+<div class="pair"><div class="zh"><h2>API 会迅速耗尽上下文窗口</h2></div><div class="en"><h2>APIs can blow through context windows quickly</h2></div></div>
+<div class="pair"><div class="zh"><p>设想某个 API 一次返回 100 条记录，而每条记录都很宽（比如 50 个字段）。把这些结果原样发给智能体会消耗大量 token（词元）；即使某个查询只用少数几个字段就能满足，每一个字段最终仍会进入上下文窗口。</p></div><div class="en"><p>Imagine an API that returns 100 records at a time, and each record is very wide (say, 50 fields). Sending those results to an agent as-is will use up a lot of tokens; even if a query can be satisfied with only a few fields, every field ends up in the context window.</p></div></div>
+<div class="pair"><div class="zh"><p>API 通常按记录数量分页，但记录的大小可能相差*极大*。一条记录可能包含一个占用 100,000 个 <a href="https://learn.microsoft.com/en-us/dotnet/ai/conceptual/understanding-tokens" target="_blank" rel="noopener">token</a> 的大文本字段，而另一条可能只占 10 个。把这些 API 结果直接放进智能体的上下文窗口是一场赌博；有时可行，有时会彻底崩掉。</p></div><div class="en"><p>APIs are typically paginated by the number of records, but records can vary a <em>lot</em> in size. One record might contain a large text field that takes up 100,000 <a href="https://learn.microsoft.com/en-us/dotnet/ai/conceptual/understanding-tokens" target="_blank" rel="noopener">tokens</a>, while another might contain 10. Putting these API results directly into an agent’s context window is a gamble; sometimes it works, sometimes it will blow up.</p></div></div>
+<div class="pair"><div class="zh"><p>数据的格式也可能成为问题。如今大多数 Web API 返回 JSON，但 JSON 是一种非常浪费 token 的格式。请看这个：</p></div><div class="en"><p>The format of the data can also be an issue. Most web APIs these days return JSON, but JSON is a very token-inefficient format. Take this:</p></div></div>
+<div class="pair code"><pre><code class="language-json">[{&quot;firstName&quot;:&quot;Alice&quot;,&quot;lastName&quot;:&quot;Johnson&quot;,&quot;age&quot;:28},{&quot;firstName&quot;:&quot;Bob&quot;,&quot;lastName&quot;:&quot;Smith&quot;,&quot;age&quot;:35}]</code></pre></div>
+<div class="pair"><div class="zh"><p>与同样数据的 CSV 格式对比：</p></div><div class="en"><p>Compare to the same data in CSV format:</p></div></div>
+<div class="pair code"><pre><code class="language-csv">firstName,lastName,ageAlice,Johnson,28Bob,Smith,35</code></pre></div>
+<div class="pair"><div class="zh"><p>CSV 数据*简洁得多*——每条记录消耗的 token 只有原来的一半。<a href="https://david-gilbertson.medium.com/llm-output-formats-why-json-costs-more-than-tsv-ebaf590bd541" target="_blank" rel="noopener">通常 CSV、TSV 或 YAML（用于嵌套数据）比 JSON 更合适</a>。</p></div><div class="en"><p>The CSV data is <em>much</em> more succinct - it uses up half as many tokens per record. <a href="https://david-gilbertson.medium.com/llm-output-formats-why-json-costs-more-than-tsv-ebaf590bd541" target="_blank" rel="noopener">Typically CSV, TSV, or YAML (for nested data) are better choices than JSON</a>.</p></div></div>
+<div class="pair"><div class="zh"><p>这些问题都不是无法解决的。你可以设想自动添加工具参数，让智能体能够<a href="https://en.wikipedia.org/wiki/Projection_(relational_algebra" target="_blank" rel="noopener">投影</a>)字段；自动截断或摘要过大的结果；以及自动把 JSON 结果转换为 CSV（嵌套数据则转为 YAML）。但我见过的大多数服务器一样都没做。</p></div><div class="en"><p>None of these issues are insurmountable. You could imagine automatically adding tool arguments that let agents <a href="https://en.wikipedia.org/wiki/Projection_(relational_algebra" target="_blank" rel="noopener">project</a>) fields, automatically truncating or summarizing large results, and automatically converting JSON results to CSV (or YAML for nested data). But most servers I’ve seen do none of those things.</p></div></div>
+<div class="pair"><div class="zh"><h2>API 没有充分利用智能体的独特能力</h2></div><div class="en"><h2>APIs don’t make the most of agents’ unique capabilities</h2></div></div>
+<div class="pair"><div class="zh"><p>API 返回结构化数据，供程序化消费。这往往正是智能体希望从工具调用中得到的东西……但智能体*也*能处理其他更自由形式的指令。</p></div><div class="en"><p>APIs return structured data for programmatic consumption. That’s often what agents want from tool calls… but agents can <em>also</em> handle other, more free-form instructions.</p></div></div>
+<div class="pair"><div class="zh"><p>例如，<code>ask_question</code> 工具可以对某些文档执行一次 RAG 查询，然后用纯文本返回信息，再用这些信息指导下一次工具调用——完全跳过结构化数据。</p></div><div class="en"><p>For example an <code>ask_question</code> tool could perform a RAG query over some documentation, then return information in plain text that is used to inform the next tool call - skipping structured data entirely.</p></div></div>
+<div class="pair"><div class="zh"><p>或者，对 <code>search_cities</code> 工具的一次调用可以返回结构化的城市列表，<em>同时</em>给出接下来该调用什么的建议：</p></div><div class="en"><p>Or, a call to a <code>search_cities</code> tool could return a structured list of cities <em>and</em> a suggestion of what to call next:</p></div></div>
+<div class="pair code"><pre><code class="language-csv">city_name,population,country,regionTokyo,37194000,Japan,AsiaDelhi,32941000,India,AsiaShanghai,28517000,China,AsiaSuggestion: To get more specific information (weather, attractions, demographics), try calling get_city_details with the city_name parameter.</code></pre></div>
+<div class="pair"><div class="zh"><p>在 MCP 服务器中，这种分层与工具链式调用<a href="https://engineering.block.xyz/blog/build-mcp-tools-like-ogres-with-layers" target="_blank" rel="noopener">可以非常有效</a>，而如果自动把 API 转换成工具，你将完全错失这一点。</p></div><div class="en"><p>That sort of layering and tool chaining <a href="https://engineering.block.xyz/blog/build-mcp-tools-like-ogres-with-layers" target="_blank" rel="noopener">can be very effective</a> in MCP servers, and it’s something you’ll miss out on completely if auto-converting APIs to tools.</p></div></div>
+<div class="pair"><div class="zh"><h2>如果智能体需要调用 API，那直接调用即可</h2></div><div class="en"><h2>If an agent needs to call an API, it could just do that</h2></div></div>
+<div class="pair"><div class="zh"><p>如今，像 Claude Code 这样的智能体在编写并执行代码方面能力惊人，包括调用 Web API 的脚本。有些人甚至极端到<a href="https://lucumr.pocoo.org/2025/7/3/tools/" target="_blank" rel="noopener">主张根本不需要 MCP</a>！</p></div><div class="en"><p>Agents like Claude Code are remarkably capable of writing+executing code these days, including scripts that call web APIs. Some people take this so far as to <a href="https://lucumr.pocoo.org/2025/7/3/tools/" target="_blank" rel="noopener">argue that MCP isn’t needed at all</a>!</p></div></div>
+<div class="pair"><div class="zh"><p>我不同意这个结论，但我确实认为我们应该滑向冰球将要到达的位置。<a href="https://github.com/openai/codex" target="_blank" rel="noopener">智能体的沙箱隔离正在快速改进</a>，如果智能体直接调用 API 既简单又安全，那我们不妨就这么做，省掉中间环节。</p></div><div class="en"><p>I disagree with that conclusion, but I do think we should skate to where the puck is going. <a href="https://github.com/openai/codex" target="_blank" rel="noopener">Sandboxing of agents is improving rapidly</a>, and if it’s easy+safe for an agent to call APIs directly then we might as well do that and cut out the middleman.</p></div></div>
+<div class="pair"><div class="zh"><h2>结论</h2></div><div class="en"><h2>Conclusion</h2></div></div>
+<div class="pair"><div class="zh"><p>智能体与 API 的典型消费者有本质区别。从现有 API 自动创建 MCP 工具是可行的，但这样做不太可能取得*好*效果。当工具是针对智能体的独特能力与局限而设计时，智能体的表现最好。</p></div><div class="en"><p>Agents are fundamentally different from the typical consumers of APIs. It’s possible to automatically create MCP tools from existing APIs, but doing that is unlikely to work <em>well</em>. Agents do best when given tools that are designed for their unique capabilities and limitations.</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

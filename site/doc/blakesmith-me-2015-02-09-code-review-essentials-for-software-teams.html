@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Code Review Essentials for Software Teams</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Code Review Essentials for Software Teams</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 9,980 字符 ｜ 39 个内容块 ｜ <a href="https://blakesmith.me/2015/02/09/code-review-essentials-for-software-teams.html" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>软件团队的代码评审要点</h1></div><div class="en"><h1>Code Review Essentials for Software Teams</h1></div></div>
+<div class="pair"><div class="zh"><h2>»</h2></div><div class="en"><h2>»</h2></div></div>
+<div class="pair"><div class="zh"><h2>软件团队的代码评审要点</h2></div><div class="en"><h2>Code Review Essentials for Software Teams</h2></div></div>
+<div class="pair"><div class="zh"><p>2015 年 2 月 9 日</p></div><div class="en"><p>09 Feb 2015</p></div></div>
+<div class="pair"><div class="zh"><p>代码评审是任何协作型软件项目中不可或缺的一环。大型软件系统通常由不止一个人编写，因此一个高效运转的软件团队需要一套稳健的流程，让团队成员和代码库本身都朝着正确的方向前进。</p></div><div class="en"><p>Code Review is an essential part of any collaborative software project. Large software systems are usually written by more than one person, and so a highly functioning software team needs a robust process to keep its members, as well as the code base itself moving in the right direction.</p></div></div>
+<div class="pair"><div class="zh"><p>代码评审是一件强有力的工具，它可以：</p></div><div class="en"><p>Code Review is a powerful tool that:</p></div></div>
+<div class="pair"><div class="zh"><ol><li>在系统变化的过程中，帮助团队成员调整自己对该系统的心智模型</li><li>确保改动正确地解决了问题</li><li>为设计的优点与不足打开讨论空间</li><li>在生产环境之前抓住 bug</li><li>保持代码风格与组织结构的一致性</li></ol></div><div class="en"><ol><li>Helps team members adapt their mental model of the system as it’s changing</li><li>Ensures the change correctly solves the problem</li><li>Opens discussion for strengths and weaknesses of a design</li><li>Catches bugs before they get to production</li><li>Keeps the code style and organization consistent</li></ol></div></div>
+<div class="pair"><div class="zh"><p>把这些好处理解为一份需求层次会很有帮助。</p></div><div class="en"><p>It’s helpful to think of these benefits as a hierarchy of needs.</p></div></div>
+<div class="pair"><div class="zh"><p><img src="/images/code_review_hierarchy.png" alt="Code Review: Hiercharchy of Needs"></p></div><div class="en"><p><img src="/images/code_review_hierarchy.png" alt="Code Review: Hiercharchy of Needs"></p></div></div>
+<div class="pair"><div class="zh"><h2>让团队成员保持同步</h2></div><div class="en"><h2>Keeping Team Members Together</h2></div></div>
+<div class="pair"><div class="zh"><p>代码评审最关键的作用，是让团队每一位成员都朝正确方向前进。你无法安全地改动一个自己不理解的系统，因此代码评审能让团队在认知上保持一致。当 Bob 为账务子系统提交一个拉取请求时，Amy 在评审 Bob 的代码的过程中，会同步更新自己对那个系统的心智模型。Amy 有机会就自己不理解的部分提问，Bob 也从中受益：他厘清了自己的设计决策，同时把工作讲给了别人听。一个月后当 Amy 需要改动账务子系统时，她对系统的心智模型已经是最新的，可以直接动手。她花更少的时间读代码、在脑子里拼凑系统，花更多时间思考更高层的抽象与设计。每个人都赢了，因为每个人都保持同步。</p></div><div class="en"><p>The most critical function of a Code Review is to keep every member of the team moving in the right direction. You can’t safetly change a system you don’t understand, and so Code Review keeps the team mentally aligned together. When Bob submits a pull request for the accounting subsystem, Amy keeps her mental model of that system updated as she reviews Bob’s code. Amy gets the chance to ask questions about pieces she doesn’t understand, and Bob gets the benefit of clarifying his design decisions as well as teaching someone else about his work. When Amy has to make a change to the accounting subsystem a month later, her mental model of the system is already up to date and ready for action. She spends less time reading code and trying to piece the system together in her brain, and more time thinking about higher level abstractions and designs. Everyone wins, because everyone stays together.</p></div></div>
+<div class="pair"><div class="zh"><h2>提交一个好的拉取请求</h2></div><div class="en"><h2>Executing a Good Pull Request</h2></div></div>
+<div class="pair"><div class="zh"><p>在你写下一行改动系统的代码之前，先问自己下面几个问题：</p></div><div class="en"><p>Before you even write a line of code changing the system, ask yourself the following questions:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><em>「这是当前最该做的事吗？」</em> 来自客户、团队内部成员和其他相关方的需求总会相互竞争。在深入动手之前，这能帮你把优先级理清楚。迭代会、冲刺规划会等其他流程也有助于把这件事拉回正轨。</li><li><em>「团队是否已经认可这个改动是对的？」</em> 如果没有，最好先通过邮件或当面发起设计讨论。当大家在改动之前就对设计达成一致时，你的改动更容易被接受。</li><li><em>「我怎样才能把这个改动拆成容易评审、容易理解的若干小块？」</em> 小改动更容易思考和理解。团队能迅速看懂你的改动，好的讨论才会展开。如果你的改动过于庞大，同事会看得两眼发直，你可能只能收获几条风格上的吹毛求疵。</li><li><em>「我打算如何测试这个改动，以消灭 bug 并确保正确性？」</em> 你可能有所在的质量保障部门，但交付能正常工作的优质软件仍然是开发者自己的责任。容易测试的软件通常耦合更低、切分更小、也更容易推理。你必须为所有改动准备好测试方案。</li></ul></div><div class="en"><ul><li><em>“Is this the right thing to be working on?”</em> There will always be competing needs from customers, internal team members and other parties. This can be a good way to keep priorities straight in your head before you dive in deep. Other processes like iteration / sprint planning meetings also help keep this on track.</li><li><em>“Does the team already agree that the change is the right one?”</em> If not, it’d be better to start a design discussion by email or maybe in person. Your changes are more likely to get accepted when people are in agreement about the design before you change it.</li><li><em>“How can I break this change into digestable chunks that are easy to review and understand?”</em> Small changes are easier to think about and understand. Good discussions flow from the team being able to comprehend your change quickly. If your change is massive, teammate’s eyes will glaze over, and you might only get a few style nitpicks from them.</li><li><em>“How am I going to test this change to kill bugs and ensure correctness?”</em> You might have a QA department, but it’s still your job as the developer to ship quality working software. Easily testable software is usually more decoupled, is broken into smaller chunks, and easier to reason about. You need to have a testing plan for all your changes.</li></ul></div></div>
+<div class="pair"><div class="zh"><p>我发现，提前回答这些问题从长远看省去了我很多头疼。你最不愿意看到的就是花几天写好一个改动，最后却因为根本性的设计缺陷或团队分歧被拒。或者你的改动因为没人能验证其正确性而卡住。再说一次，目标是在改动系统的同时，让其他团队成员跟上你的改动。问自己打算如何把工作切成小到一口能吃掉的小块并逐一测试，在很多方面都有好处：</p></div><div class="en"><p>I’ve found that answering these questions ahead of time has saved me a lot of headache in the long run. The last thing you want to do is spend days coding up a change only to have it rejected based on fundamental design flaws or team disagreement. Or for your change to get held up because no one can verify it for correctness. Again, the goal is to change the system while keeping other team members up to date with your changes. Asking yourself about how you’re going to break your work into bite-sized chunks and test those chunks is helpful on many fronts:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>它降低了风险</li><li>它让改动更容易推理</li><li>它推动你走向更好的设计</li></ul></div><div class="en"><ul><li>It reduces risk</li><li>It makes changes easier to reason about</li><li>It pushes you towards a better design</li></ul></div></div>
+<div class="pair"><div class="zh"><p>你宁愿用手术刀做许多次精准的小切口，也不愿用砍刀来一道巨大的砍痕。在大多数增量式改动中，我更喜欢手术刀式的开发方式，而把砍刀留给删除大段死代码的时候。</p></div><div class="en"><p>You’d rather make many small, precise cuts with a scalpel than one giant gash with a machete. I prefer scalpel driven developement in most additive cases, and like to save the machete for when it’s time to delete large blocks of dead code.</p></div></div>
+<div class="pair"><div class="zh"><h2>提交拉取请求</h2></div><div class="en"><h2>Sending the Pull Request</h2></div></div>
+<div class="pair"><div class="zh"><p>好，现在你已经从团队那里获得了对自己改动的认可，也实现了当初设定的设计。那么，实际提交拉取请求最有效的方式是什么？你为改动付出了很多，希望团队其他成员关注你的拉取请求并快速给出反馈。该怎么做？</p></div><div class="en"><p>Ok, so you’ve gotten buy-in from the team that your changes are good, and you’ve achieved the design you set out to build. What’s the most effective way to actually send your pull request? You’ve been working hard on your changes, and you want other members of your team to pay attention to your pull request and give you fast feedback. How can you do that?</p></div></div>
+<div class="pair"><div class="zh"><p>还记得我前面说过，代码评审最重要的作用是让团队的集体心智模型保持良好对齐吗？你的其他同事很可能在做与你完全不同的东西，也许在系统的完全另一处。他们的大脑处在完全不同的上下文里，所以你必须弥补这一点，给他们完成评审所需的指引。这意味着你要把改动、改动原因，以及其他无法仅靠读代码获得的相关信息，写成一份条理清晰的说明。不要让同事承担不必要的脑力负担。</p></div><div class="en"><p>Remember earlier when I said that the most important part of a code review is to keep the team’s collective mental model well aligned? Your other teammates are probably working on something completely different than you, maybe in a completely different part of the system. Their brains are in a completely different context, so you must overcome this by giving them the helpful guidance they need to do the review. This means writing a well-organized description of the changes you made, why you made them and any other relevant information they won’t get from just reading the code alone. Don’t make your teammates do more mental work than they have to.</p></div></div>
+<div class="pair"><div class="zh"><p>我们来看一些拉取请求说明的好例子和坏例子：</p></div><div class="en"><p>Let’s look at some good and bad examples of pull request descriptions:</p></div></div>
+<div class="pair"><div class="zh"><p>坏例子：</p></div><div class="en"><p>Bad Example:</p></div></div>
+<div class="pair code"><pre><code>Title: Fix uninitialized memory bug
+Description: 
+
+This is the bug Bob and I talked about earlier. I had
+trouble with the compiler but managed to make this work. Let me
+know what you guys think.</code></pre></div>
+<div class="pair"><div class="zh"><p>如果你是这条拉取请求的开发者，先停下来，把自己放到代码评审者的位置上体会一下。标题含糊，带来的疑问比答案还多：内存 bug 在哪里？这个改动有多关键？你和 Bob 之前聊的是哪个 bug？编译器上遇到了什么麻烦？这段说明既没有提供关于问题的有用上下文，也没有对改动给出有用的描述。如果这条拉取请求很长，评审者就得先一头扎进代码里，做一番脑力体操来获取上下文，然后才有机会思考这个改动如何融入系统整体一致的设计。</p></div><div class="en"><p>If you’re the developer of this pull request, stop and put yourself in your code reviewer’s shoes for a second. The title is vague, and raises more questions than answers: Where is the memory bug? How critical is this change? What was the bug that Bob and you talked about earlier? What trouble did you have with the compiler? The description doesn’t provide any helpful context about the problem, nor does it provide any helpful description of your changes. If this pull request is long, the reviewer is going to have to dive into the code and do mental gymnastics in an attempt to gain context before even getting a chance to think about how this change fits in to the coherent design of the system.</p></div></div>
+<div class="pair"><div class="zh"><p>下面是一个改进后的例子，它把改动集说清楚了：</p></div><div class="en"><p>Here’s a improved example that helps clarify the changeset:</p></div></div>
+<div class="pair code"><pre><code>Title: Fix process crash on startup from uninitialized memory [#54633]
+Description:
+
+This bug was causing process crashes on boot due to a memory
+initialization error in our statistics Counter class. I talked this
+over with Bob, and we both agree the crashes are a rare edge case
+that don&#x27;t warrant a hot-fix release. Here&#x27;s a summary of the
+changes:
+
+  - Moved the underlying int variable into the class initializer
+    to prevent ununitialized memory in the Counter.
+  - Reworked the Counter interface to simplify caller conditional
+    logic and prevent further off-by-one counting problems.
+  - Added a unit test that exposes the crash
+
+Testing: I&#x27;ve verified the test suite still passes, and verified
+manually that the crash doesn&#x27;t happen locally.</code></pre></div>
+<div class="pair"><div class="zh"><p>这份拉取请求说明在几个方面有了改进：标题足够描述性，能给评审者一点简短的上下文，并吸引他点开邮件了解更多。评审者知道这是一次进程崩溃（通常是很糟糕的事），而且还有一个 bug 报告编号，如果他感兴趣，可以读到关于该 bug 报告的更多细节，从而更了解问题。新的说明还指出问题发生的位置，并帮助给出这次修复有多关键的上下文。其中有一份摘要，列出拉取请求在高层结构上的改动，让评审者在看代码之前就在脑中形成改动的图景。代码评审者不应该被自己看到的东西吓一跳。这个例子还说明了做过哪些测试，让评审者相信这些改动经过深思熟虑、充分测试，已经可以合并。让你的评审者更容易成功：把「合并」按钮做得傻瓜都能点。</p></div><div class="en"><p>A few things that have improved in this pull request description: The title is descriptive enough to give the reviewer some short context, and entice them to click on the email and learn more. The reviewer knows it’s a process crash (which is usually a really bad thing) and there’s also a bug report number where the reviewer can read more details about the bug report if they’re interested in understand more about the problem. The new description also outlines where the problem was occuring, and helps give some context about how critical the fix is. There’s a summary that lists the high level structural changes in the pull request, which will give the reviewer a mental picture of the changes before they even look at the code. Code reviewers should not be surprised with what they find. This example also outlines testing that was performed, which will give reviewers confidence that the changes were well thought out, well tested and ready to be merged. Set your reviewers up for success by making it stupid easy for them to click ‘merge’.</p></div></div>
+<div class="pair"><div class="zh"><h2>评审者：给出建设性反馈</h2></div><div class="en"><h2>Reviewers: Giving Constructive Feedback</h2></div></div>
+<div class="pair"><div class="zh"><p>评审流程中接下来要考虑的环节，是向同事给出建设性反馈。如果目标是清晰与对齐，那么给出高质量的建设性反馈能帮助所有人更好地理解系统，并推动代码变得更好。</p></div><div class="en"><p>The next part of the review process to consider is giving constructive feedback to your peers. If the goal is clarity and alignment, giving quality constructive feedback helps everyone understand the system better and push towards better code.</p></div></div>
+<div class="pair"><div class="zh"><p>避免这样说：</p></div><div class="en"><p>Avoid saying things like:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><em>「这个设计是坏的。」</em> 为什么坏？怎么才能改好？这类说法会打击信心，也容易伤人自尊。</li><li><em>「我不喜欢这个改动。」</em> 你为什么不喜欢？你希望改成什么样？不喜欢某样东西没问题，但你应当把想法讲清楚，并给出代码可以如何改进的有用线索。</li><li><em>「你能把它改得更清楚一些吗？」</em> 我现在这样有什么问题？应该怎么重写？哪里不清楚？这类评论本身就不清楚，也没有给出一个简单的改进方向。</li></ul></div><div class="en"><ul><li><em>“This design is broken.”</em> Why is it broken? How can it be made better? Statements like this hurt confidence and can bruise egos.</li><li><em>“I don’t like this change.”</em> Why don’t you like it? What would you like instead? It’s okay to not like something, but you should articulate your thoughts and provide helpful clues about how the code can be improved.</li><li><em>“Can you rewrite this to be more clear?”</em> What’s wrong with what I have now? How should I rewrite it? What’s unclear? Comments like this are themselves unclear, and don’t give a simple path forward.</li></ul></div></div>
+<div class="pair"><div class="zh"><p>而应该这样说：</p></div><div class="en"><p>Instead, say things like:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><em>「这段代码如何处理负整数？」</em> 这条反馈很具体，会促使开发者自己去想清楚各种结果。作为评审者，你可能已经知道这段代码遇到负整数会崩溃，但让开发者自己意识到会更好。这类问题也可能说明测试存在缺口，或者需要进一步明确范围。</li><li><em>「这一段我看不明白，我不理解为什么 A 类要和 B 类通信」</em> 如果开发者没有提供有用的说明，代码结构也不清晰，这类评论有助于推动设计更清晰、代码更干净。</li><li><em>「这里看起来你打破了一个接口边界。这会对使用者产生什么影响？」</em> 你指出了自己发现的问题，同时给了对方善意的假设——他可能是有意为之。这样他就可以思考打破接口边界带来的隐性后果，要么给出这样决定的理由，要么选择修改。</li></ul></div><div class="en"><ul><li><em>“How does this code handle negative integers?”</em> This feedback is specific, and causes the developer to think through the outcomes themselves. As a reviewer, you might know that the code in question crashes with negative integers, but it’s better to have the developer intuit this themselves. Questions like this might also be indicative of a testing gap, or a need for further specification of scope.</li><li><em>“This section is confusing to me, I don’t understand why class A is talking to class B”</em> If the developer hasn’t provided a helpful description, and the code isn’t neatly structured, this kind of comment helps drive for clarity of design and cleaner code.</li><li><em>“It looks like you broke an interface boundary here. How will that affect the user?”</em> You’ve pointed out an issue you noticed, giving them the benefit of the doubt that they meant to do it. Now they can think through the unseen ramifications of breaking the interface boundary and either provide a rationale for their decision, or choose to change it.</li></ul></div></div>
+<div class="pair"><div class="zh"><p>总体而言，把反馈表述成问题，是推动清晰与正确性的好办法，同时也能帮助开发者在未来改进自己的设计。高质量的创意写作小组通常就是这样互相反馈的。在创意写作的场景里，说「我不喜欢这个角色」是有害的；而同一句话可以更清楚地重新表述：「在第一章里你的角色温暖又富有同情心，现在却冷漠又冰冷。他对我来说不像一个真实的人。」这样就有了具体、可以被澄清的反馈，从而把问题找出来。</p></div><div class="en"><p>In general, framing feedback as questions is a good way to drive for clarity, correctness, and at the same time help the developer improve their designs in the future. This is usually how quality creative writing groups give each other feedback. In a creative writing setting, it’s harmful to say things like, “I don’t like this character.” whereas the same comment can be reframed more clearly: “In chapter one your character was warm and compassionate and now he’s cold and icey. He doesn’t seem like a real person to me.” Now there’s specific feedback that can be clarified to suss out the problem.</p></div></div>
+<div class="pair"><div class="zh"><p>程序员喜欢解决问题、指出毛病，因此天生就喜欢发现并指出缺陷。把代码评审当成证明自己聪明、从同事代码里挑毛病的机会，这种诱惑很大。不要这么做。代码评审是让更多双眼睛看到改动、找出关键问题的方式，但你的目标应当是以鼓励团队成员在解决问题的同时提升技能的方式去评审。</p></div><div class="en"><p>Programmers like to solve problems and point out issues, so by nature they like to discover and point out flaws. It’s tempting to see code reviews as a way to prove how smart you are by finding problems in your peer’s code. Don’t do it. Code review is a way to get more eyes on a change and suss out critical problems, but your goal should be to review in a way that encourages your team members to improve their skills while fixing the problems at hand.</p></div></div>
+<div class="pair"><div class="zh"><h2>风格问题</h2></div><div class="en"><h2>Style Points</h2></div></div>
+<div class="pair"><div class="zh"><p>大括号位置、变量 / 函数命名、缩进和空格问题应当被处理，但它们并不是好的代码评审的核心目的（注意，我把它们放在了代码评审金字塔的顶端）。如果你发现团队把 90% 的时间都花在挑剔缩进和变量名上，那很可能是在把大家的时间浪费在大部分可以自动化的事情上。写一份风格指南，在提交时强制检查缩进和空格问题，把时间用在价值更高的问题上。我并不想贬低一致风格的重要性。恰恰相反，保持一致的惯用风格是让代码库易于阅读和理解的最简单方法之一。但如果你把所有代码评审都花在这些简单任务上，就该问问自己：是不是在回避更困难、也更重要的那份工作——让团队保持认知对齐，并思考更高层次的设计。</p></div><div class="en"><p>Brace positions, variable / function names, indentation and spacing issues should be addressed, but they are not the central purpose of good code review (notice that I put them at the top the code review pyramid). If you find that your team is spending 90% of it’s time nitpicking indentation and variable names, you’re probably wasting everyone’s time on something that could be mostly automated. Write up a style guide, enforce indentation and spacing issues on check-in and spend your time focusing on higher value issues. I don’t want to diminish the importance of a consistent style. On the contrary, having a consistent idiomatic style is one of the easiest ways to make your codebase easy to read and comprehend. Still, if you spend all of your code review focused on these simplistic tasks, ask yourself whether you’re avoiding the harder and more important work of keeping your team mentally aligned and thinking about higher level designs.</p></div></div>
+<div class="pair"><div class="zh"><h3>关于作者</h3></div><div class="en"><h3>about the author</h3></div></div>
+<div class="pair"><div class="zh"><p><a href="http://blakesmith.me" target="_blank" rel="noopener">Blake Smith</a> 是 <a href="http://sproutsocial.com" target="_blank" rel="noopener">Sprout Social</a> 的首席软件工程师。</p></div><div class="en"><p><a href="http://blakesmith.me" target="_blank" rel="noopener">Blake Smith</a> is a Principal Software Engineer at <a href="http://sproutsocial.com" target="_blank" rel="noopener">Sprout Social</a>.</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Long Contexts Fail</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>How Long Contexts Fail</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 10,127 字符 ｜ 59 个内容块 ｜ <a href="https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>长上下文为何会失效</h1></div><div class="en"><h1>How Long Contexts Fail</h1></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><p>title: "How Long Contexts Fail" date: 2025-06-22 author: Drew Breunig description: "管好上下文是打造成功智能体的关键。有 100 万 token 的上下文窗口，并不意味着你就该把它填满。" tags: ["agents", "llm", "ai", "prompting", "context management"] url: https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html</p></div><div class="en"><p>title: "How Long Contexts Fail" date: 2025-06-22 author: Drew Breunig description: "Taking care of your context is the key to building successful agents. Just because there's a 1 million token context window doesn't mean you should fill it." tags: ["agents", "llm", "ai", "prompting", "context management"] url: https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><p><img src="https://www.dbreunig.com/img/overload.jpg" alt=""></p></div><div class="en"><p><img src="https://www.dbreunig.com/img/overload.jpg" alt=""></p></div></div>
+<div class="pair"><div class="zh"><h3>管好上下文，是打造成功智能体的关键</h3></div><div class="en"><h3>Managing Your Context is the Key to Successful Agents</h3></div></div>
+<div class="pair"><div class="zh"><p>随着前沿模型的上下文窗口不断变大[^longcontext]，许多模型已经支持多达 100 万 token，我看到许多兴奋的讨论，认为长上下文窗口将解锁我们梦想中的智能体。毕竟，只要窗口足够大，你就可以把可能需要的一切——工具、文档、指令等等——统统丢进提示词，剩下的交给模型。</p></div><div class="en"><p>As frontier model context windows continue to grow[^longcontext], with many supporting up to 1 million tokens, I see many excited discussions about how long context windows will unlock the agents of our dreams. After all, with a large enough window, you can simply throw <em>everything</em> into a prompt you might need – tools, documents, instructions, and more – and let the model take care of the rest.</p></div></div>
+<div class="pair"><div class="zh"><p>长上下文削弱了 RAG 的热情（既然能全部塞进提示词，何必再去找最好的那份文档！），助长了 MCP 的炒作（连上所有工具，模型就能做任何工作！），也点燃了人们对智能体的热情[^googledocs]。</p></div><div class="en"><p>Long contexts kneecapped RAG enthusiasm (no need to find the best doc when you can fit it all in the prompt!), enabled MCP hype (connect to every tool and models can do any job!), and fueled enthusiasm for agents[^googledocs].</p></div></div>
+<div class="pair"><div class="zh"><p>但现实是，更长的上下文并不会带来更好的响应。上下文过载会让你的智能体和应用以出人意料的方式失败。上下文可能被污染、被干扰、被混淆，或产生冲突。这对智能体尤其麻烦，因为智能体依赖上下文来收集信息、综合结论并协调行动。</p></div><div class="en"><p>But in reality, longer contexts do not generate better responses. Overloading your context can cause your agents and applications to fail in suprising ways. Contexts can become poisoned, distracting, confusing, or conflicting. This is especially problematic for agents, which rely on context to gather information, synthesize findings, and coordinate actions.</p></div></div>
+<div class="pair"><div class="zh"><p>我们先逐一梳理上下文失控的几种方式，再回顾缓解乃至彻底避免上下文失效的方法。</p></div><div class="en"><p>Let's run through the ways contexts can get out of hand, then review methods to mitigate or entirely avoid context fails.</p></div></div>
+<div class="pair"><div class="zh"><p>&lt;div class="sidenote"&gt;</p></div><div class="en"><p>&lt;div class="sidenote"&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>&lt;h2&gt;上下文失效&lt;/h2&gt;</p></div><div class="en"><p>&lt;h2&gt;Context Fails&lt;/h2&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>&lt;ul&gt; &lt;li&gt;&lt;a href="#context-poisoning"&gt;上下文污染：当幻觉进入上下文&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href="#context-distraction"&gt;上下文干扰：当上下文压过训练所得&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href="#context-confusion"&gt;上下文混淆：当多余上下文影响响应&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href="#context-clash"&gt;上下文冲突：当上下文各部分互相矛盾&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;</p></div><div class="en"><p>&lt;ul&gt; &lt;li&gt;&lt;a href="#context-poisoning"&gt;Context Poisoning: When a hallucination makes it into the context&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href="#context-distraction"&gt;Context Distraction: When the context overwhelms the training&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href="#context-confusion"&gt;Context Confusion: When superfluous context influences the response&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href="#context-clash"&gt;Context Clash: When parts of the context disagree&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;</p></div></div>
+<div class="pair"><div class="zh"><p>&lt;/div&gt;</p></div><div class="en"><p>&lt;/div&gt;</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><h3>上下文污染</h3></div><div class="en"><h3>Context Poisoning</h3></div></div>
+<div class="pair"><div class="zh"><p><em>上下文污染是指幻觉或其他错误进入上下文，并被反复引用。</em></p></div><div class="en"><p><em>Context Poisoning is when a hallucination or other error makes it into the context, where it is repeatedly referenced.</em></p></div></div>
+<div class="pair"><div class="zh"><p>Deep Mind 团队在 <a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf" target="_blank" rel="noopener">Gemini 2.5 技术报告</a>中指出了上下文污染问题，<a href="https://www.dbreunig.com/2025/06/17/an-agentic-case-study-playing-pokémon-with-gemini.html" target="_blank" rel="noopener">我们上周做过解读</a>。在玩 Pokémon 时，Gemini 智能体会偶尔产生幻觉，从而污染自己的上下文：</p></div><div class="en"><p>The Deep Mind team called out context poisoning in the <a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf" target="_blank" rel="noopener">Gemini 2.5 technical report</a>, which <a href="https://www.dbreunig.com/2025/06/17/an-agentic-case-study-playing-pokémon-with-gemini.html" target="_blank" rel="noopener">we broke down last week</a>. When playing Pokémon, the Gemini agent would occasionally hallucinate while playing, poisoning its context:</p></div></div>
+<div class="pair"><div class="zh"><blockquote>这类问题有一种尤其严重的表现形式，即「上下文污染」——上下文的许多部分（目标、摘要）被关于游戏状态的错误信息「污染」，而这类污染往往需要很长时间才能清除。结果，模型可能执迷于追求不可能或无关的目标。</blockquote></div><div class="en"><blockquote>An especially egregious form of this issue can take place with “context poisoning” – where many parts of the context (goals, summary) are “poisoned” with misinformation about the game state, which can often take a very long time to undo. As a result, the model can become fixated on achieving impossible or irrelevant goals.</blockquote></div></div>
+<div class="pair"><div class="zh"><p>如果它上下文中的「目标」部分被污染，智能体就会发展出毫无意义的策略，并为了一个无法达成的目标重复某些行为。</p></div><div class="en"><p>If the "goals" section of its context was poisoned, the agent would develop nonsensical strategies and repeat behaviors in pursuit of a goal that cannot be met.</p></div></div>
+<div class="pair"><div class="zh"><h3>上下文干扰</h3></div><div class="en"><h3>Context Distraction</h3></div></div>
+<div class="pair"><div class="zh"><p><em>上下文干扰是指上下文变得太长，以至于模型过度关注上下文，忽略了它在训练中学到的东西。</em></p></div><div class="en"><p><em>Context Distraction is when a context grows so long that the model over-focuses on the context, neglecting what it learned during training.</em></p></div></div>
+<div class="pair"><div class="zh"><p>在智能体工作流中，随着上下文不断增长——模型收集更多信息、积累更多历史——这些累积的上下文可能变得干扰而非有帮助。玩 Pokémon 的 Gemini 智能体清楚地展示了这个问题：</p></div><div class="en"><p>As context grows during an agentic workflow—as the model gathers more information and builds up history—this accumulated context can become distracting rather than helpful. The Pokémon-playing Gemini agent demonstrated this problem clearly:</p></div></div>
+<div class="pair"><div class="zh"><blockquote>尽管 Gemini 2.5 Pro 支持 1M+ token 上下文，把它有效地用于智能体仍是一个新的研究前沿。</blockquote></div><div class="en"><blockquote>While Gemini 2.5 Pro supports 1M+ token context, making effective use of it for agents presents</blockquote></div></div>
+<div class="pair"><div class="zh"><p>在这个智能体设置中，可以观察到：当上下文显著增长到超过 100k token 后，智能体表现出倾向于重复其庞杂历史中的动作，而不是综合出新的计划。这一现象虽然只是个案，却凸显出一个重要区别：用于检索的长上下文，与用于多步生成式推理的长上下文并不相同。</p></div><div class="en"><p>a new research frontier. In this agentic setup, it was observed that as the context grew significantly beyond 100k tokens, the agent showed a tendency toward favoring repeating actions from its vast history rather than synthesizing novel plans. This phenomenon, albeit anecdotal, highlights an important distinction between long-context for retrieval and long-context for multi-step, generative reasoning.</p></div></div>
+<div class="pair"><div class="zh"><p>智能体没有用训练所得去发展新策略，而是执迷于重复其庞大上下文历史中的过往动作。</p></div><div class="en"><p>Instead of using its training to develop new strategies, the agent became fixated on repeating past actions from its extensive context history.</p></div></div>
+<div class="pair"><div class="zh"><p>对较小的模型而言，干扰的上限要低得多。一项 <a href="https://www.databricks.com/blog/long-context-rag-performance-llms" target="_blank" rel="noopener">Databricks 研究</a>发现，Llama 3.1 405b 的正确率在 32k 左右就开始下降，更小的模型则更早。</p></div><div class="en"><p>For smaller models, the distraction ceiling is much lower. A <a href="https://www.databricks.com/blog/long-context-rag-performance-llms" target="_blank" rel="noopener">Databricks study</a> found that model correctness began to fall around 32k for Llama 3.1 405b and earlier for smaller models.</p></div></div>
+<div class="pair"><div class="zh"><p>如果模型在上下文窗口被填满之前很久就开始表现失常，那超大的上下文窗口意义何在？一句话：摘要[^summarization]与事实检索。如果你做的不是这两件事，就要警惕所选模型的干扰上限。</p></div><div class="en"><p>If models start to misbehave long before their context windows are filled, what's the point of super large context windows? In a nutshell: summarization[^summarization] and fact retrieval. If you're not doing either of those, be wary of your chosen model's distraction ceiling.</p></div></div>
+<div class="pair"><div class="zh"><p>[^summarization]: 事实上，在上面引用的 Databricks 研究中，模型面对长上下文时常见的失败方式是：它会返回所给上下文的摘要，却忽略提示词中包含的任何指令。</p></div><div class="en"><p>[^summarization]: In fact, in the Databricks study cited above, a frequent way models would fail when given long contexts is they'd return summarizations of the provided context, while ignoring any instructions contained within the prompt.</p></div></div>
+<div class="pair"><div class="zh"><h3>上下文混淆</h3></div><div class="en"><h3>Context Confusion</h3></div></div>
+<div class="pair"><div class="zh"><p><em>上下文混淆是指模型把上下文中多余的内容用于生成低质量响应。</em></p></div><div class="en"><p><em>Context Confusion is when superfluous content in the context is used by the model to generate a low-quality response.</em></p></div></div>
+<div class="pair"><div class="zh"><p>有那么一阵子，看起来*所有人*都要发布一个 <a href="https://www.dbreunig.com/2025/03/18/mcps-are-apis-for-llms.html" target="_blank" rel="noopener">MCP</a>。一个强大的模型连上你*所有*的服务和*所有*东西、替你完成一切琐碎任务，这个梦想似乎近在眼前。只要把所有工具描述塞进提示词，然后按下开始。<a href="https://www.dbreunig.com/2025/05/07/claude-s-system-prompt-chatbots-are-more-than-just-models.html" target="_blank" rel="noopener">Claude 的系统提示词</a>给我们指了路，因为它主要就是工具定义或使用工具的指令。</p></div><div class="en"><p>For a minute there, it really seemed like <em>everyone</em> was going to ship an <a href="https://www.dbreunig.com/2025/03/18/mcps-are-apis-for-llms.html" target="_blank" rel="noopener">MCP</a>. The dream of a powerful model, connected to <em>all</em> your services and <em>stuff</em>, doing all your mundane tasks felt within reach. Just throw all the tool descriptions into the prompt and hit go. <a href="https://www.dbreunig.com/2025/05/07/claude-s-system-prompt-chatbots-are-more-than-just-models.html" target="_blank" rel="noopener">Claude's system prompt</a> showed us the way, as it's mostly tool definitions or instructions for using tools.</p></div></div>
+<div class="pair"><div class="zh"><p>但即便<a href="https://www.dbreunig.com/2025/06/16/drawbridges-go-up.html" target="_blank" rel="noopener">整合与竞争没有让 MCP 慢下来</a>，<em>上下文混淆</em>也会。事实证明，工具确实可能太多。</p></div><div class="en"><p>But even if <a href="https://www.dbreunig.com/2025/06/16/drawbridges-go-up.html" target="_blank" rel="noopener">consolidation and competition don't slow MCPs</a>, <em>Context Confusion</em> will. It turns out there can be such a thing as too many tools.</p></div></div>
+<div class="pair"><div class="zh"><p><a href="https://gorilla.cs.berkeley.edu/leaderboard.html" target="_blank" rel="noopener">Berkeley Function-Calling Leaderboard</a> 是一个工具调用基准测试，用来评测模型有效使用工具来回应提示词的能力。目前已是第 3 版，该榜单显示：当提供的工具多于一个时，<em>每一个</em>模型的表现都会变差[^live]。此外，Berkeley 团队「设计了所有给定函数都不相关的场景……我们期望模型的输出应当是不调用任何函数」。然而，所有模型都会偶尔调用并不相关的工具。</p></div><div class="en"><p>The <a href="https://gorilla.cs.berkeley.edu/leaderboard.html" target="_blank" rel="noopener">Berkeley Function-Calling Leaderboard</a> is a tool-use benchmark that evaluates the ability of models to effectively use tools to respond to prompts. Now on its 3rd version, the leaderboard shows that <em>every</em> model performs worse when provided with more than one tool[^live]. Further, the Berkeley team, "designed scenarios where none of the provided functions are relevant...we expect the model's output to be no function call." Yet, all models will occasionally call tools that aren't relevant.</p></div></div>
+<div class="pair"><div class="zh"><p>浏览这个函数调用榜单，你会看到模型越小，问题越严重：</p></div><div class="en"><p>Browsing the function-calling leaderboard, you can see the problem get worse as the models get smaller:</p></div></div>
+<div class="pair"><div class="zh"><p><img src="https://www.dbreunig.com/img/gemma_irrelevance.png" alt=""></p></div><div class="en"><p><img src="https://www.dbreunig.com/img/gemma_irrelevance.png" alt=""></p></div></div>
+<div class="pair"><div class="zh"><p>上下文混淆的一个突出例子出现在<a href="https://arxiv.org/pdf/2411.15399?" target="_blank" rel="noopener">最近一篇论文</a>中，该论文评测了小模型在 <a href="https://arxiv.org/abs/2404.15500" target="_blank" rel="noopener">GeoEngine 基准测试</a>上的表现，这项测试包含 <em>46 种不同的工具</em>。当团队把一个量化（压缩）过的 Llama 3.1 8b 连同全部 46 个工具一起给到某个查询时，它失败了，尽管上下文远在 16k 上下文窗口之内。但当他们只给模型 19 个工具时，它成功了。</p></div><div class="en"><p>A striking example of context confusion can be seen in a <a href="https://arxiv.org/pdf/2411.15399?" target="_blank" rel="noopener">recent paper</a> which evaluated small model performance on the <a href="https://arxiv.org/abs/2404.15500" target="_blank" rel="noopener">GeoEngine benchmark</a>, a trial that features <em>46 different tools</em>. When the team gave a quantized (compressed) Llama 3.1 8b a query with all 46 tools it failed, even though the context was well within the 16k context window. But when they only gave the model 19 tools, it succeeded.</p></div></div>
+<div class="pair"><div class="zh"><p>问题在于：只要你把某样东西放进上下文，<em>模型就得关注它</em>。它可能是不相关的信息，也可能是多余的工具定义，但模型*一定*会把它考虑进去。大型模型，尤其是推理模型，在忽略或丢弃多余上下文方面正变得越来越好，但我们不断看到毫无价值的信息让智能体出错。更长的上下文让我们能塞进更多信息，但这种能力也带来代价。</p></div><div class="en"><p>The problem is: if you put something in the context <em>the model has to pay attention to it.</em> It may be irrelevant information or needless tool definitions, but the model <em>will</em> take it into account. Large models, especially reasoning models, are getting better at ignoring or discarding superfluous context, but we continually see worthless information trip up agents. Longer contexts let us stuff in more info, but this ability comes with downsides.</p></div></div>
+<div class="pair"><div class="zh"><p>[^live]: 如果你在关注这个榜单，请注意「Live (AST)」这几列。<a href="https://gorilla.cs.berkeley.edu/blogs/12_bfcl_v2_live.html" target="_blank" rel="noopener">这些指标使用企业向该产品贡献的真实工具定义</a>，「避免了数据集污染和有偏基准测试的弊端」。</p></div><div class="en"><p>[^live]: If you're on the leaderboard, pay attention to the, "Live (AST)" columns. <a href="https://gorilla.cs.berkeley.edu/blogs/12_bfcl_v2_live.html" target="_blank" rel="noopener">These metrics use real-world tool definitions contributed to the product by enterprise</a>, "avoiding the drawbacks of dataset contamination and biased benchmarks."</p></div></div>
+<div class="pair"><div class="zh"><h3>上下文冲突</h3></div><div class="en"><h3>Context Clash</h3></div></div>
+<div class="pair"><div class="zh"><p><em>上下文冲突是指你在上下文中累积的新信息和工具，与上下文中的其他信息相互矛盾。</em></p></div><div class="en"><p><em>Context Clash is when you accrue new information and tools in your context that conflicts with other information in the context.</em></p></div></div>
+<div class="pair"><div class="zh"><p>这是*上下文混淆*更麻烦的一个版本：这里的坏上下文并不是不相关，而是直接与提示词中的其他信息相冲突。</p></div><div class="en"><p>This is a more problematic version of <em>Context Confusion</em>: the bad context here isn't irrelevant, it directly conflicts with other information in the prompt.</p></div></div>
+<div class="pair"><div class="zh"><p>微软与 Salesforce 的一个团队在<a href="https://arxiv.org/pdf/2505.06120" target="_blank" rel="noopener">最近一篇论文</a>中出色地记录了这一点。该团队从多个基准测试中取来提示词，并把信息「分片」到多个提示词中。可以这样理解：有时你会坐下来，在按下回车之前先往 ChatGPT 或 Claude 里敲上几段话，把每个必要的细节都考虑周全。另一些时候，你可能先用一个简单的提示词开头，等聊天机器人的回答不满意时再补充更多细节。微软与 Salesforce 团队把基准测试的提示词改造成这类多轮交流的样子：</p></div><div class="en"><p>A Microsoft and Salesforce team documented this brilliantly in a <a href="https://arxiv.org/pdf/2505.06120" target="_blank" rel="noopener">recent paper</a>. The team took prompts from multiple benchmarks and 'sharded' their information across multiple prompts. Think of it this way: sometimes, you might sit down and type paragraphs into ChatGPT or Claude before you hit enter, considering every necessary detail. Other times, you might start with a simple prompt, then add further details when the chatbot's answer isn't satisfactory. The Microsoft/Salesforce team modified benchmark prompts to look like these multistep exchanges:</p></div></div>
+<div class="pair"><div class="zh"><p><img src="https://www.dbreunig.com/img/sharded_prompt.png" alt=""></p></div><div class="en"><p><img src="https://www.dbreunig.com/img/sharded_prompt.png" alt=""></p></div></div>
+<div class="pair"><div class="zh"><p>左侧提示词中的全部信息，都包含在右侧的若干条消息里，而这些消息会在多轮对话中依次出现。</p></div><div class="en"><p>All the information from the prompt on the left side is contained within the several messages on the right side, which would be played out in multiple chat rounds.</p></div></div>
+<div class="pair"><div class="zh"><p>分片后的提示词带来的结果明显更差，平均下降 39%。该团队测试了多种模型——OpenAI 备受推崇的 o3 得分从 98.1 降到 64.1。</p></div><div class="en"><p>The sharded prompts yielded dramatically worse results, with an average drop of 39%. And the team tested a range of models – OpenAI's vaunted o3's score dropped from 98.1 to 64.1.</p></div></div>
+<div class="pair"><div class="zh"><p>这是怎么回事？如果信息是分阶段收集而不是一次性给出，模型的表现为什么会更差？</p></div><div class="en"><p>What's going on? Why are models performing worse if information is gathered in stages rather than all at once?</p></div></div>
+<div class="pair"><div class="zh"><p>答案是*上下文混淆*：组装起来的上下文包含整段对话交流，其中也就包含了模型在*尚未掌握全部信息*时做出的早期尝试。这些错误答案仍然留在上下文中，并在模型生成最终答案时影响它。该团队写道：</p></div><div class="en"><p>The answer is <em>Context Confusion</em>: the assembled context, containing the entirety of the chat exchange, contains early attempts by the model to answer the challenge <em>before it has all the information</em>. These incorrect answers remain present in the context and influence the model when it generates its final answer. The team writes:</p></div></div>
+<div class="pair"><div class="zh"><blockquote>我们发现，大语言模型常常在对话的前几轮就做出假设，并过早尝试生成最终解决方案，然后过度依赖这些方案。更简单地说，我们发现当大语言模型在对话中走错一步，它们就会迷失，并且不会恢复。</blockquote></div><div class="en"><blockquote>We find that LLMs often make assumptions in early turns and prematurely attempt to generate final solutions, on which they overly rely. In simpler terms, we discover that when LLMs take a wrong turn in a conversation, they get lost and do not recover.</blockquote></div></div>
+<div class="pair"><div class="zh"><p>这对智能体构建者可不是好消息。智能体会从文档、工具调用，以及被指派处理子问题的其他模型中组装上下文。所有这些从不同来源汇集而来的上下文，都有可能自相矛盾。更进一步，当你连接的不是自己创建的 MCP 工具时，它们的描述和指令与你提示词其余部分发生冲突的可能性就更大。</p></div><div class="en"><p>This does not bode well for agent builders. Agents assemble context from documents, tool calls, and from other models tasked with subproblems. All of this context, pulled from diverse sources, has the potential to disagree with itself. Further, when you connect to MCP tools you didn't create there's a greater chance their descriptions and instructions clash with the rest of your prompt.</p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><p>百万 token 上下文窗口的出现让人感觉是一场变革。能把智能体可能需要的一切都丢进提示词，这激发了对超级智能助手的想象：它可以访问任何文档、连接每一个工具，并保持完美的记忆。</p></div><div class="en"><p>The arrival of million-token context windows felt transformative. The ability to throw everything an agent might need into the prompt inspired visions of superintelligent assistants that could access any document, connect to every tool, and maintain perfect memory.</p></div></div>
+<div class="pair"><div class="zh"><p>但正如我们所见，更大的上下文会制造新的失败模式。上下文污染埋入会随时间不断累积的错误。上下文干扰让智能体严重依赖上下文、重复过往动作，而不是向前推进。上下文混淆导致使用不相关的工具或文档。上下文冲突制造内部矛盾，让推理脱轨。</p></div><div class="en"><p>But as we've seen, bigger contexts create new failure modes. Context poisoning embeds errors that compound over time. Context distraction causes agents to lean heavily on their context and repeat past actions rather than push forward. Context confusion leads to irrelevant tool or document usage. Context clash creates internal contradictions that derail reasoning.</p></div></div>
+<div class="pair"><div class="zh"><p>这些失效对智能体的打击最重，因为智能体恰恰运行在上下文会膨胀的场景中：从多个来源收集信息、连续进行工具调用、开展多轮推理，并累积大量历史记录。</p></div><div class="en"><p>These failures hit agents hardest because agents operate in exactly the scenarios where contexts balloon: gathering information from multiple sources, making sequential tool calls, engaging in multi-turn reasoning, and accumulating extensive histories.</p></div></div>
+<div class="pair"><div class="zh"><p>幸运的是，解决方案是有的！在接下来的一篇文章中，我们会介绍缓解或避免这些问题的技术，从动态加载工具的方法到建立上下文隔离区。</p></div><div class="en"><p>Fortunately, there are solutions! In an upcoming post we'll cover techniques for mitigating or avoding these issues, from methods for dynamically loading tools to spinning up context quarantines.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>阅读后续文章「<a href="https://www.dbreunig.com/2025/06/26/how-to-fix-your-context.html" target="_blank" rel="noopener">如何修复你的上下文</a>」</strong></p></div><div class="en"><p><strong>Read the follow up article, "<a href="https://www.dbreunig.com/2025/06/26/how-to-fix-your-context.html" target="_blank" rel="noopener">How to Fix Your Context</a>"</strong></p></div></div>
+<div class="pair"><div class="zh"><hr></div><div class="en"><hr></div></div>
+<div class="pair"><div class="zh"><p>[^longcontext]: Gemini 2.5 和 GPT-4.1 拥有 100 万 token 的上下文窗口，大到足以塞进一部 <a href="https://en.wikipedia.org/wiki/Infinite_Jest" target="_blank" rel="noopener">Infinite Jest</a> 还绰绰有余。</p></div><div class="en"><p>[^longcontext]: Gemini 2.5 and GPT-4.1 have 1 million token context windows, large enough to throw <a href="https://en.wikipedia.org/wiki/Infinite_Jest" target="_blank" rel="noopener">Infinite Jest</a> in there, with plenty of room to spare.</p></div></div>
+<div class="pair"><div class="zh"><p>[^googledocs]: Gemini 文档中的「<a href="https://ai.google.dev/gemini-api/docs/long-context#long-form-text" target="_blank" rel="noopener">长文本</a>」一节很好地概括了这种乐观情绪。</p></div><div class="en"><p>[^googledocs]: The "<a href="https://ai.google.dev/gemini-api/docs/long-context#long-form-text" target="_blank" rel="noopener">Long form text</a>" section in the Gemini docs sum up this optmism nicely.</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

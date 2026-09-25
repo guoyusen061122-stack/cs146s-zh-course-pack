@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCP Introduction（第 2/2 部分）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>MCP Introduction（第 2/2 部分）</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 12,273 字符 ｜ 51 个内容块 ｜ <a href="https://stytch.com/blog/model-context-protocol-introduction/" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><p><strong>5. 把结果返回给 LLM</strong> —— MCP 客户端收到工具的输出。此时宿主应用可以把结果整合回 AI 的回复中。在许多智能体配置中，做法是把结果注入对话，并让模型继续。例如，助手随后可能这样呈现：「AAPL 当前股价为 $173.22（USD）。」如果使用自动化循环，可以把结果交给模型（也许作为一条系统消息追加到对话中，例如「Result of get_current_stock_price:...」），模型便可以带着这条信息继续回答用户的提问。</p></div><div class="en"><p><strong>5. Return the Result to the LLM</strong> – The MCP client receives the tool’s output. Now the host application can integrate that back into the AI’s response. In many agent setups, the pattern is to inject the result into the conversation and ask the model to continue. For example, the assistant might then present: “The current stock price of AAPL is $173.22 (USD).” If using an automated loop, the result can be given to the model (perhaps appended to the conversation as a system message like “Result of get_current_stock_price:...”) and the model can continue answering the user’s query with that information in mind.</p></div></div>
+<div class="pair"><div class="zh"><p>下面是一个简化的示例，演示如何在对话中调用工具并使用结果，这里用的是 Anthropic 的 Claude（它原生支持工具调用）：</p></div><div class="en"><p>Here’s a simplified illustration of calling a tool and using the result in a conversation using Anthropic’s Claude (which natively supports tool use):</p></div></div>
+<div class="pair code"><pre><code class="language-javascript">// 1. Send user prompt to LLM with available tools context
+const response = await anthropicClient.complete({
+  prompt: &quot;User: Can you list my projects?\nAssistant: &quot;,
+  model: &quot;claude-3.5&quot;,
+  tools: tools // list of tools from MCP server
+});
+for (const msg of response.messages) {
+  if (msg.type === &#x27;tool_use&#x27;) {
+    // 2. LLM decided to use a tool
+    const { name, args } = msg;
+    // 3. Call the tool via MCP
+    const toolRes = await mcpClient.request({ method: &#x27;tools/call&#x27;, params: { name, arguments: args } });
+    // 4. Inject tool result and resume LLM
+    await anthropicClient.send({ role: &#x27;system&#x27;, content: `Tool result: ${toolRes.result}` });
+  } else {
+    // 5. Handle normal LLM reply (tool result likely integrated)
+    console.log(&quot;Assistant:&quot;, msg.content);
+  }
+}</code></pre></div>
+<div class="pair"><div class="zh"><p>实际上，框架会替你处理其中大量工作，但上面的伪代码勾勒出 MCP 如何嵌入这个循环。关键点是：<strong>MCP 提供了标准化的调用/响应层</strong>用于执行工具，AI 智能体代码可以挂接进去。无论你用的是 OpenAI、Anthropic 还是其他大语言模型，MCP 都保持不变 —— 它是模型意图与外部动作之间的黏合剂。</p></div><div class="en"><p>In reality, frameworks handle a lot of this for you, but the above pseudo-code sketches how MCP fits into the loop. The key point is that <strong>MCP provides the standardized call/response layer</strong> for tool execution, which the AI agent code can hook into. Whether you’re using OpenAI, Anthropic, or another LLM, MCP stays the same – it’s the glue between the model’s intents and the external actions.</p></div></div>
+<div class="pair"><div class="zh"><p>借助 MCP，开发者能够获得一条清晰、结构化的流水线来扩展 AI 能力。代码变得更易维护（因为你在各处调用的是通用的 mcpClient.request，而不是针对每个服务写专门的代码），AI 也变得更强（因为它可以接入任何与 MCP 相连的服务）。调试同样更容易 —— 你可以监控 JSON-RPC 消息，精确看到请求和返回了什么，而不必从模型生成的文本里去猜线索。</p></div><div class="en"><p>By using MCP, developers get a clear, structured pipeline for extending AI capabilities. The code becomes more maintainable (since you’re calling a generic mcpClient.request rather than service-specific code in each place) and the AI becomes more powerful (since it can tap into any MCP-connected service). Debugging is also easier – you can monitor the JSON-RPC messages to see exactly what was requested and returned, rather than parsing model-generated text for clues.</p></div></div>
+<div class="pair"><div class="zh"><h2>早期局限（没有内置认证）</h2></div><div class="en"><h2>Early limitations (no built-in authentication)</h2></div></div>
+<div class="pair"><div class="zh"><p>MCP 在 2024 年末刚出现时，提供了用于工具与数据交换的核心协议，但缺少连接远程服务器所需的标准化认证机制。在实践中，早期的 MCP 演示和实现往往要求把 MCP 服务器运行在<strong>本地</strong>或可信环境中，在那里认证并不算大问题（因为 AI 和服务器跑在同一台机器上）。例如，开发者可以在自己的 <a href="http://localhost" target="_blank" rel="noopener">localhost</a> 上运行一个访问 Google Drive 的 MCP 服务器，并预先拿到 token，然后让 AI 应用指向它。但如果没有正式的认证流程，要通过互联网或与第三方服务一起使用 MCP 就很棘手。</p></div><div class="en"><p>When MCP first emerged (late 2024), it offered the core protocol for tool and data exchange, but it lacked a standardized authentication mechanism for connecting to remote servers. In practice, early MCP demos and implementations often required running the MCP server <strong>locally</strong> or in a trusted environment, where authentication wasn’t a big concern (since the AI and server ran on the same machine). For example, developers could run an MCP server for Google Drive on their <a href="http://localhost" target="_blank" rel="noopener">localhost</a> with a pre-obtained token, then point their AI app to it. But using MCP over the internet or with third-party services was tricky without a formal auth flow.</p></div></div>
+<div class="pair"><div class="zh"><p>许多早期的 MCP 服务器都假定用户会在启动时手工向服务器提供凭据或 API key。举个例子，Anthropic 的快速入门建议通过配置或命令行提供你自己的凭据（API key、token），来运行预构建的服务器。这意味着服务器本身能拿到你的密钥，而 MCP 客户端只是信任那台服务器。这对个人或单用户场景可行，但对多用户应用或云端托管的智能体来说扩展性很差。当时并没有一个<strong>标准握手</strong>，让 AI 智能体能够说：「嘿，我获准代表用户 X 访问这项服务，这是我的凭据。」</p></div><div class="en"><p>Many initial MCP servers assumed the user would manually provide credentials or API keys to the server at startup. As an example, Anthropic’s quickstart suggested running pre-built servers by supplying your own credentials (API keys, tokens) via config or command-line. That means the server itself had access to your keys and the MCP client just trusted that server. While this works for personal or single-user scenarios, it doesn’t scale well for multi-user applications or cloud-hosted agents. There was no <strong>standard handshake</strong> for an AI agent to say, “Hey, I’m allowed to access this service on behalf of User X; here are my credentials.”</p></div></div>
+<div class="pair"><div class="zh"><p>本质上，早期的 MCP 客户端除了带外方式（比如预先共享一个 token，或者干脆在无认证的情况下运行）之外，没有办法向 MCP 服务器认证。这是一个明显的局限 —— <strong>MCP 的设计初衷是开放、基于互联网的，但缺少认证标准，使安全的远程使用受到了限制</strong>。</p></div><div class="en"><p>Essentially, early MCP clients had no way to authenticate to an MCP server except by out-of-band means (like pre-sharing a token or running without auth). This was a notable limitation – <strong>MCP was designed to be open and internet-based, but without an auth standard, secure remote use was handicapped</strong>.</p></div></div>
+<div class="pair"><div class="zh"><p>缺少认证标准意味着 <strong>MCP 客户端无法自行安全地连接任意服务器</strong>。你要么把客户端 ID/API key 硬编码进客户端（在分布式应用中并不理想），要么在无认证的情况下运行，并假定只有获授权的用户才能访问到服务器（通常靠把它保持在本地）。显然，要让 MCP 发挥全部潜力（例如以安全的方式把 AI 智能体连接到云端托管的数据源），需要更好的方案。好消息是社区认识到了这一点，并投入工作把基于 OAuth 的认证内建到 MCP 中。</p></div><div class="en"><p>The lack of authentication standard meant that <strong>MCP clients couldn’t safely connect to arbitrary servers on their own</strong>. You either hard-coded a client ID/API key into the client (which is not ideal in distributed apps), or you had to run without auth and assume only authorized users could even reach the server (often by keeping it local). Clearly, for MCP to reach its full potential (e.g. connecting an AI agent to a cloud-hosted data source in a secure way), a better approach was needed. The good news is that the community recognized this, and work was done to bake OAuth-based authentication into MCP.</p></div></div>
+<div class="pair"><div class="zh"><h3><strong>OAuth 2.0 认证流程</strong></h3></div><div class="en"><h3><strong>OAuth 2.0 authentication flow</strong></h3></div></div>
+<div class="pair"><div class="zh"><p>为了解决最初的认证局限并增强安全连接能力，MCP 采用了 OAuth 2.0 —— 一个被广泛认可且稳健的认证标准。OAuth 2.0 提供了安全、可扩展的框架，使 MCP 客户端能够安全地与远程服务器、云端托管资源以及多用户环境交互。把 OAuth 2.0 集成到 MCP 中的关键组成部分与收益包括：</p></div><div class="en"><p>To address the initial authentication limitations and enhance secure connectivity, MCP adopted OAuth 2.0, a widely-recognized and robust authentication standard. OAuth 2.0 provides a secure, scalable framework enabling MCP clients to interact safely with remote servers, cloud-hosted resources, and multi-user environments. The key components and benefits of integrating OAuth 2.0 into MCP include:</p></div></div>
+<div class="pair"><div class="zh"><ol><li><strong>动态客户端注册（DCR）</strong>：模型上下文协议支持动态客户端注册，允许客户端自动向 OAuth 服务器注册。这省去了手工配置客户端或硬编码凭据的需要，显著简化了开发者的部署工作。</li><li><strong>自动端点发现</strong>：MCP 利用标准化元数据 URL（遵循 OAuth 的发现协议），让客户端能够自动发现 OAuth 端点。这降低了配置开销，使 MCP 部署更容易、更灵活。</li><li><strong>安全的授权与 token 管理</strong>：客户端能够安全地获取精确匹配用户权限和访问范围的 OAuth token。这确保客户端只访问用户明确许可的资源，提升了安全性与合规性，在多用户和云环境中尤其如此。</li><li><strong>可扩展且安全的多用户支持</strong>：OAuth 2.0 的设计本身就支持多个并发用户与服务，解决了 MCP 早期的一大显著局限。应用现在可以同时无缝处理大量用户的授权流程，这对云端的广泛采用至关重要。</li></ol></div><div class="en"><ol><li><strong>Dynamic Client Registration (DCR)</strong>: Model Context Protocol supports Dynamic Client Registration, allowing clients to register automatically with OAuth servers. This removes the need for manual client setup or hard-coded credentials, significantly streamlining deployment for developers.</li><li><strong>Automatic Endpoint Discovery</strong>: MCP utilizes standardized metadata URLs (following OAuth's discovery protocol) to allow clients to automatically discover OAuth endpoints. This reduces configuration overhead and makes MCP deployments easier and more flexible.</li><li><strong>Secure Authorization and Token Management</strong>: Clients securely obtain OAuth tokens tailored precisely to user permissions and access scopes. This ensures that clients access only the resources explicitly permitted by the user, improving security and compliance, especially in multi-user and cloud environments.</li><li><strong>Scalable and Secure Multi-User Support</strong>: OAuth 2.0's design inherently supports multiple concurrent users and services, addressing one of MCP's significant early limitations. Applications can now seamlessly handle authorization flows for numerous users simultaneously, critical for widespread cloud adoption.</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>调试与故障排查</h2></div><div class="en"><h2>Debugging and troubleshooting</h2></div></div>
+<div class="pair"><div class="zh"><p>调试与故障排查是使用 MCP 服务器和客户端时的关键环节。MCP 提供了多种调试与故障排查的工具和技术，确保开发者能够高效地定位并解决问题。这一过程中的关键工具之一是 MCP Inspector，一个面向 MCP 服务器的交互式调试工具。</p></div><div class="en"><p>Debugging and troubleshooting are critical aspects of working with MCP servers and clients. MCP provides various tools and techniques for debugging and troubleshooting, ensuring that developers can identify and resolve issues efficiently. One of the key tools in this process is the MCP Inspector, an interactive debugging tool for MCP servers.</p></div></div>
+<div class="pair"><div class="zh"><p>MCP Inspector 让开发者可以测试和检查 MCP 服务器，定位并解决 MCP 服务器集成中的问题。该工具提供 MCP 客户端与服务器之间交互的详细视图，使定位问题、理解根本原因变得更容易。此外，MCP 还提供一份全面的调试指南，列出常见问题与解决方案，帮助开发者快速排查并解决问题。</p></div><div class="en"><p>The MCP Inspector allows developers to test and inspect MCP servers, identifying and resolving issues with MCP server integrations. This tool provides a detailed view of the interactions between MCP clients and servers, making it easier to pinpoint problems and understand the underlying causes. Additionally, MCP provides a comprehensive debugging guide that outlines common issues and solutions, helping developers to troubleshoot and resolve problems quickly.</p></div></div>
+<div class="pair"><div class="zh"><p>调试 MCP 服务器时，考虑系统的架构与设计至关重要。开发者应当找出引发问题的具体组件或模块，并使用 MCP Inspector 这类工具来诊断和解决问题。专注于系统化的调试方法并善用现有工具，开发者就能确保自己的 MCP 集成稳健可靠。</p></div><div class="en"><p>When debugging MCP servers, it’s essential to consider the architecture and design of the system. Developers should identify the specific components or modules that are causing issues and use tools like the MCP Inspector to diagnose and resolve problems. By focusing on a systematic approach to debugging and leveraging the available tools, developers can ensure that their MCP integrations are robust and reliable.</p></div></div>
+<div class="pair"><div class="zh"><h2>MCP 的实际应用</h2></div><div class="en"><h2>Real-world applications of MCP</h2></div></div>
+<div class="pair"><div class="zh"><p>模型上下文协议（MCP）在各行各业和各个领域都有多种实际应用。MCP 的主要用例之一是 AI 集成，MCP 在其中实现 AI 模型与外部数据源或工具之间无缝的通信与数据交换。</p></div><div class="en"><p>The Model Context Protocol (MCP) has various real-world applications across industries and domains. One of the primary use cases for MCP is in AI integrations, where MCP enables seamless communication and data exchange between AI models and external data sources or tools.</p></div></div>
+<div class="pair"><div class="zh"><p>MCP 可用于多种应用，例如：</p></div><div class="en"><p>MCP can be used in various applications, such as:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>构建 AI 驱动的聊天机器人</strong>：这类聊天机器人可以访问外部数据源或工具，为用户提供准确且最新的信息。</li><li><strong>创建 AI 驱动的工作流</strong>：MCP 使 AI 模型能够与外部系统或数据源集成，自动完成复杂的工作流并提升效率。</li><li><strong>开发 AI 模型</strong>：这些模型可以与外部工具或数据源交互，增强自身能力，并给出更准确、更相关的输出。</li><li><strong>实现 AI 驱动的自动化</strong>：在金融、医疗或制造等行业，MCP 可以自动完成任务和流程，提升生产力并减少错误。</li></ul></div><div class="en"><ul><li><strong>Building AI-powered chatbots</strong>: These chatbots can access external data sources or tools, providing users with accurate and up-to-date information.</li><li><strong>Creating AI-driven workflows</strong>: MCP enables the integration of AI models with external systems or data sources, automating complex workflows and improving efficiency.</li><li><strong>Developing AI models</strong>: These models can interact with external tools or data sources, enhancing their capabilities and providing more accurate and relevant outputs.</li><li><strong>Enabling AI-powered automation</strong>: In industries such as finance, healthcare, or manufacturing, MCP can automate tasks and processes, improving productivity and reducing errors.</li></ul></div></div>
+<div class="pair"><div class="zh"><p>MCP 的灵活性与适应性，使它成为希望在自己的应用中利用 AI 与机器学习的开发者和组织的一个有吸引力的方案。通过为 AI 模型与数据源、工具的交互提供标准化接口，MCP 促成了 AI 生态中的创新与试验。这种标准化做法不仅简化了集成过程，也确保 AI 模型能够获取为发挥最佳表现所需的那些数据和工具。</p></div><div class="en"><p>MCP’s flexibility and adaptability make it an attractive solution for developers and organizations looking to leverage AI and machine learning in their applications. By providing a standardized interface for AI models to interact with data sources and tools, MCP enables innovation and experimentation in the AI ecosystem. This standardized approach not only simplifies the integration process but also ensures that AI models can access the data and tools they need to perform at their best.</p></div></div>
+<div class="pair"><div class="zh"><p>总之，MCP 为 AI 应用打开了一片可能性的天地，让开发者能够构建更集成、更自主、更易扩展的方案。无论是用 AI 驱动的聊天机器人提升客户服务，还是在工业场景中自动完成复杂工作流，MCP 都提供了把这些创新落到实处所需的工具与框架。</p></div><div class="en"><p>In summary, MCP opens up a world of possibilities for AI applications, allowing developers to create more integrated, autonomous, and scalable solutions. Whether it’s enhancing customer service with AI-powered chatbots or automating complex workflows in industrial settings, MCP provides the tools and framework needed to bring these innovations to life.</p></div></div>
+<div class="pair"><div class="zh"><h2>结论</h2></div><div class="en"><h2>Conclusion</h2></div></div>
+<div class="pair"><div class="zh"><p>模型上下文协议（MCP）是 AI 开发中一个令人兴奋的进展，因为它让开发者能够安全、高效地把日益智能的语言模型连接到以往难以连接的广阔软件与数据世界。通过引入一套通用协议，MCP 让我们能够构建<strong>更集成、更自主、更易扩展的 AI 系统</strong>。我们不必为每个新工具编写一次性插件或给模型下脆弱的指令，而是有了一个连贯的框架：AI 智能体可以即席发现并使用工具，同时具备恰当的监督与安全保障。</p></div><div class="en"><p>Model Context Protocol (MCP) is an exciting development in AI development because it allows developers to safely and efficiently connect our increasingly intelligent language models to the extensive world of software and data previously difficult to connect with. By introducing a common protocol, MCP lets us build <strong>AI systems that are more integrated, autonomous, and easier to scale</strong>. Instead of writing one-off plugins or giving the model brittle instructions for each new tool, we have a coherent framework where AI agents can discover and use tools on the fly, with proper oversight and security.</p></div></div>
+<div class="pair"><div class="zh"><p>虽然该协议仍在演进（认证是最近才加入的，而标准化服务器发现等更多特性也即将到来），但可以明确的是，MCP 或类似的东西将在下一代 AI 应用中扮演关键角色。对开发者而言，现在是熟悉 MCP 概念的大好时机。无论你是在用公司专属知识增强聊天机器人，还是在构建自动完成工作流的 AI 智能体，MCP 都能替你处理工具集成的「底层连接」工作，省下时间与麻烦。而且由于它是一个开放标准，背后有不断壮大的社区（以及 Anthropic 这样的公司）支持，它很可能会成为未来 AI 基础设施的一块基石。</p></div><div class="en"><p>While the protocol is still evolving (authentication was a recent addition, and more features like standardized server discovery are on the horizon, it’s clear that MCP or something like it will play a key role in the next generation of AI applications. For developers, now is a great time to familiarize yourself with MCP concepts. Whether you’re enhancing a chatbot with company-specific knowledge or building an AI agent that automates workflows, MCP can save you time and headaches by handling the “plumbing” of tool integration. And since it’s an open standard backed by a growing community (and companies like Anthropic), it’s likely to become a foundational piece of AI infrastructure moving forward.</p></div></div>
+<div class="pair"><div class="zh"><p>总之，模型上下文协议让我们能够想象这样一个世界：AI 助手不再是孤立的天才，而是装备齐全的工程师和助手 —— 能够与众多系统对接、遵循流程、按需获取或创建信息，而这一切都通过一个统一、安全的接口完成。这是一个强大的愿景，而随着 MCP 的出现，它正在迅速成为现实。</p></div><div class="en"><p>In summary, Model Context Protocol enables a world where AI assistants are not siloed geniuses but well-equipped engineers and assistants – able to interface with many systems, follow procedures, and fetch or create information as needed, all through a unified, secure interface. That’s a powerful vision, and one that is quickly becoming reality with MCP.</p></div></div>
+<div class="pair"><div class="zh"><p>在 Stytch，我们专注于为<a href="https://stytch.com/docs/guides/connected-apps/mcp-servers" target="_blank" rel="noopener">解决远程 MCP 服务器认证问题</a>提供便捷方案，让客户能够轻松为自己的应用搭建 MCP 服务器，从而让最终用户向 MCP 客户端授予有权限的访问。</p></div><div class="en"><p>At Stytch, we’re focused on easily <a href="https://stytch.com/docs/guides/connected-apps/mcp-servers" target="_blank" rel="noopener">solving the remote MCP server auth problem</a>for customers, so they can easily stand up MCP servers for their applications to allow end users to provide permissioned access to MCP clients.</p></div></div>
+<div class="pair"><div class="zh"><h3>用 Stytch 做 MCP 认证</h3></div><div class="en"><h3>MCP auth with Stytch</h3></div></div>
+<div class="pair"><div class="zh"><p>使用 Stytch Connected Apps 为 MCP 服务器构建认证</p></div><div class="en"><p>Use Stytch Connected Apps to build authentication with MCP servers</p></div></div>
+<div class="pair"><div class="zh"><p>阅读文档</p></div><div class="en"><p>Read the docs</p></div></div>
+<div class="pair"><div class="zh"><p>分享这篇文章</p></div><div class="en"><p>Share this article</p></div></div>
+<div class="pair"><div class="zh"><p><a href="https://www.linkedin.com/shareArticle?mini=true&amp;amp;url=https%3A%2F%2Fstytch.com%2Fblog%2Fmodel-context-protocol-introduction%2F" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/intent/post?url=https%3A%2F%2Fstytch.com%2Fblog%2Fmodel-context-protocol-introduction%2F" target="_blank" rel="noopener">X</a><a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fstytch.com%2Fblog%2Fmodel-context-protocol-introduction%2F" target="_blank" rel="noopener">Facebook</a></p></div><div class="en"><p><a href="https://www.linkedin.com/shareArticle?mini=true&amp;amp;url=https%3A%2F%2Fstytch.com%2Fblog%2Fmodel-context-protocol-introduction%2F" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/intent/post?url=https%3A%2F%2Fstytch.com%2Fblog%2Fmodel-context-protocol-introduction%2F" target="_blank" rel="noopener">X</a><a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fstytch.com%2Fblog%2Fmodel-context-protocol-introduction%2F" target="_blank" rel="noopener">Facebook</a></p></div></div>
+<div class="pair"><div class="zh"><h1>相关文章</h1></div><div class="en"><h1>Related Articles</h1></div></div>
+<div class="pair"><div class="zh"><p><a href="/blog/stytch-connected-apps/" target="_blank" rel="noopener"><img src="https://cdn.sanity.io/images/3jwyzebk/production/e508e790c2042da91864ad821bfa2e329b91d4fe-1150x884.png?auto=format&amp;amp;fit=max&amp;amp;w=3840&amp;amp;q=75" alt="Stytch Connected Apps：让任何应用成为集成与 AI 智能体的 OAuth 提供方"></a><a href="/blog/stytch-connected-apps/" target="_blank" rel="noopener">产品 2025 年 2 月 20 日 Stytch Connected Apps：让任何应用成为集成与 AI 智能体的 OAuth 提供方</a><a href="/blog/the-age-of-agent-experience/" target="_blank" rel="noopener"><img src="https://cdn.sanity.io/images/3jwyzebk/production/debae5121d138d6b3358e3289e070b223092689e-1584x988.png?auto=format&amp;amp;fit=max&amp;amp;w=3840&amp;amp;q=75" alt="智能体体验的时代"></a><a href="/blog/the-age-of-agent-experience/" target="_blank" rel="noopener">认证与身份 2025 年 2 月 8 日智能体体验的时代</a><a href="/blog/detecting-ai-agent-use-abuse/" target="_blank" rel="noopener"><img src="https://cdn.sanity.io/images/3jwyzebk/production/4124b124a6f5ddebe133043163ce820536175e97-1088x902.png?auto=format&amp;amp;fit=max&amp;amp;w=3840&amp;amp;q=75" alt="检测 AI 智能体的使用与滥用"></a><a href="/blog/detecting-ai-agent-use-abuse/" target="_blank" rel="noopener">认证与身份 2025 年 2 月 15 日检测 AI 智能体的使用与滥用</a></p></div><div class="en"><p><a href="/blog/stytch-connected-apps/" target="_blank" rel="noopener"><img src="https://cdn.sanity.io/images/3jwyzebk/production/e508e790c2042da91864ad821bfa2e329b91d4fe-1150x884.png?auto=format&amp;amp;fit=max&amp;amp;w=3840&amp;amp;q=75" alt="Stytch Connected Apps: Make any app an OAuth provider for integrations and AI agents"></a><a href="/blog/stytch-connected-apps/" target="_blank" rel="noopener">ProductFeb 20, 2025Stytch Connected Apps: Make any app an OAuth provider for integrations and AI agents</a><a href="/blog/the-age-of-agent-experience/" target="_blank" rel="noopener"><img src="https://cdn.sanity.io/images/3jwyzebk/production/debae5121d138d6b3358e3289e070b223092689e-1584x988.png?auto=format&amp;amp;fit=max&amp;amp;w=3840&amp;amp;q=75" alt="The age of agent experience"></a><a href="/blog/the-age-of-agent-experience/" target="_blank" rel="noopener">Auth &amp; identityFeb 8, 2025The age of agent experience</a><a href="/blog/detecting-ai-agent-use-abuse/" target="_blank" rel="noopener"><img src="https://cdn.sanity.io/images/3jwyzebk/production/4124b124a6f5ddebe133043163ce820536175e97-1088x902.png?auto=format&amp;amp;fit=max&amp;amp;w=3840&amp;amp;q=75" alt="Detecting AI agent use &amp;amp; abuse"></a><a href="/blog/detecting-ai-agent-use-abuse/" target="_blank" rel="noopener">Auth &amp; identityFeb 15, 2025Detecting AI agent use &amp; abuse</a></p></div></div>
+<div class="pair"><div class="zh"><p>开始使用 Stytch</p></div><div class="en"><p>Get started with Stytch</p></div></div>
+<div class="pair"><div class="zh"><p><a href="/start-now" target="_blank" rel="noopener">免费开始构建</a><a href="/docs" target="_blank" rel="noopener">浏览我们的文档</a></p></div><div class="en"><p><a href="/start-now" target="_blank" rel="noopener">Start building for free</a><a href="/docs" target="_blank" rel="noopener">Explore our docs</a></p></div></div>
+<div class="pair"><div class="zh"><h4>认证与授权</h4></div><div class="en"><h4>Authentication &amp; Authorization</h4></div></div>
+<div class="pair"><div class="zh"><p><a href="/b2c" target="_blank" rel="noopener">面向消费者应用</a><a href="/b2b" target="_blank" rel="noopener">面向 B2B SaaS 应用</a><a href="/admin-portal" target="_blank" rel="noopener">管理门户</a><a href="/connected-apps" target="_blank" rel="noopener">Connected Apps</a><a href="/lp/sso" target="_blank" rel="noopener">单点登录</a></p></div><div class="en"><p><a href="/b2c" target="_blank" rel="noopener">For consumer applications</a><a href="/b2b" target="_blank" rel="noopener">For B2B SaaS applications</a><a href="/admin-portal" target="_blank" rel="noopener">Admin Portal</a><a href="/connected-apps" target="_blank" rel="noopener">Connected Apps</a><a href="/lp/sso" target="_blank" rel="noopener">Single sign-on</a></p></div></div>
+<div class="pair"><div class="zh"><h4>欺诈与风险防范</h4></div><div class="en"><h4>Fraud &amp; Risk Prevention</h4></div></div>
+<div class="pair"><div class="zh"><p><a href="/fraud" target="_blank" rel="noopener">设备指纹</a><a href="/docs/fraud/guides/device-fingerprinting/verdicts" target="_blank" rel="noopener">主动风险评估</a><a href="/docs/fraud/guides/device-fingerprinting/traffic-shaping/intelligent-rate-limiting" target="_blank" rel="noopener">细粒度管控</a></p></div><div class="en"><p><a href="/fraud" target="_blank" rel="noopener">Fingerprinting</a><a href="/docs/fraud/guides/device-fingerprinting/verdicts" target="_blank" rel="noopener">Active risk assessment</a><a href="/docs/fraud/guides/device-fingerprinting/traffic-shaping/intelligent-rate-limiting" target="_blank" rel="noopener">Fine-grained enforcement</a></p></div></div>
+<div class="pair"><div class="zh"><h4>为什么选择 Stytch</h4></div><div class="en"><h4>Why Stytch</h4></div></div>
+<div class="pair"><div class="zh"><p><a href="/stytch-vs-auth0" target="_blank" rel="noopener">Stytch 与 Auth0 对比</a><a href="/stytch-vs-firebase" target="_blank" rel="noopener">Stytch 与 Firebase 对比</a><a href="/stytch-vs-cognito" target="_blank" rel="noopener">Stytch 与 Cognito 对比</a><a href="/stytch-vs-fingerprint" target="_blank" rel="noopener">Stytch 与 Fingerprint 对比</a></p></div><div class="en"><p><a href="/stytch-vs-auth0" target="_blank" rel="noopener">Stytch vs. Auth0</a><a href="/stytch-vs-firebase" target="_blank" rel="noopener">Stytch vs. Firebase</a><a href="/stytch-vs-cognito" target="_blank" rel="noopener">Stytch vs. Cognito</a><a href="/stytch-vs-fingerprint" target="_blank" rel="noopener">Stytch vs. Fingerprint</a></p></div></div>
+<div class="pair"><div class="zh"><h4>公司</h4></div><div class="en"><h4>Company</h4></div></div>
+<div class="pair"><div class="zh"><p><a href="/about" target="_blank" rel="noopener">关于我们</a><a href="/careers" target="_blank" rel="noopener">招贤纳士</a><a href="/contact" target="_blank" rel="noopener">联系我们</a></p></div><div class="en"><p><a href="/about" target="_blank" rel="noopener">About us</a><a href="/careers" target="_blank" rel="noopener">Careers</a><a href="/contact" target="_blank" rel="noopener">Contact</a></p></div></div>
+<div class="pair"><div class="zh"><h4>资源</h4></div><div class="en"><h4>Resources</h4></div></div>
+<div class="pair"><div class="zh"><p><a href="/pricing" target="_blank" rel="noopener">定价</a><a href="/docs" target="_blank" rel="noopener">文档</a><a href="https://stytch.com/docs/resources/changelog" target="_blank" rel="noopener">更新日志</a><a href="https://status.stytch.com/" target="_blank" rel="noopener">API 状态</a><a href="/blog" target="_blank" rel="noopener">博客</a></p></div><div class="en"><p><a href="/pricing" target="_blank" rel="noopener">Pricing</a><a href="/docs" target="_blank" rel="noopener">Docs</a><a href="https://stytch.com/docs/resources/changelog" target="_blank" rel="noopener">Changelog</a><a href="https://status.stytch.com/" target="_blank" rel="noopener">API status</a><a href="/blog" target="_blank" rel="noopener">Blog</a></p></div></div>
+<div class="pair"><div class="zh"><h4>社区</h4></div><div class="en"><h4>Community</h4></div></div>
+<div class="pair"><div class="zh"><p><a href="https://stytch.slack.com/join/shared_invite/zt-3aqo03e10-afWXyLzRIAlzGWJyF_~zHw" target="_blank" rel="noopener">Slack 社区</a><a href="/customer-stories" target="_blank" rel="noopener">客户案例</a></p></div><div class="en"><p><a href="https://stytch.slack.com/join/shared_invite/zt-3aqo03e10-afWXyLzRIAlzGWJyF_~zHw" target="_blank" rel="noopener">Slack community</a><a href="/customer-stories" target="_blank" rel="noopener">Customer stories</a></p></div></div>
+<div class="pair"><div class="zh"><p>© 2020-2026 Stytch. 保留所有权利。</p></div><div class="en"><p>© 2020-2026 Stytch. All rights reserved.</p></div></div>
+<div class="pair"><div class="zh"><p><a href="https://www.twilio.com/en-us/legal/tos" target="_blank" rel="noopener">使用条款</a><a href="https://www.twilio.com/en-us/legal/privacy" target="_blank" rel="noopener">隐私政策</a></p></div><div class="en"><p><a href="https://www.twilio.com/en-us/legal/tos" target="_blank" rel="noopener">Terms of use</a><a href="https://www.twilio.com/en-us/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a></p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

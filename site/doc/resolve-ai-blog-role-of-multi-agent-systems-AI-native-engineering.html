@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Role of Multi Agent Systems in Making Software Engineers AI-native</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Role of Multi Agent Systems in Making Software Engineers AI-native</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 9,723 字符 ｜ 49 个内容块 ｜ <a href="https://resolve.ai/blog/role-of-multi-agent-systems-AI-native-engineering" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>多智能体系统在让软件工程师成为 AI 原生工程师中的角色</h1></div><div class="en"><h1>Role of Multi Agent Systems in Making Software Engineers AI-native</h1></div></div>
+<div class="pair"><div class="zh"><p>返回</p></div><div class="en"><p>Back</p></div></div>
+<div class="pair"><div class="zh"><p>7 分钟阅读</p></div><div class="en"><p>7 min read</p></div></div>
+<div class="pair"><div class="zh"><h1>多智能体系统在让软件工程师成为 AI 原生工程师中的角色</h1></div><div class="en"><h1>The role of multi agent systems in making software engineers AI-native</h1></div></div>
+<div class="pair"><div class="zh"><p>作者</p></div><div class="en"><p>Written by</p></div></div>
+<div class="pair"><div class="zh"><ul><li>Spiros Xanthos 创始人兼 CEO</li><li>Gabor Angeli 研究工程师</li><li>Bharat Khandelwal 研究工程师</li></ul></div><div class="en"><ul><li>Spiros XanthosFounder and CEO</li><li>Gabor AngeliResearch Engineer</li><li>Bharat KhandelwalResearch Engineer</li></ul></div></div>
+<div class="pair"><div class="zh"><p>2025 年 9 月 26 日</p></div><div class="en"><p>September 26, 2025</p></div></div>
+<div class="pair"><div class="zh"><p>生成式 AI 已经彻底改变了<a href="https://resolve.ai/glossary/what-is-the-future-of-software-engineering" target="_blank" rel="noopener">软件开发</a>：你可以在几个小时内搭起整套服务；但要弄清这些服务到底出了什么问题，仍然需要在彼此割裂的工具之间做费力的排查。从代码生成到代码评审，编码智能体负责了构建这一侧。但<a href="https://resolve.ai/glossary/what-is-debugging" target="_blank" rel="noopener">生产环境调试</a>呢？那仍然是手工活。来看下面这个例子：</p></div><div class="en"><p>Generative AI has transformed <a href="https://resolve.ai/glossary/what-is-the-future-of-software-engineering" target="_blank" rel="noopener">software development</a> so dramatically that you can spin up entire services in hours, yet understanding what went wrong with those services still demands painstaking work across fragmented tools. From code generation to code review, coding agents handle the build side. But <a href="https://resolve.ai/glossary/what-is-debugging" target="_blank" rel="noopener">production debugging</a>? That's still manual. Take the following example:</p></div></div>
+<div class="pair"><div class="zh"><p>问题不在于 AI 的能力，而在于我们如何架构 AI 系统。多数工程团队仍然只是用 AI 工具把同样的工作流跑得更快，而没有重新设想软件开发与生产运维应当如何端到端地运作。</p></div><div class="en"><p>The problem isn't AI's capability; it's how we architect AI systems. Most engineering teams still use AI-powered tools to execute the same workflows faster, not reimagining how software development and production operations should work end-to-end.</p></div></div>
+<div class="pair"><div class="zh"><p>在 Resolve AI，我们一直在为工程师构建多智能体系统，让他们能够在<a href="https://resolve.ai/glossary/what-are-production-systems-in-software-engineering" target="_blank" rel="noopener">生产系统</a>上工作。我们一直主张工程应当是 AI 原生的——工程师主要通过<a href="https://resolve.ai/glossary/what-is-agentic-ai" target="_blank" rel="noopener">自主智能体</a>与生产系统打交道；而软件工程领域里大多数生成式 AI 的讨论，却都集中在用 Copilot 和编码助手写出 AI 生成的代码。</p></div><div class="en"><p>At Resolve AI, we've been building multi-agent systems for engineers to work on <a href="https://resolve.ai/glossary/what-are-production-systems-in-software-engineering" target="_blank" rel="noopener">production systems</a>. We've been advocating that engineering should be AI-native (where engineers primarily interface with <a href="https://resolve.ai/glossary/what-is-agentic-ai" target="_blank" rel="noopener">autonomous agents</a> to work on production systems), while most gen AI conversations in software engineering were centered on writing AI generated code with copilots and coding assistants.</p></div></div>
+<div class="pair"><div class="zh"><p>最近我们在<a href="https://www.youtube.com/watch?v=z7RBPQL0rZ4" target="_blank" rel="noopener">斯坦福大学的研究生 AI 课程</a>上介绍了我们的方案，深入讲解了 AI 智能体以及支撑 AI 原生工程工作流的架构模式。</p></div><div class="en"><p>We recently presented our approach to <a href="https://www.youtube.com/watch?v=z7RBPQL0rZ4" target="_blank" rel="noopener">Stanford's graduate AI program</a>, diving deep into the AI agents and their architectural patterns that enable AI-native engineering workflows.</p></div></div>
+<div class="pair"><div class="zh"><h3><strong>什么是 AI 原生工程？为什么它很重要？</strong></h3></div><div class="en"><h3><strong>What is AI-native engineering? Why is it important?</strong></h3></div></div>
+<div class="pair"><div class="zh"><p>AI 原生工程指的是：工程师主要通过 AI 来编排自己的工作，无论是写代码还是在生产系统上工作。<em>AI 原生</em>与仅仅「<em>使用 AI</em>」有根本区别——在后一种情况下，工程师仍然直接与自己的系统和工具打交道，只是用 AI 来加速流程中的单个步骤。</p></div><div class="en"><p>AI-Native Engineering is where engineers primarily interface with AI to orchestrate their work: be it writing code or working on production systems. <em>AI-native</em> is a significant departure from just “<em>using AI”</em> where engineers are still interfacing with their systems and tools, but using AI to speed up individual steps of the process.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>下面用一个示例工作流来说明这种区别。</strong></p></div><div class="en"><p><strong>Here is an example workflow to showcase the distinction.</strong></p></div></div>
+<div class="pair"><div class="zh"><p>AI 辅助：你使用 AI 工具更快地完成复杂任务。工作流仍然以人为中心：工程师 → 系统与工具 → 关联 → 行动。<em>工程师仍然直接与工具打交道，只是用 AI 更快地完成单个任务</em></p></div><div class="en"><p>AI-Assisted: You use AI tools to work faster on complex tasks. The workflow remains human-centric: Engineer → Systems and tools → Correlation → Action. <em>Engineers still interface with tools, just using AI to perform individual tasks faster</em></p></div></div>
+<div class="pair"><div class="zh"><p>AI 原生：AI 成为你处理生产工作的主要界面。工作流变成由 AI 主导：工程师 → 自然语言请求 → AI 系统 → 响应 / 行动。<em>工程师设定目标，让 AI 智能体承担操作性工作</em></p></div><div class="en"><p>AI-Native: AI becomes your primary interface for production work. The workflow becomes AI-led: Engineer → Natural Language Request → AI System → Response / Action. <em>Engineers set goals and let AI agents handle the operational work</em></p></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2FScreenshot_2025_09_25_at_6_05_44_PM_4cb3a87090.png&amp;amp;w=3840&amp;amp;q=75" alt="Screenshot 2025-09-25 at 6.05.44 PM.png"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fresolve-prod-strapi-bucket.s3.us-east-2.amazonaws.com%2FScreenshot_2025_09_25_at_6_05_44_PM_4cb3a87090.png&amp;amp;w=3840&amp;amp;q=75" alt="Screenshot 2025-09-25 at 6.05.44 PM.png"></p></div></div>
+<div class="pair"><div class="zh"><p>以事故响应为例。在 AI 辅助的工作流中，你仍然要自己提出假设、判断哪些证据重要、手工关联跨工具的信号。AI 帮助完成数据检索与分析，但调查中的重活仍然由你来干。</p></div><div class="en"><p>Take incident response as an example. In AI-assisted workflows, you're still generating hypotheses, deciding which evidence matters, and manually correlating signals across tools. AI helps with data retrieval and analysis, but you're doing the heavy lifting in investigation.</p></div></div>
+<div class="pair"><div class="zh"><p>AI 原生的事故响应方式不同：AI 智能体实时分诊调查优先级，并行生成相互竞争的假设，并根据跨系统的证据在一次次迭代中修正理论。你不再问「你能分析这些日志吗？」，而是说「解决这个结账失败」，由智能体协调整个调查过程。</p></div><div class="en"><p>AI-native incident response operates differently: AI agents perform real-time triage of investigation priorities, generate competing hypotheses in parallel, and refine theories through successive iterations based on cross-system evidence. Instead of asking "Can you analyze these logs?" you say "Resolve this checkout failure" and agents coordinate the entire investigation.</p></div></div>
+<div class="pair"><div class="zh"><p>这不仅仅是更快。它改变了哪些问题值得投入工程注意力。当 AI 智能体承担日志分析、指标关联和部署时间线重建时，工程师就在更高层面上工作，专注于架构决策与系统设计，而不是战术性的调查。</p></div><div class="en"><p>This isn't just faster. It changes what problems deserve engineering attention. When AI agents handle log analysis, metric correlation, and deployment timeline reconstruction, engineers operate at a higher-level, focusing on architectural decision-making and system design rather than tactical investigation.</p></div></div>
+<div class="pair"><div class="zh"><p>这种转变需要持久的 AI 智能体，而不只是 AI 工具。虽然 OpenAI 或 Anthropic 这类厂商的 AI 模型能加速单个任务，但只有有状态的智能体才能保持调查上下文、跨多个工具协调，并自主执行贯穿整个事故生命周期的复杂任务。</p></div><div class="en"><p>The shift requires persistent AI agents, not just AI tools. While AI models like those from OpenAI or Anthropic can accelerate individual tasks, only stateful agents can maintain investigation context, coordinate across multiple tools, and execute complex tasks across the full incident lifecycle autonomously.</p></div></div>
+<div class="pair"><div class="zh"><h3><strong>为什么多智能体系统对实现 AI 原生的工程必不可少？</strong></h3></div><div class="en"><h3><strong>Why are multi-agent systems essential to make engineering AI-native?</strong></h3></div></div>
+<div class="pair"><div class="zh"><p>现代生产系统呈现出学术界所说的「不可约的相互依赖」：要理解它们，需要横跨多个领域的专门知识，而这些知识无法统一成单一连贯的模型。这正是大多数构建者忽视的洞察：没有任何单一 AI 工具或模型组合，能在协调一场实时调查的同时，维持所有这些领域的专家级知识。</p></div><div class="en"><p>Modern production systems exhibit what academics call "irreducible interdependence": understanding them requires specialized knowledge across domains that cannot be unified into a single coherent model. This is the insight most builders miss: No single AI tool or set of AI models can maintain expert-level knowledge across all these domains while coordinating a real-time investigation.</p></div></div>
+<div class="pair"><div class="zh"><p><em>例如：当一次关键事故中 API 延迟飙升 10 倍时，调查需要多个专业智能体同时做实时分析：关联横跨 50+ 微服务的 trace、分析缓慢的数据库查询与连接池耗尽、检查最近的部署与基础设施变更、扫描认证日志以发现安全异常、根据当前负载模式评估自动扩缩函数，并在 SLA 背景下分析支持工单以评估客户影响。每一项功能都需要特定领域的专业知识和上下文数据，没有哪个单一系统能有效地维持它们。</em></p></div><div class="en"><p><em>For example: When API latency spikes 10x during a critical incident, the investigation requires simultaneous specialized agents performing real-time analysis: correlating traces across 50+ microservices, analyzing slow database queries and connection pool exhaustion, checking recent deployments and infrastructure changes, scanning auth logs for security anomalies, evaluating auto-scaling functions against current load patterns, and analyzing support tickets for customer impact with SLA context. Each of these functions requires domain-specific expertise and contextual data that no single system could effectively maintain.</em></p></div></div>
+<div class="pair"><div class="zh"><p>在大规模场景下，随着系统复杂度上升，单个 AI 工具缺乏适应能力，无法应对上下文需求呈指数级增长。这正是多智能体系统能够发挥扩展性的地方：把编排与各领域的专业化结合起来。下面这张矩阵为工程负责人提供概览。找到与你当前状态相符的那一行，理解它的局限：</p></div><div class="en"><p>At large-scale, as system complexity increases, individual AI tools lack the adaptability to handle exponential growth in context requirements. This is where multi-agent systems can scale by combining orchestration and individual domain specialization. This matrix provides an overview for engineering leaders. Find the row that matches your current state to understand its limitations:</p></div></div>
+<div class="pair"><div class="zh"><p>这个框架揭示了每个层级的技术局限：</p></div><div class="en"><p>This framework reveals the technical limitations at each level:</p></div></div>
+<div class="pair"><div class="zh"><p>这个演进过程揭示了一条根本性的架构事实：每个层级都会撞上不同的可扩展性上限。LLM 缺乏持久状态。工具增强的 LLM 无法在多次对话之间维持调查上下文。即使有精巧的提示工程，随着系统复杂度增长，单个智能体也会成为决策瓶颈。只有多智能体系统才能突破限制此前所有方案的顺序推理约束。它们能实现并行的假设验证，而单个智能体只能顺序调查，因此从根本上不适合生产事故对时间的要求。</p></div><div class="en"><p>The progression reveals a fundamental architectural truth: Each level hits a different scalability ceiling. LLMs lack a persistent state. Tool-augmented LLMs can't maintain investigation context across multiple chats. Even with sophisticated prompt engineering, single agents become decision-making bottlenecks as system complexity grows. Only multi-agent systems can break through the sequential reasoning constraint that limits all previous approaches. They enable parallel hypothesis testing while single agents must investigate sequentially, making them fundamentally unsuitable for the temporal demands of production incidents.</p></div></div>
+<div class="pair"><div class="zh"><h3><strong>构建多智能体系统是一个困难的工程问题</strong></h3></div><div class="en"><h3><strong>Building multi-agent systems is a hard engineering problem</strong></h3></div></div>
+<div class="pair"><div class="zh"><p>没有 LangChain 这类现成的智能体框架能单独解决这个问题。构建可用于生产的多智能体系统，需要把深厚的领域专业知识与 AI 工程能力罕见地结合起来。大多数尝试失败，是因为团队只具备其中一个领域的专长，而不是两者兼备。以下是为什么需要这种双重专长：</p></div><div class="en"><p>No off-the-shelf agent framework like LangChain solves this alone. Building production-ready multi-agent systems requires a rare combination of deep domain expertise and AI engineering prowess. Most attempts fail because teams have expertise in one area but not both. Here’s why this dual expertise is needed:</p></div></div>
+<div class="pair"><div class="zh"><ul><li><strong>领域专业知识决定架构</strong>：如果不了解生产环境的真实情况，就无法设计智能体架构。只有在 DevOps 或 SRE 岗位上凌晨 3 点排查过生产问题的人，才知道日志模式和指标异常需要根本不同的调查策略。当支付失败激增时，你需要同时具备数据库专业知识和基础设施专业知识，才能确定根因。这类决策不是 AI 问题。它们是生产决策，决定了你如何构建自己的多智能体系统。</li><li><strong>AI 专业知识让智能体协同工作</strong>：把问题拆解之后，你就会撞上计算机科学中最难的部分。智能体之间的上下文传播不是靠直觉就能做好的。它是在管理信息流动的有向无环图，其中每个智能体的输出都会成为下一个智能体的输入。编排并行智能体需要正式的协调协议，以防止竞态条件和死锁。系统需要持续从交互和短暂的失败模式中学习。在协调智能体时只要错一步，你的系统就会逐步变差，而不是变好。</li><li><strong>两者的交叉造就突破性系统</strong>：只有领域知识而没有 AI 架构，那只是昂贵的咨询。只有 AI 架构而没有领域知识，产出的结果会去调查错误的东西。突破发生在两者结合时：既知道数据库连接池在负载下会做*什么*（领域），又能构建出可以*协调*连接池健康检查、部署时间线分析和上游服务验证的智能体，让这些工作全部并行运行、互不干扰（AI 系统）。</li></ul></div><div class="en"><ul><li><strong>Domain expertise determines architecture</strong>: You can't architect agents without understanding production realities. Only someone who's debugged production at 3 AM in a DevOps or SRE role knows that log patterns and metric anomalies require fundamentally different investigation strategies. When payment failures spike, you need both database expertise and infrastructure expertise to determine the root cause. Decisions like this aren’t AI problems. They're production decisions that shape how you build your multi agent system.</li><li><strong>AI expertise makes agents work together</strong>: Once you've decomposed the problem, you hit the hard part of computer science. Context propagation between agents isn't intuition. It is managing directed acyclic graphs of information flow where each agent's output feeds into the next agent's input. Orchestrating parallel agents requires formal coordination protocols to prevent race conditions and deadlocks. The system needs to learn continuously both from interactions and ephemeral failure modes. Get one step wrong in coordinating agents and your system gets progressively worse, not better.</li><li><strong>The intersection creates breakthrough systems</strong>: Domain knowledge without AI architecture is just expensive consulting. AI architecture without domain knowledge produces output that investigates the wrong things. The breakthrough happens when you combine both: knowing <em>what</em> database connection pools do under load (domain) with building agents that can <em>coordinate</em> pool health checks with deployment timeline analysis and upstream service validation: all running in parallel without stepping on each other (AI systems).</li></ul></div></div>
+<div class="pair"><div class="zh"><p>在 <a href="https://resolve.ai/product/overview" target="_blank" rel="noopener">Resolve AI</a>，我们的团队包括在生产系统领域拥有二十多年经验的工程师、共同创建了 <a href="https://resolve.ai/glossary/what-is-opentelemetry" target="_blank" rel="noopener">OpenTelemetry</a>（生态中最具影响力的开源可观测性项目之一）的创始人，以及深度人工智能专长、Google DeepResearch 和 Gemini Agents 背后大脑的研究人员。这种组合让我们构建出的系统，不仅知道「支付失败是坏事」，还知道要去检查连接池指标，并与上游服务劣化做关联。同时，它还能管理复杂的智能体编排，避免出现循环调查，并在并行的执行路径之间保持连贯的叙述线索。</p></div><div class="en"><p>At <a href="https://resolve.ai/product/overview" target="_blank" rel="noopener">Resolve AI</a>, our team includes engineers with over two decades of experience in production systems, founders who co-created <a href="https://resolve.ai/glossary/what-is-opentelemetry" target="_blank" rel="noopener">OpenTelemetry</a> (one of the most impactful open-source observability projects in the ecosystem) and researchers with deep artificial intelligence expertise who are the minds behind Google DeepResearch and Gemini Agents. This combination lets us build systems that don't just understand that "payment failures are bad" but know to check connection pool metrics and correlate with upstream service degradation. All the while managing complex agent orchestration that prevents circular investigations and maintains coherent narrative threads across parallel execution paths.</p></div></div>
+<div class="pair"><div class="zh"><h3><strong>关于 Resolve AI</strong></h3></div><div class="en"><h3><strong>About Resolve AI</strong></h3></div></div>
+<div class="pair"><div class="zh"><p>Resolve AI 是你随时在线的 <a href="https://resolve.ai/glossary/what-is-ai-sre" target="_blank" rel="noopener">AI SRE</a>，帮助你解决事故并运行生产环境。借助 Resolve AI，Salesforce、<a href="https://resolve.ai/customers/zscaler" target="_blank" rel="noopener">Zscaler</a> 和 <a href="https://resolve.ai/customers/coinbase" target="_blank" rel="noopener">Coinbase</a> 等客户把机器放到值班岗位上替人值守，让工程师专心写代码，从而提升了工程速度与系统可靠性。想进一步了解 AI 原生工程工作流，请访问 resolve.ai。</p></div><div class="en"><p>Resolve AI is your always-on <a href="https://resolve.ai/glossary/what-is-ai-sre" target="_blank" rel="noopener">AI SRE</a> that helps you resolve incidents and run production. With Resolve AI customers like Salesforce, <a href="https://resolve.ai/customers/zscaler" target="_blank" rel="noopener">Zscaler</a>, and <a href="https://resolve.ai/customers/coinbase" target="_blank" rel="noopener">Coinbase</a> have increased engineering velocity and systems reliability by putting machines on-call for humans and letting engineers just code. Learn more about AI-native engineering workflows at resolve.ai.</p></div></div>
+<div class="pair"><div class="zh"><p>面向生产的 AI 电子书</p></div><div class="en"><p>AI for prod ebook</p></div></div>
+<div class="pair"><div class="zh"><p>了解顶尖工程团队如何用 AI 运行生产环境。</p></div><div class="en"><p>Learn how top engineering teams use AI to run production.</p></div></div>
+<div class="pair"><div class="zh"><p>下载</p></div><div class="en"><p>Download</p></div></div>
+<div class="pair"><div class="zh"><p>看看那些运行并修复软件的智能体是如何工作的</p></div><div class="en"><p>See the agents that run and fix software in action</p></div></div>
+<div class="pair"><div class="zh"><p>加入我们工程负责人的「Behind the Build」系列网络研讨会，深入了解我们如何构建运行软件的智能体。</p></div><div class="en"><p>Join our engineering leads for "Behind the Build", a webinar series deep-dive into how we built agents that run software.</p></div></div>
+<div class="pair"><div class="zh"><p>立即观看</p></div><div class="en"><p>Watch now</p></div></div>
+<div class="pair"><div class="zh"><h2>继续阅读</h2></div><div class="en"><h2>Keep reading</h2></div></div>
+<div class="pair"><div class="zh"><p>查看全部</p></div><div class="en"><p>View all</p></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fyour_human_in_the_loop_is_exhausted_3751b434de.png&amp;amp;w=3840&amp;amp;q=75" alt="Your human-in-the-loop is exhausted"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fyour_human_in_the_loop_is_exhausted_3751b434de.png&amp;amp;w=3840&amp;amp;q=75" alt="Your human-in-the-loop is exhausted"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/your-human-in-the-loop-is-exhausted" target="_blank" rel="noopener">你的「人在回路」已经疲惫不堪</a></h3></div><div class="en"><h3><a href="/blog/your-human-in-the-loop-is-exhausted" target="_blank" rel="noopener">Your human-in-the-loop is exhausted</a></h3></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_agent_diagram_176d50cdc6.png&amp;amp;w=3840&amp;amp;q=75" alt="Resolve AI Extends Production Context to Coding Agents"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_agent_diagram_176d50cdc6.png&amp;amp;w=3840&amp;amp;q=75" alt="Resolve AI Extends Production Context to Coding Agents"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/resolve-ai-plugin-cursor-claude-code-codex" target="_blank" rel="noopener">Resolve AI 把生产上下文延伸给编码智能体</a></h3></div><div class="en"><h3><a href="/blog/resolve-ai-plugin-cursor-claude-code-codex" target="_blank" rel="noopener">Resolve AI Extends Production Context to Coding Agents</a></h3></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_organic_graphic_screenshot_4c290b5e18.png&amp;amp;w=3840&amp;amp;q=75" alt="Why Resolve AI: Token Efficiency at Scale"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_organic_graphic_screenshot_4c290b5e18.png&amp;amp;w=3840&amp;amp;q=75" alt="Why Resolve AI: Token Efficiency at Scale"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/why-resolve-ai-token-efficiency-at-scale" target="_blank" rel="noopener">为什么选择 Resolve AI：规模化下的 token 效率</a></h3></div><div class="en"><h3><a href="/blog/why-resolve-ai-token-efficiency-at-scale" target="_blank" rel="noopener">Why Resolve AI: Token Efficiency at Scale</a></h3></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fproactively_run_prod_with_background_agents_367c95c6a0.png&amp;amp;w=3840&amp;amp;q=75" alt="Proactively run production tasks with background agents"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fproactively_run_prod_with_background_agents_367c95c6a0.png&amp;amp;w=3840&amp;amp;q=75" alt="Proactively run production tasks with background agents"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/proactively-run-prod-with-background-agents" target="_blank" rel="noopener">用后台智能体主动执行生产任务</a></h3></div><div class="en"><h3><a href="/blog/proactively-run-prod-with-background-agents" target="_blank" rel="noopener">Proactively run production tasks with background agents</a></h3></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

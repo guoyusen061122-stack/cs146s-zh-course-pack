@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tomas Reimers, CPO Graphite（fall2025 W7）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Tomas Reimers, CPO Graphite（fall2025 W7）</h1><div class="meta"><span class="badge">课程讲义</span>fall2025 ｜ 原文 4,908 字符 ｜ 74 个内容块 ｜ <a href="https://drive.google.com/file/d/1hwF-RIkOJ_OFy17BKhzFyCtxSS7Pcf7p/view?usp=drive_link" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>Tomas Reimers, CPO Graphite（fall2025 W7）</h1></div><div class="en"><h1>Tomas Reimers, CPO Graphite（fall2025 W7）</h1></div></div>
+<div class="pair"><div class="zh"><h2>Slide 1</h2></div><div class="en"><h2>Slide 1</h2></div></div>
+<div class="pair"><div class="zh"><p>CS146S ∙ Stanford University，Fall 2025 The Modern Software Developer: 代码评审</p></div><div class="en"><p>CS146S ∙ Stanford University, Fall 2025 The Modern Software Developer: Code Review</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 2</h2></div><div class="en"><h2>Slide 2</h2></div></div>
+<div class="pair"><div class="zh"><p>议程 00 你好！ 01 与人协作 02 与 AI 协作 03 极限状态下的软件开发</p></div><div class="en"><p>Agenda 00 Hi! 01 Collaborating with humans 02 Collaborating with AI 03 Software development in the limit</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 3</h2></div><div class="en"><h2>Slide 3</h2></div></div>
+<div class="pair"><div class="zh"><p>你好！ 我是谁？ Graphite 是什么？</p></div><div class="en"><p>Hi! Who am I? What is Graphite?</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 4</h2></div><div class="en"><h2>Slide 4</h2></div></div>
+<div class="pair"><div class="zh"><p>Graphite 是 AI 驱动的代码评审平台，帮助开发者创建、评审并合并代码改动。</p></div><div class="en"><p>Graphite is the AI-powered code review platform helping developers create, review, and merge code changes.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 5</h2></div><div class="en"><h2>Slide 5</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 原生的代码评审平台 引言 我们的 AI 智能体可以回答关于这个 PR 的问题。 它完全了解代码库。 它还能提出修改建议，帮助评审人快速解决评论与 CI 问题。</p></div><div class="en"><p>The AI-native code review platform INTRODUCTION Our AI agent can answer questions about the PR. It is fully codebase aware. It can also propose updates, helping reviewers quickly resolve comments and CI.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 6</h2></div><div class="en"><h2>Slide 6</h2></div></div>
+<div class="pair"><div class="zh"><p>一个构建在 GitHub 之上的顶级代码评审平台。 Graphite 提供精简的界面来创建、评审并合并 PR，与 GitHub 瞬时双向同步。 已被你熟悉的开发者和公司信任。 我们很幸运能与一些科技界最知名的公司合作，并在多项指标上提升开发速度。 机密 引言 Graphite 速览 Graphite 帮助工程师交付更多。 +33% Shopify 采用 Graphite 后每位开发者交付的 PR 增幅 100,000s+ 被 1,000s 家组织中的 100,000s 名开发者信任 +21% Asana 每位工程师的代码行数 -74% Ramp PR 合并间隔时间</p></div><div class="en"><p>A best-in-class code review platform built on-top of GitHub. Graphite provides a streamlined interface to create, review, and merge PRs, instantly and bi-directionally synced with GitHub. Trusted by the developers and companies you already know. We’re fortunate enough to collaborate with some of the biggest names in technology, and improve developer velocity across a wide swath of metrics. Conﬁdential INTRODUCTION Graphite at a glance Graphite helps engineers ship more. +33% Increase in PRs shipped per developer after adopting Graphite at Shopify 100,000s+ Trusted by 100,000s of developers at 1,000s of organizations +21% LoC/eng at Asana -74% Time between PRs merged at Ramp</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 7</h2></div><div class="en"><h2>Slide 7</h2></div></div>
+<div class="pair"><div class="zh"><p>与人协作 开发者如何一起工作</p></div><div class="en"><p>Collaborating with humans How developers work together</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 8</h2></div><div class="en"><h2>Slide 8</h2></div></div>
+<div class="pair"><div class="zh"><p>与人协作 开发者如何协作 一位开发者提出一组代码改动，这个原子单元称为拉取请求（pull request） （也叫差异（diff）、补丁（patch）、变更列表（changelist）或合并请求（merge request）） 原始开发者把自己的拉取请求合并回代码库。 创建 评审 合并 另一位开发者通过评论提出改进建议 ，并最终批准该拉取请求。</p></div><div class="en"><p>COLLABORATING WITH HUMANS How developers collaborate A developer proposes a set of code changes, this atomic unit is called a pull request . (a.k.a. diff, patch, changelist, or merge request) The original developer merges their pull request back into the codebase. CREATE REVIEW MERGE Another developer reﬁnes (suggests improvements) through comments and ultimately approves the pull request.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 9</h2></div><div class="en"><h2>Slide 9</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 意味着产生的代码比以往任何时候都多，但这也意味着需要评审和合并的代码更多 。</p></div><div class="en"><p>AI means more code than ever is being created, but that also means more code needs to be reviewed and merged .</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 10</h2></div><div class="en"><h2>Slide 10</h2></div></div>
+<div class="pair"><div class="zh"><p>IBM，1976 年：一位名叫 Michael Fagan 的工程师提出 Fagan 检查法 。 （ 论文链接 ） 代码评审的诞生：Fagan 检查法 与人协作</p></div><div class="en"><p>IBM, 1976: an engineer named Michael Fagan introduces Fagan Inspections . ( Link to paper ) The birth of code review: Fagan Inspections COLLABORATING WITH HUMANS</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 11</h2></div><div class="en"><h2>Slide 11</h2></div></div>
+<div class="pair"><div class="zh"><p>邮件补丁取代了打印出来的代码。 Linux 内核至今仍这么做。 代码评审的诞生：邮件补丁 与人协作 发件人 Icenowy Zheng &lt;REDACTED&gt; 主题 [PATCH v3 5/7] clk: sunxi-ng: add support for the Allwinner H6 CCU 日期 Fri, 23 Feb 2018 20:35:53 +0800 Allwinner H6 SoC 的 CCU 已大幅重排。 请在 sunxi-ng CCU 框架中为其添加支持。 diff --git a/…/bindings/clock/sunxi-ccu.txt b/…/bindings/clock/sunxi-ccu.txt index 4ca21c3a6fc9..9ae27881c924 100644 --- a/…/bindings/clock/sunxi-ccu.txt +++ b/…/bindings/clock/sunxi-ccu.txt @@ -20,6 +20,7 @@ Required properties :</p></div><div class="en"><p>Emailed patches replace printed code. The Linux kernel still does this. The birth of code review: Email patches COLLABORATING WITH HUMANS From Icenowy Zheng &lt;REDACTED&gt; Subject [PATCH v3 5/7] clk: sunxi-ng: add support for the Allwinner H6 CCU Date Fri, 23 Feb 2018 20:35:53 +0800 The Allwinner H6 SoC has a CCU which has been largely rearranged. Add support for it in the sunxi-ng CCU framework. diff --git a/…/bindings/clock/sunxi-ccu.txt b/…/bindings/clock/sunxi-ccu.txt index 4ca21c3a6fc9..9ae27881c924 100644 --- a/…/bindings/clock/sunxi-ccu.txt +++ b/…/bindings/clock/sunxi-ccu.txt @@ -20,6 +20,7 @@ Required properties :</p></div></div>
+<div class="pair"><div class="zh"><ul><li>"allwinner,sun50i-a64-ccu"</li><li>"allwinner,sun50i-a64-r-ccu"</li><li>"allwinner,sun50i-h5-ccu"</li></ul></div><div class="en"><ul><li>"allwinner,sun50i-a64-ccu"</li><li>"allwinner,sun50i-a64-r-ccu"</li><li>"allwinner,sun50i-h5-ccu"</li></ul></div></div>
+<div class="pair"><div class="zh"><p>+</p></div><div class="en"><p>+</p></div></div>
+<div class="pair"><div class="zh"><ul><li>"allwinner,sun50i-h6-ccu"</li><li>"nextthing,gr8-ccu"</li></ul></div><div class="en"><ul><li>"allwinner,sun50i-h6-ccu"</li><li>"nextthing,gr8-ccu"</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>Slide 12</h2></div><div class="en"><h2>Slide 12</h2></div></div>
+<div class="pair"><div class="zh"><p>Google，2000 年代初期：Guido van Rossum* 提出 Mondrian ：一个用于评审的 Web 界面。</p></div><div class="en"><p>Google, early 2000s: Guido van Rossum* introduces Mondrian : a web UI for review.</p></div></div>
+<div class="pair"><div class="zh"><ul><li>是的，就是 Python 的仁慈</li></ul></div><div class="en"><ul><li>yes, Python’s Benevolent</li></ul></div></div>
+<div class="pair"><div class="zh"><p>独裁者 代码评审的诞生：Mondrian 与人协作</p></div><div class="en"><p>Dictator The birth of code review: Mondrian COLLABORATING WITH HUMANS</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 13</h2></div><div class="en"><h2>Slide 13</h2></div></div>
+<div class="pair"><div class="zh"><p>诸如：</p></div><div class="en"><p>Tools such as:</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Review Board</p></div><div class="en"><p>Review Board</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Gerrit / Critique (Google)</p></div><div class="en"><p>Gerrit / Critique (Google)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>Phabricator (Facebook)</p></div><div class="en"><p>Phabricator (Facebook)</p></div></div>
+<div class="pair"><div class="zh"><ul><li></li></ul></div><div class="en"><ul><li></li></ul></div></div>
+<div class="pair"><div class="zh"><p>GitHub 这类工具进入公共工具链，让代码评审这一实践流行起来 。 代码评审的诞生：在线工具 与人协作</p></div><div class="en"><p>GitHub Make their way into the public tool chain, popularizing the practice of code review . The birth of code review: Online tools COLLABORATING WITH HUMANS</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 14</h2></div><div class="en"><h2>Slide 14</h2></div></div>
+<div class="pair"><div class="zh"><p>与 AI 协作 跟上超人级的作者。</p></div><div class="en"><p>Collaborating with AI Keeping up with super-human authors.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 15</h2></div><div class="en"><h2>Slide 15</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 已经能发现的不只是错别字 Graphite 会主动扫描 PR 中的 bug。 它把潜在问题同时发布到 Graphite 和 GitHub。 它开箱即用，并且完全可定制。 与 AI 协作</p></div><div class="en"><p>AI can already catch more than typos Graphite will proactively scan PRs for bugs. It posts potential issues to both Graphite and GitHub. It works great out of the box and is fully customizable. COLLABORATING WITH AI</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 16</h2></div><div class="en"><h2>Slide 16</h2></div></div>
+<div class="pair"><div class="zh"><p>与 AI 协作 有了 AI，人类还需要做代码评审吗？</p></div><div class="en"><p>COLLABORATING WITH AI With AI, do humans even need to do code review?</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 17</h2></div><div class="en"><h2>Slide 17</h2></div></div>
+<div class="pair"><div class="zh"><p>01 对齐确认 02 知识扩散 校对 03 代码评审的目的 （按顺序） 与 AI 协作</p></div><div class="en"><p>01 Alignment conﬁrmation 02 Knowledge diffusion Proofreading 03 The purpose(s) of code review (in order) COLLABORATING WITH AI</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 18</h2></div><div class="en"><h2>Slide 18</h2></div></div>
+<div class="pair"><div class="zh"><p>与 AI 协作 人类将如何与 AI 协作？ 更擅长收集上下文，并增强人类评审人。 更擅长完全取代人类评审人。 平台 参与者</p></div><div class="en"><p>COLLABORATING WITH AI How will humans collaborate with AI? Better for context gathering and augmenting human reviewers. Better for replacing human reviewers entirely. PLATFORM PARTICIPANT</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 19</h2></div><div class="en"><h2>Slide 19</h2></div></div>
+<div class="pair"><div class="zh"><p>现场演示</p></div><div class="en"><p>Live demo</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 20</h2></div><div class="en"><h2>Slide 20</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 的局限（今天） 与 AI 协作</p></div><div class="en"><p>The limits of AI (today) COLLABORATING WITH AI</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 21</h2></div><div class="en"><h2>Slide 21</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 的局限（明天） 与 AI 协作</p></div><div class="en"><p>The limits of AI (tomorrow) COLLABORATING WITH AI</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 22</h2></div><div class="en"><h2>Slide 22</h2></div></div>
+<div class="pair"><div class="zh"><p>极限状态下的软件开发 接下来往哪里走。</p></div><div class="en"><p>Software development in the limit Where do we go from here.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 23</h2></div><div class="en"><h2>Slide 23</h2></div></div>
+<div class="pair"><div class="zh"><p>软件开发一直包含两部分 极限状态</p></div><div class="en"><p>Software development has always had two parts IN THE LIMIT</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 24</h2></div><div class="en"><h2>Slide 24</h2></div></div>
+<div class="pair"><div class="zh"><p>软件开发一直包含两部分 「内环」 聚焦开发 极限状态</p></div><div class="en"><p>Software development has always had two parts The “inner loop” focused on development IN THE LIMIT</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 25</h2></div><div class="en"><h2>Slide 25</h2></div></div>
+<div class="pair"><div class="zh"><p>软件开发一直包含两部分 「外环」 聚焦评审 与协作 极限状态</p></div><div class="en"><p>Software development has always had two parts The “outer loop” focused on review &amp; collaboration IN THE LIMIT</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 26</h2></div><div class="en"><h2>Slide 26</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 已经让内环快了 10 倍 极限状态</p></div><div class="en"><p>AI is already making the inner loop 10x faster IN THE LIMIT</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 27</h2></div><div class="en"><h2>Slide 27</h2></div></div>
+<div class="pair"><div class="zh"><p>外环会怎样？ 极限状态</p></div><div class="en"><p>What happens to the outer loop? IN THE LIMIT</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 28</h2></div><div class="en"><h2>Slide 28</h2></div></div>
+<div class="pair"><div class="zh"><p>极限状态 下一代软件开发者的三扇门 开发者直接评审改动，由 AI 增强。 如果他们不写代码，这样做还成立吗？ 开发者把 AI 当作第三方外包。 对产品需求负责，但不对代码负责 。 半人马 雇员 智能体托管 开发者直接管理 AI。 对架构负责，但或许不对技术细节负责。</p></div><div class="en"><p>IN THE LIMIT Three doors for the next generation software dev Developers directly review changes, augmented by AI. If they’re not authoring the code, does this still make sense? Developers treat AI as a third-party contractor. Underwriting product requirements but not code . CYBORG EM AGENCY Developers manage AI directly. Underwriting architecture, but maybe not technical speciﬁcs.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 29</h2></div><div class="en"><h2>Slide 29</h2></div></div>
+<div class="pair"><div class="zh"><p>AI 评审智能体 Graphite Agent 是你的 AI 驱动伙伴，负责抓 bug、执行组织约定，并确保错误与安全漏洞进不了你的代码库。 更聪明的 CI 只在需要时运行的预测式 CI。为团队节省时间和成本。 为团队打造的评审体验 用评审人分配、合并队列、自动化与洞察，为你的团队提速。 度量开发者生产率 用可执行的洞察，清楚看到 AI 编码工具与 Graphite 代码评审为开发者提升了多少效率。 堆叠 一种为作者优化的 git 工作流，让作者无需被评审人阻塞即可持续开发。</p></div><div class="en"><p>AI Review Agent Graphite Agent is your AI-powered companion to catch bugs, enforce your organization’s conventions, and make sure errors and security vulnerabilities stay out of your codebase. Smarter CI Predictive CI that only runs when you need it. Saving your team time and money. A review experience built for teams Supercharge your team with reviewer assignment, merge queues, automations, and insights. Measure developer productivity See exactly how much more efﬁcient AI-generated coding tools &amp; Graphite’s code review are making your developers with actionable insights. Stacking A git workﬂow optimized for authors who want to keep developing without being blocked on their reviewers.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 30</h2></div><div class="en"><h2>Slide 30</h2></div></div>
+<div class="pair"><div class="zh"><p>谢谢！有问题吗？</p></div><div class="en"><p>Thank you! Any questions?</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

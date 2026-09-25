@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>From first prompt to optimal IDE setup（fall2025 W3）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>From first prompt to optimal IDE setup（fall2025 W3）</h1><div class="meta"><span class="badge">课程讲义</span>fall2025 ｜ 原文 2,148 字符 ｜ 54 个内容块 ｜ <a href="https://drive.google.com/file/d/1MZ0Qx68Vzw4x5x_XcV8XiPLp7fFDe1LJ/view?usp=drive_link" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>从第一个提示词到最佳 IDE 配置（fall2025 W3）</h1></div><div class="en"><h1>From first prompt to optimal IDE setup（fall2025 W3）</h1></div></div>
+<div class="pair"><div class="zh"><h1>[FEATURE] 设计文档</h1></div><div class="en"><h1>[FEATURE] Design Document</h1></div></div>
+<div class="pair"><div class="zh"><h2>当前上下文</h2></div><div class="en"><h2>Current Context</h2></div></div>
+<div class="pair"><div class="zh"><ul><li>现有系统的简要概述</li><li>关键组件及其关系</li><li>正在解决的痛点或缺口</li></ul></div><div class="en"><ul><li>Brief overview of the existing system</li><li>Key components and their relationships</li><li>Pain points or gaps being addressed</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>需求</h2></div><div class="en"><h2>Requirements</h2></div></div>
+<div class="pair"><div class="zh"><h3>功能性需求</h3></div><div class="en"><h3>Functional Requirements</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>必需功能清单</li><li>预期行为</li><li>集成点</li></ul></div><div class="en"><ul><li>List of must-have functionality</li><li>Expected behaviors</li><li>Integration points</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>非功能性需求</h3></div><div class="en"><h3>Non-Functional Requirements</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>性能预期</li><li>可扩展性需求</li><li>可观测性需求</li><li>安全考量</li></ul></div><div class="en"><ul><li>Performance expectations</li><li>Scalability needs</li><li>Observability requirements</li><li>Security considerations</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>设计决策</h2></div><div class="en"><h2>Design Decisions</h2></div></div>
+<div class="pair"><div class="zh"><h3>1. [主要决策领域]</h3></div><div class="en"><h3>1. [Major Decision Area]</h3></div></div>
+<div class="pair"><div class="zh"><p>将实现/选择 [方案]，因为：</p></div><div class="en"><p>Will implement/choose [approach] because:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>理由 1</li><li>理由 2</li><li>已考虑的权衡</li></ul></div><div class="en"><ul><li>Rationale 1</li><li>Rationale 2</li><li>Trade-offs considered</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>2. [另一个决策领域]</h3></div><div class="en"><h3>2. [Another Decision Area]</h3></div></div>
+<div class="pair"><div class="zh"><p>将实现/选择 [方案]，因为：</p></div><div class="en"><p>Will implement/choose [approach] because:</p></div></div>
+<div class="pair"><div class="zh"><ul><li>理由 1</li><li>理由 2</li><li>已考虑的备选方案</li></ul></div><div class="en"><ul><li>Rationale 1</li><li>Rationale 2</li><li>Alternatives considered</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>技术设计</h2></div><div class="en"><h2>Technical Design</h2></div></div>
+<div class="pair"><div class="zh"><p>如有需要，请明确以下内容：</p></div><div class="en"><p>If relevant, specify the following:</p></div></div>
+<div class="pair"><div class="zh"><h3>1. 核心组件</h3></div><div class="en"><h3>1. Core Components</h3></div></div>
+<div class="pair code"><pre><code class="language-python"># Key interfaces/classes with type hints
+class MainComponent:
+    &quot;&quot;&quot;Core documentation&quot;&quot;&quot;
+    pass</code></pre></div>
+<div class="pair"><div class="zh"><h3>2. 数据模型</h3></div><div class="en"><h3>2. Data Models</h3></div></div>
+<div class="pair code"><pre><code class="language-python"># Key data models with type hints
+class DataModel:
+    &quot;&quot;&quot;Model documentation&quot;&quot;&quot;
+    pass</code></pre></div>
+<div class="pair"><div class="zh"><h3>3. 集成点</h3></div><div class="en"><h3>3. Integration Points</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>本系统如何与其他系统交互</li><li>API 契约</li><li>如需，附数据流图</li></ul></div><div class="en"><ul><li>How this interfaces with other systems</li><li>API contracts</li><li>Data flow diagrams if needed</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>4. 文件变更</h3></div><div class="en"><h3>4. Files Changes</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>明确列出本次变更会影响/新建哪些文件。</li><li>这些应当是本次变更中唯一受影响的文件。</li></ul></div><div class="en"><ul><li>Explicitly mention which files will be impacted/created in this change.</li><li>These should be the ONLY files impacted in the change.</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>实施计划</h2></div><div class="en"><h2>Implementation Plan</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>阶段 1：[初始实现]</li><li>任务 1</li><li>任务 2</li><li>预期时间线</li></ol></div><div class="en"><ol><li>Phase 1: [Initial Implementation]</li><li>Task 1</li><li>Task 2</li><li>Expected timeline</li></ol></div></div>
+<div class="pair"><div class="zh"><ol><li>阶段 2：[增强阶段]</li><li>任务 1</li><li>任务 2</li><li>预期时间线</li></ol></div><div class="en"><ol><li>Phase 2: [Enhancement Phase]</li><li>Task 1</li><li>Task 2</li><li>Expected timeline</li></ol></div></div>
+<div class="pair"><div class="zh"><ol><li>阶段 3：[生产就绪]</li><li>任务 1</li><li>任务 2</li><li>预期时间线</li></ol></div><div class="en"><ol><li>Phase 3: [Production Readiness]</li><li>Task 1</li><li>Task 2</li><li>Expected timeline</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>测试策略</h2></div><div class="en"><h2>Testing Strategy</h2></div></div>
+<div class="pair"><div class="zh"><h3>单元测试</h3></div><div class="en"><h3>Unit Tests</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>关键测试用例</li><li>mock 策略</li><li>覆盖率预期</li></ul></div><div class="en"><ul><li>Key test cases</li><li>Mock strategies</li><li>Coverage expectations</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>集成测试</h3></div><div class="en"><h3>Integration Tests</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>测试场景</li><li>环境要求</li><li>数据要求</li></ul></div><div class="en"><ul><li>Test scenarios</li><li>Environment needs</li><li>Data requirements</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>可观测性</h2></div><div class="en"><h2>Observability</h2></div></div>
+<div class="pair"><div class="zh"><h3>日志</h3></div><div class="en"><h3>Logging</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>关键日志点</li><li>日志级别</li><li>结构化日志格式</li></ul></div><div class="en"><ul><li>Key logging points</li><li>Log levels</li><li>Structured logging format</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>指标</h3></div><div class="en"><h3>Metrics</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>需要追踪的关键指标</li><li>采集方式</li><li>告警阈值</li></ul></div><div class="en"><ul><li>Key metrics to track</li><li>Collection method</li><li>Alert thresholds</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>未来考量</h2></div><div class="en"><h2>Future Considerations</h2></div></div>
+<div class="pair"><div class="zh"><h3>潜在增强</h3></div><div class="en"><h3>Potential Enhancements</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>未来功能设想</li><li>可扩展性改进</li><li>性能优化</li></ul></div><div class="en"><ul><li>Future feature ideas</li><li>Scalability improvements</li><li>Performance optimizations</li></ul></div></div>
+<div class="pair"><div class="zh"><h3>已知局限</h3></div><div class="en"><h3>Known Limitations</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>当前约束</li><li>技术债</li><li>未来需要关注的部分</li></ul></div><div class="en"><ul><li>Current constraints</li><li>Technical debt</li><li>Areas needing future attention</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>依赖</h2></div><div class="en"><h2>Dependencies</h2></div></div>
+<div class="pair"><div class="zh"><h3>开发依赖</h3></div><div class="en"><h3>Development Dependencies</h3></div></div>
+<div class="pair"><div class="zh"><ul><li>构建工具</li><li>测试框架</li><li>开发辅助工具</li></ul></div><div class="en"><ul><li>Build tools</li><li>Test frameworks</li><li>Development utilities</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>安全考量</h2></div><div class="en"><h2>Security Considerations</h2></div></div>
+<div class="pair"><div class="zh"><ul><li>认证/授权</li><li>数据保护</li><li>合规要求</li></ul></div><div class="en"><ul><li>Authentication/Authorization</li><li>Data protection</li><li>Compliance requirements</li></ul></div></div>
+<div class="pair"><div class="zh"><h2>上线策略</h2></div><div class="en"><h2>Rollout Strategy</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>开发阶段</li><li>测试阶段</li><li>预发部署</li><li>生产部署</li><li>监控期</li></ol></div><div class="en"><ol><li>Development phase</li><li>Testing phase</li><li>Staging deployment</li><li>Production deployment</li><li>Monitoring period</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>参考资料</h2></div><div class="en"><h2>References</h2></div></div>
+<div class="pair"><div class="zh"><ul><li>相关设计文档</li><li>外部文档</li><li>相关标准</li></ul></div><div class="en"><ul><li>Related design documents</li><li>External documentation</li><li>Relevant standards</li></ul></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

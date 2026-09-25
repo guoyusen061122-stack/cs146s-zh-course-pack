@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-09-25T12:18:56+08:00",
+  "slug": "repo-fall2025-week2-writeupmd",
+  "stats": {
+    "blocks_en": 37,
+    "blocks_zh": 37,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 13,
+    "term_violations": 1,
+    "term_consistency": 0.9286,
+    "issues": 0,
+    "term_detail": [
+      "agentic 在原文出现但译文中未见定译「智能体化的」"
+    ]
+  },
+  "issues": []
+}

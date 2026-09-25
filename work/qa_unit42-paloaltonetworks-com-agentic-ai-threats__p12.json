@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-09-25T12:33:59+08:00",
+  "slug": "unit42-paloaltonetworks-com-agentic-ai-threats__p12",
+  "stats": {
+    "blocks_en": 106,
+    "blocks_zh": 106,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 5,
+    "term_violations": 0,
+    "term_missing": 1,
+    "kept_english": 0,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": [
+      "[术语缺失] agentic 在原文出现但译文中未见定译「智能体化的」"
+    ]
+  },
+  "issues": []
+}

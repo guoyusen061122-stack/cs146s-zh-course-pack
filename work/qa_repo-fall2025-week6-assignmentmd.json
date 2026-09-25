@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-25T12:18:58+08:00",
+  "slug": "repo-fall2025-week6-assignmentmd",
+  "stats": {
+    "blocks_en": 27,
+    "blocks_zh": 27,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 8,
+    "term_violations": 1,
+    "term_consistency": 0.8889,
+    "issues": 1,
+    "term_detail": [
+      "prompt 应作「提示词」，出现禁用写法「提示」×1"
+    ]
+  },
+  "issues": [
+    {
+      "kind": "term_violation",
+      "where": "全文",
+      "detail": "禁用写法「提示」出现 1 次（应为「提示词」）"
+    }
+  ]
+}

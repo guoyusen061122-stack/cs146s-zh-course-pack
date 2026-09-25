@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-09-25T12:19:22+08:00",
+  "slug": "fall2025-w02-mon9-29-building-a-coding-agent-from-scratch",
+  "stats": {
+    "blocks_en": 53,
+    "blocks_zh": 53,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 13,
+    "term_violations": 2,
+    "term_consistency": 0.8667,
+    "issues": 0,
+    "term_detail": [
+      "LLM 在原文出现但译文中未见定译「大语言模型」",
+      "system prompt 在原文出现但译文中未见定译「系统提示词」"
+    ]
+  },
+  "issues": []
+}

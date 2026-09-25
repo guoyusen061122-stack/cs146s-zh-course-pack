@@ -1,0 +1,483 @@
+# Mayank Agarwal, CTO Resolve, and Milind Ganjoo, Technical Staff Resolve（fall2025 W9）
+
+# Mayank Agarwal，Resolve 首席技术官，以及 Milind Ganjoo，Resolve 技术员工（fall2025 W9）
+
+## Slide 1
+
+## Slide 1
+
+Agentic AI for software in production CS146S Guest Lecture Mayank Agarwal Milind Ganjoo Nov 2025
+
+生产环境软件的智能体式 AI CS146S 嘉宾讲座 Mayank Agarwal Milind Ganjoo 2025 年 11 月
+
+## Slide 2
+
+## Slide 2
+
+Milind Ganjoo Member of Technical Staff Resolve AI Mayank Agarwal Founder & CTO Resolve AI
+
+Milind Ganjoo 技术员工（MTS） Resolve AI Mayank Agarwal 创始人兼首席技术官 Resolve AI
+
+## Slide 3
+
+## Slide 3
+
+How we imagine software engineering
+
+我们如何想象软件工程
+
+## Slide 4
+
+## Slide 4
+
+In reality, software engineering is complex and messy Code AI Telemetry Cloud Knowledge Systems Teams Workflows Application and product
+
+现实中，软件工程复杂而混乱 代码 AI 遥测 云 知识 系统 团队 工作流 应用与产品
+
+- 
+
+- 
+
+Development
+
+开发
+
+- 
+
+- 
+
+Deployments
+
+部署
+
+- 
+
+- 
+
+On-call
+
+值班
+
+- 
+
+- 
+
+Cost management
+
+成本管理
+
+- 
+
+- 
+
+Compliance
+
+合规
+
+- 
+
+- 
+
+Security Vulnerability
+
+安全漏洞
+
+- 
+
+- 
+
+Documentation …. Systems and infra Networking Security
+
+文档 …. 系统与基础设施 网络 安全
+
+## Slide 5
+
+## Slide 5
+
+Grunt work application deployment Creative work Software Engineering On call and more... Log queries Building context Evidence gathering Documentation Coordination Working across tools Compliance Software Engineers spend 70+% of their time on Grunt work Problem solving Optimization Design decisions Trade offs
+
+杂务工作 应用部署 创造性工作 软件工程 值班等等…… 日志查询 构建上下文 证据收集 文档 协调 跨工具作业 合规 软件 软件工程师把 70% 以上的时间花在 杂务工作 问题求解 优化 设计决策 权衡取舍
+
+## Slide 6
+
+## Slide 6
+
+Life of a software engineer who is on call
+
+一名需要值班的软件工程师的日常
+
+## Slide 7
+
+## Slide 7
+
+What happens when someone is paged at 3:04 AM? L1 support Infra App & product Eng / Director Comms manager Incident commander Database App & product App & product Multiple team escalations Come together to research and reason about how to fix the problem. Manual effort Engineering team members On-call 320 AM 400 AM 445 AM ✓ 304 AM ? Eng mitigates post mortem runbooks Observability Code Infra
+
+有人在凌晨 3:04 被呼叫时会发生什么？ L1 支持 基础设施 应用与产品 工程师 / 主管 沟通经理 事故指挥官 数据库 应用与产品 应用与产品 多团队逐级升级 大家聚到一起研究并推理如何修复问题。 人工投入 工程团队成员 值班 凌晨 3:20 凌晨 4:00 凌晨 4:45 ✓ 凌晨 3:04 ? 工程团队缓解措施 事后复盘 运行手册 可观测性 代码 基础设施
+
+## Slide 8
+
+## Slide 8
+
+What makes production hard for humans (and models)?
+
+对人类（以及模型）而言，生产环境难在哪里？
+
+## Slide 9
+
+## Slide 9
+
+Tooling Complex, ephemeral infra with databases, messaging services and more Code 1000ʼs of services across 100ʼs of teams Low-level tools for logs, metrics, dashboards, feature mgmt, CICD etc Infra Navigating siloed data across many systems and tools
+
+工具链 复杂、短暂存在的基础设施，涉及数据库、消息服务等等 代码 跨数百个团队的数千个服务 用于日志、指标、仪表盘、功能管理、CICD 等的底层工具 基础设施 在众多系统与工具之间穿梭于彼此隔离的数据
+
+## Slide 10
+
+## Slide 10
+
+Application Engineers Platform Engineers SREs IT Ops Security Engineers Support Engineers Specialized skills Tooling Code Infra Complex production Coordinating across multiple teams with varied expertise
+
+应用 工程师 平台 工程师 SRE IT 运维 安全 工程师 支持 工程师 专业技能 工具链 代码 基础设施 复杂的生产环境 跨多个团队、协调不同的专业知识
+
+## Slide 11
+
+## Slide 11
+
+Tooling Code Infra Application Engineers Platform Engineers SREs IT Ops Security Engineers Support Engineers Specialized skills Fragmented knowledge Complex production Messaging Fragmented and often undocumented context
+
+工具链 代码 基础设施 应用 工程师 平台 工程师 SRE IT 运维 安全 工程师 支持 工程师 专业技能 碎片化知识 复杂的生产环境 消息传递 碎片化且常常没有文档记录的上下文
+
+## Slide 12
+
+## Slide 12
+
+Specialized skills Fragmented knowledge Complex production Code Infra Messaging Incidents take hours or days to resolve Changes are hard to make and trigger issues Infrastructure spend is constantly increasing Customers report issues before we discover them AI generated code exacerbates the problem Incidents regularly involve 20+ engineers Only small # of engineers fully understand prod Takes 3-6 months for new engineers to onboard Lot of costs incurred in maintaining tools … directly impacts revenue and costs every day
+
+专业技能 碎片化知识 复杂的生产环境 代码 基础设施 消息传递 事故要花数小时甚至数天才能解决 改动很难做，而且一改就触发问题 基础设施支出持续攀升 客户先于我们发现并报告问题 AI 生成的代码加剧了这一问题 事故经常牵涉 20 名以上工程师 只有少数工程师完全理解生产环境 新工程师入职需要 3-6 个月 维护工具产生大量成本 ……每天都在直接影响收入与成本
+
+## Slide 13
+
+## Slide 13
+
+What is needed for AI to help engineers with production systems?
+
+要让 AI 帮助工程师处理生产系统，需要什么？
+
+## Slide 14
+
+## Slide 14
+
+Combined expertise of all your engineers Understand and operate all your production + tools Application Engineers Platform Engineers SREs IT Ops Security Engineers Support Engineers Captures the tribal knowledge of your unique system Code Infra Tooling Knowledge 3 1 2 Agent-ﬁrst approach to work on production systems
+
+汇聚你所有工程师的专业知识 理解并操作你全部的生产系统与工具 应用 工程师 平台 工程师 SRE IT 运维 安全 工程师 支持 工程师 沉淀你这个独特系统里的口口相传知识 代码 基础设施 工具链 知识 3 1 2 以智能体为先的方式来处理生产系统上的工作
+
+## Slide 15
+
+## Slide 15
+
+Let us see it in action
+
+我们来看看实际效果
+
+## Slide 16
+
+## Slide 16
+
+How AI for production systems works 16 Production systems are complex and always changing Understands and operates all your production tools Knowledge is fragmented or undocumented Captures the tribal knowledge and gets smarter over time Investigations need expertise from multiple teams Combines expertise of all your engineers 03 01 02
+
+面向生产系统的 AI 如何工作 16 生产系统复杂且始终在变化 理解并操作你全部的生产工具 知识碎片化或没有文档记录 沉淀口口相传的知识，并随时间变得更聪明 调查需要多个团队的专业知识 汇聚你所有工程师的专业知识 03 01 02
+
+## Slide 17
+
+## Slide 17
+
+Understands and operates all your production tools Production systems are complex and always changing
+
+理解并操作你全部的生产工具 生产系统复杂且始终在变化
+
+- 
+
+- 
+
+Hundreds of tools: different query languages, access mechanisms, and operational behaviors for each
+
+数百种工具：每种都有各自的查询语言、访问机制和运维行为
+
+- 
+
+- 
+
+Should map across code <> infra <> telemetry and identify complex dependencies
+
+应当跨 代码 <> 基础设施 <> 遥测 建立映射，并识别复杂的依赖关系
+
+- 
+
+- 
+
+Massive scale (millions of logs lines, thousands of metrics, dozens of platforms, etc.)
+
+规模巨大（数百万行日志、数千个指标、数十个平台等）
+
+## Slide 18
+
+## Slide 18
+
+AI systems should deeply understand your production 18 Production Logs Change Events Metrics Runbooks Traces Alerts Dashboards Connects to code, infra, tools, and knowledge 1
+
+AI 系统应当深入理解你的生产环境 18 生产环境 日志 变更事件 指标 运行手册 追踪（trace） 告警 仪表盘 连接到代码、基础设施、工具与知识 1
+
+## Slide 19
+
+## Slide 19
+
+AI systems should deeply understand your production 19 Connects to code, infra, tools, and knowledge Models how your systems works 1 2
+
+AI 系统应当深入理解你的生产环境 19 连接到代码、基础设施、工具与知识 为你的系统如何运行建模 1 2
+
+## Slide 20
+
+## Slide 20
+
+AI systems should deeply understand your production 20 Connects to code, infra, tools, and knowledge Models how your systems works Navigates to the right nodes in the graph to gather evidence 1 2 3
+
+AI 系统应当深入理解你的生产环境 20 连接到代码、基础设施、工具与知识 为你的系统如何运行建模 在图谱中定位到正确的节点以收集证据 1 2 3
+
+## Slide 21
+
+## Slide 21
+
+AI systems should deeply understand your production 21 Connects to code, infra, tools, and knowledge Models how your systems works Navigates to the right nodes in the graph to gather evidence Operates every tool or system like experts 1 2 3 4
+
+AI 系统应当深入理解你的生产环境 21 连接到代码、基础设施、工具与知识 为你的系统如何运行建模 在图谱中定位到正确的节点以收集证据 像专家一样操作每一个工具或系统 1 2 3 4
+
+## Slide 22
+
+## Slide 22
+
+Understands and operates all your production tools Knowledge is fragmented or undocumented 22
+
+理解并操作你全部的生产工具 知识碎片化或没有文档记录 22
+
+- 
+
+- 
+
+Knowledge is scattered across different runbooks, documentation, chats (if youʼre lucky! Might be completely undocumented otherwise)
+
+知识散落在不同的运行手册、文档、聊天记录里（如果你运气好的话！否则可能完全没有文档记录）
+
+- 
+
+- 
+
+In-the-loop feedback or learnings are often undocumented or lost
+
+在环节中产生的反馈或经验常常没有记录，或者直接丢失
+
+- 
+
+- 
+
+New investigations need to adapt continuously and require learnings from previous iterations
+
+新的调查需要持续调整，并依赖此前迭代中得到的经验
+
+## Slide 23
+
+## Slide 23
+
+AI systems should capture tribal knowledge and get smarter with every interaction Captures company and team-wide knowledge 1
+
+AI 系统应当沉淀口口相传的知识，并在每次交互中变得更聪明 沉淀公司范围与团队范围的知识 1
+
+## Slide 24
+
+## Slide 24
+
+AI systems should capture tribal knowledge and get smarter with every interaction Captures company and team-wide knowledge Remembers In-the-loop feedback/teachings 1 2
+
+AI 系统应当沉淀口口相传的知识，并在每次交互中变得更聪明 沉淀公司范围与团队范围的知识 记住在环节中产生的反馈/教导 1 2
+
+## Slide 25
+
+## Slide 25
+
+AI systems should capture tribal knowledge and get smarter with every interaction 25 Captures company and team-wide knowledge Remembers In-the-loop feedback/teachings Retrieves context specific information 1 2 3
+
+AI 系统应当沉淀口口相传的知识，并在每次交互中变得更聪明 25 沉淀公司范围与团队范围的知识 记住在环节中产生的反馈/教导 检索与上下文相关的信息 1 2 3
+
+## Slide 26
+
+## Slide 26
+
+Understands and operates all your production tools Investigating production needs expertise from multiple teams 26
+
+理解并操作你全部的生产工具 调查生产问题需要多个团队的专业知识 26
+
+- 
+
+- 
+
+Triaging an incident is hard. Especially for novel incidents or new engineers
+
+分级判断事故很难，对前所未见的事故或新工程师尤其如此
+
+- 
+
+- 
+
+Sequential investigations take a lot of time if not on the right path
+
+如果没有走在正确的路径上，顺序调查会耗费大量时间
+
+- 
+
+- 
+
+Coordination across teams adds time or loss of information in hand-offs
+
+跨团队协调会增加时间，或在交接中丢失信息
+
+- 
+
+- 
+
+Organizational and expertise boundaries make it hard to gather context
+
+组织边界与专业知识边界让人很难汇集上下文
+
+## Slide 27
+
+## Slide 27
+
+AI systems should combine expertise of all engineers across teams Creates an investigation plan 1
+
+AI 系统应当汇聚各团队所有工程师的专业知识 制定调查计划 1
+
+## Slide 28
+
+## Slide 28
+
+AI systems should combine expertise of all engineers across teams Creates an investigation plan Pursues multiple hypotheses in parallel 1 2
+
+AI 系统应当汇聚各团队所有工程师的专业知识 制定调查计划 并行追查多个假设 1 2
+
+## Slide 29
+
+## Slide 29
+
+AI systems should combine expertise of all engineers across teams 29 Creates an investigation plan Pursues multiple hypotheses in parallel Refines plan continuously until you get to root cause 1 2 3
+
+AI 系统应当汇聚各团队所有工程师的专业知识 29 制定调查计划 并行追查多个假设 持续完善计划，直到找到根因 1 2 3
+
+## Slide 30
+
+## Slide 30
+
+AI systems should combine expertise of all engineers across teams 30 1 2 3 4 Creates an investigation plan Pursues multiple hypotheses in parallel Refines plan continuously until you get to the root cause Enables multi user collaboration across org boundaries to get to the right answer every time
+
+AI 系统应当汇聚各团队所有工程师的专业知识 30 1 2 3 4 制定调查计划 并行追查多个假设 持续完善计划，直到找到根因 支持跨组织边界的多用户协作，从而每次都得到正确答案
+
+## Slide 31
+
+## Slide 31
+
+How AI for production systems works 31 Production systems are complex and always changing Understands and operates all your production tools Knowledge is fragmented or undocumented Captures the tribal knowledge and gets smarter over time Investigations need expertise from multiple teams Combines expertise of all your engineers 03 01 02
+
+面向生产系统的 AI 如何工作 31 生产系统复杂且始终在变化 理解并操作你全部的生产工具 知识碎片化或没有文档记录 沉淀口口相传的知识，并随时间变得更聪明 调查需要多个团队的专业知识 汇聚你所有工程师的专业知识 03 01 02
+
+## Slide 32
+
+## Slide 32
+
+Lessons learned building AI for prod
+
+构建生产环境 AI 的经验教训
+
+- 
+
+- 
+
+This isn't just a model problem
+
+这不仅仅是一个模型问题
+
+- 
+
+- 
+
+Navigating production requires a lot of domain expertise which is coded into the architecture. You canʼt just prompt-engineer models to build production AI
+
+驾驭生产环境需要大量领域专业知识，而这些知识被编码在架构之中。你不能只靠对模型做提示工程就来构建生产级 AI
+
+- 
+
+- 
+
+Context windows are limited and production context is infinite
+
+上下文窗口是有限的，而生产环境的上下文是无限的
+
+- 
+
+- 
+
+Can't fit 10M logs in any context window. Intelligence is knowing WHAT to query, WHEN, and HOW to filter based on production understanding.
+
+任何上下文窗口都装不下 1000 万条日志。智能在于基于对生产环境的理解，知道该查什么、何时查、如何过滤。
+
+- 
+
+- 
+
+Working with tools is a non-trivial problem
+
+与工具打交道是个不简单的问题
+
+- 
+
+- 
+
+Raw APIs are unusable: large responses, outputs are messy, and meant for humans. Must build AI systems that can filter noise, return structured summaries, handle errors gracefully, work in parallel
+
+原始 API 无法直接使用：响应体庞大、输出杂乱，而且本是给人看的。必须构建能够过滤噪声、返回结构化摘要、优雅处理错误、并行工作的 AI 系统
+
+- 
+
+- 
+
+Evals are as hard as the product itself
+
+评测和产品本身一样难
+
+- 
+
+- 
+
+Building evals requires replicating production complexity - (services, dependencies, etc.,). Without evals, you can't trust the outputs.
+
+构建评测需要复刻生产环境的复杂度（服务、依赖等）。没有评测，你就无法信任这些输出。
+
+## Slide 33
+
+## Slide 33
+
+AI is changing software engineering By next year software engineering will look fundamentally different Grunt work Grunt work Creative work Creative work Grunt work Creative work Models Agents Closed loop agents
+
+AI 正在改变软件工程 到明年，软件工程将变得截然不同 杂务工作 杂务 创造性工作 创造 杂务工作 创造性工作 模型 智能体 闭环智能体
+
+## Slide 34
+
+## Slide 34
+
+Thank You @resolveai Weʼre hiring! linkedin.com/in/resolveai
+
+谢谢 @resolveai 我们正在招聘！ linkedin.com/in/resolveai
+
+## Slide 35
+
+## Slide 35
+
+Q&A LETʼS DISCUSS
+
+问答环节 来讨论吧

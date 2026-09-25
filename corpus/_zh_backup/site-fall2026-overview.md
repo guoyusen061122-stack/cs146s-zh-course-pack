@@ -1,0 +1,61 @@
+行之有效的 AI 编码策略，直达你的收件箱。
+
+## 课程简介
+
+大语言模型（LLM）已经把软件开发从一个以手工编码为主的过程，变成了开发者与能力日益强大的编码智能体协作的过程。这一转变要求用新的方式定义意图、组织工作、协调工具，好让智能体在复杂的软件项目中有效贡献力量。
+
+本课程考察 AI 原生软件开发背后的新兴实践与技术，包括 MCP、智能体技能、规格驱动开发、循环工程和软件工厂。学生将学习如何为智能体提供正确的上下文与能力，把产品需求转化为可执行的规格，并设计人类与智能体共同规划、构建、评测和改进软件的迭代工作流。
+
+通过动手作业、项目，以及来自打造下一代开发者工具的从业者的讲座，学生将探索当前编码智能体的能力与局限。到课程结束时，学生将能够设计有效的智能体驱动工作流，把工具与技能组合成可靠的开发系统，并运用软件工厂原则以更高的速度与规模构建和演进软件。
+
+### 学分
+
+3 学分
+
+### 先修要求
+
+相当于 CS111/CS161 的编程经验。建议修过 CS221/229。
+
+### 形式
+
+每周讲座、动手编码课，以及来自业界的嘉宾讲者。期末项目用于展示现代开发实践。
+
+### 目标
+
+掌握现代开发工具，理解 AI 辅助编码，学习自动化测试与部署，探索新兴软件趋势。
+
+### 教室
+
+370-370
+
+周二/周四 下午 5:30-6:20
+
+### 答疑时间
+
+**Mihail Eric：** 周五 下午 12:00-12:30
+
+### 作业截止时间
+
+## 团队
+
+![讲师 Mihail Eric](/images/instructor.jpg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)
+
+#### Mihail Eric
+
+讲师
+
+![助教 Isaac Kan](/images/ta-isaac-kan.jpeg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)
+
+#### Isaac Kan
+
+助教
+
+![助教待定](/images/ta-placeholder.png?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)
+
+#### 待定
+
+## 开源合作伙伴
+
+我们感谢以下领先开源 AI 项目的支持。
+
+[![Browserbase](/logos/browserbase.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://www.browserbase.com)[![HeyGen](/logos/heygen.png?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://www.heygen.com)[![CopilotKit](/logos/copilotkit-light.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://www.copilotkit.ai)[![Semgrep](/logos/semgrep-light.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://semgrep.dev)[![OpenHands](/logos/openhands.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://www.openhands.dev)[![Milvus](/logos/milvus.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://milvus.io)[![Marimo](/logos/marimo.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://marimo.io)[![Pi](/logos/pi.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://pi.dev)[![CrewAI](/logos/crewai.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://www.crewai.com)[![Warp](/logos/warp.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://www.warp.dev)[![Vercel](/logos/vercel.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://vercel.com)[![cmux](/logos/cmux.png?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://cmux.dev)[![Phoenix](/logos/phoenix-light.png?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://phoenix.arize.com)[![Unsloth](/logos/unsloth-light.png?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://unsloth.ai)[![Anyscale](/logos/anyscale.svg?dpl=dpl_ZXBmbA3UbMW96FALYJQQx9UKFFgv)](https://www.anyscale.com)

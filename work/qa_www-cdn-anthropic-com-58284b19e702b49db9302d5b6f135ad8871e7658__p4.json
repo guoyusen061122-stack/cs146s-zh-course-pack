@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-09-25T12:24:41+08:00",
+  "slug": "www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4",
+  "stats": {
+    "blocks_en": 11,
+    "blocks_zh": 11,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 18,
+    "term_violations": 0,
+    "term_missing": 0,
+    "kept_english": 3,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": []
+  },
+  "issues": []
+}

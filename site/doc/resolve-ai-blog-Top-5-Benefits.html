@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Benefits of Agentic AI in On-call Engineering</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Benefits of Agentic AI in On-call Engineering</h1><div class="meta"><span class="badge">指定阅读</span>fall2025 ｜ 原文 6,240 字符 ｜ 44 个内容块 ｜ <a href="https://resolve.ai/blog/Top-5-Benefits" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>智能体式 AI 在值班工程中的收益</h1></div><div class="en"><h1>Benefits of Agentic AI in On-call Engineering</h1></div></div>
+<div class="pair"><div class="zh"><p>返回</p></div><div class="en"><p>Back</p></div></div>
+<div class="pair"><div class="zh"><p>4 分钟阅读</p></div><div class="en"><p>4 min read</p></div></div>
+<div class="pair"><div class="zh"><h1>智能体式 AI 在值班工程中的五大收益</h1></div><div class="en"><h1>The Top 5 Benefits of Agentic AI in On-call Engineering</h1></div></div>
+<div class="pair"><div class="zh"><p>作者</p></div><div class="en"><p>Written by</p></div></div>
+<div class="pair"><div class="zh"><ul><li>Mitch Wakefield 产品研究员</li></ul></div><div class="en"><ul><li>Mitch WakefieldProduct Researcher</li></ul></div></div>
+<div class="pair"><div class="zh"><p>2025 年 2 月 7 日</p></div><div class="en"><p>February 7, 2025</p></div></div>
+<div class="pair"><div class="zh"><p>随着<a href="https://resolve.ai/glossary/what-are-production-systems-in-software-engineering" target="_blank" rel="noopener">生产系统</a>变得越来越复杂，工程团队在维持可靠性和应对不断增加的告警与事故方面面临越来越大的挑战。智能体式 AI 是新一代自动化方案，正在彻底改变团队承担值班职责与解决事故的方式。以下是智能体式 AI 改变事故响应的五个主要方面。</p></div><div class="en"><p>As <a href="https://resolve.ai/glossary/what-are-production-systems-in-software-engineering" target="_blank" rel="noopener">production systems</a> become more complex, engineering teams face increasing challenges in maintaining reliability and responding to a growing volume of alerts and incidents. Agentic AI, a next-generation approach to automation, is revolutionizing how teams handle on-call responsibilities and incident resolution. Here are the top five ways agentic AI transforms incident response.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>1. 消除告警疲劳</strong></p></div><div class="en"><p><strong>1. Eliminating Alert Fatigue</strong></p></div></div>
+<div class="pair"><div class="zh"><p>当告警触发时，智能体式 AI 立刻投入行动。它与值班工程师很相似，先深入调查所有相关数据。它动态生成并执行实时的运维手册，分析指标、仪表板、近期的代码变更、部署和日志。不到一分钟，智能体式 AI 就能确定可能的根因，并给出可操作的解决步骤。与人类不同，它不会疲倦、不需要睡眠，可以全天候以一致的准确度不知疲倦地工作。通过承担事故响应的重担，它消除了告警疲劳，确保没有细节被忽略，同时让运维平稳运行。</p></div><div class="en"><p>When an alert fires, agentic AI jumps into action. Much like an on-call engineer, it starts by diving into all the relevant data to investigate. It dynamically generates and executes real-time runbooks, analyzing metrics, dashboards, recent code changes, deployments, and logs. In under a minute, the agentic AI identifies a likely root cause and suggests actionable steps to resolve the issue. Unlike humans, it doesn’t tire, doesn’t need sleep, and works tirelessly around the clock with consistency and precision. By shouldering the burden of incident response, it eliminates alert fatigue, ensuring no detail is overlooked while keeping operations running smoothly.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>2. 保持动态知识</strong></p></div><div class="en"><p><strong>2. Maintaining Dynamic Knowledge</strong></p></div></div>
+<div class="pair"><div class="zh"><p>智能体式 AI 最突出的能力之一，是它能从每一次事故中持续学习。静态的运维手册很快就会过时，而具备学习能力的智能体在与系统交互时会动态更新自己的知识。关键成员离职时，其专业经验不再随之流失。相反，智能体式 AI 会保留并演进组织的知识，确保团队始终掌握最相关、最新的信息。这种适应新模式与新环境的能力，保障了系统的长期韧性。</p></div><div class="en"><p>One of the standout capabilities of agentic AI is its ability to continuously learn from every incident. Unlike static runbooks, which quickly become outdated, learning agents dynamically update their knowledge as they interact with the system. When a key team member leaves, their expertise is no longer lost. Instead, agentic AI retains and evolves institutional knowledge, ensuring teams are always equipped with the most relevant and up-to-date information. This ability to adapt to new patterns and environments ensures long-term system resilience.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>3. 一致且全面的调查</strong></p></div><div class="en"><p><strong>3. Consistent and Comprehensive Investigations</strong></p></div></div>
+<div class="pair"><div class="zh"><p>人类工程师排查相似问题时，往往采用各不相同的方法，导致结果不一致。智能体式 AI 消除了这种差异：它部署调查智能体，让这些智能体遵循一致的工作流，同时适应每起事故的独特上下文。例如，一个智能体可能专门检查系统日志，另一个则专注于应用指标。这些智能体协同、系统地工作，确保不遗漏任何关键步骤，从而在整个组织内建立起可靠且可重复的排查流程。</p></div><div class="en"><p>Human engineers often take varied approaches to troubleshooting similar issues, leading to inconsistent outcomes. Agentic AI eliminates this variability by deploying investigation agents that follow consistent workflows while adapting to the unique context of each incident. For example, one agent might specialize in checking system logs, while another focuses on application metrics. Together, these agents collaborate systematically to ensure that no critical step is missed, establishing a reliable and repeatable troubleshooting process across the organization.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>4. 以证据为支撑的无缝协作</strong></p></div><div class="en"><p><strong>4. Seamless Collaboration Supported by Evidence</strong></p></div></div>
+<div class="pair"><div class="zh"><p>智能体式 AI 不只解决单个问题，它还增强了团队协作。Resolve AI 这类平台与 Slack 等沟通工具集成，实时记录每一项操作。调查步骤、发现和解决动作都会自动附带支撑证据一并呈现。所收集的证据既帮助团队更快解决事故，也为事后复盘和长期优化提供了有价值的洞察。此外，智能体会给出清晰且贴合上下文的建议，让团队能够基于数据做出有把握的决策。</p></div><div class="en"><p>Agentic AI isn’t just about problem-solving—it also enhances team collaboration. Platforms like Resolve AI integrate with communication tools like Slack and document every action in real time. Investigation steps, findings, and resolution actions are automatically presented with supporting evidence. The collected evidence not only helps teams resolve incidents faster but also provide valuable insights for post-incident reviews and long-term optimizations. Moreover, the agents provide clear, contextual recommendations, enabling teams to make confident, data-driven decisions.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>5. 主动式事故解决</strong></p></div><div class="en"><p><strong>5. Proactive Incident Resolution</strong></p></div></div>
+<div class="pair"><div class="zh"><p>智能体式 AI 的标志性特征是主动行动的能力。AI 智能体会分析指标、日志和系统行为中的模式，在潜在问题演变成事故之前就将其识别出来。解决智能体随后可以自动解决问题，或向团队给出可操作的建议。</p></div><div class="en"><p>The hallmark of agentic AI is its ability to act proactively. AI agents analyze patterns in metrics, logs, and system behavior to identify potential issues before they become incidents. Resolution agents can then either automatically resolve the issue or provide actionable recommendations to the team.</p></div></div>
+<div class="pair"><div class="zh"><p>这种主动式做法减少了停机时间，改善了用户体验，也减轻了被动式事故管理带来的压力。例如，Resolve AI 的智能体式 AI 系统使用生成式模型及早处理问题，防止其升级。</p></div><div class="en"><p>This proactive approach reduces downtime, improves user experience, and alleviates the stress associated with reactive incident management. For example, Resolve AI’s agentic AI system uses generative models to address issues early and prevent them from escalating.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>智能体式 AI 如何运作：Resolve AI 的做法</strong></p></div><div class="en"><p><strong>How Agentic AI Works: The Resolve AI Approach</strong></p></div></div>
+<div class="pair"><div class="zh"><p>Resolve AI 的智能体式 AI 系统为事故管理树立了新标准。它的 AI 智能体无缝协作，无需人工训练就能绘制并理解生产环境。每个智能体都针对特定职能设计，例如<a href="https://resolve.ai/glossary/what-is-root-cause-analysis" target="_blank" rel="noopener">根因分析</a>、问题解决或理解可观测性数据，它们像专家团队一样协作处理事故。</p></div><div class="en"><p>Resolve AI’s agentic AI system sets a new standard in incident management. Its AI agents work together seamlessly to map and understand production environments without manual training. Each agent is designed for a specific function, such as <a href="https://resolve.ai/glossary/what-is-root-cause-analysis" target="_blank" rel="noopener">root cause analysis</a>, resolution, or understanding observability data, and they collaborate like a team of specialists to handle incidents.</p></div></div>
+<div class="pair"><div class="zh"><p>这种多智能体方案让 Resolve AI 能有效管理常规问题和全新问题，适应任何基础设施的独特需求。通过自主且协作地行动，Resolve AI 的智能体式 AI 实现了更快、更可靠的事故管理。</p></div><div class="en"><p>This multi-agent approach allows Resolve AI to manage both routine and novel issues effectively, adapting to the unique needs of any infrastructure. By acting autonomously and collaboratively, Resolve AI’s agentic AI ensures faster, more reliable incident management.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>值班工程的未来在于智能体式 AI</strong></p></div><div class="en"><p><strong>The Future of On-call Engineering Lies in Agentic AI</strong></p></div></div>
+<div class="pair"><div class="zh"><p>智能体式 AI 通过自动化繁重的工作重新定义了事故管理，让团队能把重心从被动救火转向战略性创新。这类系统不仅处理常规任务，还通过持续学习、主动解决和无缝协作提升系统可靠性。</p></div><div class="en"><p>Agentic AI redefines incident management by automating the heavy lifting, enabling teams to shift their focus from reactive firefighting to strategic innovation. These systems not only handle routine tasks but also enhance system reliability through continuous learning, proactive resolution, and seamless collaboration.</p></div></div>
+<div class="pair"><div class="zh"><p>随着智能体式 AI 不断演进，它将解锁更精密的能力，进一步减轻运维负担，并改变工程团队实现可靠性的方式。</p></div><div class="en"><p>As agentic AI continues to evolve, it will unlock even more sophisticated capabilities, further reducing operational burdens and transforming how engineering teams approach reliability.</p></div></div>
+<div class="pair"><div class="zh"><p><strong>关键要点</strong></p></div><div class="en"><p><strong>Key Takeaways</strong></p></div></div>
+<div class="pair"><div class="zh"><p>智能体式 AI 不只是自动化的下一步，它是事故管理上的一次范式转变。借助独立又协作的 AI 智能体，团队可以消除告警疲劳、保留关键知识、统一工作流，并主动处理潜在问题。</p></div><div class="en"><p>Agentic AI isn’t just the next step in automation—it’s a paradigm shift in incident management. By leveraging independent yet collaborative AI agents, teams can eliminate alert fatigue, retain critical knowledge, standardize workflows, and proactively address potential issues.</p></div></div>
+<div class="pair"><div class="zh"><p>借助 Resolve AI 这类平台，智能体式 AI 已经在带来可衡量的收益，让工程团队腾出手来专注战略性改进，同时保持最高水平的可靠性。今天就采用智能体式 AI，让你的运维面向未来，并释放团队的全部潜力。</p></div><div class="en"><p>With platforms like Resolve AI, agentic AI is already delivering measurable benefits, freeing engineering teams to focus on strategic improvements while maintaining the highest levels of reliability. Embrace agentic AI today to future-proof your operations and unlock the full potential of your team.</p></div></div>
+<div class="pair"><div class="zh"><p>生产环境 AI 电子书</p></div><div class="en"><p>AI for prod ebook</p></div></div>
+<div class="pair"><div class="zh"><p>了解顶尖工程团队如何用 AI 运行生产环境。</p></div><div class="en"><p>Learn how top engineering teams use AI to run production.</p></div></div>
+<div class="pair"><div class="zh"><p>下载</p></div><div class="en"><p>Download</p></div></div>
+<div class="pair"><div class="zh"><p>看看运行并修复软件的智能体如何实际工作</p></div><div class="en"><p>See the agents that run and fix software in action</p></div></div>
+<div class="pair"><div class="zh"><p>加入我们工程负责人的“Behind the Build”系列网络研讨会，深入了解我们如何构建运行软件的智能体。</p></div><div class="en"><p>Join our engineering leads for "Behind the Build", a webinar series deep-dive into how we built agents that run software.</p></div></div>
+<div class="pair"><div class="zh"><p>立即观看</p></div><div class="en"><p>Watch now</p></div></div>
+<div class="pair"><div class="zh"><h2>继续阅读</h2></div><div class="en"><h2>Keep reading</h2></div></div>
+<div class="pair"><div class="zh"><p>查看全部</p></div><div class="en"><p>View all</p></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fyour_human_in_the_loop_is_exhausted_3751b434de.png&amp;amp;w=3840&amp;amp;q=75" alt="你的「人在回路」已疲惫不堪"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fyour_human_in_the_loop_is_exhausted_3751b434de.png&amp;amp;w=3840&amp;amp;q=75" alt="Your human-in-the-loop is exhausted"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/your-human-in-the-loop-is-exhausted" target="_blank" rel="noopener">你的「人在回路」已疲惫不堪</a></h3></div><div class="en"><h3><a href="/blog/your-human-in-the-loop-is-exhausted" target="_blank" rel="noopener">Your human-in-the-loop is exhausted</a></h3></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_agent_diagram_176d50cdc6.png&amp;amp;w=3840&amp;amp;q=75" alt="Resolve AI 将生产上下文扩展到编码智能体"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_agent_diagram_176d50cdc6.png&amp;amp;w=3840&amp;amp;q=75" alt="Resolve AI Extends Production Context to Coding Agents"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/resolve-ai-plugin-cursor-claude-code-codex" target="_blank" rel="noopener">Resolve AI 将生产上下文扩展到编码智能体</a></h3></div><div class="en"><h3><a href="/blog/resolve-ai-plugin-cursor-claude-code-codex" target="_blank" rel="noopener">Resolve AI Extends Production Context to Coding Agents</a></h3></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_organic_graphic_screenshot_4c290b5e18.png&amp;amp;w=3840&amp;amp;q=75" alt="为什么选择 Resolve AI：规模化下的 token 效率"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2FUNMATCHED_organic_graphic_screenshot_4c290b5e18.png&amp;amp;w=3840&amp;amp;q=75" alt="Why Resolve AI: Token Efficiency at Scale"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/why-resolve-ai-token-efficiency-at-scale" target="_blank" rel="noopener">为什么选择 Resolve AI：规模化下的 token 效率</a></h3></div><div class="en"><h3><a href="/blog/why-resolve-ai-token-efficiency-at-scale" target="_blank" rel="noopener">Why Resolve AI: Token Efficiency at Scale</a></h3></div></div>
+<div class="pair"><div class="zh"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fproactively_run_prod_with_background_agents_367c95c6a0.png&amp;amp;w=3840&amp;amp;q=75" alt="用后台智能体主动执行生产任务"></p></div><div class="en"><p><img src="/_next/image?url=https%3A%2F%2Fmedia.website-prod.resolve.ai%2Fproactively_run_prod_with_background_agents_367c95c6a0.png&amp;amp;w=3840&amp;amp;q=75" alt="Proactively run production tasks with background agents"></p></div></div>
+<div class="pair"><div class="zh"><h3><a href="/blog/proactively-run-prod-with-background-agents" target="_blank" rel="noopener">用后台智能体主动执行生产任务</a></h3></div><div class="en"><h3><a href="/blog/proactively-run-prod-with-background-agents" target="_blank" rel="noopener">Proactively run production tasks with background agents</a></h3></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>

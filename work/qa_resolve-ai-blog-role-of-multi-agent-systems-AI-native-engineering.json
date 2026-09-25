@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-09-25T12:27:42+08:00",
+  "slug": "resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering",
+  "stats": {
+    "blocks_en": 49,
+    "blocks_zh": 49,
+    "empty": 0,
+    "untranslated": 0,
+    "truncated": 0,
+    "code_changed": 0,
+    "link_lost": 0,
+    "structure": 0,
+    "spacing": 0,
+    "term_hits": 73,
+    "term_violations": 0,
+    "term_missing": 1,
+    "kept_english": 0,
+    "term_consistency": 1.0,
+    "issues": 0,
+    "term_detail": [
+      "[术语缺失] prompt 在原文出现但译文中未见定译「提示词」"
+    ]
+  },
+  "issues": []
+}

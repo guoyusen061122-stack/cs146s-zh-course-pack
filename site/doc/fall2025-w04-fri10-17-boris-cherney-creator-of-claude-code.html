@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boris Cherney, Creator of Claude Code（fall2025 W4）</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="top-inner">
+  <span class="brand">CS146S 中文资料包</span>
+  <span class="badge">Stanford The Modern Software Developer</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="全文检索（中/英）" style="min-width:220px">
+  <button id="mode-btn" type="button">切换</button>
+  <a href="../index.html">目录</a>
+</div></header>
+<div class="layout">
+<nav class="side"><h4>导航</h4>
+<a href="../index.html">首页 / 项目说明</a>
+<a href="../glossary.html">术语表</a>
+<h4>课程官网（8）</h4>
+<a href="../doc/site-fall2025-grading.html">CS146S 评分构成（fall2025）</a>
+<a href="../doc/site-fall2026-grading.html">CS146S 评分构成（fall2026）</a>
+<a href="../doc/site-fall2025-faq.html">CS146S 常见问题（fall2025）</a>
+<a href="../doc/site-fall2026-faq.html">CS146S 常见问题（fall2026）</a>
+<a href="../doc/site-fall2026-overview.html">CS146S 官网 · 总览（fall2026）</a>
+<a href="../doc/site-fall2025-overview.html">CS146S 官网 · 总览（fall2025）</a>
+<a href="../doc/site-fall2026-syllabus.html">CS146S 课程大纲（fall2026）</a>
+<a href="../doc/site-fall2025-syllabus.html">CS146S 课程大纲（fall2025）</a>
+<h4>课程讲义（17）</h4>
+<a href="../doc/fall2025-w02-mon9-29-building-a-coding-agent-from-scratch.html">Building a coding agent from scratch（f</a>
+<a href="../doc/fall2025-w08-mon11-10-end-to-end-apps-with-a-single-prompt.html">End-to-end apps with a single prompt（f</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup.html">From first prompt to optimal IDE setup</a>
+<a href="../doc/fall2025-w02-fri10-3-building-a-custom-mcp-server.html">Building a custom MCP server（fall2025 </a>
+<a href="../doc/fall2025-w07-mon11-3-ai-code-review.html">AI code review（fall2025 W7）</a>
+<a href="../doc/fall2025-w04-mon10-13-how-to-be-an-agent-manager.html">How to be an agent manager（fall2025 W4</a>
+<a href="../doc/fall2025-w05-mon10-20-how-to-build-a-breakout-ai-developer-product.html">How to Build a Breakout AI Developer P</a>
+<a href="../doc/fall2026-w01-tue9-22-course-intro-build-claude-code-in-200-lines.html">Course intro + build Claude Code in 20</a>
+<a href="../doc/fall2025-w09-mon11-17-incident-response-and-devops.html">Incident response and DevOps（fall2025 </a>
+<a href="../doc/fall2025-w03-fri10-10-silas-alberti-head-of-research-cognition.html">Silas Alberti, Head of Research Cognit</a>
+<a href="../doc/fall2025-w06-mon10-27-ai-qa-sast-dast-and-beyond.html">AI QA, SAST, DAST, and Beyond（fall2025</a>
+<a href="../doc/fall2025-w01-mon9-22-introduction-and-how-an-llm-is-made.html">Introduction and how an LLM is made（fa</a>
+<a href="../doc/fall2025-w07-fri11-7-tomas-reimers-cpo-graphite.html">Tomas Reimers, CPO Graphite（fall2025 W</a>
+<a href="../doc/fall2025-w04-fri10-17-boris-cherney-creator-of-claude-code.html">Boris Cherney, Creator of Claude Code（</a>
+<a href="../doc/fall2025-w01-fri9-26-power-prompting-for-llms.html">Power prompting for LLMs（fall2025 W1）</a>
+<a href="../doc/fall2025-w09-fri11-21-mayank-agarwal-cto-resolve-and-milind-ganjoo-technical-sta.html">Mayank Agarwal, CTO Resolve, and Milin</a>
+<a href="../doc/fall2025-w03-mon10-6-from-first-prompt-to-optimal-ide-setup-media-google-drive.html">From first prompt to optimal IDE setup</a>
+<h4>作业仓库（26）</h4>
+<a href="../doc/repo-fall2025-week1-readmemd.html">CS146S 作业仓库 · week1/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week6-requirementstxt.html">CS146S 作业仓库 · week6/requirements.txt（f</a>
+<a href="../doc/repo-fall2025-week1-data-api-docstxt.html">CS146S 作业仓库 · week1/data/api_docs.txt（</a>
+<a href="../doc/repo-fall2025-week7-docs-tasksmd.html">CS146S 作业仓库 · week7/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-readmemd.html">CS146S 作业仓库 · README.md（fall2025）</a>
+<a href="../doc/repo-master-readmemd.html">CS146S 作业仓库 · README.md（master）</a>
+<a href="../doc/repo-fall2025-week6-writeupmd.html">CS146S 作业仓库 · week6/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-readmemd.html">CS146S 作业仓库 · week5/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week7-readmemd.html">CS146S 作业仓库 · week7/README.md（fall2025</a>
+<a href="../doc/repo-fall2025-week4-docs-tasksmd.html">CS146S 作业仓库 · week4/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week7-writeupmd.html">CS146S 作业仓库 · week7/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week4-writeupmd.html">CS146S 作业仓库 · week4/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week2-writeupmd.html">CS146S 作业仓库 · week2/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week5-writeupmd.html">CS146S 作业仓库 · week5/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-writeupmd.html">CS146S 作业仓库 · week8/writeup.md（fall202</a>
+<a href="../doc/repo-fall2025-week6-assignmentmd.html">CS146S 作业仓库 · week6/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week7-assignmentmd.html">CS146S 作业仓库 · week7/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-writeupmd.html">CS146S 作业仓库 · week1/writeup.md（master）</a>
+<a href="../doc/repo-fall2025-week3-assignmentmd.html">CS146S 作业仓库 · week3/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week2-assignmentmd.html">CS146S 作业仓库 · week2/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week8-assignmentmd.html">CS146S 作业仓库 · week8/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-assignmentmd.html">CS146S 作业仓库 · week5/assignment.md（fall</a>
+<a href="../doc/repo-fall2025-week5-docs-tasksmd.html">CS146S 作业仓库 · week5/docs/TASKS.md（fall</a>
+<a href="../doc/repo-fall2025-week4-assignmentmd.html">CS146S 作业仓库 · week4/assignment.md（fall</a>
+<a href="../doc/repo-master-week1-assignmentmd.html">CS146S 作业仓库 · week1/assignment.md（mast</a>
+<h4>指定阅读（59）</h4>
+<a href="../doc/notion-warp-dev-How-Warp-uses-Warp-to-build-Warp-21643263616d81a6b9e3e63fd8a7380c.html">How Warp Uses Warp to Build Warp</a>
+<a href="../doc/owasp-org-www-project-top-ten.html">OWASP Top Ten: The Leading Web Applica</a>
+<a href="../doc/blog-ravi-mehta-com-p-specs-are-the-new-source-code.html">Specs Are the New Source Code</a>
+<a href="../doc/github-com-SeanHeelan-o3-finds-cve-2025-37899-blob-master-system-prompt-uafs-prompt.html">Vulnerability Prompt Analysis with O3</a>
+<a href="../doc/blog-codinghorror-com-code-reviews-just-do-it.html">Code Reviews: Just Do It</a>
+<a href="../doc/www-reillywood-com-blog-apis-dont-make-good-mcp-tools.html">MCP Food-for-Thought</a>
+<a href="../doc/www-warp-dev-university.html">Warp University</a>
+<a href="../doc/www-warp-dev-university-getting-started-warp-vs-claude-code.html">Warp vs Claude Code</a>
+<a href="../doc/resolve-ai-blog-Top-5-Benefits.html">Benefits of Agentic AI in On-call Engi</a>
+<a href="../doc/blog-modelcontextprotocol-io-posts-2025-09-08-mcp-registry-preview.html">MCP Registry</a>
+<a href="../doc/resolve-ai-blog-product-deep-dive.html">Your New Autonomous Teammate</a>
+<a href="../doc/embracethered-com-blog-posts-2025-github-copilot-remote-code-execution-via-prompt-injectio.html">Copilot Remote Code Execution via Prom</a>
+<a href="../doc/semgrep-dev-blog-2025-finding-vulnerabilities-in-modern-web-apps-using-claude-code-and-ope.html">Finding Vulnerabilities in Modern Web </a>
+<a href="../doc/github-com-modelcontextprotocol-typescript-sdk-tree-main.html">MCP Server SDK</a>
+<a href="../doc/resolve-ai-blog-kubernetes-troubleshooting-in-resolve-ai.html">Kubernetes Troubleshooting with AI</a>
+<a href="../doc/cdn-openai-com-pdf-6a2631dc-783e-479b-b1a4-af0cfbd38630-how-openai-uses-codex.html">How OpenAI Uses Codex</a>
+<a href="../doc/resolve-ai-blog-role-of-multi-agent-systems-AI-native-engineering.html">Role of Multi Agent Systems in Making </a>
+<a href="../doc/blakesmith-me-2015-02-09-code-review-essentials-for-software-teams.html">Code Review Essentials for Software Te</a>
+<a href="../doc/www-dbreunig-com-2025-06-22-how-contexts-fail-and-how-to-fix-them.html">How Long Contexts Fail</a>
+<a href="../doc/last9-io-blog-traces-spans-observability-basics.html">Observability Basics You Should Know</a>
+<a href="../doc/blog-stockapp-com-good-context-good-code.html">Good Context Good Code</a>
+<a href="../doc/graphite-dev-guides-ai-code-review-implementation-best-practices.html">AI Code Review Implementation Best Pra</a>
+<a href="../doc/cloud-google-com-discover-what-is-prompt-engineering.html">Prompt Engineering Overview</a>
+<a href="../doc/devin-ai-agents101.html">Devin: Coding Agents 101</a>
+<a href="../doc/developers-cloudflare-com-agents-guides-remote-mcp-server.html">MCP Server Authentication</a>
+<a href="../doc/www-promptingguide-ai-techniques.html">Prompt Engineering Guide</a>
+<a href="../doc/medium-com-outsightai-peeking-under-the-hood-of-claude-code-70f5a94a9a62.html">Peeking Under the Hood of Claude Code</a>
+<a href="../doc/github-blog-developer-skills-github-how-to-review-code-effectively-a-github-staff-engineer.html">How to Review Code Effectively</a>
+<a href="../doc/www-splunk-com-en-us-blog-learn-sast-vs-dast.html">SAST vs DAST</a>
+<a href="../doc/sre-google-sre-book-introduction.html">Introduction to Site Reliability Engin</a>
+<a href="../doc/www-anthropic-com-engineering-writing-tools-for-agents.html">Writing Effective Tools for Agents</a>
+<a href="../doc/github-com-humanlayer-advanced-context-engineering-for-coding-agents-blob-main-ace-fca.html">Getting AI to Work In Complex Codebase</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p1.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p1.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p1.html">MCP Introduction（第 1/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p1.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p1.html">Claude Best Practices（第 1/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p1.html">How Anthropic Uses Claude Code（第 1/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p2.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p2.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/stytch-com-blog-model-context-protocol-introduction__p2.html">MCP Introduction（第 2/2 部分）</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p2.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p2.html">Claude Best Practices（第 2/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p2.html">How Anthropic Uses Claude Code（第 2/4 部</a>
+<a href="../doc/arxiv-org-pdf-2405-13565__p3.html">AI-Assisted Assessment of Coding Pract</a>
+<a href="../doc/research-trychroma-com-context-rot__p3.html">Context Rot: Understanding Degradation</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p3.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-anthropic-com-engineering-claude-code-best-practices__p3.html">Claude Best Practices（第 3/3 部分）</a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p3.html">How Anthropic Uses Claude Code（第 3/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p4.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/www-cdn-anthropic-com-58284b19e702b49db9302d5b6f135ad8871e7658__p4.html">How Anthropic Uses Claude Code（第 4/4 部</a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p5.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p6.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p7.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p8.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p9.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p10.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p11.html">Agentic AI Threats: Identity Spoofing </a>
+<a href="../doc/unit42-paloaltonetworks-com-agentic-ai-threats__p12.html">Agentic AI Threats: Identity Spoofing </a></nav>
+<main id="results-main">
+<div id="results"></div>
+<h1>Boris Cherney, Creator of Claude Code（fall2025 W4）</h1><div class="meta"><span class="badge">课程讲义</span>fall2025 ｜ 原文 5,123 字符 ｜ 121 个内容块 ｜ <a href="https://docs.google.com/presentation/d/1bv7Zozn6z45CAh-IyX99dMPMyXCHC7zj95UfwErBYQ8/edit?usp=sharing" target="_blank" rel="noopener">查看一手来源</a>（英译中：已译）</div><div class="pair"><div class="zh"><h1>Boris Cherney, Creator of Claude Code（fall2025 W4）</h1></div><div class="en"><h1>Boris Cherney, Creator of Claude Code（fall2025 W4）</h1></div></div>
+<div class="pair"><div class="zh"><h2>Slide 1</h2></div><div class="en"><h2>Slide 1</h2></div></div>
+<div class="pair"><div class="zh"><p>欢迎来到 claude code boris cherny</p></div><div class="en"><p>welcome to claude code boris cherny</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 2</h2></div><div class="en"><h2>Slide 2</h2></div></div>
+<div class="pair"><div class="zh"><p>tl;dr 1. 编程正在改变 2. 用 claude code 选择你的路径 3. 按六个月后的样子来思考</p></div><div class="en"><p>tl;dr 1. programming is changing 2. choose your path with claude code 3. think six months out</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 3</h2></div><div class="en"><h2>Slide 3</h2></div></div>
+<div class="pair"><div class="zh"><p>npm install -g @anthropic-ai/claude-code claude.ai/code</p></div><div class="en"><p>npm install -g @anthropic-ai/claude-code claude.ai/code</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 4</h2></div><div class="en"><h2>Slide 4</h2></div></div>
+<div class="pair"><div class="zh"><p>1/ 编程正处于转折点</p></div><div class="en"><p>1/ programming is at an inflection point</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 5</h2></div><div class="en"><h2>Slide 5</h2></div></div>
+<div class="pair"><div class="zh"><p>编程语言的生产率呈指数级增长，由 ai 驱动 1950 1960 1970 1980 1990 2000 2010 2020 2030 log(productivity) fortran algol cobol basic c pascal prolog c++ python java js go rust ✻ ✻ ✻ ✻ haskell swift ts</p></div><div class="en"><p>programming language productivity is increasing exponentially, driven by ai 1950 1960 1970 1980 1990 2000 2010 2020 2030 log(productivity) fortran algol cobol basic c pascal prolog c++ python java js go rust ✻ ✻ ✻ ✻ haskell swift ts</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 6</h2></div><div class="en"><h2>Slide 6</h2></div></div>
+<div class="pair"><div class="zh"><p>1950 1960 1970 1980 1990 2000 2010 2020 2030 ed emacs vi turbo pascal qbasic vb eclipse idea sublime cursor copilot ✻ ✻ ✻ devin ✻ ide 的生产率遵循相似的指数曲线，同样由 ai 驱动 smalltalk-80 neovim log(productivity) claude code</p></div><div class="en"><p>1950 1960 1970 1980 1990 2000 2010 2020 2030 ed emacs vi turbo pascal qbasic vb eclipse idea sublime cursor copilot ✻ ✻ ✻ devin ✻ ide productivity is following a similar exponential, also driven by ai smalltalk-80 neovim log(productivity) claude code</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 7</h2></div><div class="en"><h2>Slide 7</h2></div></div>
+<div class="pair"><div class="zh"><p>ibm 029 (1964)</p></div><div class="en"><p>ibm 029 (1964)</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 8</h2></div><div class="en"><h2>Slide 8</h2></div></div>
+<div class="pair"><div class="zh"><p>ed (1969)</p></div><div class="en"><p>ed (1969)</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 9</h2></div><div class="en"><h2>Slide 9</h2></div></div>
+<div class="pair"><div class="zh"><p>smalltalk-80 (1980)</p></div><div class="en"><p>smalltalk-80 (1980)</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 10</h2></div><div class="en"><h2>Slide 10</h2></div></div>
+<div class="pair"><div class="zh"><p>visual basic (1991)</p></div><div class="en"><p>visual basic (1991)</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 11</h2></div><div class="en"><h2>Slide 11</h2></div></div>
+<div class="pair"><div class="zh"><p>eclipse (2001)</p></div><div class="en"><p>eclipse (2001)</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 12</h2></div><div class="en"><h2>Slide 12</h2></div></div>
+<div class="pair"><div class="zh"><p>copilot (2021)</p></div><div class="en"><p>copilot (2021)</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 13</h2></div><div class="en"><h2>Slide 13</h2></div></div>
+<div class="pair"><div class="zh"><p>devin (2024)</p></div><div class="en"><p>devin (2024)</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 14</h2></div><div class="en"><h2>Slide 14</h2></div></div>
+<div class="pair"><div class="zh"><p>ide devx 演进很快，而且还会以更快的速度继续变化</p></div><div class="en"><p>ide devx has evolved quickly, and will continue to change even more quickly</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 15</h2></div><div class="en"><h2>Slide 15</h2></div></div>
+<div class="pair"><div class="zh"><p>验证方式也在快速演进</p></div><div class="en"><p>verification is evolving quickly, too</p></div></div>
+<div class="pair"><div class="zh"><ul><li>人工调试</li><li>静态类型（algol）</li><li>形式化验证</li><li>抽象解释</li><li>自动化测试</li><li>持续集成</li><li>基于性质的测试（quickcheck）</li><li>依赖类型</li><li>端到端测试</li><li>混沌测试（chaos monkey）</li><li>AI 驱动的漏洞测试</li><li>AI 驱动的单元测试（testgen）</li><li>AI 驱动的模糊测试（sapienz）</li><li>自我对弈</li></ul></div><div class="en"><ul><li>manual debugging</li><li>static types (algol)</li><li>formal verification</li><li>abstract interpretation</li><li>automated testing</li><li>continuous integration</li><li>property-based testing (quickcheck)</li><li>dependent typing</li><li>e2e testing</li><li>chaos testing (chaos monkey)</li><li>ai-powered vulnerability testing</li><li>ai-powered unit testing (testgen)</li><li>ai-powered fuzz testing (sapienz)</li><li>self play</li></ul></div></div>
+<div class="pair"><div class="zh"><p>- ...</p></div><div class="en"><p>- ...</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 16</h2></div><div class="en"><h2>Slide 16</h2></div></div>
+<div class="pair"><div class="zh"><p>2/ claude code 的思路</p></div><div class="en"><p>2/ claude code’s approach</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 17</h2></div><div class="en"><h2>Slide 17</h2></div></div>
+<div class="pair"><div class="zh"><p>claude code 的思路： 随处可用 1. 终端原生 2. 底层模型访问 3. 可无限改造</p></div><div class="en"><p>claude code’s approach: works everywhere 1. terminal-native 2. low-level model access 3. infinitely hackable</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 18</h2></div><div class="en"><h2>Slide 18</h2></div></div>
+<div class="pair"><div class="zh"><p>18</p></div><div class="en"><p>18</p></div></div>
+<div class="pair"><div class="zh"><ol><li>探索</li><li>设计</li><li>构建</li><li>部署</li><li>支持与扩展</li></ol></div><div class="en"><ol><li>Discover</li><li>Design</li><li>Build</li><li>Deploy</li><li>Support &amp; Scale</li></ol></div></div>
+<div class="pair"><div class="zh"><p>探索代码库与历史 检索文档 上手与学习 规划项目 编写技术规格 定义架构 实现代码 编写并执行测试 创建提交与 PR 自动化 CI/CD 配置环境 管理部署 调试错误 大规模重构 监控用量与性能 使用并精通你团队的所有 CLI 工具（例如 git、docker、bq），让你专注于解决方案而非语法 覆盖整个 sdlc</p></div><div class="en"><p>Explore codebase and history Search documentation Onboard &amp; learn Plan project Develop tech specs Deﬁne architecture Implement code Write and execute tests Create commits and PRs Automate CI/CD Conﬁgure environments Manage deployments Debug errors Large-scale refactor Monitor usage &amp; performance Using and mastering all of your team’s CLI tools (e.g., git, docker, bq) so you can focus on solutions, not syntax works across the whole sdlc</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 19</h2></div><div class="en"><h2>Slide 19</h2></div></div>
+<div class="pair"><div class="zh"><p>3/ 一个 ✻ 代码，多种形态</p></div><div class="en"><p>3/ one ✻ code, many faces</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 20</h2></div><div class="en"><h2>Slide 20</h2></div></div>
+<div class="pair"><div class="zh"><p>终端</p></div><div class="en"><p>terminal</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 21</h2></div><div class="en"><h2>Slide 21</h2></div></div>
+<div class="pair"><div class="zh"><p>ide</p></div><div class="en"><p>ide</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 22</h2></div><div class="en"><h2>Slide 22</h2></div></div>
+<div class="pair"><div class="zh"><p>web 与 ios</p></div><div class="en"><p>web &amp; ios</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 23</h2></div><div class="en"><h2>Slide 23</h2></div></div>
+<div class="pair"><div class="zh"><p>/install-github-app</p></div><div class="en"><p>/install-github-app</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 24</h2></div><div class="en"><h2>Slide 24</h2></div></div>
+<div class="pair"><div class="zh"><p>sdk $ claude -p \ “what did i do this week?” \ --allowedTools Bash(git log:*) --output-format stream-json claude models anthropic, bedrock, or vertex api claude code sdk your app</p></div><div class="en"><p>sdk $ claude -p \ “what did i do this week?” \ --allowedTools Bash(git log:*) --output-format stream-json claude models anthropic, bedrock, or vertex api claude code sdk your app</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 25</h2></div><div class="en"><h2>Slide 25</h2></div></div>
+<div class="pair"><div class="zh"><p>sdk $ get-gcp-logs 1uhd832d | claude -p "correlate errors + commits" \ --output-format=json | jq '.result' claude models anthropic, bedrock, or vertex api claude code sdk your app</p></div><div class="en"><p>sdk $ get-gcp-logs 1uhd832d | claude -p "correlate errors + commits" \ --output-format=json | jq '.result' claude models anthropic, bedrock, or vertex api claude code sdk your app</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 26</h2></div><div class="en"><h2>Slide 26</h2></div></div>
+<div class="pair"><div class="zh"><p>4/ 使用 claude code</p></div><div class="en"><p>4/ using claude code</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 27</h2></div><div class="en"><h2>Slide 27</h2></div></div>
+<div class="pair"><div class="zh"><p>用例</p></div><div class="en"><p>use cases</p></div></div>
+<div class="pair"><div class="zh"><ol><li>代码库问答 + 调研</li><li>写代码 a. 一次成型 b. 副手 c. 原型</li><li>集成工具与 mcp</li><li>强力自动化</li></ol></div><div class="en"><ol><li>codebase q&amp;a + research</li><li>write code a. 1-shot b. sidekick c. prototype</li><li>integrate tools &amp; mcps</li><li>power automation</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>Slide 28</h2></div><div class="en"><h2>Slide 28</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>向 claude code 询问你的代码</li></ol></div><div class="en"><ol><li>ask claude code about your code</li></ol></div></div>
+<div class="pair"><div class="zh"><blockquote>我怎样新建一个</blockquote></div><div class="en"><blockquote>how do I make a new</blockquote></div></div>
+<div class="pair"><div class="zh"><p>@app/services/ValidationTemplateFactory ？</p></div><div class="en"><p>@app/services/ValidationTemplateFactory ?</p></div></div>
+<div class="pair"><div class="zh"><blockquote>recoverFromException 为什么接受这么多参数？翻一下 git 历史再回答<br>我们为什么通过给</blockquote></div><div class="en"><blockquote>why does recoverFromException take so many arguments? look through git history to answer<br>why did we fix issue #18363 by adding the if/else in</blockquote></div></div>
+<div class="pair"><div class="zh"><p>@src/login.ts api 加 if/else 来修 issue #18363？</p></div><div class="en"><p>@src/login.ts api?</p></div></div>
+<div class="pair"><div class="zh"><blockquote>新的</blockquote></div><div class="en"><blockquote>in which version did we release the new</blockquote></div></div>
+<div class="pair"><div class="zh"><p>@api/ext/PreHooks.php api 是在哪个版本发布的？</p></div><div class="en"><p>@api/ext/PreHooks.php api?</p></div></div>
+<div class="pair"><div class="zh"><blockquote>看一下 PR #9383，然后仔细核实哪些应用版本受影响<br>我上周交付了什么？</blockquote></div><div class="en"><blockquote>look at PR #9383, then carefully verify which app versions were impacted<br>what did I ship last week?</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>Slide 29</h2></div><div class="en"><h2>Slide 29</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>教 claude 使用你的工具</li></ol></div><div class="en"><ol><li>teach claude to use your tools</li></ol></div></div>
+<div class="pair"><div class="zh"><blockquote>用 barley cli 查错误日志</blockquote></div><div class="en"><blockquote>use the barley cli to check for error logs</blockquote></div></div>
+<div class="pair"><div class="zh"><p>$ claude mcp add barley_server -- node myserver</p></div><div class="en"><p>$ claude mcp add barley_server -- node myserver</p></div></div>
+<div class="pair"><div class="zh"><blockquote>用 barley mcp 服务器查错误日志</blockquote></div><div class="en"><blockquote>use the barley mcp server to check for error logs</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>Slide 30</h2></div><div class="en"><h2>Slide 30</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>让工作流贴合任务 探索 › 计划 › 确认 › 编码 › 提交</li></ol></div><div class="en"><ol><li>fit the workflow to the task explore › plan › confirm › code › commit</li></ol></div></div>
+<div class="pair"><div class="zh"><blockquote>找出 issue #983 的根因，然后提出几个修复方案。在你编码之前让我先选一个方案。ultrathink</blockquote></div><div class="en"><blockquote>figure out the root cause for issue #983, then propose a few fixes. Let me choose an approach before you code. ultrathink</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>Slide 31</h2></div><div class="en"><h2>Slide 31</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>让工作流贴合任务 测试 › 提交 › 编码 › 迭代 › 提交</li></ol></div><div class="en"><ol><li>fit the workflow to the task tests › commit › code › iterate › commit</li></ol></div></div>
+<div class="pair"><div class="zh"><blockquote>为</blockquote></div><div class="en"><blockquote>write tests for</blockquote></div></div>
+<div class="pair"><div class="zh"><p>@utils/markdown.ts 写测试，确保链接能正确渲染 （注意这些测试现在还不会通过，因为链接功能尚未实现）。然后提交。然后改代码让测试通过。</p></div><div class="en"><p>@utils/markdown.ts to make sure links render properly (note the tests won’t pass yet, since links aren’t yet implemented). then commit. then update the code to make the tests pass.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 32</h2></div><div class="en"><h2>Slide 32</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>让工作流贴合任务 编码 › 截图 › 迭代</li></ol></div><div class="en"><ol><li>fit the workflow to the task code › screenshot › iterate</li></ol></div></div>
+<div class="pair"><div class="zh"><blockquote>实现 [mock.png]。然后用 puppeteer 截图，不断迭代直到它看起来像设计稿。</blockquote></div><div class="en"><blockquote>implement [mock.png]. Then screenshot it with puppeteer and iterate till it looks like the mock.</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>Slide 33</h2></div><div class="en"><h2>Slide 33</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>用 claude code 做原型</li></ol></div><div class="en"><ol><li>use claude code to prototype</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>Slide 34</h2></div><div class="en"><h2>Slide 34</h2></div></div>
+<div class="pair"><div class="zh"><blockquote>改成这样：待办事项不再来一个显示一个，而是隐藏待办的工具调用与结果，在输入框上方渲染一个固定的待办列表。标题用</blockquote></div><div class="en"><blockquote>make it so instead of todos showing up as they come in, we hide the tool use and result for todos, and render a fixed todo list above the input. title it</blockquote></div></div>
+<div class="pair"><div class="zh"><p>"/todo (1 of 3)"，灰色</p></div><div class="en"><p>"/todo (1 of 3)" in grey</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 35</h2></div><div class="en"><h2>Slide 35</h2></div></div>
+<div class="pair"><div class="zh"><blockquote>实际上完全不要显示待办列表，改为把工具调用内联渲染，当模型开始处理某个待办时，作为加粗标题显示。保留</blockquote></div><div class="en"><blockquote>actually don't show a todo list at all, and instead render the tool uses inline, as bold headings when the model starts working on a todo. keep the</blockquote></div></div>
+<div class="pair"><div class="zh"><p>"step 2 of 4" 之类的文字，并在后面用灰色补一个中点 /todo</p></div><div class="en"><p>"step 2 of 4" or whatever, and add middot /todo to see after in grey</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 36</h2></div><div class="en"><h2>Slide 36</h2></div></div>
+<div class="pair"><div class="zh"><blockquote>另外在文本输入框下面加一个待办胶囊，类似后台任务那种。它应该显示 "todos: 1 of 3" 之类的文字。让这个胶囊可交互</blockquote></div><div class="en"><blockquote>also add a todo pill under the text input, similar to bg tasks. it should render "todos: 1 of 3" or whatever. make the pill interactive</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>Slide 37</h2></div><div class="en"><h2>Slide 37</h2></div></div>
+<div class="pair"><div class="zh"><blockquote>实际上把胶囊和标题都撤掉。改为把待办列表渲染在输入框右侧，垂直居中，并加一条灰色分隔线。有待办时显示，全部完成时隐藏</blockquote></div><div class="en"><blockquote>actually undo both the pill and headings. instead, make the todo list render to the right of the input, vertically centered with a grey divider. show it when todos are active, hide it when it's done</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>Slide 38</h2></div><div class="en"><h2>Slide 38</h2></div></div>
+<div class="pair"><div class="zh"><blockquote>实际上，如果把待办列表显示在输入框上方会怎样。超过</blockquote></div><div class="en"><blockquote>actually what if you show the todo list above the input instead. truncate at</blockquote></div></div>
+<div class="pair"><div class="zh"><p>5 条就截断，显示 "... and 4 more" 之类的文字。加一个灰色文字的标题 "Todo:"</p></div><div class="en"><p>5 and show "... and 4 more" or whatever. add a heading "Todo:" in grey text</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 39</h2></div><div class="en"><h2>Slide 39</h2></div></div>
+<div class="pair"><div class="zh"><blockquote>实际上，如果把待办列表显示在输入框上方会怎样。超过</blockquote></div><div class="en"><blockquote>actually what if you show the todo list above the input instead. truncate at</blockquote></div></div>
+<div class="pair"><div class="zh"><p>5 条就截断，显示 "... and 4 more" 之类的文字。加一个灰色文字的标题 "Todo:"</p></div><div class="en"><p>5 and show "... and 4 more" or whatever. add a heading "Todo:" in grey text</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 40</h2></div><div class="en"><h2>Slide 40</h2></div></div>
+<div class="pair"><div class="zh"><blockquote>实际上，如果把待办列表显示在输入框上方会怎样。超过</blockquote></div><div class="en"><blockquote>actually what if you show the todo list above the input instead. truncate at</blockquote></div></div>
+<div class="pair"><div class="zh"><p>5 条就截断，显示 "... and 4 more" 之类的文字。加一个灰色文字的标题 "Todo:"</p></div><div class="en"><p>5 and show "... and 4 more" or whatever. add a heading "Todo:" in grey text</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 41</h2></div><div class="en"><h2>Slide 41</h2></div></div>
+<div class="pair"><div class="zh"><blockquote>不要把待办显示在输入框上方了，改为合并进加载指示器。用主动语态动词形式把当前待办显示为加载指示器文案，用被动形式把下一个待办显示在原本指示的位置。另外加一个 /todos 斜杠命令查看所有待办，并在 "esc to interrupt" 旁边提一下它</blockquote></div><div class="en"><blockquote>instead of showing todos above the input, merge them into the spinner. show the current todo as the spinner message in active verb form, and the next todo instead of the spinner tip, in passive form. also add a /todos slash command to see all todos, and mention it next to "esc to interrupt"</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>Slide 42</h2></div><div class="en"><h2>Slide 42</h2></div></div>
+<div class="pair"><div class="zh"><blockquote>让我可以按 ctrl+t 内联展开待办。另外在显示待办时去掉 "esc to interrupt" 文字，换成 "ctrl+t to expand"</blockquote></div><div class="en"><blockquote>make it so i can hit ctrl+t to expand todos inline. also rm the "esc to interrupt" message when we show the todos, and replace it w "ctrl+t to expand"</blockquote></div></div>
+<div class="pair"><div class="zh"><h2>Slide 44</h2></div><div class="en"><h2>Slide 44</h2></div></div>
+<div class="pair"><div class="zh"><p>6/ 经验教训</p></div><div class="en"><p>6/ lessons</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 45</h2></div><div class="en"><h2>Slide 45</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>为六个月后的模型而构建</li></ol></div><div class="en"><ol><li>build for the model six months from now</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>Slide 46</h2></div><div class="en"><h2>Slide 46</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>准备好持续演进</li></ol></div><div class="en"><ol><li>be ready to evolve</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>Slide 47</h2></div><div class="en"><h2>Slide 47</h2></div></div>
+<div class="pair"><div class="zh"><ol><li>不要问模型能为你做什么</li></ol></div><div class="en"><ol><li>ask not what the model can do for you</li></ol></div></div>
+<div class="pair"><div class="zh"><h2>Slide 48</h2></div><div class="en"><h2>Slide 48</h2></div></div>
+<div class="pair"><div class="zh"><p>4.</p></div><div class="en"><p>4.</p></div></div>
+<div class="pair"><div class="zh"><h2>Slide 49</h2></div><div class="en"><h2>Slide 49</h2></div></div>
+<div class="pair"><div class="zh"><p>谢谢！ npm install -g @anthropic-ai/claude-code claude.ai/code boris@anthropic.com</p></div><div class="en"><p>thanks! npm install -g @anthropic-ai/claude-code claude.ai/code boris@anthropic.com</p></div></div>
+</main>
+</div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>
